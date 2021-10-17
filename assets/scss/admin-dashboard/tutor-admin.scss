@@ -1983,8 +1983,8 @@
   /** END Calender */
   /**
   * report.css
-  *Moved report.css from pro add to here
-   */
+  * Moved report.css from pro add to here
+  */
   h2.tutor-page-heading {
 	background-color: #ffffff;
 	padding: 30px !important;
@@ -2074,69 +2074,10 @@
 	margin: 30px 0;
   }
   
-  .report-stats {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-		-ms-flex-flow: row wrap;
-			flex-flow: row wrap;
-  }
   
-  .report-stat-box {
-	padding: 0;
-	margin-bottom: 30px;
-	width: 25%;
-	display: -webkit-inline-box;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
-	-webkit-box-flex: 0;
-		-ms-flex: 0 0 25%;
-			flex: 0 0 25%;
-  }
-  
-  .report-stat-box-body {
-	background-color: #ffffff;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-	margin-right: 30px;
-  }
-  
-  .report-stat-box:nth-child(4n) .report-stat-box-body {
-	margin-right: 0;
-  }
-  
-  .report-stat-box .box-icon {
-	font-size: 50px;
-	line-height: 46px;
-	padding: 13px;
-	color: #3057d5;
-  }
-  
-  .report-stat-box h4,
-  .report-stat-box p {
-	margin: 5px 0;
-  }
-  
-  .report-stat-box .box-stats-text h3,
-  .report-stat-box .box-stats-text p {
-	margin: 5px 0;
-  }
-  
-  .report-stat-box .box-stats-text {
-	padding: 12px 0;
-  }
-  
-  .report-stat-box .box-stats-text h3 {
-	font-size: 20px;
-	font-weight: 300;
-  }
   
   .report-stat-box .box-stats-text p {
-	color: #888b90;
+
   }
   
   .box-padding {
@@ -2186,14 +2127,15 @@
 	background-color: #9c25ea;
 	color: #ffffff;
   }
-  
-  .tutor-report-overview-section {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	margin: 20px 0;
-  }
-  
+
+  /* 
+//   .tutor-report-overview-section {
+// 	display: -webkit-box;
+// 	display: -ms-flexbox;
+// 	display: flex;
+// 	margin: 20px 0;
+//   }
+
   .overview-section-col6 {
 	width: 50%;
   }
@@ -2238,6 +2180,7 @@
 	float: left;
 	margin-right: 5px;
   }
+  */
   
   /**
   Icon
@@ -2816,16 +2759,16 @@
    * Common CSS .tutor-list-*  - start 
    * .tutor-list-wrap > .tutor-list-header + .tutor-list-table + .tutor-list-footer
   */
-  .tutor-list-wrap {
-	  border-radius: 3px;
-	  background-color: #ffffff;
-	  margin-top: 40px;
-  }
+//   .tutor-list-wrap {
+// 	  border-radius: 3px;
+// 	  background-color: #ffffff;
+// 	  margin-top: 40px;
+//   }
   
-  .tutor-list-wrap .tutor-list-header,
-  .tutor-list-wrap .tutor-list-footer {
-	  padding: 30px;
-  }
+//   .tutor-list-wrap .tutor-list-header,
+//   .tutor-list-wrap .tutor-list-footer {
+// 	  padding: 30px;
+//   }
   
   .tutor-list-wrap .heading {
 	  font-size: 20px;
@@ -2881,18 +2824,18 @@
 	  padding: 15px 20px;
   }
   
-  .tutor-list-wrap .tutor-list-header,
-  .tutor-list-wrap .tutor-list-table th:last-child,
-  .tutor-list-wrap .tutor-list-table td:last-child,
-  .tutor-report-course-list .tutor-list-footer {
-	  padding-right: 36px;
-  }
+//   .tutor-list-wrap .tutor-list-header,
+//   .tutor-list-wrap .tutor-list-table th:last-child,
+//   .tutor-list-wrap .tutor-list-table td:last-child,
+//   .tutor-report-course-list .tutor-list-footer {
+// 	  padding-right: 36px;
+//   }
   
-  .tutor-list-wrap .tutor-list-header,
-  .tutor-list-wrap .tutor-list-table th:first-child,
-  .tutor-list-wrap .tutor-list-table td:first-child {
-	  padding-left: 30px;
-  }
+//   .tutor-list-wrap .tutor-list-header,
+//   .tutor-list-wrap .tutor-list-table th:first-child,
+//   .tutor-list-wrap .tutor-list-table td:first-child {
+// 	  padding-left: 30px;
+//   }
   
   .tutor-list-wrap .tutor-list-table tbody td {
 	  padding: 25px 20px;

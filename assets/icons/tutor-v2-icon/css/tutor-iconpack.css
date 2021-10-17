@@ -10,7 +10,8 @@
 	font-display: block;
 }
 
-.ttr {
+[class^='ttr-'],
+[class*=' ttr-'] {
 	/* use !important to prevent issues with browser extensions that change fonts */
 	font-family: 'tutor-iconpack' !important;
 	speak: never;
