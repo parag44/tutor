@@ -1,0 +1,231 @@
+---
+name: UI Table Dashboard
+route: /mdx-css/ui-table-dashboard
+menu: UI Components
+---
+
+import { Playground } from 'docz';
+import '../../bundle/main.min.css';
+import '../../bundle/fonts/tutor-v2-icon/css/tutor-v2-iconpack.css';
+import '../docz-essential.css';
+
+# UI Table - WP Dashboard
+
+`** Replace "className" with "class" while using with html` <br />
+`** Add the th content to the tds as data-th="TH_CONTENT"`
+
+## Course Listing UI
+
+<Playground>
+	<div className="tutor-ui-table-wrapper">
+		<table className="tutor-ui-table tutor-ui-table-responsive table-dashboard-course-list td-align-middle">
+			<thead>
+				<tr>
+					<th>
+						<div className="d-flex">
+							<input type="checkbox" className="tutor-form-check-input" />
+						</div>
+					</th>
+					<th>
+						<div className="text-regular-small color-text-subsued">Date</div>
+					</th>
+					<th>
+						<div className="text-regular-small color-text-subsued">Title</div>
+					</th>
+					<th>
+						<div className="inline-flex-center color-text-subsued">
+							<span className="text-regular-small">Author</span>
+							<span className="tutor-v2-icon-test icon-ordering-a-to-z-filled"></span>
+						</div>
+					</th>
+					<th>
+						<div className="text-regular-caption color-text-subsued">Course Categories</div>
+					</th>
+					<th>
+						<div className="text-regular-small color-text-subsued">Student</div>
+					</th>
+					<th>
+						<div className="text-regular-small color-text-subsued">Price</div>
+					</th>
+					<th className="tutor-shrink"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-th="Checkbox">
+						<div className="td-checkbox d-flex ">
+							<input type="checkbox" className="tutor-form-check-input" />
+						</div>
+					</td>
+					<td data-th="Date">
+						<div className="td-datetime text-regular-caption color-text-primary">
+							20 July, 2020, <br /> 12:47 pm
+						</div>
+					</td>
+					<td data-th="Course Name" className="column-fullwidth">
+						<div className="td-course color-text-primary text-medium-body">
+							<a href="#">The Complete Drawing MasterclassName: From Beginner to Advanced</a>
+							<div className="course-meta">
+								<span className="color-text-hints text-medium-small">
+									Topic: <strong className="color-text-primary">12</strong>
+								</span>
+								<span className="color-text-hints text-medium-small">
+									Lesson: <strong className="color-text-primary">36</strong>
+								</span>
+								<span className="color-text-hints text-medium-small">
+									Quiz: <strong className="color-text-primary">05</strong>
+								</span>
+								<span className="color-text-hints text-medium-small">
+									Assigment: <strong className="color-text-primary">03</strong>
+								</span>
+							</div>
+						</div>
+					</td>
+					<td data-th="Author">
+						<div className="td-avatar">
+							<img src="https://i.imgur.com/CckCKYQ.jpeg" alt="student avatar" />
+							<p className="text-medium-body color-text-primary">Arnol James</p>
+							<a href="#" className="btn-text btn-detail-link color-design-dark">
+								<span className="tutor-v2-icon-test icon-detail-link-filled"></span>
+							</a>
+						</div>
+					</td>
+					<td data-th="Course Categories">
+						<div className="text-regular-caption color-text-primary">Design, Illustration</div>
+					</td>
+					<td data-th="Student">
+						<div className="text-regular-caption color-text-primary">7,821</div>
+					</td>
+					<td data-th="Price">
+						<div className="text-regular-caption color-text-primary">$129.00</div>
+					</td>
+					<td data-th="Actions">
+						<div className="inline-flex-center td-action-btns">
+							<div className="tutor-form-select-with-icon select-default- select-primary select-success- select-danger- select-warning-">
+								<select title="Please select a color">
+									<option value="Red">Red</option>
+									<option value="Blue">Blue</option>
+									<option value="Blue">Yellow</option>
+								</select>
+								<i className="icon1 ttr-eye-fill-filled"></i>
+								<i className="icon2 ttr-angle-down-filled"></i>
+							</div>
+							<a href="#" className="btn-outline tutor-btn">
+								Edit
+							</a>
+							<button className="btn-delete">
+								<span className="ttr-delete-stroke-filled"></span>
+							</button>
+							<div className="tutor-popup-opener">
+								<button type="button" className="popup-btn" data-tutor-popup-target="table-dashboard-course-list-1">
+									<span className="toggle-icon"></span>
+								</button>
+								<ul id="table-dashboard-course-list-1" className="popup-menu">
+									<li>
+										<a href="#">
+											<span className="icon tutor-v2-icon-test icon-msg-archive-filled color-design-white"></span>
+											<span className="text-regular-body color-text-white">Download</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span className="icon tutor-v2-icon-test icon-delete-fill-filled color-design-white"></span>
+											<span className="text-regular-body color-text-white">Delete</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td data-th="Checkbox">
+						<div className="td-checkbox d-flex ">
+							<input type="checkbox" className="tutor-form-check-input" />
+						</div>
+					</td>
+					<td data-th="Date">
+						<div className="td-datetime text-regular-caption color-text-primary">
+							20 July, 2020, <br /> 12:47 pm
+						</div>
+					</td>
+					<td data-th="Course Name">
+						<div className="td-course color-text-primary text-medium-body">
+							<a href="#">The Complete Drawing MasterclassName: From Beginner to Advanced</a>
+							<div className="course-meta">
+								<span className="color-text-hints text-medium-small">
+									Topic: <strong className="color-text-primary">12</strong>
+								</span>
+								<span className="color-text-hints text-medium-small">
+									Lesson: <strong className="color-text-primary">36</strong>
+								</span>
+								<span className="color-text-hints text-medium-small">
+									Quiz: <strong className="color-text-primary">05</strong>
+								</span>
+								<span className="color-text-hints text-medium-small">
+									Assigment: <strong className="color-text-primary">03</strong>
+								</span>
+							</div>
+						</div>
+					</td>
+					<td data-th="Author">
+						<div className="td-avatar">
+							<img src="https://i.imgur.com/CckCKYQ.jpeg" alt="student avatar" />
+							<p className="text-medium-body color-text-primary">Arnol James</p>
+							<a href="#" className="btn-text btn-detail-link color-design-dark">
+								<span className="tutor-v2-icon-test icon-detail-link-filled"></span>
+							</a>
+						</div>
+					</td>
+					<td data-th="Course Categories">
+						<div className="text-regular-caption color-text-primary">Design, Illustration</div>
+					</td>
+					<td data-th="Student">
+						<div className="text-regular-caption color-text-primary">7,821</div>
+					</td>
+					<td data-th="Price">
+						<div className="text-regular-caption color-text-primary">$129.00</div>
+					</td>
+					<td data-th="Actions">
+						<div className="inline-flex-center td-action-btns">
+							<div className="tutor-form-select-with-icon select-default- select-primary- select-success select-danger- select-warning-">
+								<select title="Please select a color">
+									<option value="Red">Red</option>
+									<option value="Blue">Blue</option>
+									<option value="Blue">Yellow</option>
+								</select>
+								<i className="icon1 ttr-eye-fill-filled"></i>
+								<i className="icon2 ttr-angle-down-filled"></i>
+							</div>
+							<a href="#" className="btn-outline tutor-btn">
+								Edit
+							</a>
+							<button className="btn-delete">
+								<span className="ttr-delete-stroke-filled"></span>
+							</button>
+							<div className="tutor-popup-opener">
+								<button type="button" className="popup-btn" data-tutor-popup-target="table-dashboard-course-list-2">
+									<span className="toggle-icon"></span>
+								</button>
+								<ul id="table-dashboard-course-list-2" className="popup-menu">
+									<li>
+										<a href="#">
+											<span className="icon tutor-v2-icon-test icon-msg-archive-filled color-design-white"></span>
+											<span className="text-regular-body color-text-white">Download</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span className="icon tutor-v2-icon-test icon-delete-fill-filled color-design-white"></span>
+											<span className="text-regular-body color-text-white">Delete</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</Playground>
