@@ -44,3 +44,9 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax($min, $max));
 }
+
+@mixin flexCenter {
+	display : flex;
+	justify-content: center;
+	align-items : center;
+}

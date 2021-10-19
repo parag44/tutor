@@ -1,26 +1,27 @@
 .report-stat-box { 
-    [class^='ttr-'],
-    [class*=' ttr-'] {
-    }
+	[class^='ttr-'],
+	[class*=' ttr-'] {
+	}
 }
+
 .report-stats {
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    // gap: 30px 33px;
-    gap: 20px 23px;
-    @include breakpoint-min(1400) {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    @include breakpoint-min(1500) {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	// gap: 30px 33px;
+	gap: 20px 23px;
+	@include breakpoint-min(1400) {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+	@include breakpoint-min(1500) {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
 	@include breakpoint-min(1650) {
 		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 	}
-  }
-  .report-stat-box {
-  }
-  .report-stat-box-body {
+}
+.report-stat-box {
+}
+.report-stat-box-body {
 	background-color: #ffffff;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -29,56 +30,108 @@
 	margin-right: 30px;
 	padding: 16px 29px;
 	border: 2px solid #E0E2EA;
-    border-radius: 6px;
-  }
-  .report-stat-box-body > div:not(:last-child) {
+	border-radius: 6px;
+}
+.report-stat-box-body > div:not(:last-child) {
 	margin-right: 20px
-  }
-  .report-stat-box:nth-child(4n) .report-stat-box-body {
+}
+.report-stat-box:nth-child(4n) .report-stat-box-body {
 	margin-right: 0;
-  }
-  .report-stat-box .box-icon {
+}
+.report-stat-box .box-icon {
 	width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	height: 50px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background: #E9EDFB;
 	span {
 		font-size: 40px;
 	}
-  }
-  .report-stat-box h4,
-  .report-stat-box p {
+}
+.report-stat-box h4,
+.report-stat-box p {
 	margin: 5px 0;
-  }
-  .report-stat-box .box-stats-text h3,
-  .report-stat-box .box-stats-text p {
+}
+.report-stat-box .box-stats-text h3,
+.report-stat-box .box-stats-text p {
 	margin: 5px 0;
-  }
-  .report-stat-box .box-stats-text {
-  }
-  .report-stat-box .box-stats-text h4 {
-  }
+}
+.report-stat-box .box-stats-text {
+}
+.report-stat-box .box-stats-text h4 {
+}
 
-  .tutor-courses-overview-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(824px, 1fr));
-    gap: 20px 23px;
+.tutor-list-header {
+	margin-bottom : 25px;
+}
+
+.tutor-courses-review-section, 
+.tutor-courses-overview-section,
+.tutor-courses-review-section {
+	[class^='ttr-'],
+	[class*=' ttr-'] {
+		font-size : 20px;
+	}
+}
+
+.tutor-courses-review-section {
+	margin-top: 42px;
+}
+.tutor-courses-overview-section {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(824px, 1fr));
+	gap: 20px 23px;
 	@include breakpoint-min(1600) {
 		grid-template-columns: repeat(auto-fit, minmax(660px, 1fr));
 	} 
-    .tutor-list-header {
-        margin-bottom : 25px;
-    }
-    table {
-        .tutor-details-link {
-            margin-left: 20px;
-            cursor: pointer;
-            span {
-                font-size : 20px;
-            }
-        }
-    }
-  }
+	table {
+		.a-to-z-sort-icon {
+			margin-left: 5px;
+			font-size: 15px;
+		}
+		.tutor-details-link {
+			margin-left: 20px;
+			cursor: pointer;
+			span {
+				font-size : 20px;
+			}
+		}
+	}
+}
+
+.tutor-courses-review-section {
+	a {
+		color : inherit;
+	}
+	table {
+		tr {
+			td {
+				vertical-align : top;
+			}
+			td[data-th="Student"] {
+				width : 15%;
+			}
+			td[data-th="Date"] {
+				width : 14%;
+			}
+			td[data-th="course"] {
+				width: 19%;
+				padding-right: 30px;
+			}
+			td[data-th="course-btns"] {
+				width: 10%;
+				text-align: center;
+				vertical-align: middle;
+				a {
+					vertical-align: middle;
+				}
+				*:not(:last-child) {
+					margin-right: 16px;
+				}
+			}
+		}
+	}
+
+}
