@@ -7269,6 +7269,10 @@ li.tutor-option-nav-item h4 {
   border-bottom: 1px solid #e0e2ea;
 }
 
+.report-main-wrap p {
+  margin: 0;
+}
+
 .report-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -7347,78 +7351,206 @@ li.tutor-option-nav-item h4 {
   margin-bottom: 25px;
 }
 
-.tutor-courses-review-section [class^='ttr-'],
-.tutor-courses-review-section [class*=' ttr-'],
-.tutor-courses-overview-section [class^='ttr-'],
-.tutor-courses-overview-section [class*=' ttr-'],
-.tutor-courses-review-section [class^='ttr-'],
-.tutor-courses-review-section [class*=' ttr-'] {
+#tutor-courses-overview-section [class^='ttr-'],
+#tutor-courses-overview-section [class*=' ttr-'],
+#tutor-courses-review-section [class^='ttr-'],
+#tutor-courses-review-section [class*=' ttr-'] {
   font-size: 20px;
 }
 
-.tutor-courses-review-section {
+#tutor-courses-review-section,
+#tutor-courses-overview-section,
+#tutor-new-registered-section {
   margin-top: 42px;
 }
 
-.tutor-courses-overview-section {
+#tutor-courses-overview-section,
+#tutor-new-registered-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(824px, 1fr));
   gap: 20px 23px;
 }
 
+@media (min-width: 1347px) {
+  #tutor-courses-overview-section,
+  #tutor-new-registered-section {
+    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  }
+}
+
 @media (min-width: 1600px) {
-  .tutor-courses-overview-section {
+  #tutor-courses-overview-section,
+  #tutor-new-registered-section {
     grid-template-columns: repeat(auto-fit, minmax(660px, 1fr));
   }
 }
 
-.tutor-courses-overview-section table .a-to-z-sort-icon {
+@media (min-width: 1347px) {
+  #tutor-courses-overview-section table tr td[data-th="Course Name"] {
+    width: 30%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #tutor-courses-overview-section table tr td[data-th="Total Enrolled"] {
+    width: 30%;
+  }
+  #tutor-courses-overview-section table tr td[data-th="Course Name"] {
+    width: 10%;
+  }
+}
+
+@media (min-width: 1600px) {
+  #tutor-courses-overview-section table tr td[data-th="Course Name"] {
+    width: 50%;
+  }
+  #tutor-courses-overview-section table tr td[data-th="Total Enrolled"] {
+    width: 20%;
+  }
+}
+
+#tutor-courses-overview-section table .a-to-z-sort-icon {
   margin-left: 5px;
   font-size: 15px;
 }
 
-.tutor-courses-overview-section table .tutor-details-link {
+#tutor-courses-overview-section table .tutor-details-link {
   margin-left: 20px;
   cursor: pointer;
 }
 
-.tutor-courses-overview-section table .tutor-details-link span {
+#tutor-courses-overview-section table .tutor-details-link span {
   font-size: 20px;
 }
 
-.tutor-courses-review-section a {
+#tutor-courses-review-section a {
   color: inherit;
 }
 
-.tutor-courses-review-section table tr td {
+#tutor-courses-review-section table tr th:first-child .ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
+  font-size: 18px;
+}
+
+#tutor-courses-review-section table tr td {
   vertical-align: top;
 }
 
-.tutor-courses-review-section table tr td[data-th="Student"] {
-  width: 15%;
+@media (min-width: 1367px) {
+  #tutor-courses-review-section table tr td[data-th="Student"] {
+    width: 15%;
+  }
+  #tutor-courses-review-section table tr td[data-th="Date"] {
+    width: 14%;
+  }
+  #tutor-courses-review-section table tr td[data-th="course"] {
+    width: 19%;
+    padding-right: 30px;
+  }
+  #tutor-courses-review-section table tr td[data-th="Feedback"] {
+    width: 30%;
+  }
+  #tutor-courses-review-section table tr td[data-th="review-action-btns"] {
+    width: 10%;
+  }
 }
 
-.tutor-courses-review-section table tr td[data-th="Date"] {
-  width: 14%;
+@media (min-width: 1200px) and (max-width: 1367px) {
+  #tutor-courses-review-section table tr td[data-th="Student"] {
+    width: 20%;
+  }
+  #tutor-courses-review-section table tr td[data-th="Date"] {
+    width: 10%;
+  }
+  #tutor-courses-review-section table tr td[data-th="Date"] {
+    width: 13%;
+  }
+  #tutor-courses-review-section table tr td[data-th="course"] {
+    width: 21%;
+    padding-right: 10px;
+  }
+  #tutor-courses-review-section table tr td[data-th="Feedback"] {
+    padding-right: 15px;
+    width: 31%;
+  }
+  #tutor-courses-review-section table tr td[data-th="review-action-btns"] {
+    padding-right: 10px;
+  }
 }
 
-.tutor-courses-review-section table tr td[data-th="course"] {
-  width: 19%;
+@media (max-width: 1199px) {
+  #tutor-courses-review-section table tr td[data-th="review-action-btns"] {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #tutor-courses-review-section table tr td[data-th="review-action-btns"] .btn-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+#tutor-courses-review-section table tr td[data-th="course"] {
   padding-right: 30px;
 }
 
-.tutor-courses-review-section table tr td[data-th="course-btns"] {
-  width: 10%;
+#tutor-courses-review-section table tr td[data-th="Feedback"] {
+  padding-right: 15px;
+}
+
+#tutor-courses-review-section table tr td[data-th="review-action-btns"] {
   text-align: center;
   vertical-align: middle;
 }
 
-.tutor-courses-review-section table tr td[data-th="course-btns"] a {
+#tutor-courses-review-section table tr td[data-th="review-action-btns"] a {
   vertical-align: middle;
 }
 
-.tutor-courses-review-section table tr td[data-th="course-btns"] *:not(:last-child) {
+#tutor-courses-review-section table tr td[data-th="review-action-btns"] *:not(:last-child) {
   margin-right: 16px;
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Student"] {
+    width: 20%;
+  }
+  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Date"] {
+    width: 10%;
+  }
+  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Date"] {
+    width: 13%;
+  }
+  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="course"] {
+    width: 21%;
+    padding-right: 10px;
+  }
+  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Feedback"] {
+    padding-right: 15px;
+    width: 31%;
+  }
+  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="review-action-btns"] {
+    padding-right: 10px;
+  }
+}
+
+#tutor-new-registered-section table.tutor-ui-table tr td .tutor-instructor-card {
+  padding: 0px;
+  border: none;
+  min-width: unset;
+}
+
+#tutor-new-registered-section table.tutor-ui-table tr td .tutor-instructor-card .tutor-icard-content h6 {
+  margin: 0;
+}
+
+#tutor-new-registered-section table.tutor-ui-table tr td .tutor-instructor-card .tutor-icard-content span {
+  margin-left: 7px;
+  color: #757C8E;
+}
+
+@media (min-width: 1199px) {
+  #tutor-new-registered-section table.tutor-ui-table tr td:nth-child(1) {
+    width: 39%;
+  }
 }
 
 .monetization-fees.is-disable .tutor-option-field-row:nth-child(2), .monetization-fees.is-disable .tutor-option-field-row:nth-child(3) {

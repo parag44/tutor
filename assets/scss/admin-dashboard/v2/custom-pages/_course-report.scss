@@ -3,6 +3,11 @@
 	[class*=' ttr-'] {
 	}
 }
+.report-main-wrap {
+	p {
+		margin : 0;
+	}
+}
 
 .report-stats {
 	display: grid;
@@ -67,25 +72,63 @@
 	margin-bottom : 25px;
 }
 
-.tutor-courses-review-section, 
-.tutor-courses-overview-section,
-.tutor-courses-review-section {
+#tutor-courses-overview-section,
+#tutor-courses-review-section {
 	[class^='ttr-'],
 	[class*=' ttr-'] {
 		font-size : 20px;
 	}
 }
 
-.tutor-courses-review-section {
+#tutor-courses-review-section,
+#tutor-courses-overview-section,
+#tutor-new-registered-section {
 	margin-top: 42px;
 }
-.tutor-courses-overview-section {
+
+#tutor-courses-overview-section,
+#tutor-new-registered-section {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(824px, 1fr));
 	gap: 20px 23px;
+	@include breakpoint-min(1347) {
+		grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+	}
 	@include breakpoint-min(1600) {
 		grid-template-columns: repeat(auto-fit, minmax(660px, 1fr));
-	} 
+	}
+}
+
+#tutor-courses-overview-section{
+	//grid-template-columns: repeat(auto-fit, minmax(824px, 1fr));
+	@include breakpoint-min(1347) {
+		table {
+			tr {
+				td[data-th="Course Name"] {
+					width: 30%;
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+				td[data-th="Total Enrolled"] {
+					width: 30%;
+				}
+				td[data-th="Course Name"] {
+					width: 10%;
+				}
+			}
+		}
+	}
+	@include breakpoint-min(1600) {
+		table {
+			tr {
+				td[data-th="Course Name"] {
+					width: 50%;
+				}
+				td[data-th="Total Enrolled"] {
+					width: 20%;
+				}
+			}
+		}
+	}
 	table {
 		.a-to-z-sort-icon {
 			margin-left: 5px;
@@ -101,27 +144,81 @@
 	}
 }
 
-.tutor-courses-review-section {
+#tutor-courses-review-section {
 	a {
 		color : inherit;
 	}
 	table {
 		tr {
+			th:first-child {
+				.ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
+					font-size: 18px;
+				}
+			}
 			td {
 				vertical-align : top;
 			}
+			@include breakpoint-min(1367) {
+				td[data-th="Student"] {
+					width: 15%;
+				}
+				td[data-th="Date"] {
+					width : 14%;
+				}
+				td[data-th="course"] {
+					width: 19%;
+					padding-right: 30px;
+				}
+				td[data-th="Feedback"] {
+					width: 30%;
+				}
+				td[data-th="review-action-btns"] {
+					width: 10%;
+				}
+			}
+			@include breakpoint-minmax(1200, 1367) {
+				td[data-th="Student"] {
+					width: 20%;
+				}
+				td[data-th="Date"] {
+					width: 10%;
+				}
+				td[data-th="Date"] {
+					width: 13%;
+				}
+				td[data-th="course"] {
+					width: 21%;
+					padding-right: 10px;
+				}
+				td[data-th="Feedback"] {
+					padding-right: 15px;
+					width: 31%;
+				}
+				td[data-th="review-action-btns"] {
+					padding-right: 10px;
+				}
+			}
+			@include breakpoint-max(1199) {
+				td[data-th="review-action-btns"] {
+					align-items: center;
+				}
+				td[data-th="review-action-btns"] {
+					.btn-text {
+						display: flex;
+					}
+				}
+			}
 			td[data-th="Student"] {
-				width : 15%;
 			}
 			td[data-th="Date"] {
-				width : 14%;
 			}
 			td[data-th="course"] {
-				width: 19%;
 				padding-right: 30px;
 			}
-			td[data-th="course-btns"] {
-				width: 10%;
+			td[data-th="Feedback"] {
+				padding-right: 15px;
+			}
+			td[data-th="review-action-btns"] {
 				text-align: center;
 				vertical-align: middle;
 				a {
@@ -134,4 +231,57 @@
 		}
 	}
 
+}
+
+
+#tutor-new-registered-section {
+	table {
+		&.tutor-ui-table {
+			tr {
+				@include breakpoint-minmax(1200, 1367) {
+					td[data-th="Student"] {
+						width: 20%;
+					}
+					td[data-th="Date"] {
+						width: 10%;
+					}
+					td[data-th="Date"] {
+						width: 13%;
+					}
+					td[data-th="course"] {
+						width: 21%;
+						padding-right: 10px;
+					}
+					td[data-th="Feedback"] {
+						padding-right: 15px;
+						width: 31%;
+					}
+					td[data-th="review-action-btns"] {
+						padding-right: 10px;
+					}
+				}
+				td {
+					.tutor-instructor-card {
+						padding: 0px;
+						border: none;
+						min-width : unset;
+						.tutor-icard-content {
+							h6 {
+								margin : 0;
+							}
+							span {
+								margin-left: 7px;
+								color: #757C8E;
+							}
+						}
+					}
+					&:nth-child(1) {
+						@include breakpoint-min(1199) {
+							width : 39%;
+						}
+					}
+				}
+			}
+		}
+	}
 }
