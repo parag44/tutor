@@ -7509,6 +7509,24 @@ li.tutor-option-nav-item h4 {
   margin-right: 16px;
 }
 
+#tutor-new-registered-section .tutor-instructor-card,
+#tutor-qna-section .tutor-instructor-card {
+  padding: 0px;
+  border: none;
+  min-width: unset;
+}
+
+#tutor-new-registered-section .tutor-instructor-card .tutor-icard-content h6,
+#tutor-qna-section .tutor-instructor-card .tutor-icard-content h6 {
+  margin: 0;
+}
+
+#tutor-new-registered-section .tutor-instructor-card .tutor-icard-content span,
+#tutor-qna-section .tutor-instructor-card .tutor-icard-content span {
+  margin-left: 7px;
+  color: #757C8E;
+}
+
 @media (min-width: 1200px) and (max-width: 1367px) {
   #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Student"] {
     width: 20%;
@@ -7530,21 +7548,6 @@ li.tutor-option-nav-item h4 {
   #tutor-new-registered-section table.tutor-ui-table tr td[data-th="review-action-btns"] {
     padding-right: 10px;
   }
-}
-
-#tutor-new-registered-section table.tutor-ui-table tr td .tutor-instructor-card {
-  padding: 0px;
-  border: none;
-  min-width: unset;
-}
-
-#tutor-new-registered-section table.tutor-ui-table tr td .tutor-instructor-card .tutor-icard-content h6 {
-  margin: 0;
-}
-
-#tutor-new-registered-section table.tutor-ui-table tr td .tutor-instructor-card .tutor-icard-content span {
-  margin-left: 7px;
-  color: #757C8E;
 }
 
 @media (min-width: 1199px) {
