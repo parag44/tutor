@@ -7,12 +7,10 @@
 @import './general';
 
 // Pages
-<<<<<<< HEAD
 @import './custom-pages/email-manage.scss';
-@import './custom-pages/course-report';
-=======
+
 @import './custom-pages/index';
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
+@import './custom-pages/course-report';
 
 // Conditional Style
 @import './conditionals/conditionals.scss';
