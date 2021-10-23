@@ -21,13 +21,18 @@ input.tutor-form-control {
 	box-sizing: border-box;
 	color: var(--tutor-text-primary);
 
+	&::placeholder {
+		color: $text-hints;
+	}
+
 	padding: 0 20px;
 	font-size: 16px;
 	height: $height;
 
 	border-width: 1px !important;
 	border-style: solid;
-	border-color: var(--tutor-border-color);
+	// border-color: var(--tutor-border-color);
+	border-color: $black-20;
 
 	transition: 0.2s;
 
@@ -72,6 +77,25 @@ input.tutor-form-control {
 			color: var(--tutor-disabled-color);
 		}
 	}
+
+	&:disabled {
+		background: $bg-gray-20;
+		border-color: $bg-gray-20;
+		cursor: not-allowed;
+		&::placeholder {
+			color: $text-hints;
+		}
+	}
+}
+
+input.tutor-form-control {
+	// &[type='date'] {
+	// 	@include svg-calender-line;
+	// }
+
+	// &[type='date' i]::-webkit-calendar-picker-indicator {
+	// 	@include svg-calender-line;
+	// }
 }
 
 textarea.tutor-form-control {
@@ -117,6 +141,7 @@ textarea.tutor-form-control {
 			position: absolute;
 			top: 0;
 			font-size: 23px;
+			font-size: 30px;
 			width: 41px;
 			text-align: center;
 		}
@@ -182,7 +207,7 @@ textarea.tutor-form-control {
 		}
 	}
 
-	&.tutor-form-control-lg {
+	&.tutor-form-control-sm {
 		input.tutor-form-control {
 			height: $height-lg;
 		}
@@ -190,6 +215,7 @@ textarea.tutor-form-control {
 		.tutor-input-group-icon-right {
 			height: $height-lg;
 			line-height: $height-lg;
+			font-size: 25px;
 		}
 		&.tutor-form-control-has-border::before {
 			top: ($height-lg - 23px) / 2;
@@ -204,7 +230,7 @@ textarea.tutor-form-control {
 		.tutor-input-group-icon-right {
 			height: $height-sm;
 			line-height: $height-sm;
-			font-size: 20px;
+			font-size: 25px;
 		}
 		&.tutor-form-control-has-border::before {
 			height: 19px;

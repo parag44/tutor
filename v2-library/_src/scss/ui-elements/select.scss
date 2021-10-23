@@ -12,8 +12,7 @@ $height-sm: 40px;
 select.tutor-form-select {
 	@extend .d-block;
 	width: 100%;
-	font-size: 16px;
-	font-weight: 400;
+	// min-width: -webkit-fill-available;
 	background-color: #fff;
 	background-repeat: no-repeat;
 	border: 1px solid #ced4da;
@@ -23,6 +22,8 @@ select.tutor-form-select {
 	appearance: none;
 	background-image: url(svgArrow($text-primary));
 	outline: none;
+	@extend .color-text-primary;
+	@extend .text-medium-body;
 
 	// size
 
@@ -46,20 +47,27 @@ select.tutor-form-select {
 
 	// icon colors
 	&.tutor-select-icon-primary {
-		background-image: url(svgArrow($primary));
+		background-image: url(svgArrow($color-brand));
 	}
 	&.tutor-select-icon-success {
-		background-image: url(svgArrow($success));
+		background-image: url(svgArrow($color-success));
 	}
 	&.tutor-select-icon-warning {
-		background-image: url(svgArrow($warning));
+		background-image: url(svgArrow($color-warning));
 	}
 	&.tutor-select-icon-danger {
-		background-image: url(svgArrow($danger));
+		background-image: url(svgArrow($color-error));
 	}
 
 	&:focus {
 		border-color: var(--tutor-primary);
 		box-shadow: unset;
+	}
+}
+
+.tutor-form-select-with-btn {
+	display: flex;
+	gap: 20px;
+	select.tutor-form-select {
 	}
 }

@@ -18,15 +18,19 @@ class Ajax{
 		add_action('wp_ajax_nopriv_tutor_course_add_to_wishlist', array($this, 'tutor_course_add_to_wishlist'));
 
 		/**
+		 * Get all addons
+		 */
+		add_action( 'wp_ajax_tutor_get_all_addons', array( $this, 'tutor_get_all_addons' ) );
+
+		/**
 		 * Addon Enable Disable Control
 		 */
-		add_action('wp_ajax_addon_enable_disable', array($this, 'addon_enable_disable'));
+		add_action( 'wp_ajax_addon_enable_disable', array( $this, 'addon_enable_disable' ) );
 
 		/**
 		 * Update Rating/review
 		 * @since  v.1.4.0
 		 */
-		add_action('wp_ajax_tutor_load_edit_review_modal', array($this, 'tutor_load_edit_review_modal'));
 		add_action('wp_ajax_tutor_update_review_modal', array($this, 'tutor_update_review_modal'));
 
 		/**
@@ -282,62 +286,125 @@ class Ajax{
 	}
 
 	/**
-	 * Method for enable / disable addons
-	 */
-	public function addon_enable_disable(){
+     * Prepare addons data
+     */
+    public function prepare_addons_data() {
+        $addons = apply_filters( 'tutor_addons_lists_config', array() );
+        $plugins_data = $addons;
 
-		if(!current_user_can( 'manage_options' )) {
-			wp_send_json_error( array('message'=>__('Access Denied', 'tutor')) );
+        if ( is_array( $addons ) && count( $addons ) ) {
+            foreach ( $addons as $base_name => $addon ) {
+                $addon_config = tutor_utils()->get_addon_config( $base_name );
+                $is_enabled = (bool) tutor_utils()->avalue_dot( 'is_enable', $addon_config );
+
+                $plugins_data[$base_name]['is_enabled'] = $is_enabled;
+
+                $thumbnail_url =  tutor()->url . 'assets/images/tutor-plugin.png';
+                if ( file_exists( $addon['path'] . 'assets/images/thumbnail.png' ) ) {
+                    $thumbnail_url = $addon['url'] . 'assets/images/thumbnail.png';
+                } elseif ( file_exists( $addon['path'] . 'assets/images/thumbnail.jpg' ) ) {
+                    $thumbnail_url = $addon['url'] . 'assets/images/thumbnail.jpg';
+                } elseif ( file_exists( $addon['path'] . 'assets/images/thumbnail.svg' ) ) {
+                    $thumbnail_url = $addon['url'] . 'assets/images/thumbnail.svg';
+                }
+
+                $plugins_data[$base_name]['thumb_url'] = $thumbnail_url;
+
+                /**
+                 * Checking if there any dependant plugin exists
+                 */
+                $depends = tutils()->array_get( 'depend_plugins', $addon );
+                $plugins_required = array();
+                if ( tutils()->count( $depends ) ) {
+                    foreach ( $depends as $plugin_base => $plugin_name ) {
+                        if ( ! is_plugin_active( $plugin_base ) ) {
+                            $plugins_required[ $plugin_base ] = $plugin_name;
+                        }
+                    }
+                }
+
+				$depended_plugins = array();
+				foreach ( $plugins_required as $required_plugin ) {
+					array_push( $depended_plugins, $required_plugin );
+				}
+
+               $plugins_data[$base_name]['plugins_required'] = $depended_plugins;
+
+                // Check if it's notifications.
+                if ( function_exists( 'tutor_notifications' ) && $base_name == tutor_notifications()->basename ) {
+
+                    $required = array();
+                    version_compare( PHP_VERSION, '7.2.5', '>=' ) ? 0 : $required[] = __( 'PHP 7.2.5 or greater is required', 'tutor' );
+                    ! is_ssl() ? $required[] = __( 'Please install SSL certificate properly', 'tutor' ) : 0;
+            
+                    foreach ( array( 'curl', 'gmp', 'mbstring', 'openssl' ) as $ext ) {
+                        ! extension_loaded( $ext ) ? $required[] = 'PHP extension <strong>' . $ext . '</strong> not found' : 0;
+                    }
+            
+                    $plugins_data[$base_name]['ext_required'] = $required;
+                }
+				// Add tutor plugin version to all addons.
+				$plugins_data[$base_name]['tutor_version'] = TUTOR_VERSION;
+            }
+        }
+
+		$prepared_addons = array();
+		foreach ( $plugins_data as $tutor_addon ) {
+			array_push( $prepared_addons, $tutor_addon );
 		}
 
-		$addonsConfig = maybe_unserialize(get_option('tutor_addons_config'));
-
-		$isEnable = (bool) sanitize_text_field(tutor_utils()->avalue_dot('isEnable', $_POST));
-		$addonFieldName = sanitize_text_field(tutor_utils()->avalue_dot('addonFieldName', $_POST));
-
-		do_action('tutor_addon_before_enable_disable');
-		if ($isEnable){
-			do_action("tutor_addon_before_enable_{$addonFieldName}");
-			do_action('tutor_addon_before_enable', $addonFieldName);
-			$addonsConfig[$addonFieldName]['is_enable'] = 1;
-			update_option('tutor_addons_config', $addonsConfig);
-
-			do_action('tutor_addon_after_enable', $addonFieldName);
-			do_action("tutor_addon_after_enable_{$addonFieldName}");
-		}else{
-			do_action("tutor_addon_before_disable_{$addonFieldName}");
-			do_action('tutor_addon_before_disable', $addonFieldName);
-			$addonsConfig[$addonFieldName]['is_enable'] = 0;
-			update_option('tutor_addons_config', $addonsConfig);
-
-			do_action('tutor_addon_after_disable', $addonFieldName);
-			do_action("tutor_addon_after_disable_{$addonFieldName}");
-		}
-
-		do_action('tutor_addon_after_enable_disable');
-		wp_send_json_success();
-	}
+        return $prepared_addons;
+    }
 
 	/**
-	 * Load review edit form
-	 * @since v.1.4.0
+     * Get all notifications
+     */
+    public function tutor_get_all_addons() {
+        
+        // Check and verify the request.
+        tutor_utils()->checking_nonce();
+
+        // All good, let's proceed.
+        $all_addons = $this->prepare_addons_data();
+		
+		wp_send_json_success( array(
+			'addons' => $all_addons,
+		) );
+    }
+
+	/**
+	 * Method for enable / disable addons
 	 */
-	public function tutor_load_edit_review_modal(){
-		tutor_utils()->checking_nonce();
+	public function addon_enable_disable() {
 
-		$review_id = (int) sanitize_text_field(tutils()->array_get('review_id', $_POST));
-		$rating = tutils()->get_rating_by_id($review_id);
-
-		if(!tutils()->has_enrolled_content_access('review', $review_id)) {
-			wp_send_json_error(array('message'=>__('Access Denied', 'tutor')));
-			exit;
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( array( 'message'=> __( 'Access Denied', 'tutor' ) ) );
 		}
 
-		ob_start();
-		tutor_load_template('dashboard.reviews.edit-review-form', array('rating' => $rating));
-		$output = ob_get_clean();
+		$addonsConfig = maybe_unserialize( get_option( 'tutor_addons_config' ) );
 
-		wp_send_json_success(array('output' => $output));
+		$isEnable = (bool) sanitize_text_field( tutor_utils()->avalue_dot( 'isEnable', $_POST ) );
+		$addonFieldName = sanitize_text_field( tutor_utils()->avalue_dot( 'addonFieldName', $_POST ) );
+
+		do_action( 'tutor_addon_before_enable_disable' );
+		if ( $isEnable ) {
+			do_action( "tutor_addon_before_enable_{$addonFieldName}" );
+			do_action( 'tutor_addon_before_enable', $addonFieldName );
+			$addonsConfig[ $addonFieldName ]['is_enable'] = 1;
+			update_option( 'tutor_addons_config', $addonsConfig );
+
+			do_action( 'tutor_addon_after_enable', $addonFieldName );
+			do_action( "tutor_addon_after_enable_{$addonFieldName}" );
+		} else {
+			do_action( "tutor_addon_before_disable_{$addonFieldName}" );
+			do_action( 'tutor_addon_before_disable', $addonFieldName );
+			$addonsConfig[ $addonFieldName ]['is_enable'] = 0;
+			update_option( 'tutor_addons_config', $addonsConfig );
+
+			do_action( 'tutor_addon_after_disable', $addonFieldName );
+			do_action( "tutor_addon_after_disable_{$addonFieldName}" );
+		}
+		do_action( 'tutor_addon_after_enable_disable' );
 	}
 
 	public function tutor_update_review_modal(){
@@ -354,12 +421,19 @@ class Ajax{
 			exit;
 		}
 
-		$is_exists = $wpdb->get_var($wpdb->prepare("SELECT comment_ID from {$wpdb->comments} WHERE comment_ID=%d AND comment_type = 'tutor_course_rating' ;", $review_id));
+		$is_exists = $wpdb->get_var($wpdb->prepare(
+			"SELECT comment_ID 
+			from {$wpdb->comments} 
+			WHERE comment_ID=%d AND 
+				comment_type = 'tutor_course_rating' ;", 
+			$review_id
+		));
 
 		if ( $is_exists) {
 			$wpdb->update( $wpdb->comments, array( 'comment_content' => $review ),
 				array( 'comment_ID' => $review_id )
 			);
+
 			$wpdb->update( $wpdb->commentmeta, array( 'meta_value' => $rating ),
 				array( 'comment_id' => $review_id, 'meta_key' => 'tutor_rating' )
 			);

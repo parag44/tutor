@@ -1,5 +1,3 @@
-@import '../../../../assets/scss/lib/mixins.scss';
-
 .tutor-modal {
 	position: fixed;
 	top: 0;
@@ -33,13 +31,28 @@
 		background: none;
 		border: none;
 	}
-	
-	&:not(.modal-sticky-header-footer) {
+
+	.tutor-modal-header {
+		position: relative;
+		.tutor-modal-close-inside {
+			background: transparent;
+			border: none;
+			outline: none;
+			display: flex;
+			font-size: 30px;
+			margin-left: auto;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+	}
+
+	&:not(.modal-sticky-header-footer):not(.modal-view-double-segment) {
 		.tutor-modal-close {
 			position: fixed;
 			right: 30px;
 			top: 30px;
-			font-size: 28px;
+			font-size: 30px;
 			color: white;
 			background: none;
 			border: none;
@@ -53,7 +66,7 @@
 			@include propertyWithPrefix(justify-content, space-between);
 			border-bottom: 1px solid $stroke-light-30;
 		}
-	
+
 		.tutor-modal-close {
 			font-size: 28px;
 			background: none;
@@ -67,12 +80,63 @@
 			max-height: calc(100vh - 15em);
 			overflow-y: auto;
 		}
-	
+
 		.tutor-modal-footer {
 			border-top: 1px solid $stroke-light-30;
 		}
 	}
 
+	// View Announcement modal
+	&.modal-view-double-segment {
+		.tutor-modal-header {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+			position: relative;
+			top: 10px;
+			right: 10px;
+			> * {
+				display: flex;
+			}
+		}
+		.view-announcement-icon {
+			display: flex;
+			width: 76px;
+			height: 76px;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			font-size: 47px;
+		}
+		.tutor-modal-root {
+			width: 728px;
+			.tutor-modal-header {
+				padding: 0;
+			}
+			.tutor-modal-body {
+				padding: 15px 60px;
+				padding-bottom: 62px;
+			}
+
+			// @include breakpoint-min(desktop-lg) {
+			// 	.tutor-modal-body {
+			// 		padding-right: 100px;
+			// 	}
+			// }
+		}
+
+		.tutor-modal-footer {
+			padding: 38px 60px 68px 60px;
+			background: rgba(239, 241, 246, 0.5);
+			border-radius: 0px 0px 20px 30px;
+			border-top: 1px solid $stroke-light-20;
+			> div {
+				display: grid;
+				grid-template-columns: 1.55fr 1fr;
+				gap: 10px;
+			}
+		}
+	}
 
 	.tutor-modal-root {
 		background: transparent;

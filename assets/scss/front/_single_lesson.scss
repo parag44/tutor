@@ -2,8 +2,6 @@
 /* Single Lesson  */
 /************************       */
 
-@import '../lib/mixins.scss';
-
 /*lesson list*/
 .tutor-single-lesson-button-group,
 .tutor-topics-lesson-list .tutor-topics-in-single-lesson {
@@ -774,14 +772,6 @@ ul.tutor-required-fields {
 	i {
 		margin-right: 4px;
 		cursor: pointer;
-	}
-}
-
-.tutor-write-review-box .tutor-star-rating-group {
-	@media (max-width: 546px) {
-		font-size: 26px;
-		display: block;
-		text-align: center;
 	}
 }
 

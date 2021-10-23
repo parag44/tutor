@@ -1,10 +1,15 @@
 # TutorLMS Changelog
 
+### 2.0.0 - November 15, 2021
+
+* Update: Overall Design System
+
+
 ### 1.9.11 - October 18, 2021
 
-* New: Certificate Builder Plugin Integration
+* New: Certificate Builder plugin compatibility
 * Update: Gradebook data generates automatically
-* Update: Generate gradebook button removed
+* Update: Generate Gradebook button removed
 * Fix: Gradebook data not deleting on course retake
 * Fix: XSS vulnerability in registration page
 
