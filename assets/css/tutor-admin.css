@@ -2292,16 +2292,6 @@ button#quiz-answer-edit-btn:hover {
 }
 
 /**
-<<<<<<< HEAD
-  * report.css
-  * Moved report.css from pro add to here
-  */
-h2.tutor-page-heading {
-  background-color: #ffffff;
-  padding: 30px !important;
-  margin: 0 !important;
-  border-bottom: 1px solid #ecedef;
-=======
   Tutor Media Upload
    */
 .tutor-media-upload-wrap {
@@ -2310,7 +2300,6 @@ h2.tutor-page-heading {
   display: -ms-flexbox;
   display: flex;
   width: 130px;
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
 }
 
 .tutor-media-upload-wrap img {
@@ -2417,10 +2406,6 @@ span.result-review-required {
   padding-left: 10px;
 }
 
-<<<<<<< HEAD
-.box-padding {
-  padding: 30px;
-=======
 .answer-image-matched-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2488,7 +2473,6 @@ span.filled_dash_unser {
 
 .tutor-lesson-modal-title-wrap input {
   width: 100%;
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
 }
 
 .tutor-lesson-modal-wrap .modal-footer {
@@ -2547,67 +2531,6 @@ span.withdraw-method-label {
   margin-left: 3px;
 }
 
-<<<<<<< HEAD
-/* 
-//   .tutor-report-overview-section {
-// 	display: -webkit-box;
-// 	display: -ms-flexbox;
-// 	display: flex;
-// 	margin: 20px 0;
-//   }
-
-  .overview-section-col6 {
-	width: 50%;
-  }
-  
-  .overview-section-col6 {
-	margin-right: 1%;
-	margin-left: 1%;
-  }
-  
-  .overview-section-col6:first-child {
-	margin-left: 0;
-  }
-  
-  .overview-section-col6:last-child {
-	margin-right: 0;
-  }
-  
-  .last-revews-wrap {
-	width: 100%;
-  }
-  
-  table.tutor-report-table {
-	border: none;
-	-webkit-box-shadow: none;
-			box-shadow: none;
-  }
-  
-  .tutor-report-table th {
-	background-color: #fcfcfc;
-	border-top: 1px solid #eaeaea;
-	border-bottom: 1px solid #eaeaea;
-	padding: 20px;
-	color: #878a8f;
-  }
-  
-  .tutor-report-table td {
-	border-bottom: 1px solid #eaeaea;
-	padding: 20px;
-  }
-  
-  .tutor-report-table td img.avatar {
-	float: left;
-	margin-right: 5px;
-  }
-  */
-/**
-  Icon
-   */
-.tutor-icon-star-full,
-.tutor-icon-star-line {
-  color: #ffd700;
-=======
 .withdraw-status.withdraw-status-approved {
   background: var(--tutor-success-button-color);
   color: #fff;
@@ -2692,7 +2615,6 @@ span.withdraw-method-label {
   color: #fff;
   text-align: center;
   line-height: 11px;
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
 }
 
 .tnotice__type {
@@ -3047,8 +2969,8 @@ span.withdraw-method-label {
 /** END Calender */
 /**
   * report.css
-  *Moved report.css from pro add to here
-   */
+  * Moved report.css from pro add to here
+  */
 h2.tutor-page-heading {
   background-color: #ffffff;
   padding: 30px !important;
@@ -3138,71 +3060,6 @@ h2.tutor-page-heading {
   margin: 30px 0;
 }
 
-.report-stats {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-.report-stat-box {
-  padding: 0;
-  margin-bottom: 30px;
-  width: 25%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-}
-
-.report-stat-box-body {
-  background-color: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  margin-right: 30px;
-}
-
-.report-stat-box:nth-child(4n) .report-stat-box-body {
-  margin-right: 0;
-}
-
-.report-stat-box .box-icon {
-  font-size: 50px;
-  line-height: 46px;
-  padding: 13px;
-  color: #3057d5;
-}
-
-.report-stat-box h4,
-.report-stat-box p {
-  margin: 5px 0;
-}
-
-.report-stat-box .box-stats-text h3,
-.report-stat-box .box-stats-text p {
-  margin: 5px 0;
-}
-
-.report-stat-box .box-stats-text {
-  padding: 12px 0;
-}
-
-.report-stat-box .box-stats-text h3 {
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.report-stat-box .box-stats-text p {
-  color: #888b90;
-}
-
 .box-padding {
   padding: 30px;
 }
@@ -3251,69 +3108,59 @@ h2.tutor-page-heading {
   color: #ffffff;
 }
 
-<<<<<<< HEAD
-/** 
-   * Common CSS .tutor-list-*  - start 
-   * .tutor-list-wrap > .tutor-list-header + .tutor-list-table + .tutor-list-footer
+/* 
+//   .tutor-report-overview-section {
+// 	display: -webkit-box;
+// 	display: -ms-flexbox;
+// 	display: flex;
+// 	margin: 20px 0;
+//   }
+
+  .overview-section-col6 {
+	width: 50%;
+  }
+  
+  .overview-section-col6 {
+	margin-right: 1%;
+	margin-left: 1%;
+  }
+  
+  .overview-section-col6:first-child {
+	margin-left: 0;
+  }
+  
+  .overview-section-col6:last-child {
+	margin-right: 0;
+  }
+  
+  .last-revews-wrap {
+	width: 100%;
+  }
+  
+  table.tutor-report-table {
+	border: none;
+	-webkit-box-shadow: none;
+			box-shadow: none;
+  }
+  
+  .tutor-report-table th {
+	background-color: #fcfcfc;
+	border-top: 1px solid #eaeaea;
+	border-bottom: 1px solid #eaeaea;
+	padding: 20px;
+	color: #878a8f;
+  }
+  
+  .tutor-report-table td {
+	border-bottom: 1px solid #eaeaea;
+	padding: 20px;
+  }
+  
+  .tutor-report-table td img.avatar {
+	float: left;
+	margin-right: 5px;
+  }
   */
-.tutor-list-wrap .heading {
-  font-size: 20px;
-  line-height: 1.5;
-  color: #3f435b;
-=======
-.tutor-report-overview-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 20px 0;
-}
-
-.overview-section-col6 {
-  width: 50%;
-}
-
-.overview-section-col6 {
-  margin-right: 1%;
-  margin-left: 1%;
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
-}
-
-.overview-section-col6:first-child {
-  margin-left: 0;
-}
-
-.overview-section-col6:last-child {
-  margin-right: 0;
-}
-
-.last-revews-wrap {
-  width: 100%;
-}
-
-table.tutor-report-table {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.tutor-report-table th {
-  background-color: #fcfcfc;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
-  padding: 20px;
-  color: #878a8f;
-}
-
-.tutor-report-table td {
-  border-bottom: 1px solid #eaeaea;
-  padding: 20px;
-}
-
-.tutor-report-table td img.avatar {
-  float: left;
-  margin-right: 5px;
-}
-
 /**
   Icon
    */
@@ -3322,11 +3169,6 @@ table.tutor-report-table {
   color: #ffd700;
 }
 
-<<<<<<< HEAD
-.tutor-list-wrap .tutor-list-table tbody td {
-  padding: 25px 20px;
-  vertical-align: top;
-=======
 .tutor-delete-link {
   color: #ff282a !important;
 }
@@ -3346,7 +3188,6 @@ table.tutor-report-table {
   line-height: 1;
   text-decoration: none;
   font-weight: 600;
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
 }
 
 .tutor-pagination .page-numbers.current,
@@ -3860,87 +3701,6 @@ table.tutor-table p {
    * Common CSS .tutor-list-*  - start 
    * .tutor-list-wrap > .tutor-list-header + .tutor-list-table + .tutor-list-footer
   */
-.tutor-list-wrap {
-  border-radius: 3px;
-  background-color: #ffffff;
-  margin-top: 40px;
-}
-
-.tutor-list-wrap .tutor-list-header,
-.tutor-list-wrap .tutor-list-footer {
-  padding: 30px;
-}
-
-.tutor-list-wrap .heading {
-  font-size: 20px;
-  line-height: 1.5;
-  color: #3f435b;
-}
-
-.tutor-list-wrap .tutor-list-table {
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-
-.tutor-list-wrap .tutor-list-table .table-toggle {
-  display: none;
-}
-
-.tutor-list-wrap .tutor-list-table .table-toggle.open {
-  display: table-row;
-}
-
-[class^="tutor-report-"] .tutor-list-table tbody td.detail {
-  vertical-align: top;
-}
-
-.tutor-list-wrap .tutor-list-table thead,
-.tutor-list-wrap .tutor-list-table tr:first-child th {
-  background-color: #f7f7f9;
-  border-top: 1px solid #eaeaea;
-  border-bottom: 1px solid #eaeaea;
-}
-
-.tutor-list-wrap .tutor-list-table th {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.75;
-  letter-spacing: 0.7px;
-  color: #737787;
-  text-transform: uppercase;
-}
-
-.tutor-list-wrap .tutor-list-table td,
-.tutor-list-wrap .tutor-list-table td p {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.75;
-  color: #3f435b;
-}
-
-.report-course-list-wrap .tutor-list-table th i {
-  margin-left: 3px;
-}
-
-.tutor-list-wrap .tutor-list-table tr th,
-.tutor-list-wrap .tutor-list-table tr td {
-  padding: 15px 20px;
-}
-
-.tutor-list-wrap .tutor-list-header,
-.tutor-list-wrap .tutor-list-table th:last-child,
-.tutor-list-wrap .tutor-list-table td:last-child,
-.tutor-report-course-list .tutor-list-footer {
-  padding-right: 36px;
-}
-
-.tutor-list-wrap .tutor-list-header,
-.tutor-list-wrap .tutor-list-table th:first-child,
-.tutor-list-wrap .tutor-list-table td:first-child {
-  padding-left: 30px;
-}
-
 .tutor-list-wrap .tutor-list-table tbody td {
   padding: 25px 20px;
   vertical-align: top;
@@ -6981,295 +6741,230 @@ li.tutor-option-nav-item h4 {
   border-bottom: 1px solid #e0e2ea;
 }
 
-<<<<<<< HEAD
-.report-main-wrap p {
-  margin: 0;
+.tutor-backend-settings-page.email-manage-page {
+  background: #ffffff;
+  color: #212327;
 }
 
-.report-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px 23px;
+.tutor-backend-settings-page.email-manage-page .header-wrapper {
+  background: #ffffff;
+  border-bottom: 1px solid #cdcfd5;
 }
 
-@media (min-width: 1400px) {
-  .report-stats {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-}
-
-@media (min-width: 1500px) {
-  .report-stats {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
-@media (min-width: 1650px) {
-  .report-stats {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  }
-}
-
-.report-stat-box-body {
-  background-color: #ffffff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  margin-right: 30px;
-  padding: 16px 29px;
-  border: 2px solid #E0E2EA;
-  border-radius: 6px;
-}
-
-.report-stat-box-body > div:not(:last-child) {
-  margin-right: 20px;
-}
-
-.report-stat-box:nth-child(4n) .report-stat-box-body {
-  margin-right: 0;
-}
-
-.report-stat-box .box-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #E9EDFB;
-}
-
-.report-stat-box .box-icon span {
-  font-size: 40px;
-}
-
-.report-stat-box h4,
-.report-stat-box p {
-  margin: 5px 0;
-}
-
-.report-stat-box .box-stats-text h3,
-.report-stat-box .box-stats-text p {
-  margin: 5px 0;
-}
-
-.tutor-list-header {
-  margin-bottom: 25px;
-}
-
-#tutor-courses-overview-section [class^='ttr-'],
-#tutor-courses-overview-section [class*=' ttr-'],
-#tutor-courses-review-section [class^='ttr-'],
-#tutor-courses-review-section [class*=' ttr-'] {
-  font-size: 20px;
-}
-
-#tutor-courses-review-section,
-#tutor-courses-overview-section,
-#tutor-new-registered-section {
-  margin-top: 42px;
-}
-
-#tutor-courses-overview-section,
-#tutor-new-registered-section {
-  display: grid;
-  gap: 20px 23px;
-}
-
-@media (min-width: 1347px) {
-  #tutor-courses-overview-section,
-  #tutor-new-registered-section {
-    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
-  }
-}
-
-@media (min-width: 1600px) {
-  #tutor-courses-overview-section,
-  #tutor-new-registered-section {
-    grid-template-columns: repeat(auto-fit, minmax(660px, 1fr));
-  }
-}
-
-@media (min-width: 1347px) {
-  #tutor-courses-overview-section table tr td[data-th="Course Name"] {
-    width: 30%;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  #tutor-courses-overview-section table tr td[data-th="Total Enrolled"] {
-    width: 30%;
-  }
-  #tutor-courses-overview-section table tr td[data-th="Course Name"] {
-    width: 10%;
-  }
-}
-
-@media (min-width: 1600px) {
-  #tutor-courses-overview-section table tr td[data-th="Course Name"] {
-    width: 50%;
-  }
-  #tutor-courses-overview-section table tr td[data-th="Total Enrolled"] {
-    width: 20%;
-  }
-}
-
-#tutor-courses-overview-section table .a-to-z-sort-icon {
-  margin-left: 5px;
-  font-size: 15px;
-}
-
-#tutor-courses-overview-section table .tutor-details-link {
-  margin-left: 20px;
-  cursor: pointer;
-}
-
-#tutor-courses-overview-section table .tutor-details-link span {
-  font-size: 20px;
-}
-
-#tutor-courses-review-section a {
+.tutor-backend-settings-page.email-manage-page .header-wrapper .prev-page {
+  font-size: 24px;
   color: inherit;
 }
 
-#tutor-courses-review-section table tr th:first-child .ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
-  font-size: 18px;
+.tutor-backend-settings-page.email-manage-page .header-main .header-left > .subtitle {
+  color: #5b616f;
 }
 
-#tutor-courses-review-section table tr td {
-  vertical-align: top;
-}
-
-@media (min-width: 1367px) {
-  #tutor-courses-review-section table tr td[data-th="Student"] {
-    width: 15%;
-  }
-  #tutor-courses-review-section table tr td[data-th="Date"] {
-    width: 14%;
-  }
-  #tutor-courses-review-section table tr td[data-th="course"] {
-    width: 19%;
-    padding-right: 30px;
-  }
-  #tutor-courses-review-section table tr td[data-th="Feedback"] {
-    width: 30%;
-  }
-  #tutor-courses-review-section table tr td[data-th="review-action-btns"] {
-    width: 10%;
+@media (min-width: 820px) {
+  .tutor-backend-settings-page.email-manage-page .header-main .header-right {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1367px) {
-  #tutor-courses-review-section table tr td[data-th="Student"] {
-    width: 20%;
-  }
-  #tutor-courses-review-section table tr td[data-th="Date"] {
-    width: 10%;
-  }
-  #tutor-courses-review-section table tr td[data-th="Date"] {
-    width: 13%;
-  }
-  #tutor-courses-review-section table tr td[data-th="course"] {
-    width: 21%;
-    padding-right: 10px;
-  }
-  #tutor-courses-review-section table tr td[data-th="Feedback"] {
-    padding-right: 15px;
-    width: 31%;
-  }
-  #tutor-courses-review-section table tr td[data-th="review-action-btns"] {
-    padding-right: 10px;
+@media (max-width: 650px) {
+  .tutor-backend-settings-page.email-manage-page .header-main .header-right {
+    margin-top: 20px;
   }
 }
 
-@media (max-width: 1199px) {
-  #tutor-courses-review-section table tr td[data-th="review-action-btns"] {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default {
+  color: #41454f;
+  padding: 7px 13px;
+}
+
+.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default [class^='tutor-v2-icon'] {
+  font-size: 22px;
+  color: #757c8e;
+}
+
+.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default:hover [class^='tutor-v2-icon'] {
+  color: inherit;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content-wrapper > .main-content {
+  padding: 30px;
+}
+
+@media (min-width: 992px) {
+  .tutor-backend-settings-page.email-manage-page .main-content-wrapper.d-grid {
+    grid-template-columns: var(--col) calc(100% - var(--col));
   }
-  #tutor-courses-review-section table tr td[data-th="review-action-btns"] .btn-text {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+}
+
+@media (min-width: 1400px) {
+  .tutor-backend-settings-page.email-manage-page .main-content-wrapper > .main-content {
+    padding: 60px 74px;
+  }
+  .tutor-backend-settings-page.email-manage-page .main-content-wrapper .content-right {
+    padding: 60px 105px;
   }
 }
 
-#tutor-courses-review-section table tr td[data-th="course"] {
-  padding-right: 30px;
+.tutor-backend-settings-page.email-manage-page .main-content {
+  color: #5b616f;
 }
 
-#tutor-courses-review-section table tr td[data-th="Feedback"] {
-  padding-right: 15px;
+.tutor-backend-settings-page.email-manage-page .main-content .title {
+  color: #212327;
 }
 
-#tutor-courses-review-section table tr td[data-th="review-action-btns"] {
-  text-align: center;
-  vertical-align: middle;
+.tutor-backend-settings-page.email-manage-page .main-content .subtitle span {
+  color: #212327;
 }
 
-#tutor-courses-review-section table tr td[data-th="review-action-btns"] a {
-  vertical-align: middle;
+.tutor-backend-settings-page.email-manage-page .main-content .tutor-form-label {
+  color: #5b616f;
 }
 
-#tutor-courses-review-section table tr td[data-th="review-action-btns"] *:not(:last-child) {
-  margin-right: 16px;
+.tutor-backend-settings-page.email-manage-page .main-content select.tutor-form-select::-webkit-input-placeholder, .tutor-backend-settings-page.email-manage-page .main-content input.tutor-form-control::-webkit-input-placeholder, .tutor-backend-settings-page.email-manage-page .main-content textarea.tutor-form-control::-webkit-input-placeholder {
+  color: #757c8e;
 }
 
-#tutor-new-registered-section .tutor-instructor-card,
-#tutor-qna-section .tutor-instructor-card {
-  padding: 0px;
+.tutor-backend-settings-page.email-manage-page .main-content select.tutor-form-select::-moz-placeholder, .tutor-backend-settings-page.email-manage-page .main-content input.tutor-form-control::-moz-placeholder, .tutor-backend-settings-page.email-manage-page .main-content textarea.tutor-form-control::-moz-placeholder {
+  color: #757c8e;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content select.tutor-form-select:-ms-input-placeholder, .tutor-backend-settings-page.email-manage-page .main-content input.tutor-form-control:-ms-input-placeholder, .tutor-backend-settings-page.email-manage-page .main-content textarea.tutor-form-control:-ms-input-placeholder {
+  color: #757c8e;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content select.tutor-form-select::-ms-input-placeholder, .tutor-backend-settings-page.email-manage-page .main-content input.tutor-form-control::-ms-input-placeholder, .tutor-backend-settings-page.email-manage-page .main-content textarea.tutor-form-control::-ms-input-placeholder {
+  color: #757c8e;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content select.tutor-form-select::placeholder,
+.tutor-backend-settings-page.email-manage-page .main-content input.tutor-form-control::placeholder,
+.tutor-backend-settings-page.email-manage-page .main-content textarea.tutor-form-control::placeholder {
+  color: #757c8e;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content.content-right {
+  background: #eff1f6;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content.content-left {
+  background: #e4e5eb;
+  border-right: 1px solid #cdcfd5;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .content-form .tutor-form-control,
+.tutor-backend-settings-page.email-manage-page .main-content .content-form .tutor-form-select {
+  height: 48px;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .content-form .has-tooltip {
+  margin-right: -25px;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .content-form .has-tooltip .tooltip-wrap {
+  left: 8px;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .tooltip-wrap .tooltip-txt {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .tooltip-wrap .tooltip-left,
+.tutor-backend-settings-page.email-manage-page .main-content .tooltip-wrap .tooltip-right {
+  top: -18px;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .tooltip-wrap .tooltip-left::after,
+.tutor-backend-settings-page.email-manage-page .main-content .tooltip-wrap .tooltip-right::after {
+  top: 30px;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .code-preview {
+  display: block;
+  background: #efefef;
+  padding: 7px 8px;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .code-preview textarea.tutor-form-control:-moz-read-only {
+  font-family: 'Monaco', 'Lucida Console', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.2px;
+  height: 605px;
+  max-height: 605px;
+  padding: 3px 6px;
+  color: #212327;
+  border-color: #d8d8d8;
+  background-color: #f8f8f8;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .code-preview textarea.tutor-form-control:read-only {
+  font-family: 'Monaco', 'Lucida Console', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.2px;
+  height: 605px;
+  max-height: 605px;
+  padding: 3px 6px;
+  color: #212327;
+  border-color: #d8d8d8;
+  background-color: #f8f8f8;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .code-preview textarea.tutor-form-control:-moz-read-only:focus {
+  border-color: #1973aa;
+}
+
+.tutor-backend-settings-page.email-manage-page .main-content .code-preview textarea.tutor-form-control:read-only:focus {
+  border-color: #1973aa;
+}
+
+.tutor-backend-settings-page.email-manage-page .tutor-option-single-item .item-wrapper {
+  border: 1px solid #c0c3cb;
+  padding: 18px 19px;
+}
+
+.tutor-backend-settings-page.email-manage-page .tutor-option-single-item.item-email-action {
+  grid-template-columns: repeat(2, auto);
+  grid-auto-flow: unset;
+}
+
+.tutor-backend-settings-page.email-manage-page .tutor-option-single-item.item-email-action .item-wrapper {
+  border: 1px solid #e0e2ea;
+}
+
+.tutor-backend-settings-page.email-manage-page .tutor-option-field-input .logo-upload {
   border: none;
-  min-width: unset;
 }
 
-#tutor-new-registered-section .tutor-instructor-card .tutor-icard-content h6,
-#tutor-qna-section .tutor-instructor-card .tutor-icard-content h6 {
-  margin: 0;
+.tutor-backend-settings-page.email-manage-page .template-preview {
+  background: #ffffff;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
 }
 
-#tutor-new-registered-section .tutor-instructor-card .tutor-icard-content span,
-#tutor-qna-section .tutor-instructor-card .tutor-icard-content span {
-  margin-left: 7px;
-  color: #757C8E;
+.tutor-backend-settings-page.email-manage-page .template-preview .template-header {
+  border-bottom: 1px solid #e0e2ea;
 }
 
-@media (min-width: 1200px) and (max-width: 1367px) {
-  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Student"] {
-    width: 20%;
-  }
-  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Date"] {
-    width: 10%;
-  }
-  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Date"] {
-    width: 13%;
-  }
-  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="course"] {
-    width: 21%;
-    padding-right: 10px;
-  }
-  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="Feedback"] {
-    padding-right: 15px;
-    width: 31%;
-  }
-  #tutor-new-registered-section table.tutor-ui-table tr td[data-th="review-action-btns"] {
-    padding-right: 10px;
-  }
+.tutor-backend-settings-page.email-manage-page .template-preview .template-body {
+  background-position: top right;
+  background-repeat: no-repeat;
 }
 
-@media (min-width: 1199px) {
-  #tutor-new-registered-section table.tutor-ui-table tr td:nth-child(1) {
-    width: 39%;
-  }
+.tutor-backend-settings-page.email-manage-page .template-preview .template-body .qna-message-answered > .d-flex {
+  border-top: 1px solid #e0e2ea;
+  border-bottom: 1px solid #e0e2ea;
 }
 
-=======
 #tutor-addons-list-wrapper {
   margin-left: -20px;
 }
@@ -7560,7 +7255,6 @@ li.tutor-option-nav-item h4 {
   max-width: 100%;
 }
 
->>>>>>> 8f9dd1fa486555ad57bd9ca9546f60cd15eeb8fd
 .monetization-fees.is-disable .tutor-option-field-row:nth-child(2), .monetization-fees.is-disable .tutor-option-field-row:nth-child(3) {
   position: relative;
   cursor: not-allowed;
