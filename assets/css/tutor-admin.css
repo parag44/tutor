@@ -2286,8 +2286,9 @@ button#quiz-answer-edit-btn {
   cursor: pointer;
 }
 
-button#quiz-answer-save-btn:hover,
-button#quiz-answer-edit-btn:hover {
+button#quiz-answer-save-btn:hover, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button#quiz-answer-save-btn.active,
+button#quiz-answer-edit-btn:hover,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button#quiz-answer-edit-btn.active {
   background-color: var(--tutor-success-button-color);
 }
 
@@ -2859,12 +2860,12 @@ span.withdraw-method-label {
   text-decoration: none;
 }
 
-.quiz-attempt-answers-wrap table .quiz-manual-review-action:first-child:hover {
+.quiz-attempt-answers-wrap table .quiz-manual-review-action:first-child:hover, .quiz-attempt-answers-wrap table .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.quiz-manual-review-action.active:first-child, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .quiz-attempt-answers-wrap table button.quiz-manual-review-action.active:first-child {
   border: 1px solid var(--tutor-success-button-color);
   color: var(--tutor-success-button-color);
 }
 
-.quiz-attempt-answers-wrap table .quiz-manual-review-action:last-child:hover {
+.quiz-attempt-answers-wrap table .quiz-manual-review-action:last-child:hover, .quiz-attempt-answers-wrap table .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.quiz-manual-review-action.active:last-child, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .quiz-attempt-answers-wrap table button.quiz-manual-review-action.active:last-child {
   border: 1px solid #df3247;
   color: #df3247;
 }
@@ -3426,7 +3427,8 @@ table.tutor-table p {
 }
 
 .nav-tab-item:focus,
-.nav-tab-item:hover {
+.nav-tab-item:hover,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.nav-tab-item.active {
   background-color: #fff;
   color: #444;
 }
@@ -3445,7 +3447,8 @@ table.tutor-table p {
 .nav-tab-item-active,
 .nav-tab-item-active:focus,
 .nav-tab-item-active:focus:active,
-.nav-tab-item-active:hover {
+.nav-tab-item-active:hover,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.nav-tab-item-active.active {
   border-bottom: 1px solid #f1f1f1;
   background: #f1f1f1;
   color: #000;
@@ -3505,7 +3508,8 @@ table.tutor-table p {
 }
 
 .instructor-layout-template.selected-template img,
-.instructor-layout-template:hover img {
+.instructor-layout-template:hover img,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.instructor-layout-template.active img {
   border: 6px solid #3057d6;
 }
 
@@ -3751,7 +3755,7 @@ table.tutor-table p {
   transition: 0.2s;
 }
 
-.tutor-list-footer .page-numbers:hover,
+.tutor-list-footer .page-numbers:hover, .tutor-list-footer .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.page-numbers.active, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-list-footer button.page-numbers.active,
 .tutor-list-footer .page-numbers:focus {
   border-color: #3e64de;
   background: #3e64de !important;
@@ -3760,7 +3764,7 @@ table.tutor-table p {
           box-shadow: none;
 }
 
-.tutor-list-footer .page-numbers.current:hover,
+.tutor-list-footer .page-numbers.current:hover, .tutor-list-footer .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.page-numbers.current.active, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-list-footer button.page-numbers.current.active,
 .tutor-list-footer .page-numbers.current:focus {
   background: transparent !important;
   color: inherit;
@@ -4076,8 +4080,10 @@ a {
   background: transparent;
 }
 
-.tutor-backend-settings-page .tutor-btn.tutor-is-outline:not(.tutor-no-hover):hover,
-.tutor-dashboard-page .tutor-btn.tutor-is-outline:not(.tutor-no-hover):hover {
+.tutor-backend-settings-page .tutor-btn.tutor-is-outline:not(.tutor-no-hover):hover, .tutor-backend-settings-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.tutor-is-outline.active:not(.tutor-no-hover), .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page button.tutor-btn.tutor-is-outline.active:not(.tutor-no-hover),
+.tutor-dashboard-page .tutor-btn.tutor-is-outline:not(.tutor-no-hover):hover,
+.tutor-dashboard-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.tutor-is-outline.active:not(.tutor-no-hover),
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-dashboard-page button.tutor-btn.tutor-is-outline.active:not(.tutor-no-hover) {
   background-color: #166494;
   border-color: #166494;
 }
@@ -4089,8 +4095,10 @@ a {
   background: var(--tutor-white);
 }
 
-.tutor-backend-settings-page .tutor-btn.tutor-is-outline.tutor-is-default:not(.tutor-no-hover):hover,
-.tutor-dashboard-page .tutor-btn.tutor-is-outline.tutor-is-default:not(.tutor-no-hover):hover {
+.tutor-backend-settings-page .tutor-btn.tutor-is-outline.tutor-is-default:not(.tutor-no-hover):hover, .tutor-backend-settings-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.tutor-is-outline.tutor-is-default.active:not(.tutor-no-hover), .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page button.tutor-btn.tutor-is-outline.tutor-is-default.active:not(.tutor-no-hover),
+.tutor-dashboard-page .tutor-btn.tutor-is-outline.tutor-is-default:not(.tutor-no-hover):hover,
+.tutor-dashboard-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.tutor-is-outline.tutor-is-default.active:not(.tutor-no-hover),
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-dashboard-page button.tutor-btn.tutor-is-outline.tutor-is-default.active:not(.tutor-no-hover) {
   background: unset;
   color: #166494;
   border-color: #166494;
@@ -4102,8 +4110,10 @@ a {
   border-color: #1973aa;
 }
 
-.tutor-backend-settings-page .tutor-btn:not(.tutor-is-outline):not(.tutor-no-hover):hover,
-.tutor-dashboard-page .tutor-btn:not(.tutor-is-outline):not(.tutor-no-hover):hover {
+.tutor-backend-settings-page .tutor-btn:not(.tutor-is-outline):not(.tutor-no-hover):hover, .tutor-backend-settings-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.active:not(.tutor-is-outline):not(.tutor-no-hover), .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page button.tutor-btn.active:not(.tutor-is-outline):not(.tutor-no-hover),
+.tutor-dashboard-page .tutor-btn:not(.tutor-is-outline):not(.tutor-no-hover):hover,
+.tutor-dashboard-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.active:not(.tutor-is-outline):not(.tutor-no-hover),
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-dashboard-page button.tutor-btn.active:not(.tutor-is-outline):not(.tutor-no-hover) {
   background-color: #166494;
   border-color: #166494;
 }
@@ -4115,8 +4125,10 @@ a {
   color: var(--tutor-text-primary);
 }
 
-.tutor-backend-settings-page .tutor-btn:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover):hover,
-.tutor-dashboard-page .tutor-btn:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover):hover {
+.tutor-backend-settings-page .tutor-btn:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover):hover, .tutor-backend-settings-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover), .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover),
+.tutor-dashboard-page .tutor-btn:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover):hover,
+.tutor-dashboard-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover),
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-dashboard-page button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default:not(.tutor-no-hover) {
   background-color: var(--tutor-bg-grey);
   color: #1973aa;
   border-color: #1973aa;
@@ -4129,8 +4141,10 @@ a {
   color: inherit;
 }
 
-.tutor-backend-settings-page .tutor-btn:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover):hover,
-.tutor-dashboard-page .tutor-btn:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover):hover {
+.tutor-backend-settings-page .tutor-btn:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover):hover, .tutor-backend-settings-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover), .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover),
+.tutor-dashboard-page .tutor-btn:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover):hover,
+.tutor-dashboard-page .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover),
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-dashboard-page button.tutor-btn.active:not(.tutor-is-outline).tutor-is-default.is-text-only:not(.tutor-no-hover) {
   background-color: var(--tutor-bg-grey-light);
   color: #1973aa;
   border-color: transparent;
@@ -4282,7 +4296,7 @@ li.tutor-option-nav-item h4 {
   transition: 0.3s;
 }
 
-.radio-thumbnail .icon-wrapper.icon-col:hover {
+.radio-thumbnail .icon-wrapper.icon-col:hover, .radio-thumbnail .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.icon-wrapper.icon-col.active, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .radio-thumbnail button.icon-wrapper.icon-col.active {
   background: #e9edfb;
 }
 
@@ -4452,7 +4466,7 @@ li.tutor-option-nav-item h4 {
   border: 5px solid transparent;
 }
 
-.tooltip-wrap:hover .tooltip-txt {
+.tooltip-wrap:hover .tooltip-txt, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .tooltip-txt {
   opacity: 1;
   visibility: visible;
   -webkit-filter: blur(0px);
@@ -4552,32 +4566,32 @@ li.tutor-option-nav-item h4 {
           transform: translateX(-2px);
 }
 
-.tooltip-wrap:hover .tooltip-top {
+.tooltip-wrap:hover .tooltip-top, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .tooltip-top {
   -webkit-transform: translateX(-50%) translateY(0);
           transform: translateX(-50%) translateY(0);
 }
 
-.tooltip-wrap:hover .tooltip-bottom {
+.tooltip-wrap:hover .tooltip-bottom, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .tooltip-bottom {
   -webkit-transform: translateX(-50%) translateY(0);
           transform: translateX(-50%) translateY(0);
 }
 
-.tooltip-wrap:hover .tooltip-right {
+.tooltip-wrap:hover .tooltip-right, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .tooltip-right {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 
-.tooltip-wrap:hover .tooltip-left {
+.tooltip-wrap:hover .tooltip-left, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .tooltip-left {
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 
-.tooltip-wrap:hover .arrow-center.tooltip-right {
+.tooltip-wrap:hover .arrow-center.tooltip-right, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .arrow-center.tooltip-right {
   -webkit-transform: translateY(-50%) translateX(0px);
           transform: translateY(-50%) translateX(0px);
 }
 
-.tooltip-wrap:hover .arrow-center.tooltip-left {
+.tooltip-wrap:hover .arrow-center.tooltip-left, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tooltip-wrap.active .arrow-center.tooltip-left {
   -webkit-transform: translateY(-50%) translateX(0px);
           transform: translateY(-50%) translateX(0px);
 }
@@ -4620,7 +4634,7 @@ li.tutor-option-nav-item h4 {
   font-size: 20px;
 }
 
-.popup-btn:hover, .popup-btn:focus {
+.popup-btn:hover, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.popup-btn.active, .popup-btn:focus {
   -webkit-box-shadow: 0 0 0 2px var(--tutor-primary-lighter);
           box-shadow: 0 0 0 2px var(--tutor-primary-lighter);
 }
@@ -5898,7 +5912,7 @@ li.tutor-option-nav-item h4 {
   font-size: 16px;
 }
 
-.tutor-option-field-row.row-variation-code .tutor-option-field-input.textarea-code .code-copy-btn:hover, .tutor-option-field-row.row-variation-code .tutor-option-field-input.textarea-code .code-copy-btn:focus {
+.tutor-option-field-row.row-variation-code .tutor-option-field-input.textarea-code .code-copy-btn:hover, .tutor-option-field-row.row-variation-code .tutor-option-field-input.textarea-code .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.code-copy-btn.active, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-option-field-row.row-variation-code .tutor-option-field-input.textarea-code button.code-copy-btn.active, .tutor-option-field-row.row-variation-code .tutor-option-field-input.textarea-code .code-copy-btn:focus {
   background: #1973aa;
   color: #ffffff;
 }
@@ -6286,7 +6300,7 @@ li.tutor-option-nav-item h4 {
   transition: 0.2s linear;
 }
 
-.tutor-option-nav-page .all-certificate .certificate-thumb:hover:before {
+.tutor-option-nav-page .all-certificate .certificate-thumb:hover:before, .tutor-option-nav-page .all-certificate .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.certificate-thumb.active:before, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-option-nav-page .all-certificate button.certificate-thumb.active:before {
   opacity: 1;
 }
 
@@ -6562,7 +6576,7 @@ li.tutor-option-nav-item h4 {
   color: #757c8e;
 }
 
-.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default:hover [class^='tutor-v2-icon'] {
+.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default:hover [class^='tutor-v2-icon'], .tutor-backend-settings-page.email-manage-page .header-main .header-right .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-is-default.active [class^='tutor-v2-icon'], .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page.email-manage-page .header-main .header-right button.tutor-is-default.active [class^='tutor-v2-icon'] {
   color: inherit;
 }
 
@@ -6786,7 +6800,7 @@ li.tutor-option-nav-item h4 {
   color: #757c8e;
 }
 
-.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default:hover [class^='tutor-v2-icon'] {
+.tutor-backend-settings-page.email-manage-page .header-main .header-right .tutor-is-default:hover [class^='tutor-v2-icon'], .tutor-backend-settings-page.email-manage-page .header-main .header-right .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.tutor-is-default.active [class^='tutor-v2-icon'], .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left .tutor-backend-settings-page.email-manage-page .header-main .header-right button.tutor-is-default.active [class^='tutor-v2-icon'] {
   color: inherit;
 }
 
@@ -7253,6 +7267,536 @@ li.tutor-option-nav-item h4 {
 
 .tutor-addons-empty > * {
   max-width: 100%;
+}
+
+.report-main-wrap p {
+  margin: 0;
+}
+
+.report-main-wrap a {
+  color: inherit;
+}
+
+.report-main-wrap [class^='ttr-'],
+.report-main-wrap [class*=' ttr-'] {
+  font-size: 22px;
+}
+
+.report-main-wrap .tutor-report-left-menus {
+  background-color: #fcfcfc;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-left-menus {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-bottom: 40px;
+    padding: 20px 30px;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px 23px;
+}
+
+@media (min-width: 1400px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (min-width: 1500px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (min-width: 1650px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box-body {
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 29px;
+  border: 2px solid #e0e2ea;
+  border-radius: 6px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box-body > div:not(:last-child) {
+  margin-right: 20px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box:nth-child(4n) .report-stat-box-body {
+  margin-right: 0;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #e9edfb;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-icon span {
+  font-size: 43px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box h4,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box p {
+  margin: 5px 0;
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box h4 {
+    font-size: 20px;
+    line-height: 113%;
+  }
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box p {
+    font-size: 12px;
+    line-height: 140%;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-stats-text h3,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-stats-text p {
+  margin: 5px 0;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-list-header {
+  margin-bottom: 25px;
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-list-header {
+    font-size: 20px;
+    line-height: 132%;
+    margin-bottom: 15px;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section {
+  margin-top: 50px;
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section,
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section,
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section,
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section {
+    margin-top: 30px;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-ratings .tutor-rating-text {
+  line-height: 26px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-instructor-card .tutor-icard-content {
+  margin-top: -10px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section {
+  display: grid;
+  gap: 20px 23px;
+}
+
+@media (min-width: 1347px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section {
+    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  }
+}
+
+@media (min-width: 1600px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section {
+    grid-template-columns: repeat(auto-fit, minmax(660px, 1fr));
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-month-graph {
+  padding: 37px 30px;
+  background: #ffffff;
+  border: 1px solid #cdcfd5;
+  border-radius: 6px;
+  position: relative;
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-month-graph {
+    padding: 23px 20px;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top {
+  margin-bottom: 20px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button:not(:last-child) {
+  margin-right: 18px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button {
+  border: 1px solid #C0C3CB;
+  border: 1px solid #c0c3cb;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  color: #757c8e;
+  background: #ffffff;
+  outline: 0;
+  padding: 2px 16px 3px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button:hover, .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-left button.active {
+  background: #1973aa;
+  color: #ffffff;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right > *:not(:last-child) {
+  margin-right: 6px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right > *:last-child {
+  margin-left: 3px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group input {
+  height: 33px;
+  padding: 0 12px;
+  color: #5b616f;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group input > div:last-child {
+  margin-left: 0px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group input ::-webkit-calendar-picker-indicator {
+  margin-left: 0px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group input[type="date" i]::-webkit-calendar-picker-indicator {
+  margin-left: 0px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-dash-line {
+  width: 20px;
+  height: 2px;
+  background: #cdcfd5;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translate(0px, -50%);
+          transform: translate(0px, -50%);
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-report-chart-search {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 32px;
+          flex: 0 0 32px;
+  height: 32px;
+  background: #1973aa;
+  border-radius: 3px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-report-chart-search span {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+@media (max-width: 823px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right {
+    margin-top: 10px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group {
+    width: 150px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group input {
+    min-height: 33px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-input-group input ::-webkit-calendar-picker-indicator {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 410px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right > div:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-report-chart-search {
+    width: 32px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section .tutor-overview-graph-top .tutor-overview-graph-top-right .tutor-dash-line {
+    display: none;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section #myChart {
+  width: 100%;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+@media (min-width: 1347px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table tr td[data-th='Course Name'] {
+    width: 30%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table tr td[data-th='Total Enrolled'] {
+    width: 30%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table tr td[data-th='Course Name'] {
+    width: 10%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table tr td[data-th='Course Name'] {
+    width: 50%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table tr td[data-th='Total Enrolled'] {
+    width: 20%;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table .a-to-z-sort-icon {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section table .tutor-details-link {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr th:first-child .ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
+  font-size: 18px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td {
+  vertical-align: top;
+}
+
+@media (min-width: 1367px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Student'] {
+    width: 15%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Date'] {
+    width: 14%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='course'] {
+    width: 19%;
+    padding-right: 30px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Feedback'] {
+    width: 30%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
+    width: 10%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Student'] {
+    width: 20%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Date'] {
+    width: 10%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Date'] {
+    width: 13%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='course'] {
+    width: 21%;
+    padding-right: 10px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Feedback'] {
+    padding-right: 15px;
+    width: 31%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] .btn-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='course'] {
+  padding-right: 30px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Feedback'] {
+  padding-right: 15px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] a {
+  vertical-align: middle;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] *:not(:last-child) {
+  margin-right: 16px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section .tutor-instructor-card,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .tutor-instructor-card {
+  padding: 0px;
+  border: none;
+  min-width: unset;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section .tutor-instructor-card .tutor-avatar img,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .tutor-instructor-card .tutor-avatar img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section .tutor-instructor-card .tutor-icard-content h6,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .tutor-instructor-card .tutor-icard-content h6 {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section .tutor-instructor-card .tutor-icard-content span,
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .tutor-instructor-card .tutor-icard-content span {
+  margin-left: 7px;
+  color: #757c8e;
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td[data-th='Student'] {
+    width: 20%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td[data-th='Date'] {
+    width: 10%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td[data-th='Date'] {
+    width: 13%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td[data-th='course'] {
+    width: 21%;
+    padding-right: 10px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td[data-th='Feedback'] {
+    padding-right: 15px;
+    width: 31%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td[data-th='review-action-btns'] {
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) and (min-width: 1199px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section table.tutor-ui-table tr td:nth-child(1) {
+    width: 39%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section table tr td[data-th='Questions'] {
+    width: 50%;
+    padding-right: 145px;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section table tr td[data-th='Student'] {
+    width: 15%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section table tr td[data-th='Reply'] {
+    width: 5%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section table tr td[data-th='Answer'] {
+    width: 8%;
+  }
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section table tr td[data-th='Answer'] .td-action-btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section table tr td[data-th='Questions'] {
+    padding-right: 45px;
+  }
+}
+
+#tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Course Name'] {
+  width: 50% !important;
+}
+
+#tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Lesson'] {
+  width: 9%;
+}
+
+#tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Assignment'] {
+  width: 9%;
+}
+
+#tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Total Learners'] {
+  width: 9%;
+}
+
+#tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Earnings'] {
+  width: 10%;
+}
+
+#tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='URL'] {
+  width: 15%;
 }
 
 .monetization-fees.is-disable .tutor-option-field-row:nth-child(2), .monetization-fees.is-disable .tutor-option-field-row:nth-child(3) {

@@ -1,0 +1,31 @@
+
+#tutor-report-overview-wrap { 
+    .tutor-report-overview-data-table { 
+        .tutor-ui-table-wrapper {
+            table { 
+                tbody {
+                    tr {
+                        td[data-th='Course Name'] {
+                            width : 50% !important;
+						}
+                        td[data-th='Lesson'] {
+                            width : 9%;
+						}
+                        td[data-th='Assignment'] {
+                            width : 9%;
+						}
+                        td[data-th='Total Learners'] {
+                            width : 9%;
+						}
+                        td[data-th='Earnings'] {
+                            width : 10%;
+						}
+                        td[data-th='URL'] {
+                            width : 15%;
+						}
+                    }
+                }
+            }
+        }
+    }
+}
