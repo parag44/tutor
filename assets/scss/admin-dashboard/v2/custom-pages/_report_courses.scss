@@ -1,31 +1,52 @@
-
-#tutor-report-overview-wrap { 
-    .tutor-report-overview-data-table { 
-        .tutor-ui-table-wrapper {
-            table { 
-                tbody {
-                    tr {
-                        td[data-th='Course Name'] {
-                            width : 50% !important;
+#tutor-report-overview-wrap {
+	.tutor-report-overview-data-table-header {
+		margin-bottom: 40px;
+	}
+	.tutor-report-overview-data-table {
+		.tutor-ui-table-wrapper {
+			table {
+				tbody {
+					@include breakpoint-min(1200) {
+						tr {
+							td[data-th='Course Name'] {
+								width: 50%;
+							}
+							td[data-th='Lesson'] {
+								width: 9%;
+							}
+							td[data-th='Assignment'] {
+								width: 9%;
+							}
+							td[data-th='Total Learners'] {
+								width: 9%;
+							}
+							td[data-th='Earnings'] {
+								width: 10%;
+							}
+							td[data-th='URL'] {
+								width: 15%;
+							}
 						}
-                        td[data-th='Lesson'] {
-                            width : 9%;
-						}
-                        td[data-th='Assignment'] {
-                            width : 9%;
-						}
-                        td[data-th='Total Learners'] {
-                            width : 9%;
-						}
-                        td[data-th='Earnings'] {
-                            width : 10%;
-						}
-                        td[data-th='URL'] {
-                            width : 15%;
-						}
+					}
+				}
+			}
+		}
+	}
+	.tutor-report-overview-data-table-pagination {
+		margin-top: 50px;
+		.tutor-dashboard-pagination {
+            background: transparent;
+            max-height: 48px;
+            ul {
+                li {
+                    margin-bottom: 0px;
+                    li.pagination-number {
+                        &:before {
+                            bottom: calc(0% - 11px);
+                        }
                     }
                 }
             }
-        }
-    }
+		}
+	}
 }

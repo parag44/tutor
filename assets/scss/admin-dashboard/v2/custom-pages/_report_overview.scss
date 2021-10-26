@@ -10,19 +10,26 @@
 		font-size: 22px;
 	}
 
+	.tutor-list-header {
+		margin-bottom: 25px;
+		@include breakpoint-max(823) {
+			font-size: 20px;
+			line-height: 132%;
+			margin-bottom: 15px;
+		}
+	}
+
 	.tutor-report-left-menus {
 		background-color: #fcfcfc;
 		margin-bottom: 40px;
 		@include breakpoint-max(823) {
 			flex-wrap: wrap;
 			margin-bottom: 40px;
-			padding : 20px 30px;
+			padding: 20px 30px;
 		}
 	}
 	.tutor-report-content {
-
 		.tutor-report-overview-wrap {
-
 			.report-stats {
 				display: grid;
 				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -88,14 +95,6 @@
 				.report-stat-box .box-stats-text h4 {
 				}
 			}
-			.tutor-list-header {
-				margin-bottom: 25px;
-				@include breakpoint-max(823) {
-					font-size: 20px;
-					line-height: 132%;
-					margin-bottom: 15px;
-				}
-			}
 
 			// #tutor-courses-overview-section,
 			// #tutor-courses-review-section,
@@ -118,15 +117,14 @@
 			}
 			.tutor-ratings {
 				.tutor-rating-text {
-					line-height : 26px;
+					line-height: 26px;
 				}
 			}
 			.tutor-instructor-card {
 				.tutor-icard-content {
 					margin-top: -10px;
 				}
-			} 
-			
+			}
 
 			#tutor-courses-overview-section,
 			#tutor-new-registered-section {
@@ -154,13 +152,13 @@
 				.chartjs-size-monitor {
 				}
 				.tutor-overview-graph-top {
-					margin-bottom : 20px;	
+					margin-bottom: 20px;
 					.tutor-overview-graph-top-left {
 						button:not(:last-child) {
-							margin-right : 18px;
+							margin-right: 18px;
 						}
 						button {
-							border: 1px solid #C0C3CB;
+							border: 1px solid #c0c3cb;
 							border: 1px solid $stroke-gray;
 							box-sizing: border-box;
 							border-radius: 3px;
@@ -186,18 +184,18 @@
 						}
 						.tutor-input-group {
 							input {
-								height : 33px;
-								padding : 0 12px;
-								color : $text-subsued;
+								height: 33px;
+								padding: 0 12px;
+								color: $text-subsued;
 								> div:last-child {
-									margin-left : 0px;
+									margin-left: 0px;
 								}
 								::-webkit-calendar-picker-indicator {
-									margin-left : 0px;
+									margin-left: 0px;
 								}
 							}
-							input[type="date" i]::-webkit-calendar-picker-indicator {
-								margin-left : 0px;
+							input[type='date' i]::-webkit-calendar-picker-indicator {
+								margin-left: 0px;
 							}
 						}
 						.tutor-dash-line {
@@ -219,19 +217,19 @@
 							}
 						}
 						@include breakpoint-max(823) {
-							margin-top : 10px;
+							margin-top: 10px;
 							.tutor-input-group {
 								width: 150px;
 								input {
-									min-height : 33px;
+									min-height: 33px;
 									::-webkit-calendar-picker-indicator {
-										margin-left : 0px;
+										margin-left: 0px;
 									}
 								}
 							}
 						}
 						@include breakpoint-max(410) {
-							flex-wrap : wrap;
+							flex-wrap: wrap;
 							> div:not(:last-child) {
 								margin-bottom: 10px;
 							}
@@ -239,7 +237,7 @@
 								width: 32px;
 							}
 							.tutor-dash-line {
-								display : none;
+								display: none;
 							}
 						}
 					}
