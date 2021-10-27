@@ -1301,10 +1301,6 @@ p.course-empty-content {
   color: #cccccc;
 }
 
-.tutor-updating-message i {
-  display: none;
-}
-
 /**
   Instructor
    */
@@ -2448,26 +2444,6 @@ span.filled_dash_unser {
   margin: 50px 0;
 }
 
-/**
-  Updating Messsage
-   */
-.tutor-updating-message:before {
-  display: inline-block;
-  font-family: 'tutor';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  vertical-align: top;
-  content: '\e91d';
-  -webkit-animation: rotation 2s infinite linear;
-  animation: rotation 2s infinite linear;
-  margin-right: 6px;
-}
-
-.rtl .tutor-updating-message:before {
-  margin-right: 0;
-  margin-left: 6px;
-}
-
 .lesson-modal-field.tutor-lesson-modal-title-wrap {
   width: 95%;
 }
@@ -2977,8 +2953,8 @@ span.withdraw-method-label {
 /** END Calender */
 /**
   * report.css
-  * Moved report.css from pro add to here
-  */
+  *Moved report.css from pro add to here
+   */
 h2.tutor-page-heading {
   background-color: #ffffff;
   padding: 30px !important;
@@ -3116,59 +3092,6 @@ h2.tutor-page-heading {
   color: #ffffff;
 }
 
-/* 
-//   .tutor-report-overview-section {
-// 	display: -webkit-box;
-// 	display: -ms-flexbox;
-// 	display: flex;
-// 	margin: 20px 0;
-//   }
-
-  .overview-section-col6 {
-	width: 50%;
-  }
-  
-  .overview-section-col6 {
-	margin-right: 1%;
-	margin-left: 1%;
-  }
-  
-  .overview-section-col6:first-child {
-	margin-left: 0;
-  }
-  
-  .overview-section-col6:last-child {
-	margin-right: 0;
-  }
-  
-  .last-revews-wrap {
-	width: 100%;
-  }
-  
-  table.tutor-report-table {
-	border: none;
-	-webkit-box-shadow: none;
-			box-shadow: none;
-  }
-  
-  .tutor-report-table th {
-	background-color: #fcfcfc;
-	border-top: 1px solid #eaeaea;
-	border-bottom: 1px solid #eaeaea;
-	padding: 20px;
-	color: #878a8f;
-  }
-  
-  .tutor-report-table td {
-	border-bottom: 1px solid #eaeaea;
-	padding: 20px;
-  }
-  
-  .tutor-report-table td img.avatar {
-	float: left;
-	margin-right: 5px;
-  }
-  */
 /**
   Icon
    */
@@ -7308,6 +7231,10 @@ li.tutor-option-nav-item h4 {
 
 @media (max-width: 823px) {
   .report-main-wrap .tutor-report-left-menus {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-bottom: 40px;
@@ -7782,46 +7709,184 @@ li.tutor-option-nav-item h4 {
   }
 }
 
-#tutor-report-overview-wrap .tutor-report-overview-data-table-header {
+#tutor-report-courses-wrap .tutor-report-courses-data-table-header {
   margin-bottom: 40px;
 }
 
+@media (max-width: 1670px) {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items > div:not(:last-child) {
+    gap: 10px;
+  }
+}
+
+#tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items .tutor-form-select-with-btn {
+  gap: 10px;
+}
+
+@media (max-width: 1670px) {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items select.tutor-form-select,
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items .tutor-wp-dashboard-filter-items .tutor-input-group,
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items .tutor-input-group {
+    width: 187px;
+  }
+}
+
+@media (max-width: 1500px) {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items select.tutor-form-select,
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items .tutor-wp-dashboard-filter-items .tutor-input-group,
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items .tutor-input-group {
+    width: 150px;
+  }
+}
+
+@media (max-width: 1500px) {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items .tutor-input-group.tutor-input-group-date {
+    width: 187px;
+    max-width: 187px;
+  }
+}
+
+#tutor-report-courses-wrap .tutor-report-courses-data-table {
+  margin-top: 50px;
+}
+
 @media (min-width: 1200px) {
-  #tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Course Name'] {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Course Name'] {
     width: 50%;
   }
-  #tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Lesson'] {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Lesson'] {
     width: 9%;
   }
-  #tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Assignment'] {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Assignment'] {
     width: 9%;
   }
-  #tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Total Learners'] {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Total Learners'] {
     width: 9%;
   }
-  #tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Earnings'] {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='Earnings'] {
     width: 10%;
   }
-  #tutor-report-overview-wrap .tutor-report-overview-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='URL'] {
+  #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='URL'] {
     width: 15%;
   }
 }
 
-#tutor-report-overview-wrap .tutor-report-overview-data-table-pagination {
+#tutor-report-courses-wrap .tutor-report-courses-data-table-pagination {
   margin-top: 50px;
 }
 
-#tutor-report-overview-wrap .tutor-report-overview-data-table-pagination .tutor-dashboard-pagination {
+#tutor-report-courses-wrap .tutor-report-courses-data-table-pagination .tutor-dashboard-pagination {
   background: transparent;
   max-height: 48px;
 }
 
-#tutor-report-overview-wrap .tutor-report-overview-data-table-pagination .tutor-dashboard-pagination ul li {
+#tutor-report-courses-wrap .tutor-report-courses-data-table-pagination .tutor-dashboard-pagination ul li {
   margin-bottom: 0px;
 }
 
-#tutor-report-overview-wrap .tutor-report-overview-data-table-pagination .tutor-dashboard-pagination ul li li.pagination-number:before {
+#tutor-report-courses-wrap .tutor-report-courses-data-table-pagination .tutor-dashboard-pagination ul li li.pagination-number:before {
   bottom: calc(0% - 11px);
+}
+
+/* #tutor-report-courses-detials-wrap */
+#tutor-report-courses-detials-wrap {
+  margin-bottom: 30px;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1500px) {
+  #tutor-report-courses-detials-wrap .tutor-course-report-header {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media (max-width: 1150px) {
+  #tutor-report-courses-detials-wrap .tutor-course-report-header {
+    grid-template-columns: 1fr;
+  }
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-left .tutor-course-report-header-title h4 {
+  margin: 0px;
+  margin-bottom: 11px;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-left .tutor-course-report-header-meta > div:not(:last-child) {
+  margin-right: 27px;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-left .tutor-course-report-header-meta span {
+  font-weight: 500;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-left .tutor-course-report-header-meta .tutor-course-report-last-update-date span:last-child {
+  margin-left: 5px;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-right {
+  margin-top: 20px;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-right > button:not(:last-child) {
+  margin-right: 15px;
+}
+
+#tutor-report-courses-detials-wrap .tutor-course-report-header .tutor-course-report-header-right button {
+  padding: 10px 18px;
+}
+
+#tutor-report-courses-detials-wrap #tutor-course-report-stats {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #fff;
+  border: 1px solid #CDCFD5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 6px;
+}
+
+@media (max-width: 1200px) {
+  #tutor-report-courses-detials-wrap #tutor-course-report-stats {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-report-stats .tutor-course-report-single-stats {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+    padding: 20px 5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #tutor-report-courses-detials-wrap #tutor-course-report-stats > div:not(:last-child) {
+    border-right: 1px solid #CDCFD5;
+  }
+}
+
+#tutor-report-courses-detials-wrap #tutor-course-report-stats .tutor-course-report-single-stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 10px 10px 30px;
 }
 
 .monetization-fees.is-disable .tutor-option-field-row:nth-child(2), .monetization-fees.is-disable .tutor-option-field-row:nth-child(3) {

@@ -23,6 +23,7 @@
 		background-color: #fcfcfc;
 		margin-bottom: 40px;
 		@include breakpoint-max(823) {
+			flex-direction: column;
 			flex-wrap: wrap;
 			margin-bottom: 40px;
 			padding: 20px 30px;
