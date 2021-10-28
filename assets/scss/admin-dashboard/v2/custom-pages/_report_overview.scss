@@ -123,7 +123,7 @@
 			}
 			.tutor-instructor-card {
 				.tutor-icard-content {
-					margin-top: -10px;
+					margin-top: -5px;
 				}
 			}
 
@@ -388,6 +388,9 @@
 					padding: 0px;
 					border: none;
 					min-width: unset;
+					.tutor-msg-important {
+						margin-right : 10px;
+					}
 					.tutor-avatar {
 						img {
 							width: 34px;
@@ -449,36 +452,65 @@
 				}
 			}
 
+			/* tutor-qna-section */
 			#tutor-qna-section {
+				.tutor-status-green-cirle {
+					width : 18px;
+					height : 18px;
+					background : $design-success;
+					border-radius : 50%;
+					display: flex;
+					align-items : center;
+					justify-content: center;
+				}
+				.tutor-instructor-card {
+					.tutor-msg-important {
+						span {
+							color : #9CA0AC;
+						}
+					}
+				}
+				.questions-wrapper {
+					display: flex;
+					align-items : flex-start;
+					.tutor-qna-cirle-wrap {
+						.tutor-qna-cirle {
+							width : 10px;
+							height : 10px;
+							background : $brand-wordpress;
+							border-radius: 50%;
+							margin-right: 13px;
+							margin-top: 6px;
+							display: inline-block;
+						}
+					}
+				}
 				@include breakpoint-min(1200) {
 					table {
 						tr {
-							td[data-th='Questions'] {
-								width: 50%;
-								padding-right: 145px;
-							}
-							td[data-th='Student'] {
+							td.student {
 								width: 15%;
 							}
-							td[data-th='Reply'] {
+							td.questions {
+								width: 40%;
+								padding-right: 145px;
+							}
+							td.reply {
 								width: 5%;
 							}
-							td[data-th='Answer'] {
+							td.reply2 {
+								width: 6%;
+							}
+							td.status {
+								width: 5%;
+							}
+							td.actions-btns {
 								width: 8%;
 								.td-action-btns {
 									display: flex;
 									align-items: center;
 									justify-content: center;
 								}
-							}
-						}
-					}
-				}
-				@include breakpoint-minmax(1200, 1400) {
-					table {
-						tr {
-							td[data-th='Questions'] {
-								padding-right: 45px;
 							}
 						}
 					}
