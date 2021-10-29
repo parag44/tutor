@@ -7213,7 +7213,7 @@ li.tutor-option-nav-item h4 {
 }
 
 .report-main-wrap .tutor-list-header {
-  margin-bottom: 25px;
+  margin: 35px 0px 25px 0px;
 }
 
 @media (max-width: 823px) {
@@ -7244,6 +7244,7 @@ li.tutor-option-nav-item h4 {
 
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap {
   /* tutor-qna-section */
+  /* tutor-course-details-student-list */
 }
 
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
@@ -7330,24 +7331,6 @@ li.tutor-option-nav-item h4 {
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-stats-text h3,
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-stats-text p {
   margin: 5px 0;
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section,
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section,
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section,
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section {
-  margin-top: 50px;
-}
-
-@media (max-width: 823px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-report-overview-section,
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section,
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-overview-section,
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section,
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section {
-    margin-top: 30px;
-  }
 }
 
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-ratings .tutor-rating-text {
@@ -7757,6 +7740,11 @@ li.tutor-option-nav-item h4 {
   }
 }
 
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-course-details-student-list {
+  background: red;
+  padding: 30px;
+}
+
 #tutor-report-courses-wrap .tutor-report-courses-data-table-header {
   margin-bottom: 40px;
 }
@@ -7839,6 +7827,10 @@ li.tutor-option-nav-item h4 {
 /* #tutor-report-courses-detials-wrap */
 #tutor-report-courses-detials-wrap {
   margin-bottom: 30px;
+  /* #tutor-course-report-stats */
+  /* tutor-course-details-student-list */
+  /* tutor-course-details-instructor-list */
+  /* tutor-course-details-review-section */
 }
 
 #tutor-report-courses-detials-wrap .tutor-course-report-header {
@@ -7894,7 +7886,7 @@ li.tutor-option-nav-item h4 {
 }
 
 #tutor-report-courses-detials-wrap #tutor-course-report-stats {
-  margin-top: 35px;
+  margin: 35px 0px 25px 0px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   background: #fff;
@@ -7941,6 +7933,38 @@ li.tutor-option-nav-item h4 {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 22px 10px 23px 30px;
+}
+
+@media (min-width: 1200px) {
+  #tutor-report-courses-detials-wrap #tutor-course-details-instructor-list .tutor-course-details-instructor-list-table table tbody tr td.total-courses {
+    width: 13%;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-details-instructor-list .tutor-course-details-instructor-list-table table tbody tr td.total-students {
+    width: 13%;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-details-instructor-list .tutor-course-details-instructor-list-table table tbody tr td.rating {
+    width: 19%;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-details-instructor-list .tutor-course-details-instructor-list-table table tbody tr td.action-btns {
+    width: 15%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #tutor-report-courses-detials-wrap #tutor-course-details-review-section table tbody tr td.student {
+    width: 20%;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-details-review-section table tbody tr td.date {
+    width: 16%;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-details-review-section table tbody tr td.feedback {
+    width: 40%;
+  }
+  #tutor-report-courses-detials-wrap #tutor-course-details-review-section table tbody tr td.review-action-btns {
+    width: 15%;
+    text-align: right;
+    padding-right: 40px;
+  }
 }
 
 .monetization-fees.is-disable .tutor-option-field-row:nth-child(2), .monetization-fees.is-disable .tutor-option-field-row:nth-child(3) {

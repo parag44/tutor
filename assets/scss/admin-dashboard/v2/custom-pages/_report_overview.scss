@@ -11,7 +11,8 @@
 	}
 
 	.tutor-list-header {
-		margin-bottom: 25px;
+		// margin-bottom: 25px;
+		margin: 35px 0px 25px 0px;
 		@include breakpoint-max(823) {
 			font-size: 20px;
 			line-height: 132%;
@@ -106,16 +107,16 @@
 			// 	}
 			// }
 
-			.tutor-report-overview-section,
-			#tutor-courses-review-section,
-			#tutor-courses-overview-section,
-			#tutor-new-registered-section,
-			#tutor-qna-section {
-				margin-top: 50px;
-				@include breakpoint-max(823) {
-					margin-top: 30px;
-				}
-			}
+			// .tutor-report-overview-section,
+			// #tutor-courses-review-section,
+			// #tutor-courses-overview-section,
+			// #tutor-new-registered-section,
+			// #tutor-qna-section {
+			// 	margin-top: 50px;
+			// 	@include breakpoint-max(823) {
+			// 		margin-top: 30px;
+			// 	}
+			// }
 			.tutor-ratings {
 				.tutor-rating-text {
 					line-height: 26px;
@@ -516,6 +517,23 @@
 					}
 				}
 			}
+
+			/* tutor-course-details-student-list */
+			#tutor-course-details-student-list {
+				background : red;
+				padding : 30px;
+				.tutor-course-details-student-list-table {
+					table {
+						tr {
+							td.student {
+								.td-avatar-name {
+								}
+							}
+						}
+					}
+				}
+			}
+
 		}
 	}
 }

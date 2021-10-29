@@ -130,8 +130,9 @@
         }
     }
 
+    /* #tutor-course-report-stats */
     #tutor-course-report-stats {
-        margin-top: 35px;
+        margin: 35px 0px 25px 0px;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         @include breakpoint-max(1200) {
@@ -168,4 +169,66 @@
 
         }
     }
+
+    /* tutor-course-details-student-list */
+    #tutor-course-details-student-list {
+        .tutor-course-details-student-table {
+
+        }
+    }
+
+    /* tutor-course-details-instructor-list */
+    #tutor-course-details-instructor-list {
+        .tutor-course-details-instructor-list-table {
+            table {
+                tbody{
+                    tr {
+                        @include breakpoint-min(1200) {
+                            td.student {
+                            }
+                            td.total-courses {
+                                width: 13%;
+                            }
+                            td.total-students {
+                                width: 13%; 
+                            }
+                            td.rating {
+                                width: 19%;
+                            }
+                            td.action-btns {
+                                width: 15%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* tutor-course-details-review-section */
+    #tutor-course-details-review-section {
+        table {
+            tbody{
+                tr {
+                    @include breakpoint-min(1200) {
+                        td.student {
+                            width: 20%;
+                        }
+                        td.date {
+                            width: 16%;
+                        }
+                        td.feedback {
+                            width: 40%; 
+                        }
+                        td.review-action-btns {
+                            width: 15%;
+                            text-align: right;
+                            padding-right: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
