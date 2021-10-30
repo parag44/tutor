@@ -7242,6 +7242,117 @@ li.tutor-option-nav-item h4 {
   }
 }
 
+.report-main-wrap .ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
+  font-size: 18px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-content-common-pagination {
+  margin-top: 50px;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-data-table-header-common {
+  margin-bottom: 40px;
+}
+
+.report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td,
+.report-main-wrap .tutor-report-content #tutor-report-reviews table tr td {
+  vertical-align: top;
+}
+
+@media (min-width: 1367px) {
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Student'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Student'] {
+    width: 15%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Date'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Date'] {
+    width: 14%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='course'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='course'] {
+    width: 19%;
+    padding-right: 30px;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Feedback'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Feedback'] {
+    width: 30%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] {
+    width: 10%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Student'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Student'] {
+    width: 20%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Date'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Date'] {
+    width: 10%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Date'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Date'] {
+    width: 13%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='course'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='course'] {
+    width: 21%;
+    padding-right: 10px;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Feedback'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Feedback'] {
+    padding-right: 15px;
+    width: 31%;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] {
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'],
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'] .btn-text,
+  .report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] .btn-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='course'],
+.report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='course'] {
+  padding-right: 30px;
+}
+
+.report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='Feedback'],
+.report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='Feedback'] {
+  padding-right: 15px;
+}
+
+.report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'],
+.report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'] a,
+.report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] a {
+  vertical-align: middle;
+}
+
+.report-main-wrap .tutor-report-content #tutor-courses-review-section table tr td[data-th='review-action-btns'] *:not(:last-child),
+.report-main-wrap .tutor-report-content #tutor-report-reviews table tr td[data-th='review-action-btns'] *:not(:last-child) {
+  margin-right: 16px;
+}
+
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap {
   /* tutor-qna-section */
   /* tutor-course-details-student-list */
@@ -7521,90 +7632,6 @@ li.tutor-option-nav-item h4 {
   cursor: pointer;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr th:first-child .ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
-  font-size: 18px;
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td {
-  vertical-align: top;
-}
-
-@media (min-width: 1367px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Student'] {
-    width: 15%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Date'] {
-    width: 14%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='course'] {
-    width: 19%;
-    padding-right: 30px;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Feedback'] {
-    width: 30%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
-    width: 10%;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1367px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Student'] {
-    width: 20%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Date'] {
-    width: 10%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Date'] {
-    width: 13%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='course'] {
-    width: 21%;
-    padding-right: 10px;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Feedback'] {
-    padding-right: 15px;
-    width: 31%;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
-    padding-right: 10px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] .btn-text {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='course'] {
-  padding-right: 30px;
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='Feedback'] {
-  padding-right: 15px;
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] a {
-  vertical-align: middle;
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-courses-review-section table tr td[data-th='review-action-btns'] *:not(:last-child) {
-  margin-right: 16px;
-}
-
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-new-registered-section .tutor-instructor-card,
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .tutor-instructor-card {
   padding: 0px;
@@ -7685,7 +7712,7 @@ li.tutor-option-nav-item h4 {
 }
 
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .tutor-instructor-card .tutor-msg-important span {
-  color: #9CA0AC;
+  color: #9ca0ac;
 }
 
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap #tutor-qna-section .questions-wrapper {
@@ -7745,10 +7772,6 @@ li.tutor-option-nav-item h4 {
   padding: 30px;
 }
 
-#tutor-report-courses-wrap .tutor-report-courses-data-table-header {
-  margin-bottom: 40px;
-}
-
 @media (max-width: 1670px) {
   #tutor-report-courses-wrap .tutor-report-courses-data-table-header .tutor-wp-dashboard-filter-items > div:not(:last-child) {
     gap: 10px;
@@ -7805,10 +7828,6 @@ li.tutor-option-nav-item h4 {
   #tutor-report-courses-wrap .tutor-report-courses-data-table .tutor-ui-table-wrapper table tbody tr td[data-th='URL'] {
     width: 15%;
   }
-}
-
-#tutor-report-courses-wrap .tutor-report-courses-data-table-pagination {
-  margin-top: 50px;
 }
 
 #tutor-report-courses-wrap .tutor-report-courses-data-table-pagination .tutor-dashboard-pagination {
@@ -7890,7 +7909,7 @@ li.tutor-option-nav-item h4 {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   background: #fff;
-  border: 1px solid #CDCFD5;
+  border: 1px solid #cdcfd5;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 6px;
@@ -7914,7 +7933,7 @@ li.tutor-option-nav-item h4 {
 
 @media (min-width: 1200px) {
   #tutor-report-courses-detials-wrap #tutor-course-report-stats > div:not(:last-child) {
-    border-right: 1px solid #CDCFD5;
+    border-right: 1px solid #cdcfd5;
   }
 }
 
@@ -7964,6 +7983,100 @@ li.tutor-option-nav-item h4 {
     width: 15%;
     text-align: right;
     padding-right: 40px;
+  }
+}
+
+/* tutor-course-details-review-section */
+/* tutor-course-details-review-section */
+@media (min-width: 1200px) {
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.order-id {
+    width: 8%;
+  }
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.course {
+    width: 36%;
+  }
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.student {
+    width: 15%;
+  }
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.date {
+    width: 15%;
+  }
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.status {
+    width: 10%;
+  }
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.price {
+    width: 8%;
+  }
+  #tutor-report-sales .tutor-report-sales-data-table table.tutor-ui-table tbody tr td.url {
+    width: 14%;
+  }
+}
+
+/* tutor-course-details-review-section */
+@media (min-width: 1200px) {
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.order-id {
+    width: 8%;
+  }
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.course {
+    width: 36%;
+  }
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.student {
+    width: 15%;
+  }
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.date {
+    width: 15%;
+  }
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.status {
+    width: 10%;
+  }
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.price {
+    width: 8%;
+  }
+  #tutor-report-students .tutor-report-students-data-table table.tutor-ui-table tbody tr td.url {
+    width: 14%;
+  }
+}
+
+/* tutor-report-student-details */
+#tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-pic {
+  -ms-flex-preferred-size: 90px;
+      flex-basis: 90px;
+}
+
+#tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-pic img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+#tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+#tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc > div:not(:last-child) {
+  margin-right: 45px;
+}
+
+@media (max-width: 1500px) {
+  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(233px, 1fr));
+  }
+  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc > div:not(:last-child) {
+    margin-right: 20px;
+  }
+  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-report-student-profile-btn {
+    margin-top: 10px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 

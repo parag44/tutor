@@ -30,7 +30,101 @@
 			padding: 20px 30px;
 		}
 	}
+
+	.ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
+		font-size: 18px;
+	}
+
 	.tutor-report-content {
+		.tutor-report-content-common-pagination {
+			margin-top: 50px;
+		}
+		.tutor-report-data-table-header-common {
+			margin-bottom: 40px;
+		}
+
+		#tutor-courses-review-section,
+		#tutor-report-reviews {
+			table {
+				tr {
+					th:first-child {}
+					td {
+						vertical-align: top;
+					}
+					@include breakpoint-min(1367) {
+						td[data-th='Student'] {
+							width: 15%;
+						}
+						td[data-th='Date'] {
+							width: 14%;
+						}
+						td[data-th='course'] {
+							width: 19%;
+							padding-right: 30px;
+						}
+						td[data-th='Feedback'] {
+							width: 30%;
+						}
+						td[data-th='review-action-btns'] {
+							width: 10%;
+						}
+					}
+					@include breakpoint-minmax(1200, 1367) {
+						td[data-th='Student'] {
+							width: 20%;
+						}
+						td[data-th='Date'] {
+							width: 10%;
+						}
+						td[data-th='Date'] {
+							width: 13%;
+						}
+						td[data-th='course'] {
+							width: 21%;
+							padding-right: 10px;
+						}
+						td[data-th='Feedback'] {
+							padding-right: 15px;
+							width: 31%;
+						}
+						td[data-th='review-action-btns'] {
+							padding-right: 10px;
+						}
+					}
+					@include breakpoint-max(1199) {
+						td[data-th='review-action-btns'] {
+							align-items: center;
+						}
+						td[data-th='review-action-btns'] {
+							.btn-text {
+								display: flex;
+							}
+						}
+					}
+					td[data-th='Student'] {
+					}
+					td[data-th='Date'] {
+					}
+					td[data-th='course'] {
+						padding-right: 30px;
+					}
+					td[data-th='Feedback'] {
+						padding-right: 15px;
+					}
+					td[data-th='review-action-btns'] {
+						text-align: center;
+						vertical-align: middle;
+						a {
+							vertical-align: middle;
+						}
+						*:not(:last-child) {
+							margin-right: 16px;
+						}
+					}
+				}
+			}
+		}
+
 		.tutor-report-overview-wrap {
 			.report-stats {
 				display: grid;
@@ -298,91 +392,6 @@
 				}
 			}
 
-			#tutor-courses-review-section {
-				table {
-					tr {
-						th:first-child {
-							.ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
-								font-size: 18px;
-							}
-						}
-						td {
-							vertical-align: top;
-						}
-						@include breakpoint-min(1367) {
-							td[data-th='Student'] {
-								width: 15%;
-							}
-							td[data-th='Date'] {
-								width: 14%;
-							}
-							td[data-th='course'] {
-								width: 19%;
-								padding-right: 30px;
-							}
-							td[data-th='Feedback'] {
-								width: 30%;
-							}
-							td[data-th='review-action-btns'] {
-								width: 10%;
-							}
-						}
-						@include breakpoint-minmax(1200, 1367) {
-							td[data-th='Student'] {
-								width: 20%;
-							}
-							td[data-th='Date'] {
-								width: 10%;
-							}
-							td[data-th='Date'] {
-								width: 13%;
-							}
-							td[data-th='course'] {
-								width: 21%;
-								padding-right: 10px;
-							}
-							td[data-th='Feedback'] {
-								padding-right: 15px;
-								width: 31%;
-							}
-							td[data-th='review-action-btns'] {
-								padding-right: 10px;
-							}
-						}
-						@include breakpoint-max(1199) {
-							td[data-th='review-action-btns'] {
-								align-items: center;
-							}
-							td[data-th='review-action-btns'] {
-								.btn-text {
-									display: flex;
-								}
-							}
-						}
-						td[data-th='Student'] {
-						}
-						td[data-th='Date'] {
-						}
-						td[data-th='course'] {
-							padding-right: 30px;
-						}
-						td[data-th='Feedback'] {
-							padding-right: 15px;
-						}
-						td[data-th='review-action-btns'] {
-							text-align: center;
-							vertical-align: middle;
-							a {
-								vertical-align: middle;
-							}
-							*:not(:last-child) {
-								margin-right: 16px;
-							}
-						}
-					}
-				}
-			}
-
 			#tutor-new-registered-section,
 			#tutor-qna-section {
 				.tutor-instructor-card {
@@ -390,7 +399,7 @@
 					border: none;
 					min-width: unset;
 					.tutor-msg-important {
-						margin-right : 10px;
+						margin-right: 10px;
 					}
 					.tutor-avatar {
 						img {
@@ -456,29 +465,29 @@
 			/* tutor-qna-section */
 			#tutor-qna-section {
 				.tutor-status-green-cirle {
-					width : 18px;
-					height : 18px;
-					background : $design-success;
-					border-radius : 50%;
+					width: 18px;
+					height: 18px;
+					background: $design-success;
+					border-radius: 50%;
 					display: flex;
-					align-items : center;
+					align-items: center;
 					justify-content: center;
 				}
 				.tutor-instructor-card {
 					.tutor-msg-important {
 						span {
-							color : #9CA0AC;
+							color: #9ca0ac;
 						}
 					}
 				}
 				.questions-wrapper {
 					display: flex;
-					align-items : flex-start;
+					align-items: flex-start;
 					.tutor-qna-cirle-wrap {
 						.tutor-qna-cirle {
-							width : 10px;
-							height : 10px;
-							background : $brand-wordpress;
+							width: 10px;
+							height: 10px;
+							background: $brand-wordpress;
 							border-radius: 50%;
 							margin-right: 13px;
 							margin-top: 6px;
@@ -520,8 +529,8 @@
 
 			/* tutor-course-details-student-list */
 			#tutor-course-details-student-list {
-				background : red;
-				padding : 30px;
+				background: red;
+				padding: 30px;
 				.tutor-course-details-student-list-table {
 					table {
 						tr {
@@ -533,7 +542,6 @@
 					}
 				}
 			}
-
 		}
 	}
 }
