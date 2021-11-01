@@ -7212,8 +7212,13 @@ li.tutor-option-nav-item h4 {
   font-size: 22px;
 }
 
+.report-main-wrap table th [class^='ttr-'],
+.report-main-wrap table th [class*=' ttr-'] {
+  font-size: 18px;
+}
+
 .report-main-wrap .tutor-list-header {
-  margin: 35px 0px 25px 0px;
+  margin: 0px 0px 25px 0px;
 }
 
 @media (max-width: 823px) {
@@ -7242,8 +7247,16 @@ li.tutor-option-nav-item h4 {
   }
 }
 
+.report-main-wrap .tutor-rating-text {
+  margin-top: 4px;
+}
+
 .report-main-wrap .ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
   font-size: 18px;
+}
+
+.report-main-wrap .tutor-report-content > div > div {
+  margin-top: 35px;
 }
 
 .report-main-wrap .tutor-report-content .tutor-report-content-common-pagination {
@@ -7353,36 +7366,31 @@ li.tutor-option-nav-item h4 {
   margin-right: 16px;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap {
-  /* tutor-qna-section */
-  /* tutor-course-details-student-list */
-}
-
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+.report-main-wrap .tutor-report-content .report-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px 23px;
 }
 
 @media (min-width: 1400px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+  .report-main-wrap .tutor-report-content .report-stats {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
 @media (min-width: 1500px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+  .report-main-wrap .tutor-report-content .report-stats {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
 @media (min-width: 1650px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats {
+  .report-main-wrap .tutor-report-content .report-stats {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box-body {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box-body {
   background-color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7392,15 +7400,15 @@ li.tutor-option-nav-item h4 {
   border-radius: 6px;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box-body > div:not(:last-child) {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box-body > div:not(:last-child) {
   margin-right: 20px;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box:nth-child(4n) .report-stat-box-body {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box:nth-child(4n) .report-stat-box-body {
   margin-right: 0;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-icon {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box .box-icon {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -7416,32 +7424,37 @@ li.tutor-option-nav-item h4 {
   background: #e9edfb;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-icon span {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box .box-icon span {
   font-size: 43px;
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box h4,
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box p {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box h4,
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box p {
   margin: 5px 0;
 }
 
 @media (max-width: 823px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box h4 {
+  .report-main-wrap .tutor-report-content .report-stats .report-stat-box h4 {
     font-size: 20px;
     line-height: 113%;
   }
 }
 
 @media (max-width: 823px) {
-  .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box p {
+  .report-main-wrap .tutor-report-content .report-stats .report-stat-box p {
     font-size: 12px;
     line-height: 140%;
   }
 }
 
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-stats-text h3,
-.report-main-wrap .tutor-report-content .tutor-report-overview-wrap .report-stats .report-stat-box .box-stats-text p {
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box .box-stats-text h3,
+.report-main-wrap .tutor-report-content .report-stats .report-stat-box .box-stats-text p {
   margin: 5px 0;
+}
+
+.report-main-wrap .tutor-report-content .tutor-report-overview-wrap {
+  /* tutor-qna-section */
+  /* tutor-course-details-student-list */
 }
 
 .report-main-wrap .tutor-report-content .tutor-report-overview-wrap .tutor-ratings .tutor-rating-text {
@@ -8038,6 +8051,10 @@ li.tutor-option-nav-item h4 {
 }
 
 /* tutor-report-student-details */
+#tutor-report-student-details {
+  font-size: 25px;
+}
+
 #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-pic {
   -ms-flex-preferred-size: 90px;
       flex-basis: 90px;
@@ -8058,26 +8075,104 @@ li.tutor-option-nav-item h4 {
   margin-right: 45px;
 }
 
+#tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-report-student-profile-btn button {
+  padding: 7px 16px;
+}
+
 @media (max-width: 1500px) {
-  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area {
+  #tutor-report-student-details .tutor-details-student-profile-desc-area {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc {
+  #tutor-report-student-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(233px, 1fr));
   }
-  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc > div:not(:last-child) {
+  #tutor-report-student-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc > div:not(:last-child) {
     margin-right: 20px;
   }
-  #tutor-report-student-details .tutor-report-student-details-header .tutor-details-student-profile-details .tutor-details-student-profile-desc-area .tutor-report-student-profile-btn {
+  #tutor-report-student-details .tutor-details-student-profile-desc-area .tutor-report-student-profile-btn {
     margin-top: 10px;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
+}
+
+@media (max-width: 768px) {
+  #tutor-report-student-details .tutor-details-student-profile-desc-area .tutor-details-student-profile-desc {
+    grid-template-columns: 1fr;
+  }
+}
+
+#tutor-report-student-details #tutor-course-details-list table tbody tr td.course div {
+  margin-right: 20px;
+}
+
+@media (min-width: 1200px) {
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.course {
+    width: 30%;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.course div {
+    margin-right: 100px;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.enroll-date {
+    width: 20%;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.lesson {
+    width: 10%;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.quiz {
+    width: 8%;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.assignment {
+    width: 8%;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.progress {
+    width: 8%;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.progress div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.expand-btn {
+    width: 5%;
+    cursor: pointer;
+    text-align: center;
+  }
+  #tutor-report-student-details #tutor-course-details-list table tbody tr td.expand-btn .ttr-angle-down-filled {
+    font-size: 25px;
+  }
+}
+
+#tutor-report-student-details #tutor-report-reviews table.tutor-ui-table tbody tr td.date {
+  width: 15%;
+}
+
+#tutor-report-student-details #tutor-report-reviews table.tutor-ui-table tbody tr td.course {
+  width: 30%;
+  padding-right: 100px;
+}
+
+@media (min-width: 1500px) {
+  #tutor-report-student-details #tutor-report-reviews table.tutor-ui-table tbody tr td.course {
+    padding-right: 150px;
+  }
+}
+
+#tutor-report-student-details #tutor-report-reviews table.tutor-ui-table tbody tr td.feedback {
+  width: 50%;
+}
+
+#tutor-report-student-details #tutor-report-reviews table.tutor-ui-table tbody tr td.action-btns {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .monetization-fees.is-disable .tutor-option-field-row:nth-child(2), .monetization-fees.is-disable .tutor-option-field-row:nth-child(3) {

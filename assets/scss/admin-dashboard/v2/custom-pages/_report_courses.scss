@@ -311,6 +311,7 @@
 
 /* tutor-report-student-details */
 #tutor-report-student-details {
+
     .tutor-report-student-details-header {
         .tutor-details-student-profile-pic {
             flex-basis: 90px;
@@ -329,31 +330,116 @@
                     }
                 }
                 .tutor-report-student-profile-btn {
-                    
+                    button {
+                        padding: 7px 16px;
+                    }
                 }
             }
         }
     }
     @include breakpoint-max(1500) {
-        .tutor-report-student-details-header {
-            .tutor-details-student-profile-pic {
+        .tutor-details-student-profile-desc-area {
+            flex-direction: column;
+            .tutor-details-student-profile-desc {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(233px, 1fr));
+                > div:not(:last-child) {
+                    margin-right: 20px;
+                }
             }
-            .tutor-details-student-profile-details {
-                .tutor-details-student-profile-desc-area {
-                    flex-direction: column;
-                    .tutor-details-student-profile-desc {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(233px, 1fr));
-                        > div:not(:last-child) {
+            .tutor-report-student-profile-btn {
+                margin-top: 10px; 
+                justify-content: flex-start;
+            }
+        }
+    }
+    @include breakpoint-max(768) {
+        .tutor-details-student-profile-desc-area {
+            .tutor-details-student-profile-desc {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+    font-size: 25px;
+    #student-report-stats {}
+
+    #tutor-course-details-list {
+        table {
+            tbody {
+                tr {
+                    td.course {
+                        div {
                             margin-right: 20px;
                         }
                     }
-                    .tutor-report-student-profile-btn {
-                        margin-top: 10px; 
-                        justify-content: flex-start;
+                }
+            }
+            @include breakpoint-min(1200) {
+                tbody {
+                    tr {
+                        td.course {
+                            width : 30%;
+                            div {
+                                margin-right: 100px;
+                            }
+                        }
+                        td.enroll-date {
+                            width : 20%;
+                        }
+                        td.lesson {
+                            width : 10%;
+                        }
+                        td.quiz {
+                            width : 8%;
+                        }
+                        td.assignment {
+                            width : 8%;
+                        }
+                        td.progress {
+                            div {
+                                display: flex;
+                                align-items: center;
+                            }
+                            width : 8%;
+                        }
+                        td.expand-btn {
+                            width: 5%;
+                            cursor: pointer;
+                            text-align: center;
+                            .ttr-angle-down-filled {
+                                font-size: 25px;
+                            }
+                        }
                     }
                 }
             }
         }
     }
+
+    #tutor-report-reviews {
+        table.tutor-ui-table {
+            tbody {
+                tr {
+                    td.date {
+                        width: 15%;
+                    }
+                    td.course {
+                        width: 30%;
+                        @include breakpoint-min(1500) {
+                            padding-right: 150px;
+                        }
+                        padding-right: 100px;
+                    }
+                    td.feedback {
+                        width: 50%;
+                    }
+                    td.action-btns {
+                        text-align: center;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+
 }

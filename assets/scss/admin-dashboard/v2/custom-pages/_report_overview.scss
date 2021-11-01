@@ -10,9 +10,17 @@
 		font-size: 22px;
 	}
 
+	table {
+		th {
+			[class^='ttr-'],
+			[class*=' ttr-'] {
+				font-size: 18px;
+			}
+		}
+	}
+
 	.tutor-list-header {
-		// margin-bottom: 25px;
-		margin: 35px 0px 25px 0px;
+		margin: 0px 0px 25px 0px;
 		@include breakpoint-max(823) {
 			font-size: 20px;
 			line-height: 132%;
@@ -31,11 +39,20 @@
 		}
 	}
 
+	.tutor-rating-text {
+		margin-top: 4px;
+	}
+
 	.ttr-ordering-a-to-z-filled.a-to-z-sort-icon {
 		font-size: 18px;
 	}
 
 	.tutor-report-content {
+
+		> div > div {
+			margin-top : 35px;
+		}
+
 		.tutor-report-content-common-pagination {
 			margin-top: 50px;
 		}
@@ -125,72 +142,73 @@
 			}
 		}
 
-		.tutor-report-overview-wrap {
-			.report-stats {
-				display: grid;
+		.report-stats {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 20px 23px;
+			@include breakpoint-min(1400) {
 				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 20px 23px;
-				@include breakpoint-min(1400) {
-					grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				}
-				@include breakpoint-min(1500) {
-					grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				}
-				@include breakpoint-min(1650) {
-					grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-				}
-				.report-stat-box {
-				}
-				.report-stat-box-body {
-					background-color: #ffffff;
-					display: flex;
-					padding: 16px 29px;
-					border: 2px solid #e0e2ea;
-					border-radius: 6px;
-				}
-				.report-stat-box-body > div:not(:last-child) {
-					margin-right: 20px;
-				}
-				.report-stat-box:nth-child(4n) .report-stat-box-body {
-					margin-right: 0;
-				}
-				.report-stat-box .box-icon {
-					width: 60px;
-					height: 60px;
-					border-radius: 50%;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					background: #e9edfb;
-					span {
-						font-size: 43px;
-					}
-				}
-				.report-stat-box h4,
-				.report-stat-box p {
-					margin: 5px 0;
-				}
-				@include breakpoint-max(823) {
-					.report-stat-box h4 {
-						font-size: 20px;
-						line-height: 113%;
-					}
-				}
-				@include breakpoint-max(823) {
-					.report-stat-box p {
-						font-size: 12px;
-						line-height: 140%;
-					}
-				}
-				.report-stat-box .box-stats-text h3,
-				.report-stat-box .box-stats-text p {
-					margin: 5px 0;
-				}
-				.report-stat-box .box-stats-text {
-				}
-				.report-stat-box .box-stats-text h4 {
+			}
+			@include breakpoint-min(1500) {
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			}
+			@include breakpoint-min(1650) {
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			}
+			.report-stat-box {
+			}
+			.report-stat-box-body {
+				background-color: #ffffff;
+				display: flex;
+				padding: 16px 29px;
+				border: 2px solid #e0e2ea;
+				border-radius: 6px;
+			}
+			.report-stat-box-body > div:not(:last-child) {
+				margin-right: 20px;
+			}
+			.report-stat-box:nth-child(4n) .report-stat-box-body {
+				margin-right: 0;
+			}
+			.report-stat-box .box-icon {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: #e9edfb;
+				span {
+					font-size: 43px;
 				}
 			}
+			.report-stat-box h4,
+			.report-stat-box p {
+				margin: 5px 0;
+			}
+			@include breakpoint-max(823) {
+				.report-stat-box h4 {
+					font-size: 20px;
+					line-height: 113%;
+				}
+			}
+			@include breakpoint-max(823) {
+				.report-stat-box p {
+					font-size: 12px;
+					line-height: 140%;
+				}
+			}
+			.report-stat-box .box-stats-text h3,
+			.report-stat-box .box-stats-text p {
+				margin: 5px 0;
+			}
+			.report-stat-box .box-stats-text {
+			}
+			.report-stat-box .box-stats-text h4 {
+			}
+		}
+
+		.tutor-report-overview-wrap {
 
 			// #tutor-courses-overview-section,
 			// #tutor-courses-review-section,
@@ -211,11 +229,13 @@
 			// 		margin-top: 30px;
 			// 	}
 			// }
+
 			.tutor-ratings {
 				.tutor-rating-text {
 					line-height: 26px;
 				}
 			}
+
 			.tutor-instructor-card {
 				.tutor-icard-content {
 					margin-top: -5px;
