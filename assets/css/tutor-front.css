@@ -9134,7 +9134,12 @@ Instructor customize filters styles
 }
 
 body {
+  border: 10px solid red;
+}
+
+#main {
   background: red;
+  font-size: 50px;
 }
 
 /*# sourceMappingURL=tutor-front.css.map */
