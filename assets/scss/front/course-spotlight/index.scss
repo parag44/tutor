@@ -1,9 +1,99 @@
-
-body{
-	border : 10px solid red;
+body {
+	// border: 10px solid red;
 }
-
-#main {
-	background : red;
-	font-size: 50px;
+.tutor-single-lesson-wraper {
+	display: flex;
+	a {
+		text-decoration: none;
+	}
+	a:focus,
+	a:hover {
+		opacity: 1;
+	}
+	[class^='ttr'] {
+		font-size: 24px;
+	}
+	input.tutor-form-check-input.tutor-form-check-circle {
+		width: 20px;
+		height: 20px;
+	}
+	.tutor-lesson-sidebar {
+		flex: 0 0 400px;
+		background: #fff;
+		border: 1px solid $stroke-light-30;
+		.tutor-sidebar-tabs-wrap {
+			.tutor-lessons-tab {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				> div {
+					text-align: center;
+					background: $bg-gray-10;
+					border: 1px solid $stroke-light-30;
+					padding: 15px 0px;
+					cursor: pointer;
+					span {
+						color: $black-50;
+						&:not(:last-child) {
+							margin-right: 4px;
+						}
+					}
+					span:first-child {
+						font-size: 32px;
+					}
+				}
+				> div.active {
+					border: 0px solid $stroke-light-30;
+					background: $color-white;
+					span:first-child {
+						color: $design-brand;
+					}
+				}
+				.tutor-lessons-lessons-tab {
+				}
+				.tutor-lessons-quiz-tab {
+				}
+			}
+			.tutor-sidebar-tabs-content {
+				.tutor-lesson-sidebar-tab-item {
+				}
+				#tutor-lesson-sidebar-tab-content {
+					padding: 14px 18px;
+					.tutor-topics-in-single-lesson {
+						.tutor-topics-title {
+							padding: 17px 0px;
+							.tutor-topics-title-left {
+							}
+							.tutor-topics-title-right {
+							}
+						}
+						.tutor-lessons-under-topic {
+							.tutor-single-lesson-items {
+								.tutor-single-lesson-items-left {
+									> *:not(:last-child) {
+										margin-right: 5px;
+									}
+								}
+								.tutor-single-lesson-items-left {
+								}
+								.tutor-single-lesson-items-right {
+									> *:not(:last-child) {
+										margin-right: 10px;
+									}
+								}
+							}
+						}
+					}
+				}
+				#tutor-lesåson-sidebar-qa-tab-content {
+				}
+			}
+		}
+	}
+	.tutor-single-entry-content {
+		flex: 100%;
+		.tutor-single-page-top-bar {
+			padding: 5px 0px;
+			background: $design-brand;
+		}
+	}
 }
