@@ -11,7 +11,6 @@ body {
 	a:hover {
 		opacity: 1;
 	}
-
 	input.tutor-form-check-input.tutor-form-check-circle {
 		width: 20px;
 		height: 20px;
@@ -32,22 +31,22 @@ body {
 					padding: 12.5px 0px;
 					cursor: pointer;
 					position: relative;
-					&:after,
-					&:before {
-						content: '';
-						position: absolute;
-						background: $bg-gray-10;
-						width: 100%;
-						height: 50%;
-						border-radius: 0px 0px 10px 10px;
-					}
-					&:after {
-						top: 0;
-						display: none;
-					}
-					&:before {
-						bottom: 0;
-					}
+					// &:after,
+					// &:before {
+					// 	content: '';
+					// 	position: absolute;
+					// 	background: $bg-gray-10;
+					// 	width: 100%;
+					// 	height: 50%;
+					// 	border-radius: 0px 0px 10px 10px;
+					// }
+					// &:after {
+					// 	top: 0;
+					// 	display: none;
+					// }
+					// &:before {
+					// 	bottom: 0;
+					// }
 					span {
 						color: $black-50;
 						&:not(:last-child) {
@@ -116,7 +115,7 @@ body {
 				}
 			}
 		}
-	}
+	}  /* tutor-lesson-sidebar */
 	.tutor-single-entry-content {
 		flex: 100%;
 		.tutor-single-page-top-bar {
@@ -150,7 +149,7 @@ body {
 					font-size: 30px;
 				}
 			}
-		}
+		}  /* tutor-single-page-top-bar */
 		.tutor-quiz-wrapper {
 			.tutor-start-quiz-wrapper {
 				width: 560px;
@@ -172,7 +171,51 @@ body {
 						border: none;
 					}
 				}
-			}
-		}
+			} /* tutor-start-quiz-wrapper */
+
+			.tutor-quiz-wrap {
+				width: 920px;
+                .quiz-meta-info {
+					.quiz-meta-info-left {
+						> *:not(:last-child) {
+                            margin-right: 35px;
+						}
+                        .quiz-qno {}
+                        .quiz-total-attempt {}
+					}
+					.quiz-meta-info-right {
+                        .quiz-time-remaining {
+							.quiz-time-remaining-progress-circle {
+								svg {
+									width: 50px;
+									height: 50px;
+									margin-top: -4px;
+								}
+								svg circle {
+									fill: none;
+									stroke-width: 10px;
+									stroke: rgba(255,255,255,0.05);
+									transform: translate(17px, 15px);
+								}
+								svg circle:nth-child(1) {
+									stroke: $design-brand;
+									stroke-dasharray: 44;
+									stroke-dashoffset: calc(44 - ((44 * var(--quizeProgress) )/ 100));
+									stroke-width: 14px;
+								}								
+							}
+							p {
+
+							}
+						}
+					}
+				}
+				.quiz-question {
+					max-width: 810px;
+				}
+			}/* tutor-quiz-wrap */
+
+
+		} /* tutor-quiz-wrapper */
 	}
 }
