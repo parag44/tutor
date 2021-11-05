@@ -7,7 +7,7 @@
   \******************************************************/
 /***/ (() => {
 
-console.log('Course spotlight JS loaded');
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/assets/react/front/course-spotlight/index.js: Unexpected token (2:25)\n\n\u001b[0m \u001b[90m 1 |\u001b[39m window\u001b[33m.\u001b[39maddEventListener(\u001b[32m'DOMContentLoaded'\u001b[39m\u001b[33m,\u001b[39m (event) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 2 |\u001b[39m \t\u001b[36mif\u001b[39m (window\u001b[33m.\u001b[39minnerWidth \u001b[33m>\u001b[39m ) {\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m \t                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m \t\t\u001b[36mconst\u001b[39m topBar \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'.tutor-single-page-top-bar'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \t\t\u001b[36mconst\u001b[39m sideBar \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'.tutor-lesson-sidebar'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \t\tsideBar\u001b[33m.\u001b[39mstyle\u001b[33m.\u001b[39mtop \u001b[33m=\u001b[39m topBar\u001b[33m.\u001b[39mclientHeight \u001b[33m+\u001b[39m \u001b[32m'px'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:541:17)\n    at Object.raiseWithData (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:534:17)\n    at Object.raise (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:495:17)\n    at Object.unexpected (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:3550:16)\n    at Object.parseExprAtom (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:11857:22)\n    at Object.parseExprAtom (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:7456:20)\n    at Object.parseExprSubscripts (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:11414:23)\n    at Object.parseUpdate (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:11394:21)\n    at Object.parseMaybeUnary (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:11369:23)\n    at Object.parseMaybeUnaryOrPrivate (/Users/nuralam/Local Sites/tutorv2/app/public/wp-content/plugins/tutor/node_modules/@babel/parser/lib/index.js:11183:61)");
 
 /***/ }),
 
@@ -1921,22 +1921,19 @@ function tutorModal() {
   /*
   const popupToggleBtns = document.querySelectorAll('.tutor-popup-opener .popup-btn');
   const popupMenus = document.querySelectorAll('.tutor-popup-opener .popup-menu');
-  
-   if (popupToggleBtns && popupMenus) {
+  	 if (popupToggleBtns && popupMenus) {
   	popupToggleBtns.forEach((btn) => {
   		btn.addEventListener('click', (e) => {
   			const popupClosest = e.target.closest('.tutor-popup-opener').querySelector('.popup-menu');
   			popupClosest.classList.toggle('visible');
-  
-  			popupMenus.forEach((popupMenu) => {
+  				popupMenus.forEach((popupMenu) => {
   				if (popupMenu !== popupClosest) {
   					popupMenu.classList.remove('visible');
   				}
   			});
   		});
   	});
-  
-  	document.addEventListener('click', (e) => {
+  		document.addEventListener('click', (e) => {
   		if (!e.target.matches('.tutor-popup-opener .popup-btn')) {
   			popupMenus.forEach((popupMenu) => {
   				if (popupMenu.classList.contains('visible')) {

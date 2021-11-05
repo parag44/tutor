@@ -3,6 +3,7 @@ body {
 }
 .tutor-single-lesson-wraper {
 	display: flex;
+	position: relative;
 	a {
 		text-decoration: none;
 		color: inherit;
@@ -15,107 +16,15 @@ body {
 		width: 20px;
 		height: 20px;
 	}
-	.tutor-lesson-sidebar {
-		flex: 0 0 400px;
-		background: #fff;
-		border: 1px solid $stroke-light-30;
-		.tutor-sidebar-tabs-wrap {
-			.tutor-lessons-tab {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				max-height: 60px;
-				> div {
-					text-align: center;
-					// background: $bg-gray-10;
-					// border: 1px solid $stroke-light-30;
-					padding: 12.5px 0px;
-					cursor: pointer;
-					position: relative;
-					// &:after,
-					// &:before {
-					// 	content: '';
-					// 	position: absolute;
-					// 	background: $bg-gray-10;
-					// 	width: 100%;
-					// 	height: 50%;
-					// 	border-radius: 0px 0px 10px 10px;
-					// }
-					// &:after {
-					// 	top: 0;
-					// 	display: none;
-					// }
-					// &:before {
-					// 	bottom: 0;
-					// }
-					span {
-						color: $black-50;
-						&:not(:last-child) {
-							margin-right: 4px;
-						}
-					}
-					span:first-child {
-						font-size: 32px;
-					}
-				}
-				> div.active {
-					// border: 0px solid $stroke-light-30;
-					background: $color-white;
-					span:first-child {
-						color: $design-brand;
-					}
-				}
-				.tutor-lessons-lessons-tab {
-				}
-				.tutor-lessons-quiz-tab {
-				}
-			}
-			.tutor-sidebar-tabs-content {
-				.tutor-lesson-sidebar-tab-item {
-				}
-				#tutor-lesson-sidebar-tab-content {
-					.tutor-topics-in-single-lesson {
-						> div {
-							padding: 18px 18px;
-						}
-						.tutor-topics-title {
-							border-bottom: 1px solid #ddd;
-							.tutor-topics-title-left {
-							}
-							.tutor-topics-title-right {
-							}
-						}
-						.tutor-lessons-under-topic {
-							[class^='ttr-'],
-							[class*=' ttr-'] {
-								font-size: 20px;
-							}
-							span.text-regular-caption {
-								line-height: 140%;
-							}
-							border-bottom: 1px solid #ddd;
-							.tutor-single-lesson-items {
-								.tutor-single-lesson-items-left {
-									> *:not(:last-child) {
-										margin-right: 5px;
-									}
-								}
-								.tutor-single-lesson-items-left {
-									max-width: 270px;
-								}
-								.tutor-single-lesson-items-right {
-									> *:not(:last-child) {
-										margin-right: 10px;
-									}
-								}
-							}
-						}
-					}
-				}
-				#tutor-lesåson-sidebar-qa-tab-content {
-				}
-			}
+	.tutor-quiz-btn-grp {
+		// button {
+		// 	padding: 10px 25px;
+		// }
+		button.skip-quiz-btn {
+			border: none;
 		}
-	}  /* tutor-lesson-sidebar */
+	}
+	@import './sidebar';
 	.tutor-single-entry-content {
 		flex: 100%;
 		.tutor-single-page-top-bar {
@@ -149,73 +58,13 @@ body {
 					font-size: 30px;
 				}
 			}
-		}  /* tutor-single-page-top-bar */
-		.tutor-quiz-wrapper {
-			.tutor-start-quiz-wrapper {
-				width: 560px;
-				border: 1px solid $stroke-gray;
-				border-radius: 10px;
-				padding: 65px 95px;
-				.tutor-start-quiz-title {
-					border-bottom: 1px solid $stroke-light-30;
-				}
-				.tutor-quiz-info-area {
-					.tutor-quiz-info {
-						&:not(:first-child) {
-							padding-top: 15px;
-						}
-					}
-				}
-				.tutor-quiz-btn-grp {
-					button.skip-quiz-btn {
-						border: none;
-					}
-				}
-			} /* tutor-start-quiz-wrapper */
+		} /* tutor-single-page-top-bar */
+		@import './quize.scss';
+	}
+}
 
-			.tutor-quiz-wrap {
-				width: 920px;
-                .quiz-meta-info {
-					.quiz-meta-info-left {
-						> *:not(:last-child) {
-                            margin-right: 35px;
-						}
-                        .quiz-qno {}
-                        .quiz-total-attempt {}
-					}
-					.quiz-meta-info-right {
-                        .quiz-time-remaining {
-							.quiz-time-remaining-progress-circle {
-								svg {
-									width: 50px;
-									height: 50px;
-									margin-top: -4px;
-								}
-								svg circle {
-									fill: none;
-									stroke-width: 10px;
-									stroke: rgba(255,255,255,0.05);
-									transform: translate(17px, 15px);
-								}
-								svg circle:nth-child(1) {
-									stroke: $design-brand;
-									stroke-dasharray: 44;
-									stroke-dashoffset: calc(44 - ((44 * var(--quizeProgress) )/ 100));
-									stroke-width: 14px;
-								}								
-							}
-							p {
-
-							}
-						}
-					}
-				}
-				.quiz-question {
-					max-width: 810px;
-				}
-			}/* tutor-quiz-wrap */
-
-
-		} /* tutor-quiz-wrapper */
+@include breakpoint-max(600) {
+	.tutor-topbar-content-title-wrap {
+		align-items: flex-start;
 	}
 }
