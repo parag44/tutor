@@ -176,7 +176,7 @@
             </div>
             <div class="tutor-topbar-item tutor-topbar-content-title-wrap flex-center">
                 <span class="ttr-youtube-brand color-text-white tutor-mr-5"></span>
-                <span class="text-regular-caption color-design-white">Quiz: The most popular and modern server</span>
+                <span class="text-regular-caption color-design-white">Quiz: The most popular and modern server Quiz: The most popular and modern server</span>
             </div>
             <div class="tutor-topbar-cross-icon flex-center">
                 <span class="ttr-line-cross-line color-text-white flex-center"></span>
