@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var topBar = document.querySelector('.tutor-single-page-top-bar');
   var sideBar = document.querySelector('.tutor-lesson-sidebar');
   sideBar.style.top = topBar.clientHeight + 'px';
+  console.log(topBar.clientHeight);
 });
 
 /***/ }),

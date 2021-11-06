@@ -194,7 +194,7 @@
                 </div>
             </div> -->
         </div>
-        <div class="tutor-quiz-wrapper tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100">
+        <div class="tutor-quiz-wrapper tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
             <!-- <div class="tutor-start-quiz-wrapper tutor-p-50">
 				<div class="tutor-start-quiz-title tutor-pb-28">
 					<p class="text-regular-body color-text-primary tutor-pb-6">Quiz</p>

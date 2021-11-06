@@ -7495,7 +7495,6 @@ Instructor customize filters styles
   border: 1px solid #cdcfd5;
   border: 1px solid #cdcfd5;
   border-bottom: none;
-  height: 100vh;
 }
 
 .tutor-single-lesson-wraper .tutor-lesson-sidebar .tutor-sidebar-tabs-wrap .tutor-lessons-tab {
@@ -7581,12 +7580,16 @@ Instructor customize filters styles
     width: 400px;
     background: #fff;
     height: 100vh;
+    height: 100%;
   }
 }
 
 @media (max-width: 450px) {
   .tutor-single-lesson-wraper .tutor-lesson-sidebar .tutor-sidebar-tabs-wrap {
-    width: 35px;
+    width: 350px;
+    height: 100vh;
+    height: 100vh;
+    height: 100%;
   }
 }
 
@@ -7594,6 +7597,7 @@ Instructor customize filters styles
   -webkit-box-flex: 100%;
       -ms-flex: 100%;
           flex: 100%;
+  padding-bottom: 90px;
   /* tutor-single-page-top-bar */
 }
 
@@ -7675,7 +7679,7 @@ Instructor customize filters styles
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .quiz-meta-info .quiz-meta-info-right .quiz-time-remaining .quiz-time-remaining-progress-circle svg circle:nth-child(1) {
   stroke: #3e64de;
   stroke-dasharray: 44;
-  stroke-dashoffset: calc( 44 - ((44 * var(--quizeProgress)) / 100));
+  stroke-dashoffset: calc( 44 - ((44 * var(--quizeProgress)) / 100));
   stroke-width: 14px;
 }
 
