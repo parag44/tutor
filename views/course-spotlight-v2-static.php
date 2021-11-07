@@ -228,7 +228,7 @@
 				</div>
 			</div>  -->
 
-			<div id="tutor-quiz-matching-choice" class="tutor-quiz-wrap">
+			<div id="tutor-quiz-image-matching-choice" class="tutor-quiz-wrap">
                 <div class="quiz-meta-info d-flex justify-content-between">
                     <div class="quiz-meta-info-left d-flex">
                         <div class="quiz-qno d-flex">
@@ -248,61 +248,64 @@
                                     <circle cx="0" cy="0" r="7"></circle>
                                 </svg>
                             </div>
+                            <div class="quiz-time-remaining-expired-circle">
+                                <svg viewBox="0 0 50 50" width="50" height="50">
+                                    <circle cx="0" cy="0" r="8"></circle>
+                                </svg>
+                            </div>
                             <p class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</p>
                             <span class="text-medium-body color-text-title">7:30:48</span>
                         </div>
                     </div>
                 </div> <!-- quiz-meta-info -->
-                <div class="quiz-question tutor-mt-60">
-                    <div class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-40 tutor-mr-100">
+				<div class="quiz-flash-message">
+                     <div class="tutor-quiz-warning-box time-remaining-warning d-flex align-items-center justify-content-between">
+						 <div class="flash-info d-flex align-items-center">
+							 <span class="ttr-warning-outline-circle-filled color-design-warning tutor-mr-7"></span>
+                             <span class="text-regular-caption color-text-title">
+								 Your time limit for this quiz has expired, please reattempt the quiz. Attempts remaining: 6/10
+							 </span>
+						 </div>
+						 <div class="flash-action">
+                            <button class="tutor-btn tutor-btn-md reattempt-btn">Reattempt</button>
+						 </div>
+					 </div>
+                     <div class="tutor-quiz-warning-box time-over d-flex align-items-center justify-content-between">
+						 <div class="flash-info d-flex align-items-center">
+							 <span class="ttr-cross-circle-outline-filled color-design-danger tutor-mr-7"></span>
+                             <span class="text-regular-caption color-text-title">
+							    Unfortunately, you are out of time and quiz attempts.
+							 </span>
+						 </div>
+					 </div>
+	            </div>
+                <div class="quiz-question tutor-mt-60 tutor-mr-100">
+                    <div class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-20">
 					    08. Rearrange the following sentence-parts in a meaningful order.
                     </div>
+					<div class="matching-quiz-question-desc">
+					    <span class="text-regular-caption color-text-subsued">
+			               ver 92% of computers are infected with Adware and spyware. Such software is rarely     accompanied by uninstall utility and even when it is it almost always leaves broken.
+			            </span>
+                    </div>
                 </div> <!-- quiz-question -->
-                <div id="quiz-ordering-ans-area" class="quiz-question-ans-choice-area tutor-mt-70">
-                    <div class="quiz-ordering-ans d-flex align-items-center">
-					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
-                            01.
+				<div class="quiz-question-ans-choice-area tutor-mt-70">
+	                <div class="quiz-question-ans-choice d-flex flex-wrap align-items-center">
+		                <label for="q1">
+			                <input id="q1" type="radio" class="tutor-form-check-input" name="radio_a" />
+			                <span class="text-regular-body color-text-primary">true</span>
+		                </label>
+						<div class="tutor-quiz-correct-ans d-flex align-items-center tutor-ml-20">
+							<span class="ttr-mark-filled color-design-success"></span>
+							<span class="text-regular-body color-text-title">Correct Answer</span>
 						</div>
-						<div class="quiz-ordering-ans-item tutor-ml-30">
-						    <div class="tutor-quiz-border-box">
-				                <span class="text-regular-body color-text-primary">Important</span>
-				                <span class="ttr-humnurger-filled color-black-fill"></span>
-			               </div>
-						</div>
-                    </div>
-                    <div class="quiz-ordering-ans d-flex align-items-center">
-					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
-                            02.
-						</div>
-						<div class="quiz-ordering-ans-item tutor-ml-30">
-						    <div class="tutor-quiz-border-box">
-				                <span class="text-regular-body color-text-primary">Knowledge</span>
-				                <span class="ttr-humnurger-filled color-black-fill"></span>
-			               </div>
-						</div>
-                    </div>
-                    <div class="quiz-ordering-ans d-flex align-items-center">
-					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
-                            03.
-						</div>
-						<div class="quiz-ordering-ans-item tutor-ml-30">
-						    <div class="tutor-quiz-border-box">
-				                <span class="text-regular-body color-text-primary">Is More</span>
-				                <span class="ttr-humnurger-filled color-black-fill"></span>
-			               </div>
-						</div>
-                    </div>
-                    <div class="quiz-ordering-ans d-flex align-items-center">
-					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
-                            04.
-						</div>
-						<div class="quiz-ordering-ans-item tutor-ml-30">
-						    <div class="tutor-quiz-border-box">
-				                <span class="text-regular-body color-text-primary">Imagination</span>
-				                <span class="ttr-humnurger-filled color-black-fill"></span>
-			               </div>
-						</div>
-                    </div>
+	                </div>
+	                <div class="quiz-question-ans-choice">
+		                <label for="qs1">
+			                <input id="qs1" type="radio" class="tutor-form-check-input" name="radio_a" />
+			                <span class="text-regular-body color-text-primary">false</span>
+		                </label>
+	                </div>
                 </div> <!-- quiz-question-ans-choice-area -->
                 <div class="tutor-quiz-btn-grp tutor-quiz-btn-grp tutor-mt-60">
                     <button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">

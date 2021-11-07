@@ -32,20 +32,30 @@
                             width: 50px;
                             height: 50px;
                             margin-top: -4px;
-                            circle {
+							circle {
                                 fill: none;
-                                stroke-width: 10px;
-                                stroke: rgba(255, 255, 255, 0.05);
-                                -webkit-transform: translate(17px, 15px);
                                 transform: translate(17px, 15px);
-                                &:nth-child(1) {
-                                    stroke: #3e64de;
-                                    stroke-dasharray: 44;
-                                    stroke-dashoffset: calc(
+                                stroke: red;
+                                stroke-dasharray: 44;
+                                stroke-dashoffset: calc(
                                         44 - ((44 * var(--quizeProgress)) / 100)
                                     );
-                                    stroke-width: 14px;
-                                }
+                                stroke-width: 13px;
+                            }
+                        }
+                    }
+                    .quiz-time-remaining-expired-circle {
+                        svg {
+                            width: 50px;
+                            height: 50px;
+                            margin-top: -4px;
+							circle {
+                                transform: translate(17px, 15px);
+                                stroke: $design-danger;
+                                stroke-dasharray: 44;
+								stroke-dasharray: 50;
+								stroke-width: 2px;
+								fill: #ffffff;
                             }
                         }
                     }
@@ -76,13 +86,43 @@
 			align-items: center;
 			justify-content: flex-start;
 		}
+		.quiz-flash-message {
+			.tutor-quiz-warning-box {
+				&.time-remaining-warning {
+				    border: 1px solid $warning-70;
+				}
+				padding: 9px;
+				border-radius: 6px;
+				@include breakpoint-max(600) {
+                     flex-wrap: wrap;
+				}
+				.flash-info {
+                     span:first-child{
+						 font-size: 27px;
+					 }
+				}
+				.flash-action {
+					button {
+						background: $design-warning;
+						color: $color-white;
+						border: unset;
+						@include breakpoint-max(600) {
+							margin-top: 10px;
+						}
+					}
+				}
+				&.time-over {
+				    border: 1px solid $danger-main;
+				}
+			}
+		}
         .quiz-question {
             // max-width: 810px;
 			// questions matching
+			@include breakpoint-max(600) {
+				margin-right: 20px;
+			}
 			.quiz-question-title {
-				@include breakpoint-max(600) {
-					margin-right: 20px;
-				}
 			}
 			.matching-quiz-question-desc {
 				display: grid;
@@ -106,7 +146,15 @@
                         margin-right: 8px;
                     }
                 }
-
+                .tutor-quiz-correct-ans {
+					@include breakpoint-max(600) {
+						margin-left: 0px;
+						margin-top: 10px;
+					}
+                     span:first-child {
+                        font-size: 27px;
+					 }
+				}
             }
 			.fill-in-the-gap {
 				display: flex;
@@ -152,6 +200,31 @@
 				.tutor-quiz-border-box {
 					min-width: 163px;
 					max-width: 250px;
+				}
+			}
+		}
+		#quiz-image-matching-ans-area {
+			.quiz-image-matching-ans {
+				flex-wrap: wrap;
+				> div:not(:last-child) {
+					margin-right: 30px;
+					margin-bottom: 30px;
+					@include breakpoint-max(600) {
+						margin-right: 10px;
+					    margin-bottom: 10px;
+					}
+				}
+				.quiz-image-box {
+                    .quiz-image {}
+					.tutor-quiz-dotted-box {
+						overflow-y: auto;
+						width: 163px;
+						background-image: url("data:image/svg+xml,%3Csvg width='162' height='48' viewBox='0 0 162 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='160' height='46' rx='5' stroke='%23C0C3CB' stroke-width='2' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
+						background-size: contain;
+						background-position: center center;
+						background-repeat: no-repeat;
+						height: 48px;
+					}
 				}
 			}
 		}
