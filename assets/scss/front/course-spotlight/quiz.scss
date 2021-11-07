@@ -52,8 +52,43 @@
                 }
             }
         }
+		.tutor-quiz-border-box {
+			cursor: pointer;
+			padding: 10px 18px;
+			border: 1px solid $stroke-gray;
+			border-radius: 6px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			span[class^='ttr-'],
+			span[class*=' ttr-'] {
+				font-size: 25px;
+			}
+		}
+		.tutor-quiz-dotted-box {
+			width: 230px;
+			background-image: url("data:image/svg+xml,%3Csvg width='234' height='48' viewBox='0 0 234 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='232' height='46' rx='5' stroke='%23C0C3CB' stroke-width='2' stroke-dasharray='6 6'/%3E%3C/svg%3E%0A");
+			padding: 0px 20px 0px 20px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
         .quiz-question {
-            max-width: 810px;
+            // max-width: 810px;
+			// questions matching
+			.quiz-question-title {
+				@include breakpoint-max(600) {
+					margin-right: 20px;
+				}
+			}
+			.matching-quiz-question-desc {
+				display: grid;
+				gap: 20px 20px;
+				grid-template-columns: repeat(auto-fit, minmax(163px, 1fr));
+			}
         }
         .quiz-question-ans-choice-area {
             .quiz-question-ans-choice {
@@ -61,6 +96,7 @@
                     margin-top: 25px;
                 }
                 label {
+					min-width: 240px;
                     border: 1px solid #cdcfd5;
                     border-radius: 6px;
                     padding: 9.5px 80px 9.5px 15px;
@@ -70,35 +106,67 @@
                         margin-right: 8px;
                     }
                 }
+
             }
+			.fill-in-the-gap {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				input {
+					width: 150px !important;
+					margin: 10px 10px 0px 10px;
+				}
+			}
+        }
+		#quiz-matching-ans-area {
+			> div {
+				&:not(:last-child) {
+                    margin-bottom: 25px;
+				}
+			}
+			.quiz-matching-ans {
+				display: flex;
+				max-width: 370px;
+				align-items: center;
+				.tutor-quiz-ans-no {
+					width: 30%;
+				}
+				.quiz-matching-ans-item {
+					display: flex;
+				    width: 70%;
+					align-items: center;
+					span {
+						margin-right: 20px;
+					}
+					.tutor-quiz-dotted-box {
+
+					}
+				}
+			}
+		}
+		#quiz-ordering-ans-area {
+			> div:not(:last-child) {
+				margin-bottom: 25px;
+			}
+			.quiz-ordering-ans-item {
+				.tutor-quiz-border-box {
+					min-width: 163px;
+					max-width: 250px;
+				}
+			}
+		}
+    }
+
+}
+
+@include breakpoint-max(1380) {
+    .tutor-quiz-wrapper {
+        .tutor-quiz-wrap {
+            width: 720px;
         }
     }
 }
-@media (max-width: 1380px) {
-    .tutor-single-lesson-wraper {
-        .tutor-single-entry-content {
-            .tutor-quiz-wrapper {
-                .tutor-start-quiz-wrapper {
-                    width: 560px;
-                }
-                .tutor-quiz-wrap {
-                    width: 700px;
-                    .quiz-question {
-                        max-width: 810px;
-                    }
-                    .quiz-question-ans-choice-area {
-                        .quiz-question-ans-choice {
-                            label {
-                                padding: 9.5px 20px 9.5px 15px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media (max-width: 1200px) {
+@include breakpoint-max(1200) {
     .tutor-quiz-wrapper {
         .tutor-start-quiz-wrapper {
             width: 560px;
@@ -124,8 +192,9 @@
         }
     }
 }
-@media (max-width: 600px) {
+@include breakpoint-max(600) {
     .tutor-quiz-wrapper {
+		margin-top: 60px;
         .tutor-start-quiz-wrapper {
             width: 500px;
         }
@@ -145,7 +214,11 @@
                     }
                 }
             }
+			.quiz-question {
+               margin-top: 20px;
+			}
             .quiz-question-ans-choice-area {
+				margin-top: 40px;
                 .quiz-question-ans-choice {
                     label {
                         padding: 9.5px 20px 9.5px 15px;

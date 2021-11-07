@@ -9,6 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if (isset($_GET['sub_page'])){
+    $page = sanitize_text_field($_GET['sub_page']);
+    include_once tutor()->path."views/pages/{$page}.php";
+    return;
+}
+
 use TUTOR\Instructors_List;
 $instructors = new Instructors_List();
 
@@ -60,20 +66,19 @@ $filters = array(
 );
 
 ?>
-<div class="tutor-admin-page-wrapper">
-	<?php
-		/**
-		 * Load Templates with data.
-		 */
-		$navbar_template  = tutor()->path . 'views/elements/navbar.php';
-		$filters_template = tutor()->path . 'views/elements/filters.php';
-		tutor_load_template_from_custom_path( $navbar_template, $navbar_data );
-		tutor_load_template_from_custom_path( $filters_template, $filters );
-		
-	?>
 
+<?php
+	/**
+	 * Load Templates with data.
+	 */
+	$navbar_template  = tutor()->path . 'views/elements/navbar.php';
+	$filters_template = tutor()->path . 'views/elements/filters.php';
+	tutor_load_template_from_custom_path( $navbar_template, $navbar_data );
+	tutor_load_template_from_custom_path( $filters_template, $filters );
 	
+?>
 
+<div class="wrap">
 	<div class="tutor-ui-table-responsive tutor-mt-30 tutor-mr-20">
 		<table class="tutor-ui-table tutor-ui-table-responsive table-instructors">
 			<thead>
@@ -123,7 +128,7 @@ $filters = array(
 					<?php $avatar_url  = get_avatar_url( $list->ID ); ?>
 					<img src="<?php echo esc_url($avatar_url); ?>" alt="student avatar"/>
 					<p class="color-text-primary text-medium-body">
-						<?php echo esc_html_e( $list->display_name ); ?>
+						<?php esc_html_e( $list->display_name ); ?>
 					</p>
 					<?php $edit_link = add_query_arg( 'user_id', $list->ID, self_admin_url( 'user-edit.php')); ?>
 					<a href="<?php echo esc_url($edit_link); ?>" class="btn-text btn-detail-link color-design-dark">
@@ -139,7 +144,7 @@ $filters = array(
 				</td>
 				<td data-th="Registration Date">
 				<span class="color-text-primary text-regular-caption">
-				<?php echo esc_html_e( $instructors->column_total_course( $list, 'total_course' )); ?>
+				<?php esc_html_e( $instructors->column_total_course( $list, 'total_course' )); ?>
 				</span>
 				</td>
 				<td data-th="Course Taklen">

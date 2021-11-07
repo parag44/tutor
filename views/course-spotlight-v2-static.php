@@ -228,7 +228,7 @@
 				</div>
 			</div>  -->
 
-            <div id="tutor-quiz-multiple-choice" class="tutor-quiz-wrap">
+			<div id="tutor-quiz-matching-choice" class="tutor-quiz-wrap">
                 <div class="quiz-meta-info d-flex justify-content-between">
                     <div class="quiz-meta-info-left d-flex">
                         <div class="quiz-qno d-flex">
@@ -254,47 +254,63 @@
                     </div>
                 </div> <!-- quiz-meta-info -->
                 <div class="quiz-question tutor-mt-60">
-                    <div class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-18">
-                        01. Select which of the following are living beings?
-                    </div>
-                    <div class="quiz-question-desc text-regular-caption color-text-subsued">
-                        Over 92% of computers are infected with Adware and spyware. Such software is rarely accompanied
-                        by uninstall utility and even when it is it almost always leaves broken.
+                    <div class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-40 tutor-mr-100">
+					    08. Rearrange the following sentence-parts in a meaningful order.
                     </div>
                 </div> <!-- quiz-question -->
-                <div class="quiz-question-ans-choice-area tutor-mt-70">
-                    <div class="quiz-question-ans-choice">
-                        <label for="q1">
-                            <input id="q1" type="checkbox" class="tutor-form-check-input" />
-                            <span class="text-regular-body color-text-primary">Computer Science & Technology</span>
-                        </label>
+                <div id="quiz-ordering-ans-area" class="quiz-question-ans-choice-area tutor-mt-70">
+                    <div class="quiz-ordering-ans d-flex align-items-center">
+					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            01.
+						</div>
+						<div class="quiz-ordering-ans-item tutor-ml-30">
+						    <div class="tutor-quiz-border-box">
+				                <span class="text-regular-body color-text-primary">Important</span>
+				                <span class="ttr-humnurger-filled color-black-fill"></span>
+			               </div>
+						</div>
                     </div>
-                    <div class="quiz-question-ans-choice">
-                        <label for="q2">
-                            <input id="q2" type="checkbox" class="tutor-form-check-input" />
-                            <span class="text-regular-body color-text-primary">Computer Science & Technology</span>
-                        </label>
+                    <div class="quiz-ordering-ans d-flex align-items-center">
+					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            02.
+						</div>
+						<div class="quiz-ordering-ans-item tutor-ml-30">
+						    <div class="tutor-quiz-border-box">
+				                <span class="text-regular-body color-text-primary">Knowledge</span>
+				                <span class="ttr-humnurger-filled color-black-fill"></span>
+			               </div>
+						</div>
                     </div>
-                    <div class="quiz-question-ans-choice">
-                        <label for="q3">
-                            <input id="q3" type="checkbox" class="tutor-form-check-input" />
-                            <span class="text-regular-body color-text-primary">Computer Science & Technology</span>
-                        </label>
+                    <div class="quiz-ordering-ans d-flex align-items-center">
+					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            03.
+						</div>
+						<div class="quiz-ordering-ans-item tutor-ml-30">
+						    <div class="tutor-quiz-border-box">
+				                <span class="text-regular-body color-text-primary">Is More</span>
+				                <span class="ttr-humnurger-filled color-black-fill"></span>
+			               </div>
+						</div>
                     </div>
-                    <div class="quiz-question-ans-choice">
-                        <label for="q4">
-                            <input id="q4" type="checkbox" class="tutor-form-check-input" />
-                            <span class="text-regular-body color-text-primary">Computer Science & Technology</span>
-                        </label>
+                    <div class="quiz-ordering-ans d-flex align-items-center">
+					    <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            04.
+						</div>
+						<div class="quiz-ordering-ans-item tutor-ml-30">
+						    <div class="tutor-quiz-border-box">
+				                <span class="text-regular-body color-text-primary">Imagination</span>
+				                <span class="ttr-humnurger-filled color-black-fill"></span>
+			               </div>
+						</div>
                     </div>
                 </div> <!-- quiz-question-ans-choice-area -->
                 <div class="tutor-quiz-btn-grp tutor-quiz-btn-grp tutor-mt-60">
                     <button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">
                         Submit & Next
                     </button>
-                    <button class="tutor-btn tutor-btn-disable-outline tutor-no-hover tutor-btn-md skip-quiz-btn">
+                    <a href="#" class="tutor-ml-30">
                         Skip Quiz
-                    </button>
+                    </a>
                 </div>
             </div> <!-- tutor-quiz-wrap -->
 

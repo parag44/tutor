@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(){
             e.preventDefault();
             const formData = new FormData(approveForm);
             formData.set('withdraw-id', withdrawId);
-            const post = await ajaxHandler(formData);
+            const post = await ajaxHandler(formData, e.currentTarget);
             if (post.ok) {
                 const success = post.json();
                 if (success) {
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
             e.preventDefault();
             const formData = new FormData(rejectForm);
             formData.set('withdraw-id', withdrawId);
-            const post = await ajaxHandler(formData);
+            const post = await ajaxHandler(formData, e.currentTarget);
             if (post.ok) {
                 const success = post.json();
                 if (success) {
@@ -87,16 +87,76 @@ document.addEventListener("DOMContentLoaded", function(){
      *
      * @param {*} formData including action and all form fields
      */
-     async function ajaxHandler(formData) {
+     async function ajaxHandler(formData, target) {
+    
         formData.set(window.tutor_get_nonce_data(true).key, window.tutor_get_nonce_data(true).value);
         try {
+            // select loading button
+            const loadingButton = target.querySelector(".tutor-btn-loading");
+            // keep previous text
+            let prevHtml = loadingButton.innerHTML;
+            // add loading ball
+            loadingButton.innerHTML = `<div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>`;
+
             const post = await fetch(window._tutorobject.ajaxurl, {
                 method: "POST",
                 body: formData,
             });
+            // after network request get previous html
+            loadingButton.innerHTML = prevHtml;
             return post;
         } catch (error) {
             tutor_toast(__("Operation failed", "tutor"), error, "error")
         }
     }   
+
+
+
+    /*
+    * function to copy 
+    * @textToCopy string
+    * return a promise
+    */
+    function copyToClipboard(textToCopy) {
+        // navigator clipboard api needs a secure context (https)
+        if (navigator.clipboard && window.isSecureContext) {
+            // navigator clipboard api method'
+            return navigator.clipboard.writeText(textToCopy);
+        } else {
+            // text area method
+            let textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            // make the textarea out of viewport
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            return new Promise((res, rej) => {
+                // here the magic happens
+                document.execCommand('copy') ? res() : rej();
+                textArea.remove();
+            });
+        }
+    }
+
+    const withDrawCopyBtns = document.querySelectorAll('.withdraw-tutor-copy-to-clipboard');
+    if(withDrawCopyBtns) {
+        for (let withDrawCopyBtn of withDrawCopyBtns) {
+            withDrawCopyBtn.addEventListener('click', (event) => {
+                // console.log(withDrawCopyBtn.previousSibling);
+                console.log(event.currentTarget.dataset.textCopy);
+                copyToClipboard(event.currentTarget.dataset.textCopy).then(text => {
+                    let html = withDrawCopyBtn.innerHTML;
+                    withDrawCopyBtn.innerHTML = `${__('Copied', 'tutor')}`;
+                    setTimeout(() => {withDrawCopyBtn.innerHTML = html }, 5000);
+                })
+            })
+        }
+    }
+
 });

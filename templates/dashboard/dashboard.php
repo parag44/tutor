@@ -5,6 +5,71 @@
  */
 
 ?>
+<?php
+
+if(tutor_utils()->get_option('enable_profile_completion')) {
+    $profile_completion = tutor_utils()->user_profile_completion();
+    $total_count = count($profile_completion);
+    $incomplete_count = count(array_filter($profile_completion, function($data){return !$data['is_set'];}));
+    $complete_count = $total_count-$incomplete_count;
+
+    if($total_count && $incomplete_count && $incomplete_count<$total_count) {
+        ?>
+        <div class="profile-completion">
+            <div class="tutor-bs-row tutor-bs-align-items-center">
+                <div class="tutor-bs-col-md-8 profile-completion-content">
+                    <div class="list-item-title text-medium-h5 color-text-primary">
+                        <?php esc_html_e( 'Complete Your Profile', 'tutor' ) ?>
+                    </div>
+                    <div class="tutor-mt-20">
+                        <?php 
+                            for($i=1; $i<=$total_count; $i++) {
+                                $class = $i > $complete_count ?
+                                            'tutor-btn tutor-btn-sm tutor-btn-disable tutor-no-hover tutor-btn-full' :
+                                            'tutor-btn tutor-btn-sm tutor-btn-full'
+                                ?>
+                                <li>
+                                    <button class="<?php echo $class; ?>"></button>
+                                </li>
+                                <?php
+                            }
+                        ?>
+                        <li>
+                            <span class="tutor-round-icon">
+                                <i class="ttr-award-filled"></i>
+                            </span>
+                        </li>
+                    </div>
+                    <div class="list-item-title text-medium-h6 tutor-mt-30">
+                        <span><?php $complete_count>($total_count/2) ? _e( 'You are almost done', 'tutor' ) : _e('Please complete profile') ?></span>:&nbsp;
+                        <span class="color-text-primary">
+                            <?php echo $complete_count . '/' . $total_count; ?>
+                        </span>
+                    </div>
+                </div>
+                <div class="tutor-bs-col-md-4 warning">
+                    <ul>
+                        <?php 
+                            foreach ($profile_completion as $key => $data) {
+                                $is_set = $data['is_set']; // Whether the step is done or not
+                                ?>
+                                <li>
+                                    <span class="icon ttr-tick-circle-outline-filled"></span>
+                                    <span>
+                                        <?php echo $data['label_html']; ?>
+                                    </span>
+                                </li>
+                                <?php
+                            }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+}
+?>
 
 <h3><?php _e('Dashboard', 'tutor') ?></h3>
 
@@ -37,7 +102,7 @@
                     <i class="ttr-book-open-filled"></i>
                 </span>
                 <span class="tutor-dashboard-info-val"><?php echo esc_html($enrolled_course_count); ?></span>
-                <span><?php _e('Enrolled Courses', 'tutor'); ?></span>
+                <span><?php esc_html_e('Enrolled Courses', 'tutor'); ?></span>
                 <span class="tutor-dashboard-info-val"><?php echo esc_html($enrolled_course_count); ?></span>
             </p>
         </div>
@@ -47,7 +112,7 @@
                     <i class="ttr-college-graduation-filled"></i>
                 </span>
                 <span class="tutor-dashboard-info-val"><?php echo esc_html($active_course_count); ?></span>
-                <span><?php _e('Active Courses', 'tutor'); ?></span>
+                <span><?php esc_html_e('Active Courses', 'tutor'); ?></span>
                 <span class="tutor-dashboard-info-val"><?php echo esc_html($active_course_count); ?></span>
             </p>
         </div>
@@ -57,7 +122,7 @@
                     <i class="ttr-award-filled"></i>
                 </span>
                 <span class="tutor-dashboard-info-val"><?php echo esc_html($completed_course_count); ?></span>
-                <span><?php _e('Completed Courses', 'tutor'); ?></span>
+                <span><?php esc_html_e('Completed Courses', 'tutor'); ?></span>
                 <span class="tutor-dashboard-info-val"><?php echo esc_html($completed_course_count); ?></span>
             </p>
         </div>
@@ -71,7 +136,7 @@
                         <i class="ttr-user-graduate-filled"></i>
                     </span>
                     <span class="tutor-dashboard-info-val"><?php echo esc_html($total_students); ?></span>
-                    <span><?php _e('Total Students', 'tutor'); ?></span>
+                    <span><?php esc_html_e('Total Students', 'tutor'); ?></span>
                     <span class="tutor-dashboard-info-val"><?php echo esc_html($total_students); ?></span>
                 </p>
             </div>
@@ -81,7 +146,7 @@
                         <i class="ttr-box-open-filled"></i>
                     </span>
                     <span class="tutor-dashboard-info-val"><?php echo esc_html(count($my_courses)); ?></span>
-                    <span><?php _e('Total Courses', 'tutor'); ?></span>
+                    <span><?php esc_html_e('Total Courses', 'tutor'); ?></span>
                     <span class="tutor-dashboard-info-val"><?php echo esc_html(count($my_courses)); ?></span>
                 </p>
             </div>
@@ -91,7 +156,7 @@
                         <i class="ttr-coins-filled"></i>
                     </span>
                     <span class="tutor-dashboard-info-val"><?php echo tutor_utils()->tutor_price($earning_sum->instructor_amount); ?></span>
-                    <span><?php _e('Total Earnings', 'tutor'); ?></span>
+                    <span><?php esc_html_e('Total Earnings', 'tutor'); ?></span>
                     <span class="tutor-dashboard-info-val"><?php echo tutor_utils()->tutor_price($earning_sum->instructor_amount); ?></span>
                 </p>
             </div>
@@ -113,9 +178,9 @@ if(count($instructor_course)) {
 
     ?>
         <h3 class="popular-courses-heading-dashboard">
-            <?php _e('Popular Courses', 'tutor'); ?>
-            <a style="float:right" class="tutor-view-all-course" href="<?php echo tutor_utils()->tutor_dashboard_url('my-courses'); ?>">
-                <?php _e('View All', 'tutor'); ?>
+            <?php esc_html_e('Popular Courses', 'tutor'); ?>
+            <a style="float:right" class="tutor-view-all-course" href="<?php echo esc_url(tutor_utils()->tutor_dashboard_url('my-courses')); ?>">
+                <?php esc_html_e('View All', 'tutor'); ?>
             </a>
         </h3>
         <div class="tutor-dashboard-content-inner">
@@ -124,18 +189,18 @@ if(count($instructor_course)) {
                     <tr>
                         <th>
                             <span class="text-regular-small color-text-subsued">
-                                <?php _e('Course Name', 'tutor'); ?>
+                                <?php esc_html_e('Course Name', 'tutor'); ?>
                             </span>
                         </th>
                         <th>
                             <div class="inline-flex-center color-text-subsued">
-                                <span class="text-regular-small"><?php _e('Enrolled', 'tutor'); ?></span>
+                                <span class="text-regular-small"><?php esc_html_e('Enrolled', 'tutor'); ?></span>
                                 <span class="ttr-ordering-a-to-z-filled"></span>
                             </div>
                         </th>
                         <th>
                             <div class="inline-flex-center color-text-subsued">
-                                <span class="text-regular-small"><?php _e('Rating', 'tutor'); ?></span>
+                                <span class="text-regular-small"><?php esc_html_e('Rating', 'tutor'); ?></span>
                                 <span class="ttr-ordering-a-to-z-filled"></span>
                             </div>
                         </th>
@@ -151,21 +216,21 @@ if(count($instructor_course)) {
                         
                         ?>
                         <tr>
-                            <td data-th="<?php _e('Course Name', 'tutor'); ?>" class="column-fullwidth">
+                            <td data-th="<?php esc_html_e('Course Name', 'tutor'); ?>" class="column-fullwidth">
                                 <div class="td-course text-medium-body color-text-primary">
-                                    <a href="<?php echo get_the_permalink($course->ID); ?>" target="_blank">
-                                        <?php echo $course->post_title; ?>
+                                    <a href="<?php echo esc_url(get_the_permalink($course->ID)); ?>" target="_blank">
+                                        <?php esc_html_e($course->post_title); ?>
                                     </a>
                                 </div>
                             </td>
-                            <td data-th="<?php _e('Enrolled', 'tutor'); ?>">
+                            <td data-th="<?php esc_html_e('Enrolled', 'tutor'); ?>">
                                 <span class="text-medium-caption color-text-primary">
-                                    <?php echo $enrolled; ?>
+                                    <?php esc_html_e($enrolled); ?>
                                 </span>
                             </td>
-                            <td data-th="<?php _e('Rating', 'tutor'); ?>">
+                            <td data-th="<?php esc_html_e('Rating', 'tutor'); ?>">
                                 <div class="td-tutor-rating text-regular-body color-text-subsued">
-                                    <?php tutor_utils()->star_rating_generator($course_rating->rating_avg); ?> <span><?php echo $course_rating->rating_avg; ?></span>
+                                    <?php tutor_utils()->star_rating_generator($course_rating->rating_avg); ?> <span><?php esc_html_e($course_rating->rating_avg); ?></span>
                                 </div>
                             </td>
                         </tr>
