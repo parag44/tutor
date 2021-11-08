@@ -54,6 +54,13 @@ class Template extends Tutor_Base {
 				get_footer();
 				exit;
 			}
+			if(!is_admin() && isset($_GET['assignment-v2']) && $_GET['assignment-v2'] == 1) {
+				get_header();
+				include tutor()->path . '/views/course-assignment.php';
+				get_footer();
+				exit();
+			}
+			
 		} );
 	}
 
