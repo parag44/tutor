@@ -203,38 +203,6 @@
                 </div> -->
         </div>
         <div class="tutor-quiz-wrapper tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
-            <!-- <div class="tutor-start-quiz-wrapper tutor-p-50">
-                    <div class="tutor-start-quiz-title tutor-pb-28">
-                        <p class="text-regular-body color-text-primary tutor-pb-6">Quiz</p>
-                        <h6 class="text-medium-h4 color-text-primary">The most popular and modern server</h6>
-                    </div>
-                    <div class="tutor-quiz-info-area tutor-mb-60 tutor-mt-22">
-                        <div class="tutor-quiz-info">
-                            <span class="text-regular-body color-text-hints">Question:</span>
-                            <span class="text-regular-body color-text-primary">20</span>
-                        </div>
-                        <div class="tutor-quiz-info">
-                            <span class="text-regular-body color-text-hints">Quize Time:</span>
-                            <span class="text-regular-body color-text-primary">20 Minutes</span>
-                        </div>
-                        <div class="tutor-quiz-info">
-                            <span class="text-regular-body color-text-hints">Total Attempted:</span>
-                            <span class="text-regular-body color-text-primary">8/20</span>
-                        </div>
-                        <div class="tutor-quiz-info">
-                            <span class="text-regular-body color-text-hints">Passing Grade</span>
-                            <span class="text-regular-body color-text-primary">(80%)</span>
-                        </div>
-                    </div>
-                    <div class="tutor-quiz-btn-grp">
-                        <button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">
-                            Star Quiz
-                        </button>
-                        <button class="tutor-btn tutor-btn-disable-outline tutor-no-hover tutor-btn-md skip-quiz-btn">
-                            Skip Quiz
-                        </button>
-                    </div>
-                </div>  -->
 
             <div id="tutor-quiz-image-matching-choice" class="tutor-quiz-wrap">
                 <div class="quiz-meta-info d-flex justify-content-between">
@@ -257,11 +225,11 @@
                                     <circle cx="0" cy="0" r="7"></circle>
                                 </svg>
                             </div>
-                            <!-- <div class="quiz-time-remaining-expired-circle">
-                                    <svg viewBox="0 0 50 50" width="50" height="50">
-                                        <circle cx="0" cy="0" r="8"></circle>
-                                    </svg>
-                                </div> -->
+                            <div class="quiz-time-remaining-expired-circle">
+                                <svg viewBox="0 0 50 50" width="50" height="50">
+                                    <circle cx="0" cy="0" r="8"></circle>
+                                </svg>
+                            </div>
                             <p class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</p>
                             <span class="text-medium-body color-text-error">Expired</span>
                         </div>
