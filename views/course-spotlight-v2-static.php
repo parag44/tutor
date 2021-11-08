@@ -244,17 +244,18 @@
                     <div class="quiz-meta-info-right">
                         <div class="quiz-time-remaining d-flex">
                             <div class="quiz-time-remaining-progress-circle">
-                                <svg viewBox="0 0 50 50" width="50" height="50" style="--quizeProgress: 90;">
+                                <svg viewBox="0 0 50 50" width="50" height="50" style="--quizeProgress: 30;">
+                                    <circle cx="0" cy="0" r="7"></circle>
                                     <circle cx="0" cy="0" r="7"></circle>
                                 </svg>
                             </div>
-                            <div class="quiz-time-remaining-expired-circle">
+                            <!-- <div class="quiz-time-remaining-expired-circle">
                                 <svg viewBox="0 0 50 50" width="50" height="50">
                                     <circle cx="0" cy="0" r="8"></circle>
                                 </svg>
-                            </div>
+                            </div> -->
                             <p class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</p>
-                            <span class="text-medium-body color-text-title">7:30:48</span>
+                            <span class="text-medium-body color-text-error">Expired</span>
                         </div>
                     </div>
                 </div> <!-- quiz-meta-info -->

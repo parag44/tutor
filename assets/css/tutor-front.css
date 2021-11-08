@@ -7785,13 +7785,23 @@ Instructor customize filters styles
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .quiz-meta-info .quiz-meta-info-right .quiz-time-remaining .quiz-time-remaining-progress-circle svg circle {
-  fill: none;
   -webkit-transform: translate(17px, 15px);
           transform: translate(17px, 15px);
-  stroke: red;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .quiz-meta-info .quiz-meta-info-right .quiz-time-remaining .quiz-time-remaining-progress-circle svg circle:first-child {
+  stroke: #9ca0ac;
+  stroke-width: 13px;
+  stroke-dasharray: 44;
+  stroke-dashoffset: 0;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .quiz-meta-info .quiz-meta-info-right .quiz-time-remaining .quiz-time-remaining-progress-circle svg circle:last-child {
+  fill: none;
+  stroke: #3e64de;
   stroke-dasharray: 44;
   stroke-dashoffset: calc( 44 - ((44 * var(--quizeProgress)) / 100));
-  stroke-width: 14px;
+  stroke-width: 13px;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .quiz-meta-info .quiz-meta-info-right .quiz-time-remaining .quiz-time-remaining-expired-circle svg {
