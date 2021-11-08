@@ -60,6 +60,12 @@ class Template extends Tutor_Base {
 				get_footer();
 				exit();
 			}
+			if(!is_admin() && isset($_GET['spotlight-v2']) && $_GET['spotlight-v2'] == 1) {
+				get_header();
+				include tutor()->path . '/views/spotlight.php';
+				get_footer();
+				exit();
+			}
 			
 		} );
 	}

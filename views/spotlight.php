@@ -163,100 +163,102 @@
 				<span class="ttr-line-cross-line color-text-white flex-center"></span>
 			</div>
 		</div>
-		<div class="tutor-quiz-wrapper tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
-
-			<div id="tutor-quiz-image-matching-choice" class="tutor-quiz-wrap">
-				<div class="quiz-meta-info d-flex justify-content-between">
-					<div class="quiz-meta-info-left d-flex">
-						<div class="quiz-qno d-flex">
-							<p class="text-regular-body color-text-hints tutor-mr-10">Questions No:</p>
-							<span class="text-bold-body color-text-title">01/15</span>
-						</div>
-						<div class="quiz-total-attempt d-flex d-xs-none">
-							<p class="text-regular-body color-text-hints tutor-mr-10">Total
-								Attempted:</p>
-							<span class="text-bold-body color-text-title">8/20</span>
+		<div class="course-players">
+			<iframe width="100%" height="600" src="https://www.youtube.com/embed/1cvTYFZGYSI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+		<div class="tutor-course-spotlight-wrapper">
+			<div class="tutor-default-tab tutor-course-details-tab">
+				<div class="tab-header tutor-bs-d-flex justify-content-center">
+					<div class="tab-header-item flex-center is-active" data-tutor-tab-target="tutor-course-details-tab-1">
+						<span class="ttr-document-alt-filled"></span>
+						<span>Overview</span>
+					</div>
+					<div class="tab-header-item flex-center" data-tutor-tab-target="tutor-course-details-tab-2">
+						<span class="ttr-attach-filled"></span>
+						<span>Exercise Files</span>
+					</div>
+					<div class="tab-header-item flex-center" data-tutor-tab-target="tutor-course-details-tab-3">
+						<span class="ttr-comment-filled"></span>
+						<span>Comments</span>
+					</div>
+				</div>
+				<div class="tab-body">
+					<div class="tab-body-item is-active" id="tutor-course-details-tab-1">
+						<div class="text-medium-h6 color-text-primary">About Lesson</div>
+						<div class="text-regular-body color-text-subsued tutor-mt-12">
+							Node.js is probably THE most popular and modern server-side
+							programming language you can dive into these days! Node.js developers
+							are in high demand and the language is used for everything from
+							traditional web apps with server-side rendered views over REST APIs
+							all the way up to GraphQL APIs and real-time web services. Not to
+							mention its applications in build workflows for projects of all sizes.
+							<br /> <br />
+							This course will teach you all of that! From scratch with zero prior
+							knowledge assumed. Though if you do bring some knowledge, you'll of
+							course be able to quickly jump into the course modules that are most
+							interesting to you.Does this look like a lot of content? It certainly
+							is! This is not a short course but it is the "Complete Guide" on
+							Node.js after all. .
 						</div>
 					</div>
-					<div class="quiz-meta-info-right">
-						<div class="quiz-time-remaining d-flex">
-							<div class="quiz-time-remaining-progress-circle">
-								<svg viewBox="0 0 50 50" width="50" height="50" style="--quizeProgress: 30;">
-									<circle cx="0" cy="0" r="7"></circle>
-									<circle cx="0" cy="0" r="7"></circle>
-								</svg>
+					<div class="tab-body-item" id="tutor-course-details-tab-2">
+						<div class="text-medium-h6 color-text-primary">Exercise Files</div>
+						<div class="tutor-exercise-files tutor-mt-20">
+							<div class="tutor-instructor-card">
+								<div class="tutor-icard-content">
+									<h6 class="tutor-name text-regular-body color-text-title">
+										My Courses.zip
+									</h6>
+									<div class="text-regular-small">Size: 15.56 KB</div>
+								</div>
+								<div class="tutor-avatar tutor-is-xs flex-center">
+									<span class="ttr-download-line color-design-brand"></span>
+								</div>
 							</div>
-							<div class="quiz-time-remaining-expired-circle">
-								<svg viewBox="0 0 50 50" width="50" height="50">
-									<circle cx="0" cy="0" r="8"></circle>
-								</svg>
+							<div class="tutor-instructor-card">
+								<div class="tutor-icard-content">
+									<h6 class="tutor-name text-regular-body color-text-title">
+										My Courses.zip
+									</h6>
+									<div class="text-regular-small">Size: 15.56 KB</div>
+								</div>
+								<div class="tutor-avatar tutor-is-xs flex-center">
+									<span class="ttr-download-line color-design-brand"></span>
+								</div>
 							</div>
-							<p class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</p>
-							<span class="text-medium-body color-text-error">Expired</span>
+							<div class="tutor-instructor-card">
+								<div class="tutor-icard-content">
+									<h6 class="tutor-name text-regular-body color-text-title">
+										My Courses.zip
+									</h6>
+									<div class="text-regular-small">Size: 15.56 KB</div>
+								</div>
+								<div class="tutor-avatar tutor-is-xs flex-center">
+									<span class="ttr-download-line color-design-brand"></span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div> <!-- quiz-meta-info -->
-				<div class="quiz-flash-message">
-					<div class="tutor-quiz-warning-box time-remaining-warning d-flex align-items-center justify-content-between">
-						<div class="flash-info d-flex align-items-center">
-							<span class="ttr-warning-outline-circle-filled color-design-warning tutor-mr-7"></span>
-							<span class="text-regular-caption color-text-title">
-								Your time limit for this quiz has expired, please reattempt the quiz. Attempts
-								remaining: 6/10
-							</span>
-						</div>
-						<div class="flash-action">
-							<button class="tutor-btn tutor-btn-md reattempt-btn">Reattempt</button>
-						</div>
-					</div>
-					<div class="tutor-quiz-warning-box time-over d-flex align-items-center justify-content-between">
-						<div class="flash-info d-flex align-items-center">
-							<span class="ttr-cross-circle-outline-filled color-design-danger tutor-mr-7"></span>
-							<span class="text-regular-caption color-text-title">
-								Unfortunately, you are out of time and quiz attempts.
-							</span>
+					<div class="tab-body-item" id="tutor-course-details-tab-3">
+						<div class="text-medium-h6 color-text-primary">Curriculum</div>
+						<div class="text-regular-body color-text-subsued tutor-mt-12">
+							This course will teach you all of that! From scratch with zero prior
+							knowledge assumed. Though if you do bring some knowledge, you'll of
+							course be able to quickly jump into the course modules that are most
+							interesting to you.Does this look like a lot of content? It certainly
+							is! This is not a short course but it is the "Complete Guide" on
+							Node.js after all. .
+							<br /> <br />
+							Node.js is probably THE most popular and modern server-side
+							programming language you can dive into these days! Node.js developers
+							are in high demand and the language is used for everything from
+							traditional web apps with server-side rendered views over REST APIs
+							all the way up to GraphQL APIs and real-time web services. Not to
+							mention its applications in build workflows for projects of all sizes.
 						</div>
 					</div>
 				</div>
-				<div class="quiz-question tutor-mt-60 tutor-mr-100">
-					<div class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-20">
-						08. Rearrange the following sentence-parts in a meaningful order.
-					</div>
-					<div class="matching-quiz-question-desc">
-						<span class="text-regular-caption color-text-subsued">
-							ver 92% of computers are infected with Adware and spyware. Such software is rarely
-							accompanied by uninstall utility and even when it is it almost always leaves broken.
-						</span>
-					</div>
-				</div> <!-- quiz-question -->
-				<div class="quiz-question-ans-choice-area tutor-mt-70">
-					<div class="quiz-question-ans-choice d-flex flex-wrap align-items-center">
-						<label for="q1">
-							<input id="q1" type="radio" class="tutor-form-check-input" name="radio_a" />
-							<span class="text-regular-body color-text-primary">true</span>
-						</label>
-						<div class="tutor-quiz-correct-ans d-flex align-items-center tutor-ml-sm-20 tutor-mt-10 tutor-mt-sm-0">
-							<span class="ttr-mark-filled color-design-success"></span>
-							<span class="text-regular-body color-text-title">Correct Answer</span>
-						</div>
-					</div>
-					<div class="quiz-question-ans-choice">
-						<label for="qs1">
-							<input id="qs1" type="radio" class="tutor-form-check-input" name="radio_a" />
-							<span class="text-regular-body color-text-primary">false</span>
-						</label>
-					</div>
-				</div> <!-- quiz-question-ans-choice-area -->
-				<div class="tutor-quiz-btn-grp tutor-quiz-btn-grp tutor-mt-60">
-					<button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">
-						Submit & Next
-					</button>
-					<a href="#" class="tutor-ml-30">
-						Skip Quiz
-					</a>
-				</div>
-			</div> <!-- tutor-quiz-wrap -->
-
+			</div>
 		</div>
 	</div>
 </div>

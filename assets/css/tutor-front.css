@@ -7819,7 +7819,7 @@ Instructor customize filters styles
   fill: none;
   stroke: #3e64de;
   stroke-dasharray: 44;
-  stroke-dashoffset: calc( 44 - ((44 * var(--quizeProgress)) / 100));
+  stroke-dashoffset: calc( 44 - ((44 * var(--quizeProgress)) / 100));
   stroke-width: 13px;
 }
 
@@ -8094,6 +8094,79 @@ Instructor customize filters styles
         -ms-flex-align: start;
             align-items: flex-start;
   }
+}
+
+.tutor-course-spotlight-wrapper .course-players {
+  position: relative;
+}
+
+.tutor-course-spotlight-wrapper .course-players iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-header .tab-header-item {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 575.98px) {
+  .tutor-course-spotlight-wrapper .tutor-default-tab .tab-header .tab-header-item {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-header .tab-header-item span[class^='ttr-'],
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-header .tab-header-item span[class*=' ttr-'] {
+  font-size: 20px;
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 50px 30px;
+}
+
+@media (max-width: 575.98px) {
+  .tutor-course-spotlight-wrapper .tutor-default-tab .tab-body {
+    padding: 20px 20px;
+  }
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 575.98px) {
+  .tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files .tutor-instructor-card {
+  cursor: pointer;
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files .tutor-instructor-card:hover .tutor-avatar {
+  background: #3e64de;
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files .tutor-instructor-card:hover .tutor-avatar span {
+  color: #ffffff;
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files .tutor-instructor-card .tutor-avatar {
+  background: #e9edfb;
+}
+
+.tutor-course-spotlight-wrapper .tutor-default-tab .tab-body .tab-body-item .tutor-exercise-files .tutor-instructor-card .tutor-avatar span {
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=tutor-front.css.map */
