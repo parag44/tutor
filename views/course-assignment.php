@@ -202,7 +202,7 @@
         <div class="tutor-quiz-wrapper tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
 
             <div id="tutor-quiz-image-matching-choice" class="tutor-quiz-wrap">
-                <div className="tutor-default-tab tutor-course-details-tab">
+                <div class="tutor-default-tab tutor-course-details-tab">
                     <div class="tab-header tutor-bs-d-flex">
                         <div class="tab-header-item is-active" data-tutor-tab-target="tutor-course-details-tab-1">
                             <span>Course Info</span>
@@ -213,8 +213,8 @@
                     </div>
                     <div class="tab-body">
                         <div class="tab-body-item is-active" id="tutor-course-details-tab-1">
-                            <div className="text-medium-h6 color-text-primary">About Course</div>
-                            <div className="text-regular-body color-text-subsued tutor-mt-12">
+                            <div class="text-medium-h6 color-text-primary">About Course</div>
+                            <div class="text-regular-body color-text-subsued tutor-mt-12">
                                 Node.js is probably THE most popular and modern server-side
                                 programming language you can dive into these days! Node.js developers
                                 are in high demand and the language is used for everything from
@@ -231,8 +231,8 @@
                             </div>
                         </div>
                         <div class="tab-body-item" id="tutor-course-details-tab-2">
-                            <div className="text-medium-h6 color-text-primary">Curriculum</div>
-                            <div className="text-regular-body color-text-subsued tutor-mt-12">
+                            <div class="text-medium-h6 color-text-primary">Curriculum</div>
+                            <div class="text-regular-body color-text-subsued tutor-mt-12">
                                 This course will teach you all of that! From scratch with zero prior
                                 knowledge assumed. Though if you do bring some knowledge, you'll of
                                 course be able to quickly jump into the course modules that are most
