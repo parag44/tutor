@@ -380,7 +380,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tutor-comment-box tutor-mt-32">
+                                    <div class="tutor-comment-box tutor-reply-box tutor-mt-32">
                                         <div class="comment-avatar">
                                             <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
                                         </div>
