@@ -1,16 +1,10 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-	// if (window.innerWidth < 900) {
-	// 	const topBar = document.querySelector('.tutor-single-page-top-bar');
-	// 	const sideBar = document.querySelector('.tutor-lesson-sidebar');
-	// 	sideBar.style.top = topBar.clientHeight + 'px';
-	// }
+	/* sidetab tab position */
 	const topBar = document.querySelector('.tutor-single-page-top-bar');
 	const sideBar = document.querySelector('.tutor-lesson-sidebar');
 	sideBar.style.top = topBar.clientHeight + 'px';
-	// console.log(topBar.clientHeight);
-});
 
-document.addEventListener('DOMContentLoaded', (event) => {
+	/* sidetab tab */
 	const sideBarTabs = document.querySelectorAll('.tutor-sidebar-tab-item');
 	sideBarTabs.forEach((tab) => {
 		tab.addEventListener('click', (event) => {
@@ -32,4 +26,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			sidebarTabItems[i].classList.remove('active');
 		}
 	};
+	/* end of sidetab tab */
+
+	/* comment text-area focus arrow style */
+
+	/* comment text-area focus arrow style */
 });
