@@ -29,6 +29,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	/* end of sidetab tab */
 
 	/* comment text-area focus arrow style */
-
+	const commentTextarea = document.querySelectorAll(
+		'.tutor-comment-textarea textarea'
+	);
+	if (commentTextarea) {
+		commentTextarea.forEach((item) => {
+			item.addEventListener('focus', () => {
+				item.parentElement.classList.add('is-focused');
+			});
+			item.addEventListener('blur', () => {
+				item.parentElement.classList.remove('is-focused');
+			});
+		});
+	}
 	/* comment text-area focus arrow style */
 });

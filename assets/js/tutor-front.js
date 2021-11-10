@@ -39,6 +39,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   /* comment text-area focus arrow style */
 
+
+  var commentTextarea = document.querySelectorAll('.tutor-comment-textarea textarea');
+
+  if (commentTextarea) {
+    commentTextarea.forEach(function (item) {
+      item.addEventListener('focus', function () {
+        item.parentElement.classList.add('is-focused');
+      });
+      item.addEventListener('blur', function () {
+        item.parentElement.classList.remove('is-focused');
+      });
+    });
+  }
   /* comment text-area focus arrow style */
 
 });
