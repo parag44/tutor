@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="tutor-sidebar-tabs-content">
-                <div id="tutor-lesson-sidebar-tab-content" class="tutor-lesson-sidebar-tab-item">
+                <div id="tutor-lesson-sidebar-tab-content" class="tutor-lesson-sidebar-tab-item active">
                     <div class="tutor-topics-in-single-lesson">
                         <div class="tutor-topics-title d-flex justify-content-between">
                             <div class="tutor-topics-title-left">
@@ -158,8 +158,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item active">
-                    <div class="tutor-sidebar-no-qna d-flex flex-column align-items-center justify-content-center">
+                <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
+                    <!-- <div class="tutor-sidebar-no-qna d-flex flex-column align-items-center justify-content-center">
                         <svg width="176" height="159" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M126.362 48.707c-25.185 0-45.585 20.502-45.585 45.813 0 13.446 5.764 25.522 14.916 33.913-.14 6.6-1.467 19.589-9.292 26.329 0 0 18.933 1.861 31.822-15.13 2.655.491 5.379.737 8.139.737 25.185 0 45.584-20.502 45.584-45.814 0-25.311-20.434-45.848-45.584-45.848Z"
@@ -204,8 +204,8 @@
                         <button class="tutor-btn tutor-btn-primary tutor-btn-md tutor-mt-20">
                             Submit My Question
                         </button>
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
                 <!-- <div class="tutor-lesson-sidebar-tab-item" style="display: none;">
                     <h1>This feature has been disabled by the administrator</h1>
                 </div> -->
@@ -228,9 +228,8 @@
                 <span class="ttr-line-cross-line color-text-white flex-center"></span>
             </div>
         </div>
-        <div class="course-players">
-            <iframe width="100%" height="600" src="https://www.youtube.com/embed/1cvTYFZGYSI"
-                title="YouTube video player" frameborder="0"
+        <div class="course-players flex-center">
+            <iframe src="https://www.youtube.com/embed/1cvTYFZGYSI" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
@@ -426,6 +425,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tutor-comments-list tutor-child-comment tutor-mt-30">
+                                        <div class="comment-avatar">
+                                            <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
+                                        </div>
+                                        <div class="tutor-single-comment">
+                                            <div class="tutor-actual-comment tutor-mb-10">
+                                                <div class="tutor-comment-author">
+                                                    <span class="text-bold-body">Estella Clayton</span>
+                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1 week
+                                                        ago</span>
+                                                </div>
+                                                <div class="tutor-comment-text text-regular-body tutor-mt-5">
+                                                    No need to convince ordinary smartphone users who do not understand
+                                                    worth of it
+                                                </div>
+                                            </div>
+                                            <div class="tutor-comment-actions tutor-ml-22">
+                                                <span class="text-regular-body color-text-title">reply</span>
+                                                <span class="text-regular-body color-text-title">like</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="tutor-comment-box tutor-reply-box tutor-mt-20">
                                         <div class="comment-avatar">
                                             <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
@@ -459,6 +480,31 @@
                                     <div class="tutor-comment-actions tutor-ml-22">
                                         <span class="text-regular-body color-text-title">reply</span>
                                         <span class="text-regular-body color-text-title">like</span>
+                                    </div>
+                                    <div class="tutor-comments-list tutor-child-comment tutor-mt-30">
+                                        <div class="comment-avatar">
+                                            <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
+                                        </div>
+                                        <div class="tutor-single-comment">
+                                            <div class="tutor-actual-comment tutor-mb-10">
+                                                <div class="tutor-comment-author">
+                                                    <span class="text-bold-body">Estella Clayton</span>
+                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1 week
+                                                        ago</span>
+                                                </div>
+                                                <div class="tutor-comment-text text-regular-body tutor-mt-5">
+                                                    No need to convince ordinary smartphone users who do not understand
+                                                    worth of
+                                                    it
+                                                </div>
+                                            </div>
+                                            <div class="tutor-comment-actions tutor-ml-22">
+                                                <span class="text-regular-body color-text-title">reply</span>
+                                                <span class="text-regular-body color-text-title">like</span>
+                                                <span class="text-regular-body color-text-title">edit</span>
+                                                <span class="text-regular-body color-text-title">delete</span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tutor-comments-list tutor-child-comment tutor-mt-30">
                                         <div class="comment-avatar">

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	const topBar = document.querySelector('.tutor-single-page-top-bar');
 	const sideBar = document.querySelector('.tutor-lesson-sidebar');
 	sideBar.style.top = topBar.clientHeight + 'px';
+	/* sidetab tab position */
 
 	/* sidetab tab */
 	const sideBarTabs = document.querySelectorAll('.tutor-sidebar-tab-item');
@@ -43,4 +44,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		});
 	}
 	/* comment text-area focus arrow style */
+
+	/* commenting */
+	const parentComments = document.querySelectorAll(
+		'.tutor-comments-list.tutor-parent-comment'
+	);
+	const childComment = document.querySelectorAll(
+		'.tutor-comments-list.tutor-child-comment'
+	);
+	// const replyComment = document.querySelectorAll('.tutor-comment-box.tutor-reply-box');
+
+	if (parentComments) {
+		parentComments.forEach((parentComment) => {
+			console.log(
+				parentComment.querySelectorAll(
+					'.tutor-comments-list.tutor-child-comment'
+				)
+			);
+		});
+	}
+	console.log();
+
+	/* commenting */
 });

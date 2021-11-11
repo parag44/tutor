@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var topBar = document.querySelector('.tutor-single-page-top-bar');
   var sideBar = document.querySelector('.tutor-lesson-sidebar');
   sideBar.style.top = topBar.clientHeight + 'px';
+  /* sidetab tab position */
+
   /* sidetab tab */
 
   var sideBarTabs = document.querySelectorAll('.tutor-sidebar-tab-item');
@@ -54,6 +56,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
   /* comment text-area focus arrow style */
 
+  /* commenting */
+
+
+  var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
+  var childComment = document.querySelectorAll('.tutor-comments-list.tutor-child-comment'); // const replyComment = document.querySelectorAll('.tutor-comment-box.tutor-reply-box');
+
+  if (parentComments) {
+    parentComments.forEach(function (parentComment) {
+      console.log(parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment'));
+    });
+  }
+
+  console.log();
+  /* commenting */
 });
 
 /***/ }),
