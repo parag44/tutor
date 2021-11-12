@@ -8,10 +8,14 @@
 defined( 'ABSPATH' ) || exit;
 
 //global variables
-$user_id      = get_current_user_id();
-$time_period  = $active = isset( $_GET['period'] ) ? $_GET['period'] : '';
-$start_date   = isset( $_GET['start_date']) ? sanitize_text_field( $_GET['start_date'] ) : '';
-$end_date     = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date'] ) : '';
+$user_id     = get_current_user_id();
+$time_period = $active = isset( $_GET['period'] ) ? $_GET['period'] : '';
+$start_date  = isset( $_GET['start_date']) ? sanitize_text_field( $_GET['start_date'] ) : '';
+$end_date    = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date'] ) : '';
+
+$paged       = ( isset( $_GET['current_page'] ) && is_numeric( $_GET['current_page'] ) && $_GET['current_page'] >= 1 ) ? $_GET['current_page'] : 1;
+$per_page    = tutor_utils()->get_option( 'pagination_per_page' );
+$offset      = ( $per_page * $paged ) - $per_page;
 
     if ( '' !== $start_date ) {
         $start_date = tutor_get_formated_date( 'Y-m-d', $start_date );
@@ -21,7 +25,7 @@ $end_date     = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date
     }
 ?>
 
-<h3><?php esc_html_e( 'Purchase History', 'tutor' ); ?></h3>
+<h3><?php esc_html_e( 'Order History', 'tutor' ); ?></h3>
 <div class="tutor-purchase-history">
     <!--filter buttons tabs-->
     <?php 
@@ -66,8 +70,9 @@ $end_date     = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date
         $filter_period_calendar_template = tutor()->path . 'views/elements/purchase-history-filter.php';
         tutor_load_template_from_custom_path( $filter_period_calendar_template, $filter_period_calendar );
         
-        $orders      = tutor_utils()->get_orders_by_user_id( $user_id, $time_period, $start_date, $end_date );
-        $monetize_by = tutor_utils()->get_option( 'monetize_by' );
+        $orders       = tutor_utils()->get_orders_by_user_id( $user_id, $time_period, $start_date, $end_date, $offset, $per_page );
+        $total_orders = tutor_utils()->get_total_orders_by_user_id( $user_id, $time_period, $start_date, $end_date );
+        $monetize_by  = tutor_utils()->get_option( 'monetize_by' );
 
     ?>
     <!--filter button tabs end-->
@@ -83,22 +88,22 @@ $end_date     = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date
                 </span>
             </th>
             <th>
-                <span class="text-regular-small colo-text-subsued">
+                <span class="text-regular-small color-text-subsued">
                     <?php esc_html_e( 'Course Name', 'tutor' ); ?>
                 </span>
             </th>
             <th>
-                <span class="text-regular-small colo-text-subsued">
+                <span class="text-regular-small color-text-subsued">
                     <?php esc_html_e( 'Date', 'tutor' ); ?>
                 </span>
             </th>
             <th>
-                <span class="text-regular-small colo-text-subsued">
+                <span class="text-regular-small color-text-subsued">
                     <?php esc_html_e( 'Price', 'tutor' ); ?>
                 </span>
             </th>
             <th>
-                <span class="text-regular-small colo-text-subsued">
+                <span class="text-regular-small color-text-subsued">
                     <?php esc_html_e( 'Status', 'tutor' ); ?>
                 </span>
             </th>
@@ -177,7 +182,7 @@ $end_date     = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date
                         <span class="tutor-badge-label label-<?php esc_attr_e( $order_status ); ?> tutor-m-5"><?php esc_html_e( $order_status_text ); ?></span>
                     </td>
                     <td data-th="Download" class="tutor-export-purchase-history" data-order="<?php echo esc_attr( $order->ID ); ?>" data-course-name="<?php echo esc_attr( get_the_title( $course['course_id'] ) ); ?>" data-price="<?php echo esc_attr( $raw_price ); ?>" data-date="<?php echo esc_attr( date_i18n( get_option( 'date_format' ), strtotime( $order->post_date ) ) ); ?>" data-status="<?php echo esc_attr( $order_status_text ); ?>">
-                        <a><span class="ttr-receipt-line" style="font-size:24px"></span></a>
+                        <a><span class="ttr-receipt-line color-text-title" style="font-size:24px"></span></a>
                     </td>
                 </tr>
                 <?php } ?>
@@ -192,5 +197,17 @@ $end_date     = isset( $_GET['end_date']) ? sanitize_text_field( $_GET['end_date
             <?php } ?>
         </tbody>
     </table>
+    <?php
+        /**
+         * Prepare pagination data & load template
+         */
+        $pagination_data = array(
+            'total_items' => ! empty( $total_orders ) ? count( $total_orders ) : 0,
+            'per_page'    => $per_page,
+            'paged'       => $paged,
+        );
+        $pagination_template = tutor()->path . 'templates/dashboard/elements/pagination.php';
+        tutor_load_template_from_custom_path( $pagination_template, $pagination_data );
+    ?>
 </div>
 

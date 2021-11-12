@@ -1,4 +1,3 @@
-import '../lib/common';
 import './dashboard';
 import './pages/instructor-list-filter';
 import './pages/course-landing';
@@ -133,94 +132,9 @@ jQuery(document).ready(function ($) {
             .replace(/-+$/, '');            // Trim - from end of text
     }
 
-    $(document).on('click', '.tutor-ask-question-btn', function (e) {
-        e.preventDefault();
-        $('.tutor-add-question-wrap').slideToggle();
-    });
-    
     $(document).on('click', '.tutor_question_cancel', function (e) {
         e.preventDefault();
         $('.tutor-add-question-wrap').toggle();
-    });
-
-    $(document).on('submit', '#tutor-ask-question-form', function (e) {
-        e.preventDefault();
-
-        var $form = $(this);
-
-        var data = $(this).serializeObject();
-        data.action = 'tutor_ask_question';
-
-        $.ajax({
-            url: _tutorobject.ajaxurl,
-            type: 'POST',
-            data: data,
-            beforeSend: function () {
-                $form.find('.tutor_ask_question_btn').addClass('updating-icon');
-            },
-            success: function (data) {
-                if (data.success) {
-                    $('.tutor-add-question-wrap').hide();
-                    window.location.reload();
-                }
-            },
-            complete: function () {
-                $form.find('.tutor_ask_question_btn').removeClass('updating-icon');
-            }
-        });
-    });
-
-    $(document).on('submit', '.tutor-add-answer-form', function (e) {
-        e.preventDefault();
-
-        var $form = $(this);
-        var data = $(this).serializeObject();
-        data.action = 'tutor_add_answer';
-
-        $.ajax({
-            url: _tutorobject.ajaxurl,
-            type: 'POST',
-            data: data,
-            beforeSend: function () {
-                $form.find('.tutor_add_answer_btn').addClass('updating-icon');
-            },
-            success: function (data) {
-                if (data.success) {
-                    window.location.reload();
-                }
-            },
-            complete: function () {
-                $form.find('.tutor_add_answer_btn').removeClass('updating-icon');
-            }
-        });
-    });
-
-    $(document).on('focus', '.tutor_add_answer_textarea', function (e) {
-        e.preventDefault();
-
-        var question_id = $(this).closest('.tutor_add_answer_wrap').attr('data-question-id');
-        var conf = {
-            tinymce: {
-                wpautop: true,
-                //plugins : 'charmap colorpicker compat3x directionality fullscreen hr image lists media paste tabfocus textcolor wordpress wpautoresize wpdialogs wpeditimage wpemoji wpgallery wplink wptextpattern wpview',
-                toolbar1: 'bold italic underline bullist strikethrough numlist  blockquote  alignleft aligncenter alignright undo redo link unlink spellchecker fullscreen'
-            },
-        };
-        wp.editor.initialize('tutor_answer_' + question_id, conf);
-    });
-
-    $(document).on('click', '.tutor_cancel_wp_editor', function (e) {
-        e.preventDefault();
-        $(this).closest('.tutor_wp_editor_wrap').toggle();
-        $(this).closest('.tutor_add_answer_wrap').find('.tutor_wp_editor_show_btn_wrap').toggle();
-        var question_id = $(this).closest('.tutor_add_answer_wrap').attr('data-question-id');
-        wp.editor.remove('tutor_answer_' + question_id);
-    });
-
-    $(document).on('click', '.tutor_wp_editor_show_btn', function (e) {
-        e.preventDefault();
-        $(this).closest('.tutor_add_answer_wrap').find('.tutor_wp_editor_wrap').toggle();
-        $(this).closest('.tutor_wp_editor_show_btn_wrap').toggle();
     });
 
     /**
@@ -302,7 +216,7 @@ jQuery(document).ready(function ($) {
                                 var attemptRemaining = $("#tutor-quiz-time-expire-wrapper").data('attempt-remaining');
 
                                 var alertDiv = "#tutor-quiz-time-expire-wrapper .tutor-alert";
-                                $(alertDiv).addClass('show');
+                                $(alertDiv).addClass('tutor-alert-show');
                                 if ( att > 0 ) {
                                     $(`${alertDiv} .text`).html(
                                         __( 'Your time limit for this quiz has expired, please reattempt the quiz. Attempts remaining: '+ attemptRemaining+'/'+attemptAllowed, 'tutor' )
@@ -382,9 +296,9 @@ jQuery(document).ready(function ($) {
             success: function (data) {
                 if (data.success) {
                     if (data.data.status === 'added') {
-                        $that.addClass('has-wish-listed');
+                        $that.find('i').addClass('ttr-fav-full-filled').removeClass('ttr-fav-line-filled');
                     } else {
-                        $that.removeClass('has-wish-listed');
+                        $that.find('i').addClass('ttr-fav-line-filled').removeClass('ttr-fav-full-filled');
                     }
                 } else {
                     window.location = data.data.redirect_to;
@@ -829,7 +743,6 @@ jQuery(document).ready(function ($) {
 
     $(document).on('keyup', function (e) {
         if (e.keyCode === 27) {
-            $('.tutor-frontend-modal').hide();
             $('.tutor-cart-box-login-form').fadeOut(100);
         }
     });
@@ -880,19 +793,11 @@ jQuery(document).ready(function ($) {
             type: 'POST',
             data: data,
             beforeSend: function () {
-                $form.find('.tutor-success-msg').remove();
                 $btn.addClass('updating-icon');
             },
             success: function (data) {
                 if (data.success) {
-                    var successMsg = '<div class="tutor-success-msg" style="display: none;"><i class="tutor-icon-mark"></i> ' + data.data.msg + ' </div>';
-                    $btn.closest('.withdraw-account-save-btn-wrap').append(successMsg);
-                    if ($form.find('.tutor-success-msg').length) {
-                        $form.find('.tutor-success-msg').slideDown();
-                    }
-                    setTimeout(function () {
-                        $form.find('.tutor-success-msg').slideUp();
-                    }, 5000)
+                    tutor_toast( 'Success!', data.data.msg, 'success', false );
                 }
             },
             complete: function () {
@@ -967,19 +872,6 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    var frontEndModal = $('.tutor-frontend-modal');
-    frontEndModal.each(function () {
-        var modal = $(this),
-            action = $(this).data('popup-rel');
-        $('[href="' + action + '"]').on('click', function (e) {
-            modal.fadeIn();
-            e.preventDefault();
-        });
-    });
-    $(document).on('click', '.tm-close, .tutor-frontend-modal-overlay, .tutor-modal-btn-cancel', function () {
-        frontEndModal.fadeOut();
-    });
-
     /**
      * Delete Course
      */
@@ -1009,7 +901,6 @@ jQuery(document).ready(function ($) {
             },
             complete: function () {
                 $btn.removeClass('updating-icon');
-                $('.tutor-frontend-modal').hide();
             }
         });
     });

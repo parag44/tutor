@@ -723,41 +723,103 @@ displayAddons(freeAddonsList);
  */
 var colorPresetInputs = document.querySelectorAll("label.color-preset-input input[type='radio']");
 var colorPickerInputs = document.querySelectorAll("label.color-picker-input input[type='color']");
-var pickerView = document.querySelectorAll(".color-picker-wrapper [data-key]"); // Color PRESET Slecetion (color inputs)
+var pickerView = document.querySelectorAll('.color-picker-wrapper [data-key]');
+var moreButton = document.querySelector('.more_button');
+var otherColors = document.querySelector('.other_colors');
+var otherColorRows = otherColors && otherColors.querySelectorAll('.tutor-option-field-row');
+var otherColorsExpanded = document.querySelector('.other_colors.expanded');
+document.addEventListener('readystatechange', function (event) {
+  if (event.target.readyState === 'interactive') {}
 
-colorPresetInputs.forEach(function (preset) {
-  // listening preset input events
-  preset.addEventListener("input", function (e) {
+  if (event.target.readyState === 'complete') {
+    if (typeof otherColorsPreview === 'function') {
+      otherColorsPreview();
+    }
+  }
+});
+
+var otherColorsPreview = function otherColorsPreview() {
+  var itemsHeight = initHeight = 0;
+
+  if (otherColors && otherColorRows) {
+    otherColorRows.forEach(function (item, index) {
+      if (0 == index) {
+        initHeight = item.offsetHeight;
+
+        if (otherColors) {
+          otherColors.style.height = initHeight - 10 + 'px';
+        }
+      }
+
+      itemsHeight = itemsHeight + item.offsetHeight;
+    });
+  }
+
+  if (moreButton && otherColors) {
+    var toggleHeight = itemsHeight + moreButton.offsetHeight + 'px';
+
+    moreButton.onclick = function () {
+      otherColors.classList.toggle('expanded');
+
+      if (otherColors.classList.contains('expanded')) {
+        otherColors.style.height = toggleHeight;
+        moreButton.querySelector('i').classList.remove('ttr-plus-filled');
+        moreButton.querySelector('i').classList.add('ttr-minus-filled');
+        moreButton.querySelector('span').innerText = 'Show Less';
+      } else {
+        otherColors.style.height = initHeight - 10 + 'px';
+        moreButton.querySelector('i').classList.remove('ttr-minus-filled');
+        moreButton.querySelector('i').classList.add('ttr-plus-filled');
+        moreButton.querySelector('span').innerText = 'Show More';
+      }
+    };
+  }
+}; // Color PRESET Slecetion (color inputs)
+
+
+if (colorPresetInputs) {
+  colorPresetInputs.forEach(function (preset) {
     var presetItem = preset.parentElement.querySelector(".preset-item");
     var presetColors = presetItem.querySelectorAll(".header span");
-    presetColors.forEach(function (color) {
-      var presetKey = color.dataset.preset;
-      var presetColor = color.dataset.color;
-      pickerView.forEach(function (toPicker) {
-        var pickerInput = toPicker.dataset.key;
+    var presetInput = preset.closest(".color-preset-input"); // listening preset input events
 
-        if (pickerInput == presetKey) {
-          toPicker.querySelector("input").value = presetColor;
-          toPicker.querySelector(".picker-value").innerHTML = presetColor;
-          toPicker.style.borderColor = presetColor;
-          toPicker.style.boxShadow = "inset 0 0 0 1px ".concat(presetColor);
-          setTimeout(function () {
-            toPicker.style.borderColor = "#cdcfd5";
-            toPicker.style.boxShadow = "none";
-          }, 5000);
-        }
+    if (true === preset.checked) {
+      presetInput.classList.add("is-checked");
+    }
+
+    preset.addEventListener("input", function (e) {
+      presetInput.classList.add("is-checked");
+      presetColors.forEach(function (color) {
+        var presetKey = color.dataset.preset;
+        var presetColor = color.dataset.color;
+        pickerView.forEach(function (toPicker) {
+          var pickerInput = toPicker.dataset.key;
+
+          if (pickerInput == presetKey) {
+            toPicker.querySelector('input').value = presetColor;
+            toPicker.querySelector('.picker-value').innerHTML = presetColor;
+            toPicker.style.borderColor = presetColor;
+            toPicker.style.boxShadow = "inset 0 0 0 1px ".concat(presetColor);
+            setTimeout(function () {
+              toPicker.style.borderColor = '#cdcfd5';
+              toPicker.style.boxShadow = 'none';
+            }, 5000);
+          }
+        });
       });
     });
   });
-}); // Updating Custom Color PRESET
+} // Updating Custom Color PRESET
+
 
 var updateCustomPreset = function updateCustomPreset(picker) {
   var customPresetEl = document.querySelector("label.color-preset-input[for='custom']"); // listening picker input events
 
   picker.addEventListener("input", function (e) {
-    var presetColors = customPresetEl.querySelectorAll(".header span");
-    var presetItem = customPresetEl.querySelector('input[type="radio"]');
+    var presetColors = customPresetEl && customPresetEl.querySelectorAll(".header span");
+    var presetItem = customPresetEl && customPresetEl.querySelector('input[type="radio"]');
     var pickerCode = picker.nextElementSibling;
+    pickerCode.innerText = picker.value;
     colorPickerInputs.forEach(function (picker) {
       var preset = picker.dataset.picker;
       presetColors.forEach(function (toPreset) {
@@ -766,16 +828,17 @@ var updateCustomPreset = function updateCustomPreset(picker) {
           toPreset.style.backgroundColor = picker.value;
         }
       });
-      pickerCode.innerText = picker.value;
       presetItem.checked = true;
     });
   });
 }; // listening color pickers input event
 
 
-colorPickerInputs.forEach(function (picker) {
-  updateCustomPreset(picker);
-});
+if (colorPickerInputs) {
+  colorPickerInputs.forEach(function (picker) {
+    updateCustomPreset(picker);
+  });
+}
 
 /***/ }),
 
@@ -834,14 +897,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  var filterDate = document.getElementById("tutor-backend-filter-date");
-
-  if (filterDate) {
-    filterDate.onchange = function (e) {
-      window.location = urlPrams("date", e.target.value);
-    };
-  }
-
   var filterSearch = document.getElementById("tutor-admin-search-filter-form");
 
   if (filterSearch) {
@@ -861,7 +916,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (bulkForm) {
     bulkForm.onsubmit = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(e) {
-        var formData, bulkIds, bulkFields, _iterator, _step, field, post;
+        var formData, bulkIds, bulkFields, _iterator, _step, field, loadingButton, prevHtml, post, response;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -887,36 +942,63 @@ document.addEventListener("DOMContentLoaded", function () {
                   _iterator.f();
                 }
 
+                if (bulkIds.length) {
+                  _context.next = 9;
+                  break;
+                }
+
+                alert(__('Select checkbox for action', 'tutor'));
+                return _context.abrupt("return");
+
+              case 9:
                 formData.set("bulk-ids", bulkIds);
                 formData.set(window.tutor_get_nonce_data(true).key, window.tutor_get_nonce_data(true).value);
-                _context.prev = 8;
-                _context.next = 11;
+                _context.prev = 11;
+                loadingButton = document.querySelector('#tutor-confirm-bulk-action.tutor-btn-loading');
+                prevHtml = loadingButton.innerHTML;
+                loadingButton.innerHTML = "<div class=\"ball\"></div>\n        <div class=\"ball\"></div>\n        <div class=\"ball\"></div>\n        <div class=\"ball\"></div>";
+                _context.next = 17;
                 return fetch(window._tutorobject.ajaxurl, {
                   method: "POST",
                   body: formData
                 });
 
-              case 11:
+              case 17:
                 post = _context.sent;
+                loadingButton.innerHTML = prevHtml;
 
-                if (post.ok) {
-                  location.reload();
+                if (!post.ok) {
+                  _context.next = 24;
+                  break;
                 }
 
-                _context.next = 18;
+                _context.next = 22;
+                return post.json();
+
+              case 22:
+                response = _context.sent;
+
+                if (response.success) {
+                  location.reload();
+                } else {
+                  tutor_toast(__("Failed", "tutor"), __("Something went wrong, please try again ", "tutor"), "error");
+                }
+
+              case 24:
+                _context.next = 29;
                 break;
 
-              case 15:
-                _context.prev = 15;
-                _context.t0 = _context["catch"](8);
+              case 26:
+                _context.prev = 26;
+                _context.t0 = _context["catch"](11);
                 alert(_context.t0);
 
-              case 18:
+              case 29:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[8, 15]]);
+        }, _callee, null, [[11, 26]]);
       }));
 
       return function (_x2) {
@@ -976,7 +1058,7 @@ document.addEventListener("DOMContentLoaded", function () {
    */
 
 
-  var availableStatus = ["publish", "pending", "draft"];
+  var availableStatus = ["publish", "pending", "trash", "draft"];
   var courseStatusUpdate = document.querySelectorAll(".tutor-admin-course-status-update");
 
   var _iterator2 = _createForOfIteratorHelper(courseStatusUpdate),
@@ -1023,13 +1105,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (response) {
                     target.dataset.status = newStatus;
-                    putStatus = "";
-                    newStatus === "publish" ? putStatus = "select-success" : newStatus === "pending" ? putStatus = "select-warning" : "select-default";
+                    putStatus = "select-default";
+                    newStatus === "publish" ? putStatus = "select-success" : newStatus === "pending" ? putStatus = "select-warning" : newStatus === 'trash' ? putStatus = "select-danger" : "select-default"; // add new status class
 
-                    if (!target.closest(".tutor-form-select-with-icon").classList.contains(putStatus)) {
-                      target.closest(".tutor-form-select-with-icon").classList.add(putStatus);
-                    }
-
+                    target.closest(".tutor-form-select-with-icon").setAttribute('class', "tutor-form-select-with-icon ".concat(putStatus));
                     tutor_toast(__("Updated", "tutor"), __("Course status updated ", "tutor"), "success");
                   } else {
                     tutor_toast(__("Failed", "tutor"), __("Course status update failed ", "tutor"), "error");
@@ -1448,18 +1527,21 @@ var getFilesAndUpdateDOM = function getFilesAndUpdateDOM(files, inputEl, dropZon
 
 function toolTipOnWindowResize() {
   var mediaQuery = window.matchMedia('(max-width: 992px)');
+  var hasClass = document.querySelectorAll('.tooltip-responsive');
 
-  if (mediaQuery.matches) {
-    var toolTips = document.querySelectorAll('.tooltip-right');
-    toolTips.forEach(function (toolTip) {
-      toolTip.classList.replace('tooltip-right', 'tooltip-left');
-    });
-  } else {
-    var _toolTips = document.querySelectorAll('.tooltip-left');
+  if (hasClass.length) {
+    if (mediaQuery.matches) {
+      var toolTips = document.querySelectorAll('.tooltip-right');
+      toolTips.forEach(function (toolTip) {
+        toolTip.classList.replace('tooltip-right', 'tooltip-left');
+      });
+    } else {
+      var _toolTips = document.querySelectorAll('.tooltip-left');
 
-    _toolTips.forEach(function (toolTip) {
-      toolTip.classList.replace('tooltip-left', 'tooltip-right');
-    });
+      _toolTips.forEach(function (toolTip) {
+        toolTip.classList.replace('tooltip-left', 'tooltip-right');
+      });
+    }
   }
 }
 
@@ -1856,43 +1938,43 @@ var tutorIconsV2 = {
 var angleRight = tutorIconsV2.angleRight,
     magnifyingGlass = tutorIconsV2.magnifyingGlass,
     warning = tutorIconsV2.warning;
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   var $ = window.jQuery;
   var __ = wp.i18n.__;
-  var image_uploader = document.querySelectorAll(".image_upload_button"); // let image_input = document.getElementById("image_url_field");
+  var image_uploader = document.querySelectorAll('.image_upload_button'); // let image_input = document.getElementById("image_url_field");
 
   var _loop = function _loop(i) {
-    var image_upload_wrap = image_uploader[i].closest(".image-previewer");
-    var input_file = image_upload_wrap.querySelector(".input_file");
-    var upload_preview = image_upload_wrap.querySelector(".upload_preview");
+    var image_upload_wrap = image_uploader[i].closest('.image-previewer');
+    var input_file = image_upload_wrap.querySelector('.input_file');
+    var upload_preview = image_upload_wrap.querySelector('.upload_preview');
     var email_title_logo = document.querySelector('[data-source="email-title-logo"]'); // document.querySelector(
     //   "[data-source='email-title-logo']"
     // );
 
-    var image_delete = image_upload_wrap.querySelector(".delete-btn");
+    var image_delete = image_upload_wrap.querySelector('.delete-btn');
 
     image_uploader[i].onclick = function (e) {
       e.preventDefault();
       var image_frame = wp.media({
-        title: "Upload Image",
+        title: 'Upload Image',
         library: {
-          type: "image"
+          type: 'image'
         },
         multiple: false,
-        frame: "post",
-        state: "insert"
+        frame: 'post',
+        state: 'insert'
       });
       image_frame.open();
       /* image_frame.on("select", function (e) {
-      console.log("image size");
-      console.log(image.state().get("selection").first().toJSON());
-      var image_url = image_frame.state().get("selection").first().toJSON().url;
-      upload_previewer.src = image_input.value = image_url;
+      	console.log("image size");
+      	console.log(image.state().get("selection").first().toJSON());
+      		var image_url = image_frame.state().get("selection").first().toJSON().url;
+      		upload_previewer.src = image_input.value = image_url;
       }); */
 
-      image_frame.on("insert", function (selection) {
+      image_frame.on('insert', function (selection) {
         var state = image_frame.state();
-        selection = selection || state.get("selection");
+        selection = selection || state.get('selection');
         if (!selection) return; // We set multiple to false so only get one image from the uploader
 
         var attachment = selection.first();
@@ -1913,8 +1995,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     image_delete.onclick = function () {
-      input_file.value = "";
-      email_title_logo.src = "https://via.placeholder.com/108x26?text=Upload";
+      input_file.value = '';
+      email_title_logo.src = 'https://via.placeholder.com/108x26?text=Upload';
     };
   };
 
@@ -1922,24 +2004,24 @@ document.addEventListener("DOMContentLoaded", function () {
     _loop(i);
   }
 
-  $(window).on("click", function (e) {
-    $(".tutor-notification, .search_result").removeClass("show");
+  $(window).on('click', function (e) {
+    $('.tutor-notification, .search_result').removeClass('show');
   });
-  $(".tutor-notification-close").click(function (e) {
-    $(".tutor-notification").removeClass("show");
+  $('.tutor-notification-close').click(function (e) {
+    $('.tutor-notification').removeClass('show');
   });
-  $("#save_tutor_option").click(function (e) {
+  $('#save_tutor_option').click(function (e) {
     e.preventDefault();
-    $("#tutor-option-form").submit();
+    $('#tutor-option-form').submit();
   });
-  $("#tutor-option-form").submit(function (e) {
+  $('#tutor-option-form').submit(function (e) {
     e.preventDefault();
-    var button = $("#save_tutor_option");
+    var button = $('#save_tutor_option');
     var $form = $(this);
     var data = $form.serializeObject();
     $.ajax({
       url: window._tutorobject.ajaxurl,
-      type: "POST",
+      type: 'POST',
       data: data,
       beforeSend: function beforeSend() {
         button.addClass('tutor-updating-message');
@@ -1954,6 +2036,8 @@ document.addEventListener("DOMContentLoaded", function () {
             message = _data$message === void 0 ? __('Something Went Wrong!', 'tutor') : _data$message;
 
         if (success) {
+          // Disableing save btn after saved successfully
+          document.getElementById('save_tutor_option').disabled = true;
           tutor_toast('Success!', __('Settings Saved', 'tutor'), 'success', true);
           return;
         }
@@ -1967,7 +2051,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function titleCase(str) {
-    var splitStr = str.toLowerCase().split(" ");
+    var splitStr = str.toLowerCase().split(' ');
 
     for (var i = 0; i < splitStr.length; i++) {
       // You do not need to check if i is larger than splitStr length, as your for does that for you
@@ -1976,41 +2060,41 @@ document.addEventListener("DOMContentLoaded", function () {
     } // Directly return the joined string
 
 
-    return splitStr.join(" ");
+    return splitStr.join(' ');
   }
 
   function view_item(text, section_slug, section, block, field_key) {
-    var navTrack = block ? "".concat(angleRight, " ").concat(block) : "";
+    var navTrack = block ? "".concat(angleRight, " ").concat(block) : '';
     var output = "\n\t\t<a data-tab=\"".concat(section_slug, "\" data-key=\"field_").concat(field_key, "\">\n\t\t\t<div class=\"search_result_title\">\n\t\t\t").concat(magnifyingGlass, "\n\t\t\t<span class=\"text-regular-caption\">").concat(text, "</span>\n\t\t\t</div>\n\t\t\t<div class=\"search_navigation\">\n\t\t\t<div class=\"nav-track text-regular-small\">\n\t\t\t\t<span>").concat(section, "</span>\n\t\t\t\t<span>").concat(navTrack, "</span>\n\t\t\t</div>\n\t\t\t</div>\n\t\t</a>");
     return output;
   }
 
-  $("#search_settings").on("input", function (e) {
+  $('#search_settings').on('input', function (e) {
     e.preventDefault();
 
     if (e.target.value) {
       var searchKey = this.value;
       $.ajax({
         url: window._tutorobject.ajaxurl,
-        type: "POST",
+        type: 'POST',
         data: {
-          action: "tutor_option_search",
+          action: 'tutor_option_search',
           keyword: searchKey
         },
         // beforeSend: function () {},
         success: function success(data) {
           // console.log(data.data);
           // return false;
-          var output = "",
-              wrapped_item = "",
+          var output = '',
+              wrapped_item = '',
               notfound = true,
-              item_text = "",
-              section_slug = "",
-              section_label = "",
-              block_label = "",
-              matchedText = "",
-              searchKeyRegex = "",
-              field_key = "",
+              item_text = '',
+              section_slug = '',
+              section_label = '',
+              block_label = '',
+              matchedText = '',
+              searchKeyRegex = '',
+              field_key = '',
               result = data.data.fields;
           Object.values(result).forEach(function (item, index, arr) {
             var _item_text$match;
@@ -2020,7 +2104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             section_label = item.section_label;
             block_label = item.block_label;
             field_key = item.key;
-            searchKeyRegex = new RegExp(searchKey, "ig"); // console.log(item_text.match(searchKeyRegex));
+            searchKeyRegex = new RegExp(searchKey, 'ig'); // console.log(item_text.match(searchKeyRegex));
 
             matchedText = (_item_text$match = item_text.match(searchKeyRegex)) === null || _item_text$match === void 0 ? void 0 : _item_text$match[0];
 
@@ -2035,8 +2119,8 @@ document.addEventListener("DOMContentLoaded", function () {
             output += "<div class=\"no_item\"> ".concat(warning, " No Results Found</div>");
           }
 
-          $(".search_result").html(output).addClass("show");
-          output = ""; // console.log("working");
+          $('.search_result').html(output).addClass('show');
+          output = ''; // console.log("working");
         },
         complete: function complete() {
           // Active navigation element
@@ -2044,7 +2128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     } else {
-      document.querySelector(".search-popup-opener").classList.remove("show");
+      document.querySelector('.search-popup-opener').classList.remove('show');
     }
   });
   /**
@@ -2052,36 +2136,36 @@ document.addEventListener("DOMContentLoaded", function () {
    */
 
   function navigationTrigger() {
-    var suggestionLinks = document.querySelectorAll(".search-field .search-popup-opener a");
-    var navTabItems = document.querySelectorAll("li.tutor-option-nav-item a");
-    var navPages = document.querySelectorAll(".tutor-option-nav-page");
+    var suggestionLinks = document.querySelectorAll('.search-field .search-popup-opener a');
+    var navTabItems = document.querySelectorAll('li.tutor-option-nav-item a');
+    var navPages = document.querySelectorAll('.tutor-option-nav-page');
     suggestionLinks.forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        var dataTab = e.target.closest("[data-tab]").dataset.tab;
-        var dataKey = e.target.closest("[data-key]").dataset.key;
+      link.addEventListener('click', function (e) {
+        var dataTab = e.target.closest('[data-tab]').dataset.tab;
+        var dataKey = e.target.closest('[data-key]').dataset.key;
 
         if (dataTab) {
           // remove active from other buttons
           navTabItems.forEach(function (item) {
-            item.classList.remove("active");
+            item.classList.remove('active');
           }); // add active to the current nav item
 
-          document.querySelector(".tutor-option-tabs [data-tab=".concat(dataTab, "]")).classList.add("active"); // hide other tab contents
+          document.querySelector(".tutor-option-tabs [data-tab=".concat(dataTab, "]")).classList.add('active'); // hide other tab contents
 
           navPages.forEach(function (content) {
-            content.classList.remove("active");
+            content.classList.remove('active');
           }); // add active to the current content
 
-          document.querySelector(".tutor-option-tab-pages #".concat(dataTab)).classList.add("active"); // History push
+          document.querySelector(".tutor-option-tab-pages #".concat(dataTab)).classList.add('active'); // History push
 
           var url = new URL(window.location);
-          url.searchParams.set("tab_page", dataTab);
-          window.history.pushState({}, "", url);
+          url.searchParams.set('tab_page', dataTab);
+          window.history.pushState({}, '', url);
         } // Reset + Hide Suggestion box
 
 
-        document.querySelector(".search-popup-opener").classList.remove("visible");
-        document.querySelector('.search-field input[type="search"]').value = ""; // Highlight selected element
+        document.querySelector('.search-popup-opener').classList.remove('visible');
+        document.querySelector('.search-field input[type="search"]').value = ''; // Highlight selected element
 
         highlightSearchedItem(dataKey);
       });
@@ -2095,46 +2179,46 @@ document.addEventListener("DOMContentLoaded", function () {
   function highlightSearchedItem(dataKey) {
     var target = document.querySelector("#".concat(dataKey));
     var targetEl = target && target.querySelector(".tutor-option-field-label h5.label");
-    var scrollTargetEl = target && target.parentNode.querySelector(".tutor-option-field-row"); // console.log(`target -> ${target} scrollTarget -> ${scrollTargetEl}`);
+    var scrollTargetEl = target && target.parentNode.querySelector('.tutor-option-field-row'); // console.log(`target -> ${target} scrollTarget -> ${scrollTargetEl}`);
 
     if (scrollTargetEl) {
-      targetEl.classList.add("isHighlighted");
-      setTimeout(function () {
-        targetEl.classList.remove("isHighlighted");
-      }, 6000);
+      targetEl.classList.add('isHighlighted'); // setTimeout(() => {
+      //   targetEl.classList.remove("isHighlighted");
+      // }, 6000);
+
       scrollTargetEl.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest"
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
       });
     } else {
       console.warn("scrollTargetEl Not found!");
     }
   }
 
-  var exporter = document.querySelector("#export_settings");
-  !exporter ? 0 : exporter.addEventListener("click", function (e) {
+  var exporter = document.querySelector('#export_settings');
+  !exporter ? 0 : exporter.addEventListener('click', function (e) {
     e.preventDefault();
     fetch(_tutorobject.ajaxurl, {
-      method: "POST",
-      credentials: "same-origin",
+      method: 'POST',
+      credentials: 'same-origin',
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Cache-Control": "no-cache"
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Cache-Control': 'no-cache'
       },
       body: new URLSearchParams({
-        action: "tutor_export_settings"
+        action: 'tutor_export_settings'
       })
     }).then(function (response) {
       return response.json();
     }).then(function (response) {
       var file = new Blob([JSON.stringify(response)], {
-        type: "application/json"
+        type: 'application/json'
       });
       var url = URL.createObjectURL(file);
-      var element = document.createElement("a");
-      element.setAttribute("href", url);
-      element.setAttribute("download", "tutor_options");
+      var element = document.createElement('a');
+      element.setAttribute('href', url);
+      element.setAttribute('download', 'tutor_options');
       element.click();
       document.body.removeChild(element);
     })["catch"](function (err) {
@@ -2188,6 +2272,115 @@ var popupToggle = function popupToggle() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (popupToggle);
+
+/***/ }),
+
+/***/ "./assets/react/admin-dashboard/segments/reset.js":
+/*!********************************************************!*\
+  !*** ./assets/react/admin-dashboard/segments/reset.js ***!
+  \********************************************************/
+/***/ (() => {
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/*
+Reset to default for settings individual page
+*/
+console.log('reset-to-default');
+var resetDefaultBtn = document.querySelectorAll('.reset_to_default');
+resetDefaultBtn.forEach(function (resetBtn, index) {
+  resetBtn.onclick = function (e) {
+    e.preventDefault();
+    var resetPage = resetBtn.dataset.reset;
+    var formData = new FormData();
+    formData.append('action', 'reset_settings_data');
+    formData.append('reset_page', resetPage);
+    formData.append(_tutorobject.nonce_key, _tutorobject._tutor_nonce);
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('POST', _tutorobject.ajaxurl, true);
+    xhttp.send(formData);
+
+    xhttp.onreadystatechange = function () {
+      if (xhttp.readyState === 4) {
+        var pageData = JSON.parse(xhttp.response).data;
+        pageData.forEach(function (item) {
+          var field_types_associate = ['toggle_switch', 'text', 'textarea', 'email', 'select', 'number'];
+
+          if (field_types_associate.includes(item.type)) {
+            var itemName = 'tutor_option[' + item.key + ']';
+            var itemElement = elementByName(itemName)[0];
+
+            if (item.type == 'select') {
+              var sOptions = itemElement.options;
+
+              _toConsumableArray(sOptions).forEach(function (item) {
+                item.selected = false;
+              });
+            } else if (item.type == 'toggle_switch') {
+              itemElement.value = item["default"];
+              itemElement.nextElementSibling.value = item["default"];
+              itemElement.nextElementSibling.checked = false;
+            } else {
+              itemElement.value = item["default"];
+            }
+          }
+
+          var field_types_multi = ['group_fields'];
+
+          if (field_types_multi.includes(item.type)) {
+            console.log(item.group_fields);
+            item.group_fields.forEach(function (item) {
+              var field_types_associate = ['toggle_switch', 'text', 'textarea', 'email', 'select', 'number'];
+
+              if (field_types_associate.includes(item.type)) {
+                var _itemName = 'tutor_option[' + item.key + ']';
+
+                var _itemElement = elementByName(_itemName)[0];
+
+                if (item.type == 'select') {
+                  var _sOptions = _itemElement.options;
+
+                  _toConsumableArray(_sOptions).forEach(function (item) {
+                    item.selected = false;
+                  });
+                } else if (item.type == 'toggle_switch') {
+                  _itemElement.value = item["default"];
+                  _itemElement.nextElementSibling.value = item["default"];
+                  _itemElement.nextElementSibling.checked = false;
+                } else {
+                  _itemElement.value = item["default"];
+                }
+              }
+            });
+          }
+        });
+        tutor_toast('Reset to Default', 'Default data for ' + resetPage.toUpperCase() + ' successfully!', 'success');
+      }
+    };
+  };
+});
+
+var elementByName = function elementByName(key) {
+  return document.getElementsByName(key);
+};
+
+var optionForm = document.querySelector('#tutor-option-form');
+
+if (null !== optionForm) {
+  optionForm.addEventListener('change', function (event) {
+    document.getElementById('save_tutor_option').disabled = false;
+  });
+}
 
 /***/ }),
 
@@ -2456,8 +2649,6 @@ document.addEventListener("DOMContentLoaded", function () {
       var _loop = function _loop() {
         var withDrawCopyBtn = _step3.value;
         withDrawCopyBtn.addEventListener('click', function (event) {
-          // console.log(withDrawCopyBtn.previousSibling);
-          console.log(event.currentTarget.dataset.textCopy);
           copyToClipboard(event.currentTarget.dataset.textCopy).then(function (text) {
             var html = withDrawCopyBtn.innerHTML;
             withDrawCopyBtn.innerHTML = "".concat(__('Copied', 'tutor'));
@@ -2478,1555 +2669,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
-
-/***/ }),
-
-/***/ "./assets/react/helper/response.js":
-/*!*****************************************!*\
-  !*** ./assets/react/helper/response.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "get_response_message": () => (/* binding */ get_response_message)
-/* harmony export */ });
-var get_response_message = function get_response_message(response, def_message) {
-  var __ = wp.i18n.__;
-
-  var _ref = response || {},
-      _ref$data = _ref.data,
-      data = _ref$data === void 0 ? {} : _ref$data;
-
-  var _data$message = data.message,
-      message = _data$message === void 0 ? def_message || __('Something Went Wrong!', 'tutor') : _data$message;
-  return message;
-};
-
-
-
-/***/ }),
-
-/***/ "./assets/react/lib/common.js":
-/*!************************************!*\
-  !*** ./assets/react/lib/common.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _tutor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tutor */ "./assets/react/lib/tutor.js");
-/* harmony import */ var _media_chooser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./media-chooser */ "./assets/react/lib/media-chooser.js");
-/* harmony import */ var _media_chooser__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_media_chooser__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utilities */ "./assets/react/lib/utilities.js");
-/* harmony import */ var _utilities__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_utilities__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _sorting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sorting */ "./assets/react/lib/sorting.js");
-/* harmony import */ var _sorting__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_sorting__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _modules_announcement__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/announcement */ "./assets/react/lib/modules/announcement.js");
-/* harmony import */ var _modules_announcement__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_announcement__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _modules_instructor_review__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/instructor-review */ "./assets/react/lib/modules/instructor-review.js");
-/* harmony import */ var _modules_instructor_review__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_modules_instructor_review__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _modules_quiz__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/quiz */ "./assets/react/lib/modules/quiz.js");
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./assets/react/lib/media-chooser.js":
-/*!*******************************************!*\
-  !*** ./assets/react/lib/media-chooser.js ***!
-  \*******************************************/
-/***/ (() => {
-
-window.jQuery(document).ready(function ($) {
-  var __ = window.wp.i18n.__;
-  /**
-   * upload thumbnail
-   */
-
-  $(document).on('click', '.tutor-thumbnail-uploader .tutor-thumbnail-upload-button', function (event) {
-    event.preventDefault();
-    var wrapper = $(this).closest('.tutor-thumbnail-uploader');
-    var frame;
-
-    if (frame) {
-      frame.open();
-      return;
-    }
-
-    frame = wp.media({
-      title: wrapper.data('media-heading'),
-      button: {
-        text: wrapper.data('button-text')
-      },
-      library: {
-        type: "image"
-      },
-      multiple: false // Set to true to allow multiple files to be selected
-
-    });
-    frame.on('select', function () {
-      var attachment = frame.state().get('selection').first().toJSON();
-      wrapper.find('img').attr('src', attachment.url);
-      wrapper.find('input[type="hidden"].tutor-tumbnail-id-input').val(attachment.id);
-      wrapper.find('.delete-btn').show();
-    });
-    frame.open();
-  });
-  /**
-   * Thumbnail Delete
-   * @since v.1.5.6
-   */
-
-  $(document).on('click', '.tutor-thumbnail-uploader .delete-btn', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var wrapper = $that.closest('.tutor-thumbnail-uploader');
-    wrapper.find('input[type="hidden"].tutor-tumbnail-id-input').val('');
-    wrapper.find('img').attr('src', '');
-    $that.hide();
-  });
-});
-
-/***/ }),
-
-/***/ "./assets/react/lib/modules/announcement.js":
-/*!**************************************************!*\
-  !*** ./assets/react/lib/modules/announcement.js ***!
-  \**************************************************/
-/***/ (() => {
-
-function urlPrams(type, val) {
-  var url = new URL(window.location.href);
-  var search_params = url.searchParams;
-  search_params.set(type, val);
-  url.search = search_params.toString();
-
-  if (_tutorobject.is_admin) {
-    search_params.set('paged', 1);
-  } else {
-    search_params.set('current_page', 1);
-  }
-
-  url.search = search_params.toString();
-  return url.toString();
-}
-
-window.jQuery(document).ready(function ($) {
-  var __ = window.wp.i18n.__; //create announcement
-
-  $(".tutor-announcements-form").on('submit', function (e) {
-    e.preventDefault();
-    var $btn = $(this).find('button[type="submit"]');
-    var formData = $btn.closest(".tutor-announcements-form").serialize();
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: formData,
-      beforeSend: function beforeSend() {
-        $btn.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        if (!data.success) {
-          var _ref = data.data || {},
-              _ref$message = _ref.message,
-              message = _ref$message === void 0 ? __('Something Went Wrong!', 'tutor') : _ref$message;
-
-          tutor_toast(__('Error!', 'tutor'), message, 'error');
-          return;
-        }
-
-        location.reload();
-      },
-      complete: function complete() {
-        $btn.removeClass('tutor-updating-message');
-      },
-      error: function error(data) {
-        tutor_toast(__('Something Went Wrong!', 'tutor'));
-      }
-    });
-  }); // Announcement filter
-
-  $('.tutor-announcement-course-sorting').on('change', function (e) {
-    window.location = urlPrams('course-id', $(this).val());
-  });
-  $('.tutor-announcement-order-sorting').on('change', function (e) {
-    window.location = urlPrams('order', $(this).val());
-  });
-  $('.tutor-announcement-date-sorting').on('change', function (e) {
-    window.location = urlPrams('date', $(this).val());
-  });
-  $('.tutor-announcement-search-sorting').on('click', function (e) {
-    window.location = urlPrams('search', $(".tutor-announcement-search-field").val());
-  });
-});
-
-/***/ }),
-
-/***/ "./assets/react/lib/modules/instructor-review.js":
-/*!*******************************************************!*\
-  !*** ./assets/react/lib/modules/instructor-review.js ***!
-  \*******************************************************/
-/***/ (() => {
-
-window.jQuery(document).ready(function ($) {
-  var __ = wp.i18n.__;
-
-  function toggle_star_(star) {
-    star.add(star.prevAll()).filter('i').addClass('tutor-icon-star-full').removeClass('tutor-icon-star-line');
-    star.nextAll().filter('i').removeClass('tutor-icon-star-full').addClass('tutor-icon-star-line');
-  }
-  /**
-   * Hover tutor rating and set value
-   */
-
-
-  $(document).on('mouseover', '.tutor-star-rating-container .tutor-star-rating-group i', function () {
-    toggle_star_($(this));
-  });
-  $(document).on('click', '.tutor-star-rating-container .tutor-star-rating-group i', function () {
-    var rating = $(this).attr('data-rating-value');
-    $(this).closest('.tutor-star-rating-group').find('input[name="tutor_rating_gen_input"]').val(rating);
-    toggle_star_($(this));
-  });
-  $(document).on('mouseout', '.tutor-star-rating-container .tutor-star-rating-group', function () {
-    var value = $(this).find('input[name="tutor_rating_gen_input"]').val();
-    var rating = parseInt(value);
-    var selected = $(this).find('[data-rating-value="' + rating + '"]');
-    rating && selected && selected.length > 0 ? toggle_star_(selected) : $(this).find('i').removeClass('tutor-icon-star-full').addClass('tutor-icon-star-line');
-  });
-  $(document).on('click', '.tutor_submit_review_btn', function (e) {
-    // Prevent normal submission to validate input
-    e.preventDefault(); // Collect input
-
-    var $that = $(this);
-    var form = $that.closest('form');
-    var rating = form.find('input[name="tutor_rating_gen_input"]').val();
-    var review = (form.find('textarea[name="review"]').val() || '').trim();
-    var course_id = form.find('input[name="course_id"]').val();
-    var review_id = form.find('input[name="review_id"]').val();
-    var data = form.serializeObject(); // Validat
-
-    if (!rating || rating == 0 || !review) {
-      alert(__('Rating and review required', 'tutor'));
-      return;
-    }
-
-    $.ajax({
-      url: _tutorobject.ajaxurl,
-      type: 'POST',
-      data: data,
-      beforeSend: function beforeSend() {
-        $that.addClass('updating-icon');
-      },
-      success: function success(response) {
-        var _ref = response || {},
-            success = _ref.success,
-            _ref$data = _ref.data,
-            data = _ref$data === void 0 ? {} : _ref$data;
-
-        var _data$message = data.message,
-            message = _data$message === void 0 ? __('Something Went Wrong!', 'tutor') : _data$message;
-
-        if (!success) {
-          tutor_toast(__('Error!', 'tutor'), message, 'error');
-          return;
-        } // Show thank you
-
-
-        new window.tutor_popup($, 'icon-rating', 40).popup({
-          title: review_id ? __('Updated successfully!', 'tutor') : __('Thank You for Rating The Course!', 'tutor'),
-          description: review_id ? __('Updated rating will now be visible in the course page', 'tutor') : __('Your rating will now be visible in the course page', 'tutor')
-        });
-        setTimeout(function () {
-          location.reload();
-        }, 3000);
-      },
-      complete: function complete() {
-        $that.removeClass('updating-icon');
-      }
-    });
-  }); // Show review form on opn (Single course)
-
-  $(document).on('click', '.write-course-review-link-btn', function (e) {
-    e.preventDefault();
-    $(this).siblings('.tutor-write-review-form').slideToggle();
-  });
-});
-
-/***/ }),
-
-/***/ "./assets/react/lib/modules/quiz.js":
-/*!******************************************!*\
-  !*** ./assets/react/lib/modules/quiz.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _helper_response__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helper/response */ "./assets/react/helper/response.js");
-
-window.jQuery(document).ready(function ($) {
-  var __ = wp.i18n.__;
-  /**
-   * Quiz Frontend Review Action
-   * @since 1.4.0
-   */
-
-  $(document).on('click', '.quiz-manual-review-action', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var attempt_id = $that.attr('data-attempt-id');
-    var attempt_answer_id = $that.attr('data-attempt-answer-id');
-    var mark_as = $that.attr('data-mark-as');
-    var context = $that.attr('data-context');
-    $.ajax({
-      url: _tutorobject.ajaxurl,
-      type: 'GET',
-      data: {
-        attempt_id: attempt_id,
-        attempt_answer_id: attempt_answer_id,
-        mark_as: mark_as,
-        context: context,
-        action: 'review_quiz_answer'
-      },
-      beforeSend: function beforeSend() {
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        if (data.success && (data.data || {}).html) {
-          $that.closest('.tutor-quiz-attempt-details-wrapper').html(data.data.html);
-          return;
-        }
-
-        tutor_toast('Error!', (0,_helper_response__WEBPACK_IMPORTED_MODULE_0__.get_response_message)(data), 'error');
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  });
-});
-
-/***/ }),
-
-/***/ "./assets/react/lib/sorting.js":
-/*!*************************************!*\
-  !*** ./assets/react/lib/sorting.js ***!
-  \*************************************/
-/***/ (() => {
-
-window.addEventListener('DOMContentLoaded', function () {
-  var _this = this;
-
-  var getCellValue = function getCellValue(tr, idx) {
-    return tr.children[idx].innerText || tr.children[idx].textContent;
-  };
-
-  var comparer = function comparer(idx, asc) {
-    return function (a, b) {
-      return function (v1, v2) {
-        return v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2);
-      }(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-    };
-  };
-
-  document.querySelectorAll(".tutor-table-rows-sorting").forEach(function (th) {
-    return th.addEventListener('click', function (e) {
-      var table = th.closest('table');
-      var tbody = table.querySelector('tbody');
-      var currentTarget = e.currentTarget;
-      var icon = currentTarget.querySelector(".a-to-z-sort-icon"); // If a-to-z icon
-
-      if (icon) {
-        // swap class name to change icon
-        if (icon.classList.contains('ttr-ordering-a-to-z-filled')) {
-          icon.classList.remove("ttr-ordering-a-to-z-filled");
-          icon.classList.add("ttr-ordering-z-to-a-filled");
-        } else {
-          icon.classList.remove("ttr-ordering-z-to-a-filled");
-          icon.classList.add("ttr-ordering-a-to-z-filled");
-        }
-      } else {
-        // swap class name to change icon
-        // Order up-down-icon
-        var _icon = currentTarget.querySelector(".up-down-icon");
-
-        if (_icon.classList.contains('ttr-order-down-filled')) {
-          _icon.classList.remove("ttr-order-down-filled");
-
-          _icon.classList.add("ttr-order-up-filled");
-        } else {
-          _icon.classList.remove("ttr-order-up-filled");
-
-          _icon.classList.add("ttr-order-down-filled");
-        }
-      }
-
-      Array.from(tbody.querySelectorAll('tr')).sort(comparer(Array.from(th.parentNode.children).indexOf(th), _this.asc = !_this.asc)).forEach(function (tr) {
-        return tbody.appendChild(tr);
-      });
-    });
-  });
-});
-
-/***/ }),
-
-/***/ "./assets/react/lib/tutor.js":
-/*!***********************************!*\
-  !*** ./assets/react/lib/tutor.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _v2_library_src_js_main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../v2-library/_src/js/main */ "./v2-library/_src/js/main.js");
-/* harmony import */ var _helper_response__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/response */ "./assets/react/helper/response.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-window.tutor_get_nonce_data = function (send_key_value) {
-  var nonce_data = window._tutorobject || {};
-  var nonce_key = nonce_data.nonce_key || '';
-  var nonce_value = nonce_data[nonce_key] || '';
-
-  if (send_key_value) {
-    return {
-      key: nonce_key,
-      value: nonce_value
-    };
-  }
-
-  return _defineProperty({}, nonce_key, nonce_value);
-};
-
-window.tutor_popup = function ($, icon, padding) {
-  var $this = this;
-  var element;
-
-  this.popup_wrapper = function (wrapper_tag) {
-    var img_tag = icon === '' ? '' : '<img class="tutor-pop-icon" src="' + window._tutorobject.tutor_url + 'assets/images/' + icon + '.svg"/>';
-    return '<' + wrapper_tag + ' class="tutor-component-popup-container">\
-            <div class="tutor-component-popup-' + padding + '">\
-                <div class="tutor-component-content-container">' + img_tag + '</div>\
-                <div class="tutor-component-button-container"></div>\
-            </div>\
-        </' + wrapper_tag + '>';
-  };
-
-  this.popup = function (data) {
-    var title = data.title ? '<h3>' + data.title + '</h3>' : '';
-    var description = data.description ? '<p>' + data.description + '</p>' : '';
-    var buttons = Object.keys(data.buttons || {}).map(function (key) {
-      var button = data.buttons[key];
-      var button_id = button.id ? 'tutor-popup-' + button.id : '';
-      return $('<button id="' + button_id + '" class="' + button["class"] + '">' + button.title + '</button>').click(button.callback);
-    });
-    element = $($this.popup_wrapper(data.wrapper_tag || 'div'));
-    var content_wrapper = element.find('.tutor-component-content-container');
-    content_wrapper.append(title);
-    data.after_title ? content_wrapper.append(data.after_title) : 0;
-    content_wrapper.append(description);
-    data.after_description ? content_wrapper.append(data.after_description) : 0; // Assign close event on click black overlay
-
-    element.click(function () {
-      $(this).remove();
-    }).children().click(function (e) {
-      e.stopPropagation();
-    }); // Append action button
-
-    for (var i = 0; i < buttons.length; i++) {
-      element.find('.tutor-component-button-container').append(buttons[i]);
-    }
-
-    $('body').append(element);
-    return element;
-  };
-
-  return {
-    popup: this.popup
-  };
-};
-
-window.tutorDotLoader = function (loaderType) {
-  return "    \n    <div class=\"tutor-dot-loader ".concat(loaderType ? loaderType : '', "\">\n        <span class=\"dot dot-1\"></span>\n        <span class=\"dot dot-2\"></span>\n        <span class=\"dot dot-3\"></span>\n        <span class=\"dot dot-4\"></span>\n    </div>");
-};
-
-window.tutor_date_picker = function () {
-  if (jQuery.datepicker) {
-    var format = _tutorobject.wp_date_format;
-
-    if (!format) {
-      format = "yy-mm-dd";
-    }
-
-    $(".tutor_date_picker").datepicker({
-      "dateFormat": format
-    });
-  }
-};
-
-jQuery(document).ready(function ($) {
-  'use strict';
-
-  var _wp$i18n = wp.i18n,
-      __ = _wp$i18n.__,
-      _x = _wp$i18n._x,
-      _n = _wp$i18n._n,
-      _nx = _wp$i18n._nx;
-  /**
-   * Global date_picker selector 
-   * 
-   * @since 1.9.7
-   */
-
-  function load_date_picker() {
-    if (jQuery.datepicker) {
-      var format = _tutorobject.wp_date_format;
-
-      if (!format) {
-        format = "yy-mm-dd";
-      }
-
-      $(".tutor_date_picker").datepicker({
-        "dateFormat": format
-      });
-    }
-    /** Disable typing on datePicker field */
-
-
-    $(document).on('keydown', '.hasDatepicker, .tutor_date_picker', function (e) {
-      if (e.keyCode !== 8) {
-        e.preventDefault();
-      }
-    });
-  }
-
-  ;
-  load_date_picker();
-  /**
-   * Video source tabs
-   */
-
-  if (jQuery().select2) {
-    $('.videosource_select2').select2({
-      width: "100%",
-      templateSelection: iformat,
-      templateResult: iformat,
-      allowHtml: true
-    });
-  } //videosource_select2
-
-
-  function iformat(icon) {
-    var originalOption = icon.element;
-    return $('<span><i class="tutor-icon-' + $(originalOption).data('icon') + '"></i> ' + icon.text + '</span>');
-  }
-  /**
-   * Course Builder
-   *
-   * @since v.1.3.4
-   */
-
-
-  $(document).on('click', '.tutor-course-thumbnail-upload-btn', function (event) {
-    event.preventDefault();
-    var $that = $(this);
-    var frame;
-
-    if (frame) {
-      frame.open();
-      return;
-    }
-
-    frame = wp.media({
-      title: __('Select or Upload Media Of Your Chosen Persuasion', 'tutor'),
-      button: {
-        text: __('Use this media', 'tutor')
-      },
-      multiple: false
-    });
-    frame.on('select', function () {
-      var attachment = frame.state().get('selection').first().toJSON();
-      $that.closest('.tutor-thumbnail-wrap').find('.thumbnail-img').attr('src', attachment.url);
-      $that.closest('.tutor-thumbnail-wrap').find('input').val(attachment.id);
-      $('.tutor-course-thumbnail-delete-btn').show();
-    });
-    frame.open();
-  }); //Delete Thumbnail
-
-  $(document).on('click', '.tutor-course-thumbnail-delete-btn', function (event) {
-    event.preventDefault();
-    var $that = $(this);
-    var placeholder_src = $that.closest('.tutor-thumbnail-wrap').find('.thumbnail-img').attr('data-placeholder-src');
-    $that.closest('.tutor-thumbnail-wrap').find('.thumbnail-img').attr('src', placeholder_src);
-    $that.closest('.tutor-thumbnail-wrap').find('input').val('');
-    $('.tutor-course-thumbnail-delete-btn').hide();
-  });
-  $(document).on('change keyup', '.course-edit-topic-title-input', function (e) {
-    e.preventDefault();
-    $(this).closest('.tutor-topics-top').find('.topic-inner-title').html($(this).val());
-  });
-  /**
-   * Delete Lesson from course builder
-   */
-
-  $(document).on('click', '.tutor-delete-lesson-btn', function (e) {
-    e.preventDefault();
-
-    if (!confirm(__('Are you sure to delete?', 'tutor'))) {
-      return;
-    }
-
-    var $that = $(this);
-    var lesson_id = $that.attr('data-lesson-id');
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: {
-        lesson_id: lesson_id,
-        action: 'tutor_delete_lesson_by_id'
-      },
-      beforeSend: function beforeSend() {
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        if (data.success) {
-          $that.closest('.course-content-item').remove();
-        }
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  });
-  /**
-   * Quiz Builder Modal Tabs
-   */
-
-  $(document).on('click', '.tutor-quiz-modal-tab-item', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var $quizTitle = $('[name="quiz_title"]');
-    var quiz_title = $quizTitle.val();
-
-    if (!quiz_title) {
-      $quizTitle.closest('.tutor-quiz-builder-form-row').find('.quiz_form_msg').html('<p class="quiz-form-warning">Please save the quiz' + ' first</p>');
-      return;
-    } else {
-      $quizTitle.closest('.tutor-quiz-builder-form-row').find('.quiz_form_msg').html('');
-    }
-
-    var tabSelector = $that.attr('href');
-    $('.quiz-builder-tab-container').hide();
-    $(tabSelector).show();
-    $('a.tutor-quiz-modal-tab-item').removeClass('active');
-    $that.addClass('active');
-  });
-  /**
-   * Get question answers option edit form
-   *
-   * @since v.1.0.0
-   */
-
-  $(document).on('click', '.tutor-quiz-answer-edit a', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var answer_id = $that.closest('.tutor-quiz-answer-wrap').attr('data-answer-id');
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: {
-        answer_id: answer_id,
-        action: 'tutor_quiz_edit_question_answer'
-      },
-      beforeSend: function beforeSend() {
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        $('#tutor_quiz_question_answer_form').html(data.data.output);
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  });
-  /**
-   * Saving question answers options
-   * Student should select the right answer at quiz attempts
-   *
-   * @since v.1.0.0
-   */
-
-  $(document).on('click', '#quiz-answer-save-btn', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var $formInput = $('#tutor-quiz-question-wrapper :input').serializeObject();
-    $formInput.action = 'tutor_save_quiz_answer_options';
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: $formInput,
-      beforeSend: function beforeSend() {
-        $('#quiz_validation_msg_wrap').html("");
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        $('#tutor_quiz_question_answers').trigger('refresh');
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  });
-  /**
-   * Updating Answer
-   *
-   * @since v.1.0.0
-   */
-
-  $(document).on('click', '#quiz-answer-edit-btn', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var $formInput = $('#tutor-quiz-question-wrapper :input').serializeObject();
-    $formInput.action = 'tutor_update_quiz_answer_options';
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: $formInput,
-      beforeSend: function beforeSend() {
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        $('#tutor_quiz_question_answers').trigger('refresh');
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  });
-  $(document).on('change', '.tutor-quiz-answers-mark-correct-wrap input', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var answer_id = $that.val();
-    var inputValue = 1;
-
-    if (!$that.prop('checked')) {
-      inputValue = 0;
-    }
-
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: {
-        answer_id: answer_id,
-        inputValue: inputValue,
-        action: 'tutor_mark_answer_as_correct'
-      }
-    });
-  });
-  /**
-   * Delete answer for a question in quiz builder
-   *
-   * @since v.1.0.0
-   */
-
-  $(document).on('click', '.tutor-quiz-answer-trash-wrap a.answer-trash-btn', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var answer_id = $that.attr('data-answer-id');
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: {
-        answer_id: answer_id,
-        action: 'tutor_quiz_builder_delete_answer'
-      },
-      beforeSend: function beforeSend() {
-        $that.closest('.tutor-quiz-answer-wrap').remove();
-      }
-    });
-  });
-  /**
-   * Delete Quiz
-   * @since v.1.0.0
-   */
-
-  $(document).on('click', '.tutor-delete-quiz-btn', function (e) {
-    e.preventDefault();
-
-    if (!confirm(__('Are you sure to delete?', 'tutor'))) {
-      return;
-    }
-
-    var $that = $(this);
-    var quiz_id = $that.attr('data-quiz-id');
-    $.ajax({
-      url: window._tutorobject.ajaxurl,
-      type: 'POST',
-      data: {
-        quiz_id: quiz_id,
-        action: 'tutor_delete_quiz_by_id'
-      },
-      beforeSend: function beforeSend() {
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(resp) {
-        var _ref2 = resp || {},
-            _ref2$data = _ref2.data,
-            data = _ref2$data === void 0 ? {} : _ref2$data,
-            success = _ref2.success;
-
-        var _data$message = data.message,
-            message = _data$message === void 0 ? __('Something Went Wrong!') : _data$message;
-
-        if (success) {
-          $that.closest('.course-content-item').remove();
-          return;
-        }
-
-        tutor_toast('Error!', message, 'error');
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  });
-  $(document).on('click', '.tutor-media-upload-btn', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var frame;
-
-    if (frame) {
-      frame.open();
-      return;
-    }
-
-    frame = wp.media({
-      title: __('Select or Upload Media Of Your Chosen Persuasion', 'tutor'),
-      button: {
-        text: __('Use this media', 'tutor')
-      },
-      multiple: false
-    });
-    frame.on('select', function () {
-      var attachment = frame.state().get('selection').first().toJSON();
-      $that.html('<img src="' + attachment.url + '" alt="" />');
-      $that.closest('.tutor-media-upload-wrap').find('input').val(attachment.id);
-    });
-    frame.open();
-  });
-  $(document).on('click', '.tutor-media-upload-trash', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    $that.closest('.tutor-media-upload-wrap').find('.tutor-media-upload-btn').html('<i class="tutor-icon-image1"></i>');
-    $that.closest('.tutor-media-upload-wrap').find('input').val('');
-  });
-  $(document).on('click', '.settings-tabs-navs li', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var data_target = $that.find('a').attr('data-target');
-    var url = $that.find('a').attr('href');
-    $that.addClass('active').siblings('li.active').removeClass('active');
-    $('.settings-tab-wrap').removeClass('active').hide();
-    $(data_target).addClass('active').show();
-    window.history.pushState({}, '', url);
-  });
-  /**
-   * Re init required
-   * Modal Loaded...
-   */
-
-  $(document).on('lesson_modal_loaded quiz_modal_loaded assignment_modal_loaded', function (e, obj) {
-    if (jQuery().select2) {
-      $('.select2_multiselect').select2({
-        dropdownCssClass: 'increasezindex'
-      });
-    }
-
-    load_date_picker();
-  });
-  /**
-   * Tutor number validation
-   *
-   * @since v.1.6.3
-   */
-
-  $(document).on('keyup change', '.tutor-number-validation', function (e) {
-    var input = $(this);
-    var val = parseInt(input.val());
-    var min = parseInt(input.attr('data-min'));
-    var max = parseInt(input.attr('data-max'));
-
-    if (val < min) {
-      input.val(min);
-    } else if (val > max) {
-      input.val(max);
-    }
-  });
-  /*
-  * @since v.1.6.4
-  * Quiz Attempts Instructor Feedback 
-  */
-
-  $(document).on('click', '.tutor-instructor-feedback', function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    $.ajax({
-      url: window.ajaxurl || _tutorobject.ajaxurl,
-      type: 'POST',
-      data: {
-        attempts_id: $that.data('attemptid'),
-        feedback: $('.tutor-instructor-feedback-content').val(),
-        action: 'tutor_instructor_feedback'
-      },
-      beforeSend: function beforeSend() {
-        $that.addClass('tutor-updating-message');
-      },
-      success: function success(data) {
-        if (data.success) {
-          $that.closest('.course-content-item').remove();
-          tutor_toast(__('Success', 'tutor'), $that.data('toast_success_message'), 'success');
-        }
-      },
-      complete: function complete() {
-        $that.removeClass('tutor-updating-message');
-      }
-    });
-  }); //dropdown toggle
-
-  $(document).click(function () {
-    $(".tutor-dropdown").removeClass('show');
-  });
-  $(".tutor-dropdown").click(function (e) {
-    e.stopPropagation();
-
-    if ($('.tutor-dropdown').hasClass('show')) {
-      $('.tutor-dropdown').removeClass('show');
-    }
-
-    $(this).addClass('show');
-  });
-  /**
-   * @since v.1.8.6
-   * SUbmit form through ajax
-   */
-
-  $('.tutor-form-submit-through-ajax').submit(function (e) {
-    e.preventDefault();
-    var $that = $(this);
-    var url = $(this).attr('action') || window.location.href;
-    var type = $(this).attr('method') || 'GET';
-    var data = $(this).serializeObject();
-    $that.find('button').addClass('tutor-updating-message');
-    $.ajax({
-      url: url,
-      type: type,
-      data: data,
-      success: function success() {
-        tutor_toast(__('Success', 'tutor'), $that.data('toast_success_message'), 'success');
-      },
-      complete: function complete() {
-        $that.find('button').removeClass('tutor-updating-message');
-      }
-    });
-  });
-  /*
-  * @since v.1.7.9
-  * Send wp nonce to every ajax request
-  */
-
-  $.ajaxSetup({
-    data: tutor_get_nonce_data()
-  });
-});
-
-jQuery.fn.serializeObject = function () {
-  var values = {};
-  var array = this.serializeArray();
-  jQuery.each(array, function () {
-    if (values[this.name]) {
-      if (!values[this.name].push) {
-        values[this.name] = [values[this.name]];
-      }
-
-      values[this.name].push(this.value || '');
-    } else {
-      values[this.name] = this.value || '';
-    }
-  });
-  return values;
-};
-
-window.tutor_toast = function (title, description, type, is_left) {
-  var tutor_ob = window._tutorobject || {};
-  var asset = (tutor_ob.tutor_url || '') + 'assets/images/';
-
-  if (!jQuery('.tutor-toast-parent').length) {
-    jQuery('body').append('<div class="tutor-toast-parent ' + (is_left ? 'tutor-toast-left' : '') + '"></div>');
-  }
-
-  var icons = {
-    success: asset + 'icon-check.svg',
-    error: asset + 'icon-cross.svg'
-  };
-  var content = jQuery('\
-        <div>\
-            <div>\
-                <img src="' + icons[type] + '"/>\
-            </div>\
-            <div>\
-                <div>\
-                    <b>' + title + '</b>\
-                    <span>' + description + '</span>\
-                </div>\
-            </div>\
-            <div>\
-                <i class="tutor-toast-close tutor-icon-line-cross"></i>\
-            </div>\
-        </div>');
-  content.find('.tutor-toast-close').click(function () {
-    content.remove();
-  });
-  jQuery('.tutor-toast-parent').append(content);
-  setTimeout(function () {
-    if (content) {
-      content.fadeOut('fast', function () {
-        jQuery(this).remove();
-      });
-    }
-  }, 5000);
-};
-
-/***/ }),
-
-/***/ "./assets/react/lib/utilities.js":
-/*!***************************************!*\
-  !*** ./assets/react/lib/utilities.js ***!
-  \***************************************/
-/***/ (() => {
-
-window.jQuery(document).ready(function ($) {
-  var __ = wp.i18n.__; // Copy text
-
-  $(document).on('click', '.tutor-copy-text', function (e) {
-    // Prevent default action
-    e.stopImmediatePropagation();
-    e.preventDefault(); // Get the text
-
-    var text = $(this).data('text'); // Create input to place texts in
-
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val(text).select();
-    document.execCommand("copy");
-    $temp.remove();
-    tutor_toast(__('Copied!', 'tutor'), text, 'success');
-  }); // Ajax action 
-
-  $(document).on('click', '.tutor-list-ajax-action', function () {
-    var $that = $(this);
-    var prompt = $(this).data('prompt');
-    var del = $(this).data('delete_element_id');
-    var data = $(this).data('request_data') || {};
-    typeof data == 'string' ? data = JSON.parse(data) : 0;
-
-    if (prompt && !window.confirm(prompt)) {
-      return;
-    }
-
-    $.ajax({
-      url: _tutorobject.ajaxurl,
-      type: 'POST',
-      data: data,
-      beforeSend: function beforeSend() {
-        $that.addClass('updating-icon');
-      },
-      success: function success(data) {
-        if (data.success) {
-          if (del) {
-            $('#' + del).fadeOut(function () {
-              $(this).remove();
-            });
-          }
-
-          return;
-        }
-
-        var _ref = data.data || {},
-            _ref$message = _ref.message,
-            message = _ref$message === void 0 ? __('Something Went Wrong!', 'tutor') : _ref$message;
-
-        tutor_toast('Error!', message, 'error');
-      },
-      error: function error() {
-        tutor_toast('Error!', __('Something Went Wrong!', 'tutor'), 'error');
-      },
-      complete: function complete() {
-        $that.removeClass('updating-icon');
-      }
-    });
-  }); // Textarea auto height
-
-  $(document).on('input', '.tutor-textarea-auto-height', function () {
-    this.style.height = "auto";
-    this.style.height = this.scrollHeight + "px";
-  });
-  $('.tutor-textarea-auto-height').trigger('input');
-});
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/main.js":
-/*!************************************!*\
-  !*** ./v2-library/_src/js/main.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _tutorModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tutorModal */ "./v2-library/_src/js/tutorModal.js");
-/* harmony import */ var _tutorModal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tutorModal__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tutorThumbnailPreview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tutorThumbnailPreview */ "./v2-library/_src/js/tutorThumbnailPreview.js");
-/* harmony import */ var _tutorThumbnailPreview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tutorThumbnailPreview__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tutorPopupMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tutorPopupMenu */ "./v2-library/_src/js/tutorPopupMenu.js");
-/* harmony import */ var _tutorPopupMenu__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tutorPopupMenu__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _tutorOffcanvas__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tutorOffcanvas */ "./v2-library/_src/js/tutorOffcanvas.js");
-/* harmony import */ var _tutorOffcanvas__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_tutorOffcanvas__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _tutorNotificationTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tutorNotificationTab */ "./v2-library/_src/js/tutorNotificationTab.js");
-/* harmony import */ var _tutorNotificationTab__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_tutorNotificationTab__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _tutorDefaultTab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tutorDefaultTab */ "./v2-library/_src/js/tutorDefaultTab.js");
-/* harmony import */ var _tutorDefaultTab__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_tutorDefaultTab__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _tutorPasswordStrengthChecker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tutorPasswordStrengthChecker */ "./v2-library/_src/js/tutorPasswordStrengthChecker.js");
-/* harmony import */ var _tutorPasswordStrengthChecker__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_tutorPasswordStrengthChecker__WEBPACK_IMPORTED_MODULE_6__);
-
-
-
-
-
-
-
-/**
- * Table td/tr toggle
- */
-
-document.addEventListener('click', function (e) {
-  var attr = 'data-td-target';
-  var dataTdTarget = e.target.dataset.tdTarget;
-
-  if (dataTdTarget) {
-    e.target.closest('td').classList.toggle('is-active');
-    document.getElementById(dataTdTarget).classList.toggle('is-active');
-  }
-});
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorDefaultTab.js":
-/*!***********************************************!*\
-  !*** ./v2-library/_src/js/tutorDefaultTab.js ***!
-  \***********************************************/
-/***/ (() => {
-
-/**
- * Tutor Default Tab
- */
-(function tutorDefaultTab() {
-  document.addEventListener('click', function (e) {
-    var attr = 'data-tutor-tab-target';
-    var activeItems = document.querySelectorAll('.tab-header-item.is-active, .tab-body-item.is-active');
-
-    if (e.target.hasAttribute(attr)) {
-      e.preventDefault();
-      var id = e.target.hasAttribute(attr) ? e.target.getAttribute(attr) : e.target.closest("[".concat(attr, "]")).getAttribute(attr);
-      var tabBodyItem = document.getElementById(id);
-
-      if (e.target.hasAttribute(attr) && tabBodyItem) {
-        activeItems.forEach(function (m) {
-          m.classList.remove('is-active');
-        });
-        e.target.classList.add('is-active');
-        tabBodyItem.classList.add('is-active');
-      }
-    }
-  });
-})();
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorModal.js":
-/*!******************************************!*\
-  !*** ./v2-library/_src/js/tutorModal.js ***!
-  \******************************************/
-/***/ (() => {
-
-(function () {
-  'use strict'; // modal
-
-  tutorModal();
-})();
-
-function tutorModal() {
-  document.addEventListener('click', function (e) {
-    var attr = 'data-tutor-modal-target';
-    var closeAttr = 'data-tutor-modal-close';
-    var overlay = 'tutor-modal-overlay';
-
-    if (e.target.hasAttribute(attr) || e.target.closest("[".concat(attr, "]"))) {
-      e.preventDefault();
-      var id = e.target.hasAttribute(attr) ? e.target.getAttribute(attr) : e.target.closest("[".concat(attr, "]")).getAttribute(attr);
-      var modal = document.getElementById(id);
-      console.log(modal);
-
-      if (modal) {
-        document.querySelectorAll('.tutor-modal.tutor-is-active').forEach(function (item) {
-          return item.classList.remove('tutor-is-active');
-        });
-        modal.classList.add('tutor-is-active');
-      }
-    }
-
-    if (e.target.hasAttribute(closeAttr) || e.target.classList.contains(overlay) || e.target.closest("[".concat(closeAttr, "]"))) {
-      e.preventDefault();
-
-      var _modal = document.querySelectorAll('.tutor-modal.tutor-is-active');
-
-      _modal.forEach(function (m) {
-        m.classList.remove('tutor-is-active');
-      });
-    }
-  }); // open
-  // const modalButton = document.querySelectorAll("[data-tutor-modal-target]");
-  // modalButton.forEach(b => {
-  //     const id = b.getAttribute("data-tutor-modal-target");
-  //     const modal = document.getElementById(id);
-  //     if (modal) {
-  //         b.addEventListener("click", e => {
-  //             e.preventDefault();
-  //             modal.classList.add("tutor-is-active");
-  //         })
-  //     }
-  // })
-  // close
-  // const close = document.querySelectorAll("[data-tutor-modal-close], .tutor-modal-overlay");
-  // close.forEach(c => {
-  //     c.addEventListener("click", e => {
-  //         e.preventDefault();
-  //         const modal = document.querySelectorAll(".tutor-modal.tutor-is-active");
-  //         modal.forEach(m => {
-  //             m.classList.remove("tutor-is-active");
-  //         })
-  //     })
-  // })
-}
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorNotificationTab.js":
-/*!****************************************************!*\
-  !*** ./v2-library/_src/js/tutorNotificationTab.js ***!
-  \****************************************************/
-/***/ (() => {
-
-/**
- * Tutor Notification Tab
- */
-(function tutorNotificationTab() {
-  document.addEventListener('click', function (e) {
-    var attr = 'data-tutor-notification-tab-target';
-    var activeItems = document.querySelectorAll('.tab-header-item.is-active, .tab-body-item.is-active');
-
-    if (e.target.hasAttribute(attr)) {
-      e.preventDefault();
-      var id = e.target.hasAttribute(attr) ? e.target.getAttribute(attr) : e.target.closest("[".concat(attr, "]")).getAttribute(attr);
-      var tabBodyItem = document.getElementById(id);
-
-      if (e.target.hasAttribute(attr) && tabBodyItem) {
-        activeItems.forEach(function (m) {
-          m.classList.remove('is-active');
-        });
-        e.target.classList.add('is-active');
-        tabBodyItem.classList.add('is-active');
-      }
-    }
-  });
-})();
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorOffcanvas.js":
-/*!**********************************************!*\
-  !*** ./v2-library/_src/js/tutorOffcanvas.js ***!
-  \**********************************************/
-/***/ (() => {
-
-/**
- * Tutor Off Canvas
- */
-(function tutorOffCanvas() {
-  document.addEventListener('click', function (e) {
-    var attr = 'data-tutor-offcanvas-target';
-    var closeAttr = 'data-tutor-offcanvas-close';
-    var backdrop = 'tutor-offcanvas-backdrop'; // Opening Offcanvas
-
-    if (e.target.hasAttribute(attr)) {
-      e.preventDefault();
-      var id = e.target.hasAttribute(attr) ? e.target.getAttribute(attr) : e.target.closest("[".concat(attr, "]")).getAttribute(attr);
-      var offcanvas = document.getElementById(id);
-
-      if (offcanvas) {
-        offcanvas.classList.add('is-active');
-      }
-    } // Closing Offcanvas
-
-
-    if (e.target.hasAttribute(closeAttr) || e.target.classList.contains(backdrop) || e.target.closest("[".concat(closeAttr, "]"))) {
-      e.preventDefault();
-      var activeOffcanvas = document.querySelectorAll('.tutor-offcanvas.is-active');
-      activeOffcanvas.forEach(function (m) {
-        m.classList.remove('is-active');
-      });
-    }
-  }); // Closing Offcanvas on esc key
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      var activeOffcanvas = document.querySelectorAll('.tutor-offcanvas.is-active');
-      activeOffcanvas.forEach(function (m) {
-        m.classList.remove('is-active');
-      });
-    }
-  });
-})();
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorPasswordStrengthChecker.js":
-/*!************************************************************!*\
-  !*** ./v2-library/_src/js/tutorPasswordStrengthChecker.js ***!
-  \************************************************************/
-/***/ (() => {
-
-/**
- * Tutor Password Strength Checker
- */
-(function tutorPasswordStrengthChecker() {
-  var passwordCheckerInput = document.querySelector('.tutor-password-field input.password-checker');
-  var indicator = document.querySelector('.tutor-passowrd-strength-hint .indicator');
-  var weak = document.querySelector('.tutor-passowrd-strength-hint .weak');
-  var medium = document.querySelector('.tutor-passowrd-strength-hint .medium');
-  var strong = document.querySelector('.tutor-passowrd-strength-hint .strong');
-  var text = document.querySelector('.tutor-passowrd-strength-hint .text');
-  var showBtn = document.querySelector('.tutor-password-field .show-hide-btn');
-  var regExpWeak = /[a-z]/;
-  var regExpMedium = /\d+/;
-  var regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
-
-  if (passwordCheckerInput) {
-    passwordCheckerInput.addEventListener('input', function (e) {
-      var input = e.target;
-
-      if (input.value != '') {
-        indicator.style.display = 'flex';
-        if (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) no = 1;
-        if (input.value.length >= 6 && (input.value.match(regExpWeak) && input.value.match(regExpMedium) || input.value.match(regExpMedium) && input.value.match(regExpStrong) || input.value.match(regExpWeak) && input.value.match(regExpStrong))) no = 2;
-        if (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong)) no = 3;
-
-        if (no == 1) {
-          weak.classList.add('active');
-          text.style.display = 'block';
-          text.textContent = 'week';
-          text.classList.add('weak');
-        }
-
-        if (no == 2) {
-          medium.classList.add('active');
-          text.textContent = 'medium';
-          text.classList.add('medium');
-        } else {
-          medium.classList.remove('active');
-          text.classList.remove('medium');
-        }
-
-        if (no == 3) {
-          weak.classList.add('active');
-          medium.classList.add('active');
-          strong.classList.add('active');
-          text.textContent = 'strong';
-          text.classList.add('strong');
-        } else {
-          strong.classList.remove('active');
-          text.classList.remove('strong');
-        }
-
-        showBtn.style.display = 'block';
-
-        showBtn.onclick = function () {
-          if (input.type == 'password') {
-            input.type = 'text';
-            showBtn.style.color = '#23ad5c';
-            showBtn.classList.add('hide-btn');
-          } else {
-            input.type = 'password';
-            showBtn.style.color = '#000';
-            showBtn.classList.remove('hide-btn');
-          }
-        };
-      } else {
-        indicator.style.display = 'none';
-        text.style.display = 'none';
-        showBtn.style.display = 'none';
-      }
-    });
-  }
-})();
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorPopupMenu.js":
-/*!**********************************************!*\
-  !*** ./v2-library/_src/js/tutorPopupMenu.js ***!
-  \**********************************************/
-/***/ (() => {
-
-(function tutorPopupMenu() {
-  /**
-   * Popup Menu Toggle .tutor-popup-opener
-   */
-
-  /*
-  const popupToggleBtns = document.querySelectorAll('.tutor-popup-opener .popup-btn');
-  const popupMenus = document.querySelectorAll('.tutor-popup-opener .popup-menu');
-  	 if (popupToggleBtns && popupMenus) {
-  	popupToggleBtns.forEach((btn) => {
-  		btn.addEventListener('click', (e) => {
-  			const popupClosest = e.target.closest('.tutor-popup-opener').querySelector('.popup-menu');
-  			popupClosest.classList.toggle('visible');
-  				popupMenus.forEach((popupMenu) => {
-  				if (popupMenu !== popupClosest) {
-  					popupMenu.classList.remove('visible');
-  				}
-  			});
-  		});
-  	});
-  		document.addEventListener('click', (e) => {
-  		if (!e.target.matches('.tutor-popup-opener .popup-btn')) {
-  			popupMenus.forEach((popupMenu) => {
-  				if (popupMenu.classList.contains('visible')) {
-  					popupMenu.classList.remove('visible');
-  				}
-  			});
-  		}
-  	});
-  } */
-  document.addEventListener('click', function (e) {
-    var attr = 'data-tutor-popup-target';
-
-    if (e.target.hasAttribute(attr)) {
-      e.preventDefault();
-      var id = e.target.hasAttribute(attr) ? e.target.getAttribute(attr) : e.target.closest("[".concat(attr, "]")).getAttribute(attr);
-      var popupMenu = document.getElementById(id);
-
-      if (popupMenu.classList.contains('visible')) {
-        popupMenu.classList.remove('visible');
-      } else {
-        document.querySelectorAll('.tutor-popup-opener .popup-menu').forEach(function (popupMenu) {
-          popupMenu.classList.remove('visible');
-        });
-        popupMenu.classList.add('visible');
-      }
-    } else {
-      document.querySelectorAll('.tutor-popup-opener .popup-menu').forEach(function (popupMenu) {
-        popupMenu.classList.remove('visible');
-      });
-    }
-  });
-})();
-
-/***/ }),
-
-/***/ "./v2-library/_src/js/tutorThumbnailPreview.js":
-/*!*****************************************************!*\
-  !*** ./v2-library/_src/js/tutorThumbnailPreview.js ***!
-  \*****************************************************/
-/***/ (() => {
-
-(function thumbnailUploadPreview() {
-  // It is managed by mediachooser.js
-  return;
-  /**
-   * Image Preview : Logo and Signature Upload
-   * Selector -> .tutor-option-field-input.image-previewer
-   */
-
-  var imgPreviewers = document.querySelectorAll('.tutor-thumbnail-uploader');
-  var imgPreviews = document.querySelectorAll('.tutor-thumbnail-uploader img');
-  var imgPrevInputs = document.querySelectorAll('.tutor-thumbnail-uploader input[type=file]');
-  var imgPrevDelBtns = document.querySelectorAll('.tutor-thumbnail-uploader .delete-btn');
-
-  if (imgPrevInputs && imgPrevDelBtns) {
-    // Checking Img Src when document loads
-    document.addEventListener('DOMContentLoaded', function () {
-      imgPreviewers.forEach(function (previewer) {
-        imgPreviews.forEach(function (img) {
-          if (img.getAttribute('src')) {
-            img.closest('.image-previewer').classList.add('is-selected');
-          } else {
-            previewer.classList.remove('is-selected');
-          }
-
-          console.log(img);
-        });
-      });
-    }); // Updating Image Preview
-
-    imgPrevInputs.forEach(function (input) {
-      input.addEventListener('change', function (e) {
-        var file = this.files[0];
-        var parentEl = input.closest('.image-previewer');
-        var targetImg = parentEl.querySelector('img');
-        var prevLoader = parentEl.querySelector('.preview-loading');
-
-        if (file) {
-          prevLoader.classList.add('is-loading');
-          getImageAsDataURL(file, targetImg);
-          parentEl.classList.add('is-selected');
-          setTimeout(function () {
-            prevLoader.classList.remove('is-loading');
-          }, 200);
-        }
-      });
-    }); // Deleting Image Preview
-
-    imgPrevDelBtns.forEach(function (delBtn) {
-      delBtn.addEventListener('click', function (e) {
-        var parentEl = this.closest('.image-previewer');
-        var targetImg = parentEl.querySelector('img');
-        targetImg.setAttribute('src', '');
-        parentEl.classList.remove('is-selected');
-      });
-    });
-  } // Get Image file as Data URL
-
-
-  var getImageAsDataURL = function getImageAsDataURL(file, imgSrc) {
-    var reader = new FileReader();
-
-    reader.onload = function () {
-      imgSrc.setAttribute('src', this.result);
-    };
-
-    reader.readAsDataURL(file);
-  };
-})();
 
 /***/ }),
 
@@ -32610,16 +31252,17 @@ var __webpack_exports__ = {};
   !*** ./assets/react/admin-dashboard/tutor-admin.js ***!
   \*****************************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lib_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../lib/common */ "./assets/react/lib/common.js");
-/* harmony import */ var _segments_image_preview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./segments/image-preview */ "./assets/react/admin-dashboard/segments/image-preview.js");
-/* harmony import */ var _segments_image_preview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_segments_image_preview__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _segments_options__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./segments/options */ "./assets/react/admin-dashboard/segments/options.js");
-/* harmony import */ var _segments_options__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_segments_options__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _segments_import_export__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./segments/import-export */ "./assets/react/admin-dashboard/segments/import-export.js");
-/* harmony import */ var _segments_addonlist__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./segments/addonlist */ "./assets/react/admin-dashboard/segments/addonlist.js");
-/* harmony import */ var _segments_addonlist__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_segments_addonlist__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _segments_color_preset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./segments/color-preset */ "./assets/react/admin-dashboard/segments/color-preset.js");
-/* harmony import */ var _segments_color_preset__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_segments_color_preset__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _segments_image_preview__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./segments/image-preview */ "./assets/react/admin-dashboard/segments/image-preview.js");
+/* harmony import */ var _segments_image_preview__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_segments_image_preview__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _segments_options__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./segments/options */ "./assets/react/admin-dashboard/segments/options.js");
+/* harmony import */ var _segments_options__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_segments_options__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _segments_import_export__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./segments/import-export */ "./assets/react/admin-dashboard/segments/import-export.js");
+/* harmony import */ var _segments_addonlist__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./segments/addonlist */ "./assets/react/admin-dashboard/segments/addonlist.js");
+/* harmony import */ var _segments_addonlist__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_segments_addonlist__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _segments_color_preset__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./segments/color-preset */ "./assets/react/admin-dashboard/segments/color-preset.js");
+/* harmony import */ var _segments_color_preset__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_segments_color_preset__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _segments_reset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./segments/reset */ "./assets/react/admin-dashboard/segments/reset.js");
+/* harmony import */ var _segments_reset__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_segments_reset__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _addons_list_addons_list_main__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./addons-list/addons-list-main */ "./assets/react/admin-dashboard/addons-list/addons-list-main.js");
 /* harmony import */ var _segments_filter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./segments/filter */ "./assets/react/admin-dashboard/segments/filter.js");
 /* harmony import */ var _segments_filter__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_segments_filter__WEBPACK_IMPORTED_MODULE_7__);
@@ -32636,6 +31279,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
+var toggleChange = document.querySelectorAll(".tutor-form-toggle-input");
+toggleChange.forEach(function (element) {
+  element.addEventListener("change", function (e) {
+    var check_value = element.previousElementSibling;
+    check_value.value == "on" ? check_value.value = "off" : check_value.value = "on";
+  });
+});
 jQuery(document).ready(function ($) {
   "use strict";
 
@@ -32672,10 +31322,6 @@ jQuery(document).ready(function ($) {
     $(".tutor-option-nav-page").hide();
     $(tab_page_id).addClass("current-page").show();
     window.history.pushState("obj", "", $(this).attr("href"));
-  });
-  $(".tutor-form-toggle-input").on("change", function (e) {
-    var toggleInput = $(this).siblings("input");
-    $(this).prop("checked") ? toggleInput.val("on") : toggleInput.val("off");
   });
   /**
    * End Withdraw nav tabs

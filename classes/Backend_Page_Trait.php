@@ -124,7 +124,7 @@ trait Backend_Page_Trait {
 	public function bulk_action_delete(): array {
 		return array(
 			'value'  => 'delete',
-			'option' => __( 'Delete', 'tutor' ),
+			'option' => __( 'Delete Permanently', 'tutor' ),
 		);
 	}
 
@@ -138,6 +138,43 @@ trait Backend_Page_Trait {
 		return array(
 			'value'  => 'cancel',
 			'option' => __( 'Cancel', 'tutor' ),
+		);
+	}
+
+	/**
+	 * Bulk action approved
+	 *
+	 * @return array
+	 * @since v2.0.0
+	 */
+	public function bulk_action_approved(): array {
+		return array(
+			'value'  => 'approved',
+			'option' => __( 'Approve', 'tutor' ),
+		);
+	}
+	/**
+	 * Bulk action blocked
+	 *
+	 * @return array
+	 * @since v2.0.0
+	 */
+	public function bulk_action_blocked(): array {
+		return array(
+			'value'  => 'blocked',
+			'option' => __( 'Block', 'tutor' ),
+		);
+	}
+	/**
+	 * Bulk action trash
+	 *
+	 * @return array
+	 * @since v2.0.0
+	 */
+	public function bulk_action_trash(): array {
+		return array(
+			'value'  => 'trash',
+			'option' => __( 'Trash', 'tutor' ),
 		);
 	}
 }

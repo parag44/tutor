@@ -37,6 +37,7 @@ class Options_V2 {
 		add_action( 'wp_ajax_tutor_import_settings', array( $this, 'tutor_import_settings' ) );
 		add_action( 'wp_ajax_tutor_apply_settings', array( $this, 'tutor_apply_settings' ) );
 		add_action( 'wp_ajax_load_saved_data', array( $this, 'load_saved_data' ) );
+		add_action( 'wp_ajax_reset_settings_data', array( $this, 'reset_settings_data' ) );
 	}
 
 	private function get( $key = null, $default = false ) {
@@ -88,17 +89,23 @@ class Options_V2 {
 
 		$data_array = array();
 		foreach ( $this->get_setting_fields() as $sections ) {
-			foreach ( $sections as $section ) {
-				foreach ( $section['blocks'] as $blocks ) {
-					foreach ( $blocks['fields'] as $fields ) {
-						$fields['section_label'] = $section['label'];
-						$fields['section_slug']  = $section['slug'];
-						$fields['block_label']   = $blocks['label'];
-						$data_array['fields'][]  = $fields;
+			if ( isset( $sections ) && ! empty( $sections ) ) {
+				foreach ( tutils()->sanitize_recursively( $sections ) as $section ) {
+					foreach ( $section['blocks'] as $blocks ) {
+						if ( isset( $blocks['fields'] ) && ! empty( $blocks['fields'] ) ) {
+							foreach ( $blocks['fields'] as $fields ) {
+								$fields['section_label'] = isset( $section['label'] ) ? $section['label'] : '';
+								$fields['section_slug']  = isset( $section['slug'] ) ? $section['slug'] : '';
+								$fields['block_label']   = isset( $blocks['label'] ) ? $blocks['label'] : '';
+								$data_array['fields'][]  = $fields;
+							}
+						}
 					}
 				}
 			}
 		}
+
+
 		wp_send_json_success( $data_array );
 
 	}
@@ -165,6 +172,20 @@ class Options_V2 {
 		tutor_utils()->checking_nonce();
 		wp_send_json_success( get_option( 'tutor_settings_log' ) );
 	}
+	public function reset_settings_data() {
+		tutor_utils()->checking_nonce();
+		$block_fields = array();
+		$reset_page   = isset( $_POST['reset_page'] ) ? sanitize_key( $_POST['reset_page'] ) : null;
+		$setting_data = $this->get_setting_fields()['option_fields'][ $reset_page ]['blocks'];
+
+		foreach ( $setting_data as $blocks ) {
+			foreach ( $blocks['fields'] as $fields ) {
+				$block_fields[] = $fields;
+			}
+		}
+
+		wp_send_json_success( $block_fields );
+	}
 
 	public function tutor_import_settings() {
 		tutor_utils()->checking_nonce();
@@ -173,11 +194,10 @@ class Options_V2 {
 		$time    = $this->get_request_data( 'time' );
 		$request = json_decode( str_replace( '\"', '"', $request ), true );
 
-		$save_import_data['datetime']     = $time;
-		$save_import_data['history_date'] = date( 'j M, Y, g:i a', $time );
-		$save_import_data['datatype']     = 'imported';
-		$save_import_data['dataset']      = $request['data'];
-
+		$save_import_data['datetime']             = $time;
+		$save_import_data['history_date']         = date( 'j M, Y, g:i a', $time );
+		$save_import_data['datatype']             = 'imported';
+		$save_import_data['dataset']              = $request['data'];
 		$import_data[ 'tutor-imported-' . $time ] = $save_import_data;
 
 		// update_option( 'tutor_settings_log', array() );
@@ -191,7 +211,6 @@ class Options_V2 {
 
 			$update_option = tutor_utils()->sanitize_recursively( $update_option );
 
-			// $update_option = array();
 			if ( ! empty( $update_option ) ) {
 				update_option( 'tutor_settings_log', $update_option );
 			}
@@ -552,7 +571,7 @@ class Options_V2 {
 				),
 			),
 			'monetization' => array(
-				'label'    => __( 'Monitization', 'tutor' ),
+				'label'    => __( 'Monetization', 'tutor' ),
 				'slug'     => 'monetization',
 				'desc'     => __( 'Monitization Settings', 'tutor' ),
 				'template' => 'basic',
@@ -696,14 +715,16 @@ class Options_V2 {
 								'type'        => 'checkbox_horizontal',
 								'label'       => __( 'Enable withdraw method', 'tutor' ),
 								'label_title' => __( '', 'tutor' ),
+								'default'     => 'bank_transfer_withdraw',
 								'options'     => $methods_array,
 								'desc'        => __( 'Choose preferred filter options you\'d like to show in course archive page.', 'tutor' ),
 							),
 							array(
-								'key'   => 'tutor_bank_transfer_withdraw_instruction',
-								'type'  => 'textarea',
-								'label' => __( 'Bank Instructions', 'tutor' ),
-								'desc'  => __( 'Write instruction for the instructor to fill bank information', 'tutor' ),
+								'key'     => 'tutor_bank_transfer_withdraw_instruction',
+								'type'    => 'textarea',
+								'label'   => __( 'Bank Instructions', 'tutor' ),
+								'default' => __( 'Write the up to date bank informations of your instructor here.', 'tutor' ),
+								'desc'    => __( 'Write instruction for the instructor to fill bank information', 'tutor' ),
 							),
 						),
 					),
@@ -845,14 +866,14 @@ class Options_V2 {
 										'type'    => 'toggle_single',
 										'label'   => __( 'Instructor Info', 'tutor' ),
 										'default' => 'on',
-										'desc'    => __( 'Show instructor bio on each page', 'tutor' ),
+										'desc'    => __( 'Toggle to show instructor info', 'tutor' ),
 									),
 									array(
 										'key'     => 'enable_q_and_a_on_course',
 										'type'    => 'toggle_single',
-										'label'   => __( 'Question and Answer', 'tutor' ),
+										'label'   => __( 'Q&A', 'tutor' ),
 										'default' => 'on',
-										'desc'    => __( 'Enabling this feature will add a Q&amp;A section on every course.', 'tutor' ),
+										'desc'    => __( 'Enable to add a Q&A section', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_author',
@@ -860,119 +881,119 @@ class Options_V2 {
 										'label'       => __( 'Disable Author', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => 'off',
-										'desc'        => __( 'Disabling this feature will be removed course author name from the course page.', 'tutor' ),
+										'desc'        => __( 'Enabling to remove course author name', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_level',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Disable Course Level', 'tutor' ),
+										'label'       => __( 'Disable Level', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => 'off',
-										'desc'        => __( 'Disabling this feature will be removed course level from the course page.', 'tutor' ),
+										'desc'        => __( 'Toggle to remove course level', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_share',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Disbale Course Share', 'tutor' ),
+										'label'       => __( 'Disable Share', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => 'off',
-										'desc'        => __( 'Disabling this feature will be removed course share option from the course page.', 'tutor' ),
+										'desc'        => __( 'Toggle to hide course share', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_duration',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Duration', 'tutor' ),
+										'label'       => __( 'Duration', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course duration from the course page.', 'tutor' ),
+										'desc'        => __( 'Enable to show course duration', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_total_enrolled',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Total Enrolled', 'tutor' ),
+										'label'       => __( 'Enrolled Students', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course total enrolled from the course page.', 'tutor' ),
+										'desc'        => __( 'Enable to show total enrolled students', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_update_date',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Update Date', 'tutor' ),
+										'label'       => __( 'Update Date', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course update date from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course update infromation', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_progress_bar',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Progress Bar', 'tutor' ),
+										'label'       => __( 'Progress Bar', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed completing progress bar from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course progress for Students', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_material',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Material', 'tutor' ),
+										'label'       => __( 'Material', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course material from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course materials', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_about',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course About', 'tutor' ),
+										'label'       => __( 'About', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course about from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course about section', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_description',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Description', 'tutor' ),
+										'label'       => __( 'Description', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course description from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course description', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_benefits',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Benefits', 'tutor' ),
+										'label'       => __( 'Benefits', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course benefits from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course benefits section', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_requirements',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Requirements', 'tutor' ),
+										'label'       => __( 'Pre-Requirements', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course requirements from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide courses requirements setion', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_target_audience',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Target Audience', 'tutor' ),
+										'label'       => __( 'Target Audience', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course target audience from the course page.', 'tutor' ),
+										'desc'        => __( 'Enable to show course target audience setion', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_announcements',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Announcements', 'tutor' ),
+										'label'       => __( 'Announcements', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course announcements from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course announcements settion', 'tutor' ),
 									),
 									array(
 										'key'         => 'disable_course_review',
 										'type'        => 'toggle_single',
-										'label'       => __( 'Course Review', 'tutor' ),
+										'label'       => __( 'Review', 'tutor' ),
 										'label_title' => __( 'Disable', 'tutor' ),
 										'default'     => '0',
-										'desc'        => __( 'Disabling this feature will be removed course review system from the course page.', 'tutor' ),
+										'desc'        => __( 'Disable to hide course review section', 'tutor' ),
 									),
 								),
 								'desc'          => __( 'Content Needed Here...', 'tutor' ),
@@ -989,8 +1010,9 @@ class Options_V2 {
 								'type'    => 'color_preset',
 								'label'   => __( 'Preset Colors', 'tutor' ),
 								'desc'    => __( 'These colors will be used throughout your website. Choose between these presets or create your own custom palette.', 'tutor' ),
-								'default' => 'default',
+								'default' => 'custom',
 								'fields'  => array(
+									/* First 4 preset_name should be same as color_fields */
 									array(
 										'key'    => 'default',
 										'label'  => 'Default',
@@ -998,22 +1020,22 @@ class Options_V2 {
 											array(
 												'slug'  => 'tutor_primary_color',
 												'preset_name' => 'primary',
-												'value' => '#1973AA',
+												'value' => '#3E64DE',
 											),
 											array(
 												'slug'  => 'tutor_primary_hover_color',
 												'preset_name' => 'hover',
-												'value' => '#5B616F',
+												'value' => '#395BCA',
 											),
 											array(
 												'slug'  => 'tutor_text_color',
 												'preset_name' => 'text',
-												'value' => '#CDCFD5',
+												'value' => '#212327',
 											),
 											array(
-												'slug'  => 'tutor_light_color',
-												'preset_name' => 'light',
-												'value' => '#EFF1F6',
+												'slug'  => 'tutor_background_color',
+												'preset_name' => 'background',
+												'value' => '#F6F8FD',
 											),
 										),
 									),
@@ -1024,22 +1046,22 @@ class Options_V2 {
 											array(
 												'slug'  => 'tutor_primary_color',
 												'preset_name' => 'primary',
-												'value' => '#43AA8B',
+												'value' => '#239371',
 											),
 											array(
 												'slug'  => 'tutor_primary_hover_color',
 												'preset_name' => 'hover',
-												'value' => '#4D908E',
+												'value' => '#117D5D',
 											),
 											array(
 												'slug'  => 'tutor_text_color',
 												'preset_name' => 'text',
-												'value' => '#90BE6D',
+												'value' => '#212327',
 											),
 											array(
-												'slug'  => 'tutor_light_color',
-												'preset_name' => 'light',
-												'value' => '#F9C74F',
+												'slug'  => 'tutor_background_color',
+												'preset_name' => 'background',
+												'value' => '#ECF7F3',
 											),
 										),
 									),
@@ -1050,22 +1072,22 @@ class Options_V2 {
 											array(
 												'slug'  => 'tutor_primary_color',
 												'preset_name' => 'primary',
-												'value' => '#4EA8DE',
+												'value' => '#5A18C2',
 											),
 											array(
 												'slug'  => 'tutor_primary_hover_color',
 												'preset_name' => 'hover',
-												'value' => '#5A18C2',
+												'value' => '#3F02A0',
 											),
 											array(
 												'slug'  => 'tutor_text_color',
 												'preset_name' => 'text',
-												'value' => '#5E60CE',
+												'value' => '#212327',
 											),
 											array(
-												'slug'  => 'tutor_light_color',
-												'preset_name' => 'light',
-												'value' => '#64DFDF',
+												'slug'  => 'tutor_background_color',
+												'preset_name' => 'background',
+												'value' => '#FAF6FF',
 											),
 										),
 									),
@@ -1076,22 +1098,22 @@ class Options_V2 {
 											array(
 												'slug'  => 'tutor_primary_color',
 												'preset_name' => 'primary',
-												'value' => '#000000',
+												'value' => '#3E64DE',
 											),
 											array(
 												'slug'  => 'tutor_primary_hover_color',
 												'preset_name' => 'hover',
-												'value' => '#5d5d5d',
+												'value' => '#28408E',
 											),
 											array(
 												'slug'  => 'tutor_text_color',
 												'preset_name' => 'text',
-												'value' => '#a2a2a2',
+												'value' => '#1A1B1E',
 											),
 											array(
-												'slug'  => 'tutor_light_color',
-												'preset_name' => 'light',
-												'value' => '#d8d8d8',
+												'slug'  => 'tutor_background_color',
+												'preset_name' => 'background',
+												'value' => '#F6F8FD',
 											),
 										),
 									),
@@ -1103,36 +1125,94 @@ class Options_V2 {
 								'label'  => __( 'Preset Colors', 'tutor' ),
 								'fields' => array(
 									array(
-										'key'         => 'tutor_primary_color',
-										'type'        => 'color_field',
-										'preset_name' => 'primary',
-										'label'       => __( 'Primary Color', 'tutor' ),
-										'default'     => '#000000',
-										'desc'        => __( 'Choose a custom primary color', 'tutor' ),
+										'key'          => 'tutor_primary_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'primary',
+										'preset_exist' => true,
+										'label'        => __( 'Primary Color', 'tutor' ),
+										'default'      => '#3E64DE',
+										'desc'         => __( 'Choose a custom primary color', 'tutor' ),
 									),
 									array(
-										'key'         => 'tutor_primary_hover_color',
-										'type'        => 'color_field',
-										'preset_name' => 'hover',
-										'label'       => __( 'Primary Hover color', 'tutor' ),
-										'default'     => '#5d5d5d',
-										'desc'        => __( 'Choose a custom primary hover color', 'tutor' ),
+										'key'          => 'tutor_primary_hover_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'hover',
+										'preset_exist' => true,
+										'label'        => __( 'Primary Hover color', 'tutor' ),
+										'default'      => '#395BCA',
+										'desc'         => __( 'Choose a custom primary hover color', 'tutor' ),
 									),
 									array(
-										'key'         => 'tutor_text_color',
-										'type'        => 'color_field',
-										'preset_name' => 'text',
-										'label'       => __( 'Text Color', 'tutor' ),
-										'default'     => '#a2a2a2',
-										'desc'        => __( 'Choose a custom color for your website text', 'tutor' ),
+										'key'          => 'tutor_text_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'text',
+										'preset_exist' => true,
+										'label'        => __( 'Text Color', 'tutor' ),
+										'default'      => '#212327',
+										'desc'         => __( 'Choose a Text Color for your website text', 'tutor' ),
 									),
 									array(
-										'key'         => 'tutor_light_color',
-										'type'        => 'color_field',
-										'preset_name' => 'light',
-										'label'       => __( 'Light color', 'tutor' ),
-										'default'     => '#d8d8d8',
-										'desc'        => __( 'Choose a  light color for your website ', 'tutor' ),
+										'key'          => 'tutor_background_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'background',
+										'preset_exist' => true,
+										'label'        => __( 'Background', 'tutor' ),
+										'default'      => '#FFFFFF',
+										'desc'         => __( 'Choose a background color for your website', 'tutor' ),
+									),
+									array(
+										'key'          => 'tutor_border_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'border',
+										'preset_exist' => false,
+										'label'        => __( 'Border', 'tutor' ),
+										'default'      => '#CDCFD5',
+										'desc'         => __( 'Choose a light color for your website ', 'tutor' ),
+									),
+									array(
+										'key'          => 'tutor_success_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'success',
+										'preset_exist' => false,
+										'label'        => __( 'Success', 'tutor' ),
+										'default'      => '#24A148',
+										'desc'         => __( 'Choose a color for an operation success message', 'tutor' ),
+									),
+									array(
+										'key'          => 'tutor_warning_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'warning',
+										'preset_exist' => false,
+										'label'        => __( 'Warning', 'tutor' ),
+										'default'      => '#ED9700',
+										'desc'         => __( 'Choose a color for an operation pending message ', 'tutor' ),
+									),
+									array(
+										'key'          => 'tutor_danger_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'danger',
+										'preset_exist' => false,
+										'label'        => __( 'Danger', 'tutor' ),
+										'default'      => '#d8d8d8',
+										'desc'         => __( 'Choose a color for an operation error message ', 'tutor' ),
+									),
+									array(
+										'key'          => 'tutor_disable_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'disable',
+										'preset_exist' => false,
+										'label'        => __( 'Disable', 'tutor' ),
+										'default'      => '#E3E6EB',
+										'desc'         => __( 'Choose a color for disabled elements ', 'tutor' ),
+									),
+									array(
+										'key'          => 'tutor_table_background_color',
+										'type'         => 'color_field',
+										'preset_name'  => 'table_background',
+										'preset_exist' => false,
+										'label'        => __( 'Table Background', 'tutor' ),
+										'default'      => '#EFF1F6',
+										'desc'         => __( 'Choose a color for the background of table elements ', 'tutor' ),
 									),
 								),
 							),

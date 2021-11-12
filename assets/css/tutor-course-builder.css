@@ -231,6 +231,10 @@
   color: #eff1f7;
 }
 
+.color-black-03 {
+  color: #f4f6f9;
+}
+
 .color-danger-main {
   color: #f44337;
 }
@@ -567,6 +571,10 @@
   background-color: #eff1f7;
 }
 
+.bg-black-03 {
+  background-color: #f4f6f9;
+}
+
 .bg-danger-main {
   background-color: #f44337;
 }
@@ -672,266 +680,266 @@
 }
 
 .text-thin-h1 {
-  font-weight: 100;
-  font-size: 80px;
+  font-weight: 100 !important;
+  font-size: 80px !important;
   line-height: 101%;
 }
 
 .text-thin-h2 {
-  font-weight: 100;
-  font-size: 60px;
+  font-weight: 100 !important;
+  font-size: 60px !important;
   line-height: 117%;
 }
 
 .text-thin-h3 {
-  font-weight: 100;
-  font-size: 40px;
+  font-weight: 100 !important;
+  font-size: 40px !important;
   line-height: 120%;
 }
 
 .text-thin-h4 {
-  font-weight: 100;
-  font-size: 30px;
+  font-weight: 100 !important;
+  font-size: 30px !important;
   line-height: 133%;
 }
 
 .text-thin-h5 {
-  font-weight: 100;
-  font-size: 24px;
+  font-weight: 100 !important;
+  font-size: 24px !important;
   line-height: 142%;
 }
 
 .text-thin-h6 {
-  font-weight: 100;
-  font-size: 20px;
+  font-weight: 100 !important;
+  font-size: 20px !important;
   line-height: 150%;
 }
 
 .text-thin-body {
-  font-weight: 100;
-  font-size: 16px;
+  font-weight: 100 !important;
+  font-size: 16px !important;
   line-height: 162%;
 }
 
 .text-thin-caption {
-  font-weight: 100;
-  font-size: 15px;
+  font-weight: 100 !important;
+  font-size: 15px !important;
   line-height: 160%;
 }
 
 .text-thin-small {
-  font-weight: 100;
-  font-size: 13px;
+  font-weight: 100 !important;
+  font-size: 13px !important;
   line-height: 138%;
 }
 
 .text-thin-tiny {
-  font-weight: 100;
-  font-size: 11px;
+  font-weight: 100 !important;
+  font-size: 11px !important;
   line-height: 145%;
 }
 
 .text-regular-h1 {
-  font-weight: 400;
-  font-size: 80px;
+  font-weight: 400 !important;
+  font-size: 80px !important;
   line-height: 101%;
 }
 
 .text-regular-h2 {
-  font-weight: 400;
-  font-size: 60px;
+  font-weight: 400 !important;
+  font-size: 60px !important;
   line-height: 117%;
 }
 
 .text-regular-h3 {
-  font-weight: 400;
-  font-size: 40px;
+  font-weight: 400 !important;
+  font-size: 40px !important;
   line-height: 120%;
 }
 
 .text-regular-h4 {
-  font-weight: 400;
-  font-size: 30px;
+  font-weight: 400 !important;
+  font-size: 30px !important;
   line-height: 133%;
 }
 
 .text-regular-h5 {
-  font-weight: 400;
-  font-size: 24px;
+  font-weight: 400 !important;
+  font-size: 24px !important;
   line-height: 142%;
 }
 
 .text-regular-h6 {
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 400 !important;
+  font-size: 20px !important;
   line-height: 150%;
 }
 
 .text-regular-body {
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 400 !important;
+  font-size: 16px !important;
   line-height: 162%;
 }
 
 .text-regular-caption {
-  font-weight: 400;
-  font-size: 15px;
+  font-weight: 400 !important;
+  font-size: 15px !important;
   line-height: 160%;
 }
 
 .text-regular-small, .text-body {
-  font-weight: 400;
-  font-size: 13px;
+  font-weight: 400 !important;
+  font-size: 13px !important;
   line-height: 138%;
 }
 
 .text-regular-tiny {
-  font-weight: 400;
-  font-size: 11px;
+  font-weight: 400 !important;
+  font-size: 11px !important;
   line-height: 145%;
 }
 
 .text-medium-h1 {
-  font-weight: 500;
-  font-size: 80px;
+  font-weight: 500 !important;
+  font-size: 80px !important;
   line-height: 101%;
 }
 
 .text-medium-h2 {
-  font-weight: 500;
-  font-size: 60px;
+  font-weight: 500 !important;
+  font-size: 60px !important;
   line-height: 117%;
 }
 
 .text-medium-h3 {
-  font-weight: 500;
-  font-size: 40px;
+  font-weight: 500 !important;
+  font-size: 40px !important;
   line-height: 120%;
 }
 
 .text-medium-h4 {
-  font-weight: 500;
-  font-size: 30px;
+  font-weight: 500 !important;
+  font-size: 30px !important;
   line-height: 123%;
 }
 
 .text-medium-h5 {
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: 500 !important;
+  font-size: 24px !important;
   line-height: 142%;
 }
 
 .text-medium-h6 {
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 500 !important;
+  font-size: 20px !important;
   line-height: 140%;
 }
 
 .text-medium-body {
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 500 !important;
+  font-size: 16px !important;
   line-height: 162%;
 }
 
 .text-medium-caption {
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 500 !important;
+  font-size: 15px !important;
   line-height: 160%;
 }
 
 .text-medium-small {
-  font-weight: 500;
-  font-size: 13px;
+  font-weight: 500 !important;
+  font-size: 13px !important;
   line-height: 162%;
 }
 
 .text-medium-tiny {
-  font-weight: 500;
-  font-size: 11px;
+  font-weight: 500 !important;
+  font-size: 11px !important;
   line-height: 145%;
 }
 
 .text-bold-h1 {
-  font-weight: 700;
-  font-size: 80px;
+  font-weight: 700 !important;
+  font-size: 80px !important;
   line-height: 101%;
 }
 
 .text-bold-h2 {
-  font-weight: 700;
-  font-size: 60px;
+  font-weight: 700 !important;
+  font-size: 60px !important;
   line-height: 117%;
 }
 
 .text-bold-h3 {
-  font-weight: 700;
-  font-size: 40px;
+  font-weight: 700 !important;
+  font-size: 40px !important;
   line-height: 120%;
 }
 
 .text-bold-h4 {
-  font-weight: 700;
-  font-size: 30px;
+  font-weight: 700 !important;
+  font-size: 30px !important;
   line-height: 123%;
 }
 
 .text-bold-h5 {
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 700 !important;
+  font-size: 24px !important;
   line-height: 142%;
 }
 
 .text-bold-h6 {
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 700 !important;
+  font-size: 20px !important;
   line-height: 150%;
 }
 
 .text-bold-body {
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 700 !important;
+  font-size: 16px !important;
   line-height: 162%;
 }
 
 .text-bold-caption {
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 700 !important;
+  font-size: 15px !important;
   line-height: 160%;
 }
 
 .text-bold-small {
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 700 !important;
+  font-size: 13px !important;
   line-height: 162%;
 }
 
 .text-bold-tiny {
-  font-weight: 700;
-  font-size: 11px;
+  font-weight: 700 !important;
+  font-size: 11px !important;
   line-height: 145%;
 }
 
 .text-btn-xlarge {
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 500 !important;
+  font-size: 18px !important;
   line-height: 178%;
 }
 
 .text-btn-large {
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 500 !important;
+  font-size: 16px !important;
   line-height: 200%;
 }
 
 .text-btn-medium {
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 500 !important;
+  font-size: 15px !important;
   line-height: 160%;
 }
 
 .text-btn-small {
-  font-weight: 500;
-  font-size: 13px;
+  font-weight: 500 !important;
+  font-size: 13px !important;
   line-height: 123%;
 }
 
@@ -1348,6 +1356,10 @@ body.tutor-screen-course-builder .tutor-course-available-instructors .added-inst
 
 body.tutor-screen-course-builder .tutor-course-available-instructors .added-instructor-item .instructor-name {
   position: relative;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #212327;
 }
 
 body.tutor-screen-course-builder .tutor-course-available-instructors .added-instructor-item .instructor-name i.instructor-name-tooltip {
@@ -1389,6 +1401,14 @@ body.tutor-screen-course-builder .tutor-course-available-instructors .added-inst
 
 body.tutor-screen-course-builder .tutor-course-available-instructors .added-instructor-item .instructor-name img:hover + i.instructor-name-tooltip {
   opacity: 1;
+}
+
+body.tutor-screen-course-builder .tutor-course-available-instructors .added-instructor-item .instructor-name span {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: #5B616F;
 }
 
 body.tutor-screen-course-builder #tutor_course_instructor_modal .tutor-search-result {

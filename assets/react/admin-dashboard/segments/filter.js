@@ -8,6 +8,7 @@
  * @since v2.0.0
  */
 const { __, _x, _n, _nx } = wp.i18n;
+
 document.addEventListener("DOMContentLoaded", function() {
   const filterCourse = document.getElementById("tutor-backend-filter-course");
   if (filterCourse) {
@@ -27,12 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location = urlPrams("order", e.target.value);
     };
   }
-  const filterDate = document.getElementById("tutor-backend-filter-date");
-  if (filterDate) {
-    filterDate.onchange = (e) => {
-      window.location = urlPrams("date", e.target.value);
-    };
-  }
+
   const filterSearch = document.getElementById("tutor-admin-search-filter-form");
   if (filterSearch) {
     filterSearch.onsubmit = (e) => {
@@ -57,15 +53,32 @@ document.addEventListener("DOMContentLoaded", function() {
           bulkIds.push(field.value);
         }
       }
+      if (!bulkIds.length) {
+        alert( __('Select checkbox for action', 'tutor') );
+        return;
+      }
       formData.set("bulk-ids", bulkIds);
       formData.set(window.tutor_get_nonce_data(true).key, window.tutor_get_nonce_data(true).value);
       try {
+        const loadingButton = document.querySelector('#tutor-confirm-bulk-action.tutor-btn-loading');
+        const prevHtml = loadingButton.innerHTML;
+        loadingButton.innerHTML = `<div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>`;
         const post = await fetch(window._tutorobject.ajaxurl, {
           method: "POST",
           body: formData,
         });
+        loadingButton.innerHTML = prevHtml;
         if (post.ok) {
-          location.reload();
+          const response = await post.json();
+          if (response.success) {
+            location.reload();
+          } else {
+            tutor_toast(__("Failed", "tutor"), __("Something went wrong, please try again ", "tutor"), "error");
+          }
+          
         }
       } catch (error) {
         alert(error);
@@ -119,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
    * On change status
    * update course status
    */
-  const availableStatus = ["publish", "pending", "draft"];
+  const availableStatus = ["publish", "pending", "trash", "draft"];
   const courseStatusUpdate = document.querySelectorAll(".tutor-admin-course-status-update");
   for (let status of courseStatusUpdate) {
     status.onchange = async (e) => {
@@ -139,15 +152,18 @@ document.addEventListener("DOMContentLoaded", function() {
       const response = await post.json();
       if (response) {
         target.dataset.status = newStatus;
-        let putStatus = "";
+        let putStatus = "select-default";
         newStatus === "publish"
           ? (putStatus = "select-success")
           : newStatus === "pending"
           ? (putStatus = "select-warning")
+          : newStatus === 'trash'
+          ? (putStatus = "select-danger" )
           : "select-default";
-        if (!target.closest(".tutor-form-select-with-icon").classList.contains(putStatus)) {
-          target.closest(".tutor-form-select-with-icon").classList.add(putStatus);
-        }
+
+        // add new status class
+        target.closest(".tutor-form-select-with-icon").setAttribute('class', `tutor-form-select-with-icon ${putStatus}` );
+  
         tutor_toast(__("Updated", "tutor"), __("Course status updated ", "tutor"), "success");
       } else {
         tutor_toast(__("Failed", "tutor"), __("Course status update failed ", "tutor"), "error");

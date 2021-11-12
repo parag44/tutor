@@ -11,8 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 use TUTOR\Course_List;
-use TUTOR_REPORT\Analytics;
-use TUTOR_REPORT\CourseAnalytics;
 
 $courses = new Course_List();
 
@@ -68,15 +66,16 @@ $filters = array(
 
 
 $args = array(
-	'post_type' => tutor()->course_post_type,
-	'orderby'   => 'ID',
-	'order'     => $order_filter,
-	'paged'     => $paged_filter,
-	'offset'    => $offset,
+	'post_type'      => tutor()->course_post_type,
+	'orderby'        => 'ID',
+	'order'          => $order_filter,
+	'paged'          => $paged_filter,
+	'offset'         => $offset,
+	'posts_per_page' => tutor_utils()->get_option( 'pagination_per_page' ),
 );
 
 if ( 'all' === $active_tab || 'mine' === $active_tab ) {
-	$args['post_status'] = array( 'publish', 'pending', 'draft' );
+	$args['post_status'] = array( 'publish', 'pending', 'draft', 'trash' );
 } else {
 	$status              = $active_tab === 'published' ? 'publish' : $active_tab;
 	$args['post_status'] = array( $status );
@@ -105,7 +104,7 @@ if ( '' !== $course_id ) {
 	$args['p'] = $course_id;
 }
 // Add author param.
-if ( 'mine' === $active_tab ) {
+if ( 'mine' === $active_tab || ! current_user_can( 'administrator' ) ) {
 	$args['author'] = get_current_user_id();
 }
 // Search filter.
@@ -128,6 +127,7 @@ $the_query = new WP_Query( $args );
 $available_status = array(
 	'publish' => __( 'Publish', 'tutor' ),
 	'pending' => __( 'Pending', 'tutor' ),
+	'trash'   => __( 'Trash', 'tutor' ),
 	'draft'   => __( 'Draft', 'tutor' ),
 );
 
@@ -145,7 +145,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 ?>
 
 <div class="wrap">
-	<div class="tutor-admin-page-content-wrapper tutor-mt-50 tutor-mr-20">
+	<div class="tutor-admin-page-content-wrapper tutor-mt-50">
 		<div class="tutor-ui-table-wrapper">
 			<table class="tutor-ui-table tutor-ui-table-responsive table-dashboard-course-list td-align-middle">
 				<thead class="tutor-text-sm tutor-text-400">
@@ -195,29 +195,29 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 					<?php if ( $the_query->have_posts() ) : ?>
 						<?php
 						foreach ( $the_query->posts as $key => $post ) :
-							$the_query->the_post();
+
 							$count_lesson     = tutor_utils()->get_lesson_count_by_course( $post->ID );
-							$count_quiz       = Analytics::get_all_quiz_by_course( $post->ID );
+							$count_quiz       = $courses->get_all_quiz_by_course( $post->ID );
 							$topics           = tutor_utils()->get_topics( $post->ID );
 							$count_assignment = tutor_utils()->get_assignments_by_course( $post->ID )->count;
 							$count_topic      = $topics->found_posts;
-							$student_details  = CourseAnalytics::course_enrollments_with_student_details( $post->ID );
+							$student_details  = $courses->course_enrollments_with_student_details( $post->ID );
 							$total_student    = $student_details['total_enrollments'];
 							$author_details   = get_userdata( $post->post_author );
 							?>
 							<tr>
-								<td data-th="Checkbox">
+								<td data-th="<?php esc_html_e( 'Checkbox', 'tutor' ); ?>">
 									<div class="td-checkbox d-flex ">
 										<input type="checkbox" class="tutor-form-check-input tutor-bulk-checkbox" name="tutor-bulk-checkbox-all" value="<?php echo esc_attr( $post->ID ); ?>" />
 									</div>
 								</td>
-								<td data-th="Date">
+								<td data-th="<?php esc_html_e( 'Date', 'tutor' ); ?>">
 									<div class="td-datetime text-regular-caption color-text-primary">
 										<?php echo esc_html( tutor_get_formated_date( get_option( 'date_format' ), $post->post_date ) ); ?>
 									</div>
 								</td>
 
-								<td data-th="Course Name" class="column-fullwidth">
+								<td data-th="<?php esc_html_e( 'Course Name', 'tutor' ); ?>" class="column-fullwidth">
 									<div class="td-course color-text-primary text-medium-body">
 										<a href="#">
 											<?php echo esc_html( $post->post_title ); ?>
@@ -250,7 +250,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 										</div>
 									</div>
 								</td>
-								<td data-th="Author">
+								<td data-th="<?php esc_html_e( 'Author', 'tutor' ); ?>">
 									<div class="td-avatar">
 										<?php
 											echo wp_kses_post( tutor_utils()->get_tutor_avatar( $post->post_author ) );
@@ -266,7 +266,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 										</a>
 									</div>
 								</td>
-								<td data-th="Course Categories">
+								<td data-th="<?php esc_html_e( 'Course Category', 'tutor' ); ?>">
 									<?php
 										$terms       = wp_get_post_terms( $post->ID, 'course-category' );
 										$total_terms = count( $terms ) - 1;
@@ -276,12 +276,12 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 									}
 									?>
 								</td>
-								<td data-th="Student">
+								<td data-th="<?php esc_html_e( 'Student', 'tutor' ); ?>">
 									  <div class="text-regular-caption color-text-primary">
 										<?php echo esc_html( $total_student ); ?>
 									</div>
 								</td>
-								<td data-th="Price">
+								<td data-th="<?php esc_html_e( 'Price', 'tutor' ); ?>">
 									<div class="text-regular-caption color-text-primary">
 										<?php
 											$price = tutor_utils()->get_course_price( $post->ID );
@@ -291,11 +291,11 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 											echo wp_kses_post( wc_price( $price ) );
 										}
 										// Alert class for course status.
-										$status = ( 'publish' === $post->post_status ? 'select-success' : ( 'pending' === $post->post_status ? 'select-warning' : 'select-default' ) );
+										$status = ( 'publish' === $post->post_status ? 'select-success' : ( 'pending' === $post->post_status ? 'select-warning' : ( 'trash' === $post->post_status ? 'select-danger' : 'select-default' ) ) );
 										?>
 									</div>
 								</td>
-								<td data-th="Actions">
+								<td data-th="<?php esc_html_e( 'Action', 'tutor' ); ?>">
 									<div class="inline-flex-center td-action-btns">
 										<div class="tutor-form-select-with-icon <?php echo esc_attr( $status ); ?>">
 										<select title="<?php esc_attr_e( 'Update course status', 'tutor' ); ?>" class="tutor-admin-course-status-update" data-id="<?php echo esc_attr( $post->ID ); ?>" data-status="<?php echo esc_attr( $post->post_status ); ?>">
@@ -319,7 +319,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 										>
 											<span class="toggle-icon"></span>
 										</button>
-										<ul id="table-dashboard-course-list-<?php echo esc_attr( $post->ID ); ?>" class="popup-menu">
+										<ul id="table-dashboard-course-list-<?php echo esc_attr( $post->ID ); ?>" class="popup-menu" style="width: 220px;">
 										<?php do_action( 'tutor_admin_befor_course_list_action', $post->ID ); ?>
 											<li>
 												<a href="<?php echo esc_url( $post->guid ); ?>" target="_blank">
@@ -334,7 +334,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 												<a href="#" class="tutor-admin-course-delete" data-id="<?php echo esc_attr( $post->ID ); ?>">
 													<i class="ttr-delete-fill-filled color-design-white"></i>
 													<span class="text-regular-body color-text-white">
-													<?php esc_html_e( 'Delete', 'tutor' ); ?>
+													<?php esc_html_e( 'Delete Permanently', 'tutor' ); ?>
 													</span>
 												</a>
 											</li>
@@ -348,7 +348,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 					<?php else : ?>
 						<tr>
 							<td colspan="100%">
-								<?php esc_html_e( 'No course found', 'tutor' ); ?>
+								<?php tutor_utils()->tutor_empty_state(); ?>
 							</td>
 						</tr>
 					<?php endif; ?>
@@ -356,7 +356,7 @@ tutor_load_template_from_custom_path( $filters_template, $filters );
 			</table>
 		</div>
 	</div>
-	<div class="tutor-admin-page-pagination-wrapperp tutor-mt-50 tutor-mr-20">
+	<div class="tutor-admin-page-pagination-wrapperp tutor-mt-50">
 		<?php
 		/**
 		 * Prepare pagination data & load template

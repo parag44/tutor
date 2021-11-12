@@ -1,9 +1,26 @@
 .tutor-course-details-elements {
 }
 
-.tutor-course-details-header {
-	a {
-		text-decoration: none;
+// Course Details Page
+.tutor-course-details {
+	&-page {
+		.tutor-course-details-tab {
+			.tab-header {
+				position: sticky;
+				top: 0;
+				background: #fff;
+				z-index: 999;
+			}
+		}
+	}
+	&-header {
+		a {
+			text-decoration: none;
+		}
+	}
+	&-page-main {
+	}
+	&-page-main-left {
 	}
 }
 
@@ -21,6 +38,7 @@
 	}
 }
 
+// Course Details - Widgets
 .tutor-course-details-widget {
 	.widget-title {
 	}
@@ -47,6 +65,7 @@
 	}
 }
 
+// Course Details - Instructor Cards
 .tutor-instructor-info-card {
 	/* stroke/light30 */
 	border: 1px solid $stroke-light-30;
@@ -72,9 +91,11 @@
 	}
 }
 
+// Course Details - Sidebar Cards
 .tutor-course-sidebar-card {
 	border: 1px solid $stroke-light-30;
 	border-radius: 6px;
+	max-width: 400px;
 	&-body {
 	}
 	&-footer {
@@ -107,36 +128,339 @@
 	}
 	&.tutor-after-purchase {
 	}
-}
 
-.tutor-course-details-tab {
-}
-
-//Backend Alert utlity .alert-#{$variable}{...}
-$variations: (
-	// prefix borderC txtC bgC btnC iconC btnBg btnBorder
-		'primary' $primary-30 $primary-100 $primary-50 $brand-wordpress,
-	'warning' $warning-30 $warning-100 $warning-50 $design-warning,
-	'success' $success-30 $success-100 $success-50 $design-success,
-	'danger' $danger-30 $danger-100 $danger-50 $design-danger
-);
-@each $suffix, $bgColor, $txtColor, $border, $icon in $variations {
-	.tutor-backend-alert.alert-#{$suffix} {
-		background: #{$bgColor};
-		color: #{$txtColor};
-		border: 1px solid #{$border};
-		> .alert-icon {
-			color: #{$icon};
+	.tutor-alert {
+		.tutor-alert-text {
+			align-items: flex-start;
+		}
+		.tutor-alert-icon {
+			margin-top: -5px;
 		}
 	}
 }
 
-// Tutor backend alert
-.tutor-alert {
-	@extend .text-regular-caption;
+// Course Details Page
+.tutor-course-details-page {
+	// border: 1px solid;
+	&-main {
+		display: grid;
+		grid-gap: 30px;
+		@include breakpoint-min(desktop) {
+			grid-template-columns: 8fr 4fr;
+			grid-gap: 55px;
+		}
 
-	background: rgba(255, 255, 255, 0.9);
-	/* color/primary/fill/70 */
-	border: 1px solid #95aaed;
+		&-left {
+		}
+		&-right {
+		}
+	}
+
+	.tutor-has-showmore {
+		.tutor-showmore-content {
+			position: relative;
+			&:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 62px;
+				bottom: 0;
+				background: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0.0001) 1.31%,
+					rgba(255, 255, 255, 0.721372) 15.41%,
+					#ffffff 100%
+				);
+			}
+		}
+		.showmore-text {
+			display: none;
+		}
+		.btn-showmore {
+			display: flex !important;
+		}
+		.btn-showless {
+			display: none !important;
+		}
+		&.is-active {
+			.showmore-text {
+				display: flex !important;
+			}
+			.btn-showmore {
+				display: none !important;
+			}
+			.btn-showless {
+				display: flex !important;
+			}
+			.tutor-showmore-content {
+				position: relative;
+				&:before {
+					display: none;
+				}
+			}
+		}
+		.tutor-showmore-btn {
+			cursor: pointer;
+			> * {
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+// Course Details - Accordion
+.tutor-accordion {
+	&-item {
+		background-color: #fff;
+		/* stroke/light30 */
+
+		border: 1px solid $stroke-light-30;
+		border-radius: 6px;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+	&-item-header {
+		padding: 15px 20px;
+		min-height: 58px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		cursor: pointer;
+		transition: 200ms;
+		@extend .text-medium-h6;
+		@extend .color-text-title;
+		&::after {
+			content: '\e940';
+			font-family: 'tutor-v2-iconpack' !important;
+			font-size: 2rem;
+			position: absolute;
+			right: 1rem;
+			transition: 150ms;
+		}
+		&.is-active {
+			color: $primary-main;
+			&::after {
+				// content: '\e941';
+				transform: rotate(-90deg);
+			}
+		}
+	}
+	&-item-body {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.25s linear;
+	}
+	&-item-body-content {
+		@extend .text-regular-body;
+		@extend .color-text-primary;
+		padding: 0 15px;
+		border-top: 1px solid $stroke-light-30;
+	}
+}
+
+.tutor-courses-lession-list {
+	list-style: none;
+	margin: 0 -15px;
+	li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid $stroke-light-30;
+		&:not(:last-child) {
+			border-bottom: 1px solid $stroke-light-30;
+		}
+		padding: 15px;
+
+		> div {
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+
+// Course Details - Rating and Review
+.tutor-ratingsreviews {
+	/* stroke/light30 */
+	background: #ffffff;
+	border: 1px solid #cdcfd5;
 	border-radius: 6px;
+
+	&-ratings {
+		display: grid;
+		@include breakpoint-min(tablet) {
+			grid-template-columns: auto 1fr;
+			grid-gap: 44px;
+		}
+		grid-gap: 20px;
+		align-items: center;
+		padding: 30px;
+
+		&-avg {
+		}
+		&-all {
+			.rating-numbers {
+				display: grid;
+				grid-gap: 5px;
+				@include breakpoint-min(mobile) {
+					grid-gap: 30px;
+					grid-template-columns: 80% 20%;
+				}
+				@include breakpoint-max(mobile) {
+					.rating-num {
+						text-align: center;
+					}
+				}
+
+				.rating-progress {
+					display: flex;
+					grid-gap: 13px;
+				}
+
+				&:not(:first-child) {
+					margin-top: 10px;
+				}
+			}
+			.rating-progress {
+				.tutor-rating-text {
+					padding-left: 2px;
+				}
+			}
+		}
+
+		.progress-bar {
+			position: relative;
+			width: 100%;
+			display: block;
+			height: 8px;
+			background: #e3e5eb;
+			border-radius: 4px;
+			overflow: hidden;
+
+			.progress-value {
+				position: absolute;
+				width: var(--progress-value);
+				height: 100%;
+				background: #ed9700;
+				border-radius: 50px;
+			}
+		}
+		.progress-text {
+			margin-left: 10px;
+		}
+	}
+
+	&-reviews {
+		.review-list {
+			list-style: none;
+			> li {
+				--col: 11%;
+				display: grid;
+				@include breakpoint-min(450) {
+					grid-template-columns: auto 1fr;
+				}
+				grid-gap: 20px;
+				align-items: center;
+				border-top: 1px solid $stroke-light-30;
+				padding: 30px;
+				@include breakpoint-min(desktop) {
+					grid-template-columns: var(--col) calc(100% - var(--col));
+					padding-left: 35px;
+					padding-right: 40px;
+				}
+			}
+			.tutor-rating-text {
+				padding-left: 2px;
+			}
+		}
+	}
+}
+
+// spacing
+$avatarSizes: 16, 20, 24, 26, 28, 32, 40, 48, 50, 64, 120;
+
+@each $size in $avatarSizes {
+	.tutor-avatar-circle {
+		&.tutor-#{$size} {
+			width: #{$size}px;
+			height: #{$size}px;
+		}
+	}
+}
+.tutor-avatar-circle {
+	border-radius: 50%;
+	overflow: hidden;
+	img {
+		/* display: flex; */
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+// Course Details - Ques and Answer
+.tutor-quesanswer {
+	&-askquestion {
+		textarea.tutor-form-control {
+			min-height: 72px;
+		}
+	}
+
+	&-commentlist {
+		list-style: none;
+		.commentlist-meta {
+		}
+		.commentlist-comment {
+			border-radius: 6px;
+			position: relative;
+			> * {
+				position: relative;
+				z-index: 1;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: -5px;
+				left: 15px;
+				background: inherit;
+				clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
+				transform: rotate(45deg);
+				border-radius: 3px;
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: white;
+			}
+			&:before,
+			&:after {
+				opacity: 0.5;
+			}
+		}
+		&-item {
+			// background: #000;
+			&-reply {
+				.commentlist-comment:before {
+					left: unset;
+					right: 15px;
+				}
+			}
+		}
+	}
+}
+
+// Course Details - Announcement
+.tutor-announcement {
+	border: 1px solid $stroke-light-30;
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+// Course Details - Emptystate
+.tutor-emptystate {
 }
