@@ -159,52 +159,7 @@
                     </div>
                 </div>
                 <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
-                    <!-- <div class="tutor-sidebar-no-qna d-flex flex-column align-items-center justify-content-center">
-                        <svg width="176" height="159" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M126.362 48.707c-25.185 0-45.585 20.502-45.585 45.813 0 13.446 5.764 25.522 14.916 33.913-.14 6.6-1.467 19.589-9.292 26.329 0 0 18.933 1.861 31.822-15.13 2.655.491 5.379.737 8.139.737 25.185 0 45.584-20.502 45.584-45.814 0-25.311-20.434-45.848-45.584-45.848Z"
-                                fill="#E3E5EA" />
-                            <path
-                                d="M107.781 83.778H143.655c4.052 0 4.052-6.319 0-6.319H107.781c-4.052 0-4.052 6.32 0 6.32ZM98.84 94.59h53.793c4.052 0 4.052-6.319 0-6.319H98.84c-4.052 0-4.052 6.32 0 6.32ZM109.32 107.335h32.765c4.052 0 4.052-6.319 0-6.319H109.32c-4.052 0-4.052 6.319 0 6.319Z"
-                                fill="#fff" />
-                            <path
-                                d="M109.147 109.695c20.093-20.194 20.093-52.936 0-73.13-20.094-20.194-52.671-20.194-72.765 0-20.093 20.194-20.093 52.936 0 73.13 20.094 20.194 52.672 20.194 72.765 0Z"
-                                fill="#C1C3CA" />
-                            <path
-                                d="M67.926 86.762c-1.676.07-3.108-1.264-3.143-2.984 0-.175 0-.386-.035-.597-.175-5.511.663-8.741 3.109-11.936 1.85-2.317 2.445-2.808 7.999-6.424 3.807-2.458 5.03-4.178 4.96-6.81-.105-3.757-2.97-5.899-7.755-5.758-3.563.105-6.148 1.474-7.58 4.002a8.424 8.424 0 0 0-.908 2.317c-.314 1.474-1.677 2.492-3.179 2.422l-10.304-.667c-1.852-.105-3.144-1.825-2.795-3.65.699-3.687 1.922-6.18 4.192-8.883 4.436-5.441 11.422-8.39 20.574-8.67 14.636-.492 23.998 6.178 24.382 17.201.175 4.88-1.328 8.671-4.541 11.901-1.851 1.826-2.62 2.422-9.397 6.951-3.283 2.282-4.4 4.388-4.261 8.074v.036c.07 1.72-1.257 3.124-2.97 3.194l-8.348.281Zm12.61 12.112.035.948c.14 3.896-2.934 7.196-6.811 7.302l-1.921.07c-3.878.14-7.161-2.949-7.266-6.846l-.035-.948c-.14-3.897 2.934-7.197 6.812-7.302l1.92-.07c3.878-.14 7.127 2.949 7.266 6.846Z"
-                                fill="#FCFCFD" />
-                            <path
-                                d="M172.226 143.458c2.083 0 3.772-1.698 3.772-3.792s-1.689-3.791-3.772-3.791a3.782 3.782 0 0 0-3.773 3.791c0 2.094 1.689 3.792 3.773 3.792ZM155.424 139.983c.791 0 1.433-.644 1.433-1.439s-.642-1.44-1.433-1.44-1.432.645-1.432 1.44c0 .795.641 1.439 1.432 1.439Z"
-                                fill="#C1C3CA" />
-                            <path
-                                d="M143.863 153.288a2.522 2.522 0 0 0 2.515-2.528 2.522 2.522 0 0 0-2.515-2.528 2.522 2.522 0 0 0-2.515 2.528 2.522 2.522 0 0 0 2.515 2.528ZM18.042 52.111c.752 0 1.362-.565 1.362-1.263s-.61-1.264-1.362-1.264c-.752 0-1.362.566-1.362 1.264 0 .698.61 1.264 1.362 1.264Z"
-                                stroke="#C1C3CA" stroke-width="2" stroke-miterlimit="10" />
-                            <path
-                                d="M3.41 45.126c.752 0 1.361-.566 1.361-1.264 0-.698-.61-1.263-1.362-1.263-.752 0-1.362.566-1.362 1.264 0 .697.61 1.263 1.362 1.263ZM162.272 153.604c-.978 1.405-1.956 2.844-2.934 4.248-.594.843.769 1.615 1.362.808.978-1.405 1.957-2.844 2.935-4.248.558-.843-.804-1.65-1.363-.808Z"
-                                fill="#C1C3CA" />
-                            <path
-                                d="M163.915 156.589c-1.397-.878-2.759-1.756-4.157-2.633-.873-.527-1.641.807-.803 1.369 1.397.877 2.76 1.755 4.157 2.633.873.526 1.676-.843.803-1.369ZM26.46 23.114c1.956 1.264 3.912 2.528 5.868 3.757.839.562 1.642-.807.804-1.37-1.956-1.263-3.912-2.527-5.868-3.756-.839-.526-1.642.843-.804 1.37Z"
-                                fill="#C1C3CA" />
-                            <path
-                                d="M30.722 21.29c-1.223 1.79-2.445 3.545-3.633 5.335-.559.843.803 1.615 1.362.808 1.223-1.79 2.445-3.546 3.633-5.336.559-.843-.803-1.615-1.362-.808ZM.612 72.123c1.502.948 2.97 1.896 4.472 2.843.838.562 1.641-.807.803-1.369-1.502-.947-2.97-1.895-4.471-2.843-.838-.562-1.642.807-.804 1.369Z"
-                                fill="#C1C3CA" />
-                            <path
-                                d="M3.79 70.473c-.908 1.334-1.851 2.703-2.76 4.037-.558.842.804 1.615 1.363.807.908-1.334 1.851-2.703 2.76-4.037.558-.843-.804-1.65-1.363-.807Z"
-                                fill="#C1C3CA" />
-                        </svg>
-                        <p class="text-regular-h5 color-text-title">No questions yet</p>
-                        <p class="text-regular-caption color-text-hints text-center">
-                            Describe what you’re trying to achieve and where you’re getting stuck
-                        </p>
-                    </div>
-                    <div class="tutor-sidebar-qna-add-new">
-                        <p class="text-regular-h6">Ask a New Question</p>
-                        <textarea placeholder="Describe what you’re trying to achieve and where you’re getting stuck."
-                            class="tutor-form-control tutor-mt-12 text-regular-small color-text-hints"></textarea>
-                        <button class="tutor-btn tutor-btn-primary tutor-btn-md tutor-mt-20">
-                            Submit My Question
-                        </button>
-                    </div> -->
+
                 </div>
                 <!-- <div class="tutor-lesson-sidebar-tab-item" style="display: none;">
                     <h1>This feature has been disabled by the administrator</h1>
@@ -381,7 +336,7 @@
                                     <button class="tutor-btn tutor-btn-primary tutor-btn-sm">Submit</button>
                                 </div>
                             </div>
-                            <div class="tutor-comments-list tutor-parent-comment tutor-mt-30">
+                            <div class="tutor-comments-list tutor-parent-comment tutor-mt-30" data-comment-line="200">
                                 <div class="comment-avatar">
                                     <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
                                 </div>
@@ -518,9 +473,10 @@
                                                         ago</span>
                                                 </div>
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
-                                                    No need to convince ordinary smartphone users who do not understand
+                                                    No need to convince ordinary
+                                                    <!-- smartphone users who do not understand
                                                     worth of
-                                                    it
+                                                    it -->
                                                 </div>
                                             </div>
                                             <div class="tutor-comment-actions tutor-ml-22">

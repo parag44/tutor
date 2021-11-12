@@ -1,5 +1,13 @@
-body {
-	// border: 10px solid red;
+.tutor-mobile-top-navigation {
+	.tutor-mobile-top-nav {
+		grid-template-columns: 30px auto;
+		.tutor-top-nav-icon {
+			font-size: 30px;
+		}
+		.tutor-top-nav-title {
+			text-align: center;
+		}
+	}
 }
 .tutor-single-lesson-wraper {
 	display: flex;
@@ -56,6 +64,25 @@ body {
 					font-size: 30px;
 				}
 			}
+			.tutor-topbar-right-item {
+				.tutor-topbar-assignment-details {
+					.tutor-topbar-complete-btn {
+						.tutor-topbar-mark-btn {
+							background-color: transparent;
+							color: $design-white;
+							border-color: $design-white;
+							span.tutor-btn-content {
+								line-height: 100%;
+							}
+						}
+						:hover {
+							background-color: $color-white;
+							color: $primary-main;
+							border-color: $design-white;
+						}
+					}
+				}
+			}
 		} /* tutor-single-page-top-bar */
 		.course-players {
 			position: relative;
@@ -79,3 +106,4 @@ body {
 }
 
 @import './spotlight';
+@import './course-assignment.scss';

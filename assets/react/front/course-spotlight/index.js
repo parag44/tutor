@@ -49,18 +49,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	const parentComments = document.querySelectorAll(
 		'.tutor-comments-list.tutor-parent-comment'
 	);
-	const childComment = document.querySelectorAll(
-		'.tutor-comments-list.tutor-child-comment'
+	// const childComment = document.querySelectorAll(
+	// 	'.tutor-comments-list.tutor-child-comment'
+	// );
+	const replyComment = document.querySelector(
+		'.tutor-comment-box.tutor-reply-box'
 	);
-	// const replyComment = document.querySelectorAll('.tutor-comment-box.tutor-reply-box');
-
+	// console.log(replyComment.clientHeight);
 	if (parentComments) {
 		parentComments.forEach((parentComment) => {
-			console.log(
-				parentComment.querySelectorAll(
-					'.tutor-comments-list.tutor-child-comment'
-				)
+			const childComments = parentComment.querySelectorAll(
+				'.tutor-comments-list.tutor-child-comment'
 			);
+			const childCommentCount = childComments.length;
+			const lastCommentHeight = [childCommentCount - 1].clientHeight;
+			let calc =
+				lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
+			// console.log(calc);
+			let style = window.getComputedStyle(parentComment, '::before');
+			// var styleElem = document.head.appendChild(
+			// 	document.createElement('style')
+			// );
+			console.log(style);
+			// styleElem.innerHTML = `tutor-comments-list.tutor-parent-comment:after { height: calc(100% - ${calc}px); }`;
 		});
 	}
 	console.log();

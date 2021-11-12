@@ -59,12 +59,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
   /* commenting */
 
 
-  var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
-  var childComment = document.querySelectorAll('.tutor-comments-list.tutor-child-comment'); // const replyComment = document.querySelectorAll('.tutor-comment-box.tutor-reply-box');
+  var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment'); // const childComment = document.querySelectorAll(
+  // 	'.tutor-comments-list.tutor-child-comment'
+  // );
+
+  var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box'); // console.log(replyComment.clientHeight);
 
   if (parentComments) {
     parentComments.forEach(function (parentComment) {
-      console.log(parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment'));
+      var childComments = parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment');
+      var childCommentCount = childComments.length;
+      var lastCommentHeight = [childCommentCount - 1].clientHeight;
+      var calc = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50; // console.log(calc);
+
+      var style = window.getComputedStyle(parentComment, '::before'); // var styleElem = document.head.appendChild(
+      // 	document.createElement('style')
+      // );
+
+      console.log(style); // styleElem.innerHTML = `tutor-comments-list.tutor-parent-comment:after { height: calc(100% - ${calc}px); }`;
     });
   }
 

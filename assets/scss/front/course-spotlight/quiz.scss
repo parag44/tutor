@@ -137,6 +137,7 @@
 				}
 			}
 		}
+
 		.quiz-question-ans-choice-area {
 			.quiz-question-ans-choice {
 				&:not(:first-child) {
@@ -220,20 +221,33 @@
 				}
 			}
 			.quiz-image-ordering-ans {
+				display: grid;
+				grid-template-columns: 30px 315px;
 				.quiz-image-ordering-ans-item {
 					width: 315px;
-					.tutor-quiz-image-ordering-box {
-						border: 1px solid #c0c3cb;
-						border-radius: 6px;
-						.tutor-quiz-image-ordering-icon {
-							background: #f4f6f9;
-							width: 46px;
-							border-radius: 6px 0px 0px 6px;
-							span {
-								font-size: 27px;
-							}
+					border: 1px solid #c0c3cb;
+					border-radius: 6px;
+					display: grid;
+					grid-template-columns: 46px auto;
+					.tutor-quiz-image-ordering-icon {
+						background: #f4f6f9;
+						width: 46px;
+						border-radius: 6px 0px 0px 6px;
+						span {
+							font-size: 27px;
 						}
-						.tutor-quiz-image-ordering-item {
+					}
+					.tutor-quiz-image-ordering-item {
+						display: grid;
+						grid-template-columns: 80px auto;
+						grid-template-rows: auto;
+						img {
+							width: 80px;
+							height: 80px;
+							border-radius: 6px;
+						}
+						span {
+							word-break: break-word;
 						}
 					}
 				}

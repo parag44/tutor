@@ -175,7 +175,8 @@
 							content: '';
 							position: absolute;
 							width: 1px;
-							height: calc(100% - 350px);
+							// height: calc(100% - 350px);
+							height: attr(data-comment-line);
 							left: 24px;
 							top: 50px;
 							background: $stroke-light-30;
