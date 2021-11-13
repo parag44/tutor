@@ -407,10 +407,13 @@ jQuery(document).ready(function ($) {
      * @date 18 Feb, 2019
      * @since v.1.0.0
      */
+    
+	// $(".quiz-question-ans-choice-area").sortable();
 
     function init_quiz_builder() {
         if (jQuery().sortable) {
-            $(".tutor-quiz-answers-wrap").sortable({
+            // $(".tutor-quiz-answers-wrap").sortable({
+            $(".quiz-question-ans-choice-area").sortable({
                 handle: ".answer-sorting-bar",
                 start: function (e, ui) {
                     ui.placeholder.css('visibility', 'visible');

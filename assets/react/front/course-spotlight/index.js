@@ -49,32 +49,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	const parentComments = document.querySelectorAll(
 		'.tutor-comments-list.tutor-parent-comment'
 	);
-	// const childComment = document.querySelectorAll(
-	// 	'.tutor-comments-list.tutor-child-comment'
-	// );
+
 	const replyComment = document.querySelector(
 		'.tutor-comment-box.tutor-reply-box'
 	);
-	// console.log(replyComment.clientHeight);
+
 	if (parentComments) {
-		parentComments.forEach((parentComment) => {
+		[...parentComments].forEach((parentComment) => {  
+			
 			const childComments = parentComment.querySelectorAll(
 				'.tutor-comments-list.tutor-child-comment'
 			);
+			const commentLine = parentComment.querySelector('.tutor-comment-line');
 			const childCommentCount = childComments.length;
-			const lastCommentHeight = [childCommentCount - 1].clientHeight;
-			let calc =
+			const lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
+			let heightOfLine =
 				lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
-			// console.log(calc);
-			let style = window.getComputedStyle(parentComment, '::before');
-			// var styleElem = document.head.appendChild(
-			// 	document.createElement('style')
-			// );
-			console.log(style);
-			// styleElem.innerHTML = `tutor-comments-list.tutor-parent-comment:after { height: calc(100% - ${calc}px); }`;
+			commentLine.style.setProperty('height', `calc(100% - ${heightOfLine}px)`);
 		});
 	}
-	console.log();
-
 	/* commenting */
+
 });

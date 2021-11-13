@@ -7,6 +7,18 @@
   \******************************************************/
 /***/ (() => {
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 document.addEventListener('DOMContentLoaded', function (event) {
   /* sidetab tab position */
   var topBar = document.querySelector('.tutor-single-page-top-bar');
@@ -59,29 +71,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
   /* commenting */
 
 
-  var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment'); // const childComment = document.querySelectorAll(
-  // 	'.tutor-comments-list.tutor-child-comment'
-  // );
-
-  var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box'); // console.log(replyComment.clientHeight);
+  var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
+  var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box');
 
   if (parentComments) {
-    parentComments.forEach(function (parentComment) {
+    _toConsumableArray(parentComments).forEach(function (parentComment) {
       var childComments = parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment');
+      var commentLine = parentComment.querySelector('.tutor-comment-line');
       var childCommentCount = childComments.length;
-      var lastCommentHeight = [childCommentCount - 1].clientHeight;
-      var calc = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50; // console.log(calc);
-
-      var style = window.getComputedStyle(parentComment, '::before'); // var styleElem = document.head.appendChild(
-      // 	document.createElement('style')
-      // );
-
-      console.log(style); // styleElem.innerHTML = `tutor-comments-list.tutor-parent-comment:after { height: calc(100% - ${calc}px); }`;
+      var lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
+      var heightOfLine = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
+      commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
     });
   }
-
-  console.log();
   /* commenting */
+
 });
 
 /***/ }),
@@ -1266,10 +1270,12 @@ jQuery(document).ready(function ($) {
    * @date 18 Feb, 2019
    * @since v.1.0.0
    */
+  // $(".quiz-question-ans-choice-area").sortable();
 
   function init_quiz_builder() {
     if (jQuery().sortable) {
-      $(".tutor-quiz-answers-wrap").sortable({
+      // $(".tutor-quiz-answers-wrap").sortable({
+      $(".quiz-question-ans-choice-area").sortable({
         handle: ".answer-sorting-bar",
         start: function start(e, ui) {
           ui.placeholder.css('visibility', 'visible');

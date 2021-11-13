@@ -1,3 +1,6 @@
+body {
+
+}
 .tutor-mobile-top-navigation {
 	.tutor-mobile-top-nav {
 		grid-template-columns: 30px auto;
@@ -93,6 +96,29 @@
 				width: calc(100% - 150px);
 				height: 100%;
 				position: absolute;
+			}
+			.tutor-lesson-prev ,
+			.tutor-lesson-next {
+				cursor: pointer;
+				width: 31px;
+				height: 215px;
+				background: rgba(255, 255, 255, 0.1);
+				top: 50%;
+				transform: translateY(-50%);
+				position: absolute;
+				backdrop-filter: blur(94px);
+				span {
+					font-size: 40px;
+					color: #ffffff8c;
+				}
+			}
+			.tutor-lesson-prev{
+				left: 0;
+				border-radius: 0px 6px 6px 0px;
+			}
+			.tutor-lesson-next {
+				right: 0;
+				border-radius: 6px 0px 0px 6px;
 			}
 		}
 		@import './quiz.scss';

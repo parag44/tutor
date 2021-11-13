@@ -187,6 +187,12 @@
             <iframe src="https://www.youtube.com/embed/1cvTYFZGYSI" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
+			<div class="tutor-lesson-prev flex-center">
+                 <span class="ttr-angle-left-filled"></span>
+			</div>
+			<div class="tutor-lesson-next flex-center">
+                 <span class="ttr-angle-right-filled"></span>
+			</div>
         </div>
         <div class="tutor-course-spotlight-wrapper">
             <div class="tutor-default-tab tutor-course-details-tab">
@@ -415,6 +421,7 @@
                                         </div>
                                     </div>
                                 </div>
+								<span class="tutor-comment-line"></span>
                             </div>
                             <div class="tutor-comments-list tutor-parent-comment tutor-mt-30">
                                 <div class="comment-avatar">
@@ -500,6 +507,7 @@
                                         </div>
                                     </div>
                                 </div>
+								<span class="tutor-comment-line"></span>
                             </div>
                         </div>
                         <div
