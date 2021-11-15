@@ -206,6 +206,48 @@
                 <div class="tutor-top-nav-title text-regular-body color-text-primary">Assignment</div>
             </div>
         </div>
+
+        <div
+            class="tutor-mobile-footer-navigation tutor-py-15 tutor-px-22 d-flex justify-content-between align-items-center">
+            <div class="tutor-footer-content tutor-mr-20">
+                <div class="list-item-progress">
+                    <div
+                        class="text-regular-body color-text-subsued tutor-bs-d-flex tutor-bs-align-items-center tutor-bs-justify-content-between">
+                        <span class="progress-steps">0/15</span><span class="progress-percentage">20% Complete</span>
+                    </div>
+                    <div class="progress-bar tutor-mt-10" style="--progress-value:40%;"><span
+                            class="progress-value"></span></div>
+                </div>
+                <!-- <div class="tutor-footer-progress d-flex justify-content-between">
+                    <div class="tutor-progress-number">
+                        <div class="text-regular-body color-text-subsued">08/15</div>
+                    </div>
+                    <div class="tutor-progress-percentage">
+                        <div class="text-regular-body color-text-subsued">50%</div>
+                    </div>
+                </div> -->
+                <!-- <div class="progress-bar tutor-pt-10" style="--progress-value:20%;"><span class="progress-value"></span>
+                </div> -->
+                <!-- <div class="tutor-footer-progress-bar"> -->
+                <!-- </div> -->
+            </div>
+            <div class="tutor-footer-complete-btn">
+                <button class="tutor-btn tutor-btn-primary">Complete</button>
+            </div>
+        </div>
+        <!--assignment mobile footer navogation-->
+
+        <div
+            class="tutor-mobile-footer-navigation tutor-py-15 tutor-px-22 d-flex justify-content-between align-items-center">
+            <div class="tutor-quiz-skip-button">
+                <button class="tutor-btn tutor-btn-disable-outline tutor-no-hover">Skip Quiz</button>
+            </div>
+            <div class="tutor-footer-complete-btn">
+                <button class="tutor-btn tutor-btn-primary">Submit & Next</button>
+            </div>
+        </div>
+        <!--quiz mobile footer navogation-->
+
         <div class="course-players flex-center">
             <iframe src="https://www.youtube.com/embed/1cvTYFZGYSI" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -262,30 +304,20 @@
                                         Guide" on Node.js after all.</div>
                                 </div>
                             </div>
-                            <div class="tutor-showmore-btn tutor-mt-22" data-showmore="true"><button
-                                    class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showmore"><span
-                                        class="btn-icon ttr-plus-filled color-design-brand"></span><span
-                                        class="color-text-subsued">Show More</span></button><button
-                                    class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showless"><span
-                                        class="btn-icon ttr-minus-filled color-design-brand"></span><span
-                                        class="color-text-subsued">Show Less</span></button></div>
+                            <div class="tutor-showmore-btn tutor-mt-22 tutor-bs-d-block tutor-bs-d-sm-none"
+                                data-showmore="true">
+                                <button
+                                    class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showmore">
+                                    <span class="btn-icon ttr-plus-filled color-design-brand"></span>
+                                    <span class="color-text-subsued">Show More</span>
+                                </button>
+                                <button
+                                    class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showless">
+                                    <span class="btn-icon ttr-minus-filled color-design-brand"></span>
+                                    <span class="color-text-subsued">Show Less</span>
+                                </button>
+                            </div>
                         </div>
-                        <!-- <div class="text-medium-h6 color-text-primary">About Lesson</div>
-                        <div class="text-regular-body color-text-subsued tutor-mt-12">
-                            Node.js is probably THE most popular and modern server-side
-                            programming language you can dive into these days! Node.js developers
-                            are in high demand and the language is used for everything from
-                            traditional web apps with server-side rendered views over REST APIs
-                            all the way up to GraphQL APIs and real-time web services. Not to
-                            mention its applications in build workflows for projects of all sizes.
-                            <br /> <br />
-                            This course will teach you all of that! From scratch with zero prior
-                            knowledge assumed. Though if you do bring some knowledge, you'll of
-                            course be able to quickly jump into the course modules that are most
-                            interesting to you.Does this look like a lot of content? It certainly
-                            is! This is not a short course but it is the "Complete Guide" on
-                            Node.js after all. .
-                        </div> -->
                     </div>
                     <div class="tab-body-item" id="tutor-course-details-tab-2">
                         <div class="text-medium-h6 color-text-primary">Exercise Files</div>
@@ -326,6 +358,7 @@
                         </div>
                     </div>
                     <div class="tab-body-item is-active" id="tutor-course-details-tab-3">
+
                         <div class="text-medium-h6 color-text-primary">Join the conversation</div>
                         <div class="tutor-conversation tutor-mt-12 tutor-pb-20 tutor-pb-sm-50">
                             <div class="tutor-no-comments-show d-flex">
@@ -407,11 +440,14 @@
                                     <div class="tutor-actual-comment tutor-mb-10">
                                         <div class="tutor-comment-author">
                                             <span class="text-bold-body">Estella Clayton</span>
-                                            <span class="text-regular-caption tutor-ml-10 tutor-ml-sm-10">1 week
+                                            <span class="text-regular-caption tutor-ml-10 tutor-ml-sm-10">1
+                                                week
                                                 ago</span>
                                         </div>
                                         <div class="tutor-comment-text text-regular-body tutor-mt-5">
-                                            No need to convince ordinary smartphone users who do not understand worth of
+                                            No need to convince ordinary smartphone users who do not
+                                            understand
+                                            worth of
                                             it
                                         </div>
                                     </div>
@@ -429,11 +465,13 @@
                                             <div class="tutor-actual-comment tutor-mb-10">
                                                 <div class="tutor-comment-author">
                                                     <span class="text-bold-body">Estella Clayton</span>
-                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1 week
+                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1
+                                                        week
                                                         ago</span>
                                                 </div>
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
-                                                    No need to convince ordinary smartphone users who do not understand
+                                                    No need to convince ordinary smartphone users who do not
+                                                    understand
                                                     worth of it
                                                 </div>
                                             </div>
@@ -451,11 +489,13 @@
                                             <div class="tutor-actual-comment tutor-mb-10">
                                                 <div class="tutor-comment-author">
                                                     <span class="text-bold-body">Estella Clayton</span>
-                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1 week
+                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1
+                                                        week
                                                         ago</span>
                                                 </div>
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
-                                                    No need to convince ordinary smartphone users who do not understand
+                                                    No need to convince ordinary smartphone users who do not
+                                                    understand
                                                     worth of it
                                                 </div>
                                             </div>
@@ -480,6 +520,7 @@
                                 </div>
                                 <span class="tutor-comment-line"></span>
                             </div>
+
                             <div class="tutor-comments-list tutor-parent-comment tutor-mt-30">
                                 <div class="comment-avatar">
                                     <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
@@ -488,11 +529,14 @@
                                     <div class="tutor-actual-comment tutor-mb-10">
                                         <div class="tutor-comment-author">
                                             <span class="text-bold-body">Estella Clayton</span>
-                                            <span class="text-regular-caption tutor-ml-10 tutor-ml-sm-10">1 week
+                                            <span class="text-regular-caption tutor-ml-10 tutor-ml-sm-10">1
+                                                week
                                                 ago</span>
                                         </div>
                                         <div class="tutor-comment-text text-regular-body tutor-mt-5">
-                                            No need to convince ordinary smartphone users who do not understand worth of
+                                            No need to convince ordinary smartphone users who do not
+                                            understand
+                                            worth of
                                             it
                                         </div>
                                     </div>
@@ -508,11 +552,13 @@
                                             <div class="tutor-actual-comment tutor-mb-10">
                                                 <div class="tutor-comment-author">
                                                     <span class="text-bold-body">Estella Clayton</span>
-                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1 week
+                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1
+                                                        week
                                                         ago</span>
                                                 </div>
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
-                                                    No need to convince ordinary smartphone users who do not understand
+                                                    No need to convince ordinary smartphone users who do not
+                                                    understand
                                                     worth of
                                                     it
                                                 </div>
@@ -533,14 +579,15 @@
                                             <div class="tutor-actual-comment tutor-mb-10">
                                                 <div class="tutor-comment-author">
                                                     <span class="text-bold-body">Estella Clayton</span>
-                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1 week
+                                                    <span class="text-regular-caption tutor-ml-0 tutor-ml-sm-10">1
+                                                        week
                                                         ago</span>
                                                 </div>
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
                                                     No need to convince ordinary
                                                     <!-- smartphone users who do not understand
-                                                    worth of
-                                                    it -->
+                                                        worth of
+                                                        it -->
                                                 </div>
                                             </div>
                                             <div class="tutor-comment-actions tutor-ml-22">
@@ -571,6 +618,19 @@
                             class="tutor-comment-list-footer color-design-brand tutor-p-20 d-flex align-items-center justify-content-center">
                             <span class="ttr-comment-filled tutor-mr-10"></span>
                             <p class="text-regular-body color-text-subsued">Write a comments</p>
+                        </div>
+                        <div class="tutor-showmore-btn tutor-mt-22 tutor-bs-d-block tutor-bs-d-sm-none"
+                            data-showmore="true">
+                            <button
+                                class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showmore">
+                                <span class="btn-icon ttr-plus-filled color-design-brand"></span>
+                                <span class="color-text-subsued">Show More</span>
+                            </button>
+                            <button
+                                class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showless">
+                                <span class="btn-icon ttr-minus-filled color-design-brand"></span>
+                                <span class="color-text-subsued">Show Less</span>
+                            </button>
                         </div>
                     </div>
                 </div> <!-- tab-body -->
