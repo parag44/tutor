@@ -6,27 +6,51 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	/* sidetab tab position */
 
 	/* sidetab tab */
-	const sideBarTabs = document.querySelectorAll('.tutor-sidebar-tab-item');
-	sideBarTabs.forEach((tab) => {
-		tab.addEventListener('click', (event) => {
-			clearActiveClass();
-			event.currentTarget.classList.add('active');
-			let id = event.currentTarget.getAttribute('data-sidebar-tab');
-			document.getElementById(id).classList.add('active');
+	// const sideBarTabs = document.querySelectorAll(
+	// 	'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
+	// );
+	// sidebarParent(
+	// 	document.querySelectorAll(
+	// 		'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
+	// 	)
+	// );
+	const sidebarParent = function(sideBarTabs) {
+		sideBarTabs.forEach((tab) => {
+			tab.addEventListener('click', (event) => {
+				const tabConent =
+					event.currentTarget.parentNode.nextElementSibling;
+				// console.log(tabConent, tabConent);
+				clearActiveClass(tabConent);
+				// console.log(event.currentTarget.parentNode);
+				// console.log(event.currentTarget.parentNode.nextElementSibling);
+				event.currentTarget.classList.add('active');
+				let id = event.currentTarget.getAttribute('data-sidebar-tab');
+				console.log(tabConent.querySelector('#' + id));
+				tabConent.querySelector('#' + id).classList.add('active');
+			});
 		});
-	});
-
-	const clearActiveClass = function() {
-		for (let i = 0; i < sideBarTabs.length; i++) {
-			sideBarTabs[i].classList.remove('active');
-		}
-		let sidebarTabItems = document.querySelectorAll(
-			'.tutor-lesson-sidebar-tab-item'
-		);
-		for (let i = 0; i < sidebarTabItems.length; i++) {
-			sidebarTabItems[i].classList.remove('active');
-		}
+		const clearActiveClass = function(tabConent) {
+			for (let i = 0; i < sideBarTabs.length; i++) {
+				sideBarTabs[i].classList.remove('active');
+			}
+			let sidebarTabItems = tabConent.querySelectorAll(
+				'.tutor-lesson-sidebar-tab-item'
+			);
+			for (let i = 0; i < sidebarTabItems.length; i++) {
+				sidebarTabItems[i].classList.remove('active');
+			}
+		};
 	};
+	sidebarParent(
+		document.querySelectorAll(
+			'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
+		)
+	);
+	sidebarParent(
+		document.querySelectorAll(
+			'.tutor-mobile-sidebar .tutor-sidebar-tab-item'
+		)
+	);
 	/* end of sidetab tab */
 
 	/* comment text-area focus arrow style */
@@ -55,19 +79,68 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	);
 
 	if (parentComments) {
-		[...parentComments].forEach((parentComment) => {  
-			
+		[...parentComments].forEach((parentComment) => {
 			const childComments = parentComment.querySelectorAll(
 				'.tutor-comments-list.tutor-child-comment'
 			);
-			const commentLine = parentComment.querySelector('.tutor-comment-line');
+			const commentLine = parentComment.querySelector(
+				'.tutor-comment-line'
+			);
 			const childCommentCount = childComments.length;
-			const lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
+			const lastCommentHeight =
+				childComments[childCommentCount - 1].clientHeight;
 			let heightOfLine =
 				lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
-			commentLine.style.setProperty('height', `calc(100% - ${heightOfLine}px)`);
+			commentLine.style.setProperty(
+				'height',
+				`calc(100% - ${heightOfLine}px)`
+			);
+			console.log(heightOfLine);
 		});
 	}
 	/* commenting */
 
+	// quize drag n drop functionality
+	const quizBoxs = document.querySelectorAll('.tutor-quiz-border-box');
+	const quizImageBoxs = document.querySelectorAll('.tutor-quiz-dotted-box');
+	// const quizImageBoxs = document.querySelectorAll('.quiz-image-box');
+	quizBoxs.forEach((quizBox) => {
+		quizBox.addEventListener('dragstart', dragStart);
+		quizBox.addEventListener('dragend', dragEnd);
+		// console.log(quizBox);
+	});
+	quizImageBoxs.forEach((quizImageBox) => {
+		quizImageBox.addEventListener('dragover', dragOver);
+		quizImageBox.addEventListener('dragenter', dragEnter);
+		quizImageBox.addEventListener('dragleave', dragLeave);
+		quizImageBox.addEventListener('drop', dragDrop);
+	});
+	function dragStart() {
+		this.classList.add('dragging');
+		console.log('start ', this);
+	}
+	function dragEnd() {
+		this.classList.remove('dragging');
+		console.log('end ', this);
+	}
+	function dragOver(event) {
+		this.classList.add('dragover');
+		console.log('dragOver ', this);
+		event.preventDefault();
+	}
+	function dragEnter() {
+		console.log('dragEnter ', this);
+	}
+	function dragLeave() {
+		this.classList.remove('dragover');
+		console.log('dragLeave ', this);
+	}
+	function dragDrop() {
+		const copyElement = document.querySelector(
+			'.tutor-quiz-border-box.dragging span'
+		);
+		this.textContent = copyElement.textContent;
+		console.log('drop ', copyElement.textContent, this.textContent);
+		this.classList.remove('dragover');
+	}
 });

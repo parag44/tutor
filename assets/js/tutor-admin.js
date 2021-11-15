@@ -1968,8 +1968,8 @@ document.addEventListener('DOMContentLoaded', function () {
       /* image_frame.on("select", function (e) {
       	console.log("image size");
       	console.log(image.state().get("selection").first().toJSON());
-      			var image_url = image_frame.state().get("selection").first().toJSON().url;
-      			upload_previewer.src = image_input.value = image_url;
+      		var image_url = image_frame.state().get("selection").first().toJSON().url;
+      		upload_previewer.src = image_input.value = image_url;
       }); */
 
       image_frame.on('insert', function (selection) {

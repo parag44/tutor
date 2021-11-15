@@ -1,7 +1,7 @@
 <div class="tutor-single-lesson-wraper">
-    <div class="tutor-lesson-sidebar">
+    <div class="tutor-lesson-sidebar d-none tutor-bs-d-xl-block">
         <div class="tutor-sidebar-tabs-wrap">
-            <div class="tutor-lessons-tab-area">
+            <div class="tutor-lessons-tab-area tutor-desktop-sidebar">
                 <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
                     class="tutor-sidebar-tab-item tutor-lessons-tab active flex-center">
                     <span class="ttr-education-filled"></span>
@@ -166,33 +166,56 @@
                 </div> -->
             </div>
         </div>
-    </div>
+    </div> <!-- tutor-lesson-sidebar -->
     <div id="tutor-single-entry-content" class="tutor-quiz-single-entry-wrap tutor-single-entry-content sidebar-hidden">
         <div class="tutor-single-page-top-bar d-flex justify-content-between">
-            <div class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center">
-                <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar">
-                    <span class="ttr-icon-light-left-line color-text-white flex-center"></span>
-                </a>
+            <div class="tutor-topbar-left-item d-flex">
+                <div class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center">
+                    <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar">
+                        <span class="ttr-icon-light-left-line color-text-white flex-center"></span>
+                    </a>
+                </div>
+                <div class="tutor-topbar-item tutor-topbar-content-title-wrap flex-center">
+                    <span class="ttr-youtube-brand color-text-white tutor-mr-5"></span>
+                    <span class="tutor-topbar-title text-regular-caption color-design-white">Quiz: The most popular and
+                        modern server</span>
+                </div>
             </div>
-            <div class="tutor-topbar-item tutor-topbar-content-title-wrap flex-center">
-                <span class="ttr-youtube-brand color-text-white tutor-mr-5"></span>
-                <span class="text-regular-caption color-design-white">Quiz: The most popular and modern server Quiz: The
-                    most popular and modern server</span>
+            <div class="tutor-topbar-right-item d-flex align-items-center">
+                <div class="tutor-topbar-assignment-details d-flex align-items-center">
+                    <div class="text-regular-caption color-design-white"><span
+                            class="tutor-progress-content color-primary-60">Your Progress:</span>
+                        <span class="text-bold-caption">33</span> of <span class="text-bold-caption">36</span>(98%)
+                    </div>
+                    <div class="tutor-topbar-complete-btn tutor-ml-30 tutor-mr-15">
+                        <button class="tutor-topbar-mark-btn tutor-btn tutor-btn-icon tutor-btn-md">
+                            <span class="btn-icon ttr-tick-circle-outline-filled"></span>
+                            <span class="tutor-content-responsive tutor-btn-content">Mark as </span><span
+                                class="tutor-btn-content">Complete</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="tutor-topbar-cross-icon flex-center">
+                    <span class="ttr-line-cross-line color-text-white flex-center"></span>
+                </div>
             </div>
-            <div class="tutor-topbar-cross-icon flex-center">
-                <span class="ttr-line-cross-line color-text-white flex-center"></span>
+        </div>
+        <div class="tutor-mobile-top-navigation tutor-bs-d-block tutor-bs-d-sm-none tutor-my-20 tutor-mx-10">
+            <div class="tutor-mobile-top-nav d-grid">
+                <div class="tutor-top-nav-icon ttr-previous-line design-lightgrey"></div>
+                <div class="tutor-top-nav-title text-regular-body color-text-primary">Assignment</div>
             </div>
         </div>
         <div class="course-players flex-center">
             <iframe src="https://www.youtube.com/embed/1cvTYFZGYSI" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
-			<div class="tutor-lesson-prev flex-center">
-                 <span class="ttr-angle-left-filled"></span>
-			</div>
-			<div class="tutor-lesson-next flex-center">
-                 <span class="ttr-angle-right-filled"></span>
-			</div>
+            <div class="tutor-lesson-prev flex-center">
+                <span class="ttr-angle-left-filled"></span>
+            </div>
+            <div class="tutor-lesson-next flex-center">
+                <span class="ttr-angle-right-filled"></span>
+            </div>
         </div>
         <div class="tutor-course-spotlight-wrapper">
             <div class="tutor-default-tab tutor-course-details-tab">
@@ -210,10 +233,44 @@
                         <span class="ttr-comment-filled"></span>
                         <span>Comments</span>
                     </div>
-                </div>
+                </div> <!-- tab-header -->
                 <div class="tab-body">
                     <div class="tab-body-item" id="tutor-course-details-tab-1">
-                        <div class="text-medium-h6 color-text-primary">About Lesson</div>
+                        <div class="tab-item-content tutor-has-showmore">
+                            <div class="tutor-showmore-content">
+                                <div class="text-medium-h6 color-text-primary">About Course</div>
+                                <div class="text-regular-body color-text-subsued tutor-mt-12">Node.js is probably THE
+                                    most popular and modern server-side programming language you can dive into these
+                                    days! Node.js developers are in high demand and the language is used for everything
+                                    from traditional web apps with server-side rendered views over REST APIs all the way
+                                    up to GraphQL APIs and real-time web services. Not to mention its applications in
+                                    build workflows for projects of all sizes. <br> <br>This course will teach you all
+                                    of that! From scratch with zero prior knowledge assumed. Though if you do bring some
+                                    knowledge, you'll of course be able to quickly jump into the course modules that are
+                                    most interesting to you.Does this look like a lot of content? It certainly is! This
+                                    is not a short course but it is the "Complete Guide" on Node.js after all. <div
+                                        class="showmore-text"><br>Node.js is probably THE most popular and modern
+                                        server-side programming language you can dive into these days! Node.js
+                                        developers are in high demand and the language is used for everything from
+                                        traditional web apps with server-side rendered views over REST APIs all the way
+                                        up to GraphQL APIs and real-time web services. Not to mention its applications
+                                        in build workflows for projects of all sizes. <br> <br>This course will teach
+                                        you all of that! From scratch with zero prior knowledge assumed. Though if you
+                                        do bring some knowledge, you'll of course be able to quickly jump into the
+                                        course modules that are most interesting to you.Does this look like a lot of
+                                        content? It certainly is! This is not a short course but it is the "Complete
+                                        Guide" on Node.js after all.</div>
+                                </div>
+                            </div>
+                            <div class="tutor-showmore-btn tutor-mt-22" data-showmore="true"><button
+                                    class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showmore"><span
+                                        class="btn-icon ttr-plus-filled color-design-brand"></span><span
+                                        class="color-text-subsued">Show More</span></button><button
+                                    class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showless"><span
+                                        class="btn-icon ttr-minus-filled color-design-brand"></span><span
+                                        class="color-text-subsued">Show Less</span></button></div>
+                        </div>
+                        <!-- <div class="text-medium-h6 color-text-primary">About Lesson</div>
                         <div class="text-regular-body color-text-subsued tutor-mt-12">
                             Node.js is probably THE most popular and modern server-side
                             programming language you can dive into these days! Node.js developers
@@ -228,7 +285,7 @@
                             interesting to you.Does this look like a lot of content? It certainly
                             is! This is not a short course but it is the "Complete Guide" on
                             Node.js after all. .
-                        </div>
+                        </div> -->
                     </div>
                     <div class="tab-body-item" id="tutor-course-details-tab-2">
                         <div class="text-medium-h6 color-text-primary">Exercise Files</div>
@@ -421,7 +478,7 @@
                                         </div>
                                     </div>
                                 </div>
-								<span class="tutor-comment-line"></span>
+                                <span class="tutor-comment-line"></span>
                             </div>
                             <div class="tutor-comments-list tutor-parent-comment tutor-mt-30">
                                 <div class="comment-avatar">
@@ -507,7 +564,7 @@
                                         </div>
                                     </div>
                                 </div>
-								<span class="tutor-comment-line"></span>
+                                <span class="tutor-comment-line"></span>
                             </div>
                         </div>
                         <div
@@ -516,7 +573,182 @@
                             <p class="text-regular-body color-text-subsued">Write a comments</p>
                         </div>
                     </div>
-                </div>
+                </div> <!-- tab-body -->
+                <div class="tutor-lesson-sidebar d-block tutor-bs-d-md-none">
+                    <div class="tutor-sidebar-tabs-wrap">
+                        <div class="tutor-lessons-tab-area tutor-mobile-sidebar">
+                            <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
+                                class="tutor-sidebar-tab-item tutor-lessons-tab active flex-center">
+                                <span class="ttr-education-filled"></span>
+                                <span class="text-medium-caption color-text-title">Lesson List</span>
+                            </div>
+                            <div data-sidebar-tab="sideabr-qna-tab-content"
+                                class="tutor-sidebar-tab-item tutor-quiz-tab flex-center">
+                                <span class="ttr-question-filled"></span>
+                                <span class="text-medium-caption color-text-title">
+                                    Question & Answer
+                                </span>
+                            </div>
+                        </div>
+                        <div class="tutor-sidebar-tabs-content">
+                            <div id="tutor-lesson-sidebar-tab-content" class="tutor-lesson-sidebar-tab-item active">
+                                <div class="tutor-topics-in-single-lesson">
+                                    <div class="tutor-topics-title d-flex justify-content-between">
+                                        <div class="tutor-topics-title-left">
+                                            <p class="tutor-topic-subtitle text-regular-caption color-text-subsued">
+                                                Chapter 1</p>
+                                            <h3 class="text-medium-h6 color-text-brand">
+                                                Getting Started
+                                            </h3>
+                                        </div>
+                                        <div class="tutor-topics-title-right align-self-end">
+                                            <p class="tutor-topic-subtitle text-regular-caption color-text-subsued">3/5
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="tutor-lessons-under-topic">
+                                        <div class="tutor-single-lesson-items">
+                                            <a href="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/"
+                                                class="tutor-single-lesson-a d-flex justify-content-between"
+                                                data-lesson-id="">
+                                                <div class="tutor-single-lesson-items-left d-flex">
+                                                    <span class="ttr-youtube-brand color-design-brand"></span>
+                                                    <span class="lesson_title text-regular-caption color-text-title">
+                                                        Introduction
+                                                    </span>
+                                                </div>
+                                                <div class="tutor-single-lesson-items-right d-flex">
+                                                    <span class="text-regular-caption color-text-title">1:10</span>
+                                                    <input checked id="" type="checkbox"
+                                                        class="tutor-form-check-input tutor-form-check-circle" name=""
+                                                        disabled readonly />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tutor-lessons-under-topic">
+                                        <div class="tutor-single-lesson-items">
+                                            <a href="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/"
+                                                class="tutor-single-lesson-a d-flex justify-content-between"
+                                                data-lesson-id="">
+                                                <div class="tutor-single-lesson-items-left flex-center">
+                                                    <span class="ttr-lock-filled color-black-40"></span>
+                                                    <span class="lesson_title text-regular-caption color-text-title">
+                                                        What is React?
+                                                    </span>
+                                                </div>
+                                                <div class="tutor-single-lesson-items-right flex-center">
+                                                    <span class="text-regular-caption color-text-title">1:10</span>
+                                                    <input id="" type="checkbox"
+                                                        class="tutor-form-check-input tutor-form-check-circle" name=""
+                                                        disabled readonly />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tutor-lessons-under-topic">
+                                        <div class="tutor-single-lesson-items">
+                                            <a href="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/"
+                                                class="tutor-single-lesson-a d-flex justify-content-between"
+                                                data-lesson-id="">
+                                                <div class="tutor-single-lesson-items-left d-flex">
+                                                    <span class="ttr-assignment-filled color-black-40"></span>
+                                                    <span class="lesson_title text-regular-caption color-text-title">
+                                                        Adding the Right React Version to Codepen
+                                                    </span>
+                                                </div>
+                                                <div class="tutor-single-lesson-items-right flex-center">
+                                                    <span class="text-regular-caption color-text-title">1:10</span>
+                                                    <input checked id="" type="checkbox"
+                                                        class="tutor-form-check-input tutor-form-check-circle" name=""
+                                                        disabled readonly />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tutor-topics-in-single-lesson">
+                                    <div class="tutor-topics-title d-flex justify-content-between">
+                                        <div class="tutor-topics-title-left">
+                                            <p class="tutor-topic-subtitle text-regular-caption color-text-subsued">
+                                                Chapter 2</p>
+                                            <h3 class="text-medium-h6 color-text-brand">
+                                                Content Marketing Basics
+                                            </h3>
+                                        </div>
+                                        <div class="tutor-topics-title-right align-self-end">
+                                            <p class="tutor-topic-subtitle text-regular-caption color-text-subsued">3/5
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="tutor-lessons-under-topic">
+                                        <div class="tutor-single-lesson-items">
+                                            <a href="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/"
+                                                class="tutor-single-lesson-a d-flex justify-content-between"
+                                                data-lesson-id="">
+                                                <div class="tutor-single-lesson-items-left d-flex">
+                                                    <span class="ttr-youtube-brand color-design-brand"></span>
+                                                    <span class="lesson_title text-regular-caption color-text-title">
+                                                        Introduction
+                                                    </span>
+                                                </div>
+                                                <div class="tutor-single-lesson-items-right d-flex">
+                                                    <span class="text-regular-caption color-text-title">1:10</span>
+                                                    <input checked id="" type="checkbox"
+                                                        class="tutor-form-check-input tutor-form-check-circle" name=""
+                                                        disabled readonly />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tutor-lessons-under-topic">
+                                        <div class="tutor-single-lesson-items">
+                                            <a href="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/"
+                                                class="tutor-single-lesson-a d-flex justify-content-between"
+                                                data-lesson-id="">
+                                                <div class="tutor-single-lesson-items-left flex-center">
+                                                    <span class="ttr-lock-filled color-black-40"></span>
+                                                    <span class="lesson_title text-regular-caption color-text-title">
+                                                        What is React?
+                                                    </span>
+                                                </div>
+                                                <div class="tutor-single-lesson-items-right flex-center">
+                                                    <span class="text-regular-caption color-text-title">1:10</span>
+                                                    <input id="" type="checkbox"
+                                                        class="tutor-form-check-input tutor-form-check-circle" name=""
+                                                        disabled readonly />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="tutor-lessons-under-topic">
+                                        <div class="tutor-single-lesson-items">
+                                            <a href="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/"
+                                                class="tutor-single-lesson-a d-flex justify-content-between"
+                                                data-lesson-id="">
+                                                <div class="tutor-single-lesson-items-left d-flex">
+                                                    <span class="ttr-assignment-filled color-black-40"></span>
+                                                    <span class="lesson_title text-regular-caption color-text-title">
+                                                        Adding the Right React Version to Codepen
+                                                    </span>
+                                                </div>
+                                                <div class="tutor-single-lesson-items-right flex-center">
+                                                    <span class="text-regular-caption color-text-title">1:10</span>
+                                                    <input checked id="" type="checkbox"
+                                                        class="tutor-form-check-input tutor-form-check-circle" name=""
+                                                        disabled readonly />
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- tutor-lesson-sidebar -->
             </div>
         </div>
     </div>

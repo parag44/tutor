@@ -1,5 +1,5 @@
 <div class="tutor-single-lesson-wraper">
-    <div class="tutor-lesson-sidebar">
+    <div class="tutor-lesson-sidebar d-none tutor-bs-d-xl-block">
         <div class="tutor-sidebar-tabs-wrap">
             <div class="tutor-lessons-tab-area">
                 <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
@@ -161,39 +161,47 @@
                 <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
 
                 </div>
-                <!-- <div class="tutor-lesson-sidebar-tab-item" style="display: none;">
-                    <h1>This feature has been disabled by the administrator</h1>
-                </div> -->
             </div>
         </div>
-    </div>
+    </div> <!-- tutor-lesson-sidebar -->
     <div id="tutor-single-entry-content" class="tutor-quiz-single-entry-wrap tutor-single-entry-content sidebar-hidden">
         <div class="tutor-single-page-top-bar d-flex justify-content-between">
-            <div class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center">
-                <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar">
-                    <span class="ttr-icon-light-left-line color-text-white flex-center"></span>
-                </a>
-            </div>
-            <div class="tutor-topbar-item tutor-topbar-content-title-wrap flex-center">
-                <span class="ttr-youtube-brand color-text-white tutor-mr-5"></span>
-                <span class="text-regular-caption color-design-white">Quiz: The most popular and modern server Quiz: The
-                    most popular and modern server</span>
-            </div>
-            <div class="tutor-topbar-cross-icon flex-center">
-                <span class="ttr-line-cross-line color-text-white flex-center"></span>
-            </div>
-            <!-- <div class="tutor-topbar-item tutor-topbar-mark-to-done flex-center">
-                <div class="tutor-single-lesson-segment tutor-lesson-complete-form-wrap">
-                    <form method="post">
-                        <input type="hidden" id="_tutor_nonce" name="_tutor_nonce" value="debecd9243"><input
-                            type="hidden" name="_wp_http_referer" value="/wp-admin/admin-ajax.php">
-                        <input type="hidden" value="14238" name="lesson_id">
-                        <input type="hidden" value="tutor_complete_lesson" name="tutor_action">
-                        <button type="submit" class="course-complete-button tutor-btn" name="complete_lesson_btn"
-                            value="complete_lesson"><i class="tutor-icon-mark"></i>Complete Lesson</button>
-                    </form>
+            <div class="tutor-topbar-left-item d-flex">
+                <div class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center">
+                    <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar">
+                        <span class="ttr-icon-light-left-line color-text-white flex-center"></span>
+                    </a>
                 </div>
-            </div> -->
+                <div class="tutor-topbar-item tutor-topbar-content-title-wrap flex-center">
+                    <span class="ttr-youtube-brand color-text-white tutor-mr-5"></span>
+                    <span class="tutor-topbar-title text-regular-caption color-design-white">Quiz: The most popular and
+                        modern server</span>
+                </div>
+            </div>
+            <div class="tutor-topbar-right-item d-flex align-items-center">
+                <div class="tutor-topbar-assignment-details d-flex align-items-center">
+                    <div class="text-regular-caption color-design-white"><span
+                            class="tutor-progress-content color-primary-60">Your Progress:</span>
+                        <span class="text-bold-caption">33</span> of <span class="text-bold-caption">36</span>(98%)
+                    </div>
+                    <div class="tutor-topbar-complete-btn tutor-ml-30 tutor-mr-15">
+                        <button class="tutor-topbar-mark-btn tutor-btn tutor-btn-icon tutor-btn-md">
+                            <span class="btn-icon ttr-tick-circle-outline-filled"></span>
+                            <span class="tutor-content-responsive tutor-btn-content">Mark as </span><span
+                                class="tutor-btn-content">Complete</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="tutor-topbar-cross-icon flex-center">
+                    <span class="ttr-line-cross-line color-text-white flex-center"></span>
+                </div>
+            </div>
+        </div>
+        <div class="tutor-mobile-top-navigation tutor-bs-d-block tutor-bs-d-sm-none tutor-my-20 tutor-mx-10">
+            <div class="tutor-mobile-top-nav d-grid">
+                <div class="tutor-top-nav-icon ttr-previous-line design-lightgrey"></div>
+                <div class="tutor-top-nav-title text-regular-body color-text-primary">Assignment</div>
+            </div>
         </div>
         <div class="tutor-quiz-wrapper tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
 

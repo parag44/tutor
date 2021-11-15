@@ -1,5 +1,4 @@
 body {
-
 }
 .tutor-mobile-top-navigation {
 	.tutor-mobile-top-nav {
@@ -12,6 +11,7 @@ body {
 		}
 	}
 }
+@import './sidebar';
 .tutor-single-lesson-wraper {
 	display: flex;
 	position: relative;
@@ -32,16 +32,36 @@ body {
 			border: none;
 		}
 	}
-	@import './sidebar';
+
 	.tutor-single-entry-content {
 		flex: 100%;
 		padding-bottom: 90px;
+		// topbar
 		.tutor-single-page-top-bar {
 			background: $design-brand;
+			@include breakpoint-max(mobile) {
+				display: none;
+			}
 			.tutor-lesson-sidebar-hide-bar,
 			.tutor-topbar-content-title-wrap,
 			.tutor-topbar-cross-icon {
 				padding: 15px 12px;
+				@include breakpoint-minmax(1200, 1350) {
+					.tutor-topbar-title {
+						white-space: nowrap;
+						width: 180px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+				@include breakpoint-minmax(576, 991) {
+					.tutor-topbar-title {
+						white-space: nowrap;
+						width: 120px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
 			}
 			.tutor-topbar-sidebar-toggle {
 				background: $primary-100;
@@ -69,59 +89,38 @@ body {
 			}
 			.tutor-topbar-right-item {
 				.tutor-topbar-assignment-details {
+					@include breakpoint-minmax(576, 991) {
+						.tutor-progress-content {
+							display: none;
+						}
+					}
 					.tutor-topbar-complete-btn {
 						.tutor-topbar-mark-btn {
+							&:hover {
+								background-color: $color-white;
+								span {
+									color: $primary-main;
+								}
+								border-color: $design-white;
+							}
 							background-color: transparent;
 							color: $design-white;
 							border-color: $design-white;
 							span.tutor-btn-content {
 								line-height: 100%;
 							}
-						}
-						:hover {
-							background-color: $color-white;
-							color: $primary-main;
-							border-color: $design-white;
+							@include breakpoint-minmax(576, 991) {
+								span.tutor-content-responsive {
+									display: none;
+								}
+							}
 						}
 					}
 				}
 			}
 		} /* tutor-single-page-top-bar */
-		.course-players {
-			position: relative;
-			width: 100%;
-			height: calc(100vh - 250px);
-			background: black;
-			iframe {
-				width: calc(100% - 150px);
-				height: 100%;
-				position: absolute;
-			}
-			.tutor-lesson-prev ,
-			.tutor-lesson-next {
-				cursor: pointer;
-				width: 31px;
-				height: 215px;
-				background: rgba(255, 255, 255, 0.1);
-				top: 50%;
-				transform: translateY(-50%);
-				position: absolute;
-				backdrop-filter: blur(94px);
-				span {
-					font-size: 40px;
-					color: #ffffff8c;
-				}
-			}
-			.tutor-lesson-prev{
-				left: 0;
-				border-radius: 0px 6px 6px 0px;
-			}
-			.tutor-lesson-next {
-				right: 0;
-				border-radius: 6px 0px 0px 6px;
-			}
-		}
-		@import './quiz.scss';
+		@import './players';
+		@import './quiz';
 	}
 }
 
