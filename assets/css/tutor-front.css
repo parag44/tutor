@@ -6937,7 +6937,7 @@ Withdraw Method
   width: 230px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .tutor-instructor-filter > div:last-child {
     padding: 0 51px;
     width: calc(100% - 250px);
@@ -6994,7 +6994,7 @@ Withdraw Method
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .tutor-instructor-filter .tutor-instructor-filter-result .mobile-filter-popup .is-opened {
     display: none;
   }
@@ -7159,14 +7159,14 @@ Withdraw Method
   margin-right: 5px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .tutor-instructor-filter .tutor-instructor-filter-sidebar,
   .tutor-instructor-filter .filter-pc {
     display: none;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .tutor-instructor-filter .filter-mobile {
     display: none;
   }
