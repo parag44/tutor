@@ -39,9 +39,12 @@
 	} //border-bottom
 	//instructor card
 	.tutor-instructor-card {
+		display: grid;
+		grid-template-columns: auto 40px;
 		background-color: $color-white;
 		border-radius: 6px;
 		cursor: pointer;
+		min-width: unset;
 		&:hover {
 			.tutor-avatar {
 				background: $design-brand;
@@ -61,20 +64,6 @@
 		}
 	}
 	.tutor-input-files {
-		> div {
-			&:not(:last-child) {
-				margin-right: 15px;
-			}
-		}
-		@include breakpoint-max(1199) {
-			flex-direction: column;
-			> div {
-				&:not(:last-child) {
-					margin-right: 0;
-					margin-bottom: 10px;
-				}
-			}
-		}
 	}
 	// end of instructor card
 	&.tutor-course-assignment-details {
@@ -85,6 +74,12 @@
 					flex-direction: column;
 				}
 			}
+		}
+		.no-before::before {
+			display: none;
+		}
+		#full-text {
+			display: none;
 		}
 	}
 	/* end assignment details page */
@@ -122,9 +117,9 @@
 	/* start tutor-submit-assignment*/
 	&.tutor-submit-assignment {
 		.tutor-assignment-submission {
-			.tutor-as-body {
+			.tutor-assignment-body {
 				max-width: 730px;
-				.tutor-as-attachment {
+				.tutor-assignment-attachment {
 					background-color: $black-05;
 					border-radius: 6px;
 					.tutor-input-type-size {
@@ -133,12 +128,35 @@
 						}
 					}
 					.tutor-attachment-files {
+						display: grid;
+						grid-template-columns: 180px auto;
+						@include breakpoint-max(tablet) {
+							grid-template-columns: 1fr;
+							gap: 10px;
+						}
 						@include breakpoint-max(767) {
 							flex-direction: column;
 						}
-						.tutor-browse-input {
-							max-width: 325px;
+						.tutor-assignment-upload-btn {
+							form {
+								input,
+								input#tutor-assignment-file-upload {
+									display: none;
+								}
+							}
 						}
+					}
+					.tutor-asisgnment-upload-file-preview {
+						display: grid;
+						grid-template-columns: repeat(2, 1fr);
+						@include breakpoint-max(600) {
+							grid-template-columns: 1fr;
+						}
+						// grid-template-columns: repeat(
+						// 	auto-fit,
+						// 	minmax(300px, 1fr)
+						// );
+						gap: 20px;
 					}
 				}
 			}
@@ -234,6 +252,5 @@
 			}
 		}
 	}
-
 	/* end tutor-assignment-results*/
 }

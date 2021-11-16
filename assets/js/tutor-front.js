@@ -26,16 +26,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
   sideBar.style.top = topBar.clientHeight + 'px';
   /* sidetab tab position */
 
-  /* sidetab tab */
-  // const sideBarTabs = document.querySelectorAll(
-  // 	'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
-  // );
-  // sidebarParent(
-  // 	document.querySelectorAll(
-  // 		'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
-  // 	)
-  // );
-
   var sidebarParent = function sidebarParent(sideBarTabs) {
     sideBarTabs.forEach(function (tab) {
       tab.addEventListener('click', function (event) {
@@ -98,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
       var lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
       var heightOfLine = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
       commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
-      console.log(heightOfLine);
     });
   }
   /* commenting */
@@ -149,6 +138,57 @@ document.addEventListener('DOMContentLoaded', function (event) {
     this.textContent = copyElement.textContent;
     console.log('drop ', copyElement.textContent, this.textContent);
     this.classList.remove('dragover');
+  } // tutor assignment file upload
+
+
+  var fileUploadField = document.getElementById('tutor-assignment-file-upload');
+  fileUploadField.addEventListener('change', tutorAssignmentFileHandler);
+
+  function tutorAssignmentFileHandler() {
+    var message = '';
+
+    if ('files' in fileUploadField) {
+      if (fileUploadField.files.length == 0) {
+        message = 'Select one or more files.';
+        console.log(message);
+      } else {
+        var fileCard = '';
+
+        for (var i = 0; i < fileUploadField.files.length; i++) {
+          var file = fileUploadField.files[i];
+          fileCard += "<div class=\"tutor-instructor-card\">\n                                    <div class=\"tutor-icard-content\">\n                                        <div class=\"text-regular-body color-text-title\">\n                                            ".concat(file.name, "\n                                        </div>\n                                        <div class=\"text-regular-small\">Size: ").concat(file.size, "</div>\n                                    </div>\n                                    <div onclick=\"(() => {\n\t\t\t\t\t\t\t\t\t\tthis.closest('.tutor-instructor-card').remove();\n\t\t\t\t\t\t\t\t\t})()\" class=\"tutor-attachment-file-close tutor-avatar tutor-is-xs flex-center\">\n                                        <span class=\"ttr-cross-filled color-design-brand\"></span>\n                                    </div>\n                                </div>");
+        }
+
+        document.querySelector('.tutor-asisgnment-upload-file-preview').innerHTML = fileCard;
+      }
+    }
+  }
+  /* Show More Text */
+
+
+  var showMoreBtn = document.querySelector('.tutor-show-more-btn button');
+  showMoreBtn.addEventListener('click', showMore);
+
+  function showMore() {
+    var lessText = document.getElementById('short-text');
+    var dots = document.getElementById('dots');
+    var moreText = document.getElementById('full-text');
+    var btnText = document.getElementById('showBtn');
+    var contSect = document.getElementById('content-section');
+    console.log(lessText, dots, moreText, btnText);
+
+    if (dots.style.display === 'none') {
+      lessText.style.display = 'block';
+      dots.style.display = 'inline';
+      btnText.innerHTML = "<span class='btn-icon ttr-plus-filled color-design-brand'></span><span class='color-text-primary'>Show More</span>";
+      moreText.style.display = 'none';
+    } else {
+      lessText.style.display = 'none';
+      dots.style.display = 'none';
+      btnText.innerHTML = "<span class='btn-icon ttr-minus-filled color-design-brand'></span><span class='color-text-primary'>Show Less</span>";
+      moreText.style.display = 'block';
+      contSect.classList.add('no-before');
+    }
   }
 });
 

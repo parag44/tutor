@@ -5,15 +5,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	sideBar.style.top = topBar.clientHeight + 'px';
 	/* sidetab tab position */
 
-	/* sidetab tab */
-	// const sideBarTabs = document.querySelectorAll(
-	// 	'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
-	// );
-	// sidebarParent(
-	// 	document.querySelectorAll(
-	// 		'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
-	// 	)
-	// );
 	const sidebarParent = function(sideBarTabs) {
 		sideBarTabs.forEach((tab) => {
 			tab.addEventListener('click', (event) => {
@@ -95,7 +86,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				'height',
 				`calc(100% - ${heightOfLine}px)`
 			);
-			console.log(heightOfLine);
 		});
 	}
 	/* commenting */
@@ -142,5 +132,69 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		this.textContent = copyElement.textContent;
 		console.log('drop ', copyElement.textContent, this.textContent);
 		this.classList.remove('dragover');
+	}
+
+	// tutor assignment file upload
+	const fileUploadField = document.getElementById(
+		'tutor-assignment-file-upload'
+	);
+	fileUploadField.addEventListener('change', tutorAssignmentFileHandler);
+
+	function tutorAssignmentFileHandler() {
+		let message = '';
+		if ('files' in fileUploadField) {
+			if (fileUploadField.files.length == 0) {
+				message = 'Select one or more files.';
+				console.log(message);
+			} else {
+				let fileCard = '';
+				for (let i = 0; i < fileUploadField.files.length; i++) {
+					let file = fileUploadField.files[i];
+					fileCard += `<div class="tutor-instructor-card">
+                                    <div class="tutor-icard-content">
+                                        <div class="text-regular-body color-text-title">
+                                            ${file.name}
+                                        </div>
+                                        <div class="text-regular-small">Size: ${file.size}</div>
+                                    </div>
+                                    <div onclick="(() => {
+										this.closest('.tutor-instructor-card').remove();
+									})()" class="tutor-attachment-file-close tutor-avatar tutor-is-xs flex-center">
+                                        <span class="ttr-cross-filled color-design-brand"></span>
+                                    </div>
+                                </div>`;
+				}
+				document.querySelector(
+					'.tutor-asisgnment-upload-file-preview'
+				).innerHTML = fileCard;
+			}
+		}
+	}
+
+	/* Show More Text */
+	const showMoreBtn = document.querySelector('.tutor-show-more-btn button');
+	showMoreBtn.addEventListener('click', showMore);
+
+	function showMore() {
+		let lessText = document.getElementById('short-text');
+		let dots = document.getElementById('dots');
+		let moreText = document.getElementById('full-text');
+		let btnText = document.getElementById('showBtn');
+		let contSect = document.getElementById('content-section');
+		console.log(lessText, dots, moreText, btnText);
+		if (dots.style.display === 'none') {
+			lessText.style.display = 'block';
+			dots.style.display = 'inline';
+			btnText.innerHTML =
+				"<span class='btn-icon ttr-plus-filled color-design-brand'></span><span class='color-text-primary'>Show More</span>";
+			moreText.style.display = 'none';
+		} else {
+			lessText.style.display = 'none';
+			dots.style.display = 'none';
+			btnText.innerHTML =
+				"<span class='btn-icon ttr-minus-filled color-design-brand'></span><span class='color-text-primary'>Show Less</span>";
+			moreText.style.display = 'block';
+			contSect.classList.add('no-before');
+		}
 	}
 });

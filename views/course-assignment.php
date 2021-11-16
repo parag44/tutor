@@ -238,40 +238,43 @@
                 </div> <!-- assignment-meta-info -->
 
                 <div class="tutor-assignment-submission tutor-assignment-border-bottom tutor-pb-50 tutor-pb-sm-70">
-                    <div class="tutor-as-body tutor-pt-30 tutor-pt-sm-40 has-show-more">
+                    <div class="tutor-assignment-body tutor-pt-30 tutor-pt-sm-40 has-show-more">
                         <div class="tutor-to-title text-medium-h6 color-text-primary">
                             Assignment Submission
                         </div>
                         <div class="text-regular-caption color-text-subsued tutor-pt-15 tutor-pt-sm-30">
                             Assignment answer form
                         </div>
-                        <div class="tutor-as-text-area tutor-pt-20">
+                        <div class="tutor-assignment-text-area tutor-pt-20">
                             <textarea placeholder="Placeholder" class="tutor-form-control"></textarea>
                         </div>
                         <div
-                            class="tutor-as-attachment tutor-mt-30 tutor-py-20 tutor-px-15 tutor-py-sm-30 tutor-px-sm-30">
+                            class="tutor-assignment-attachment tutor-mt-30 tutor-py-20 tutor-px-15 tutor-py-sm-30 tutor-px-sm-30">
                             <div class="text-regular-caption color-text-subsued">
                                 Attach assignment files
                             </div>
-                            <div class="tutor-attachment-files d-flex tutor-mt-12">
-                                <div class="tutor-browse-input tutor-input-group tutor-form-control-sm">
-                                    <input type="text" class="tutor-form-control" placeholder="Browse your folder" />
+                            <div class="tutor-attachment-files tutor-mt-12">
+                                <div class="tutor-assignment-upload-btn tutor-mt-10 tutor-mt-md-0">
+                                    <form>
+                                        <label for="tutor-assignment-file-upload">
+                                            <input type="file" id="tutor-assignment-file-upload" multiple>
+                                            <a class="tutor-btn tutor-btn-primary tutor-btn-md">Choose
+                                                file</a>
+                                        </label>
+                                    </form>
                                 </div>
-                                <div class="tutor-as-upload-btn tutor-mt-10 tutor-mt-md-0">
-                                    <button
-                                        class="tutor-btn tutor-btn-primary tutor-btn-md tutor-ml-md-15 tutor-ml-0">Upload
-                                        file</button>
+                                <div class="tutor-input-type-size">
+                                    <p class="text-regular-small color-text-subsued">
+                                        File Support: <span class="color-text-primary">jpg, .jpeg,. gif, or .png.</span>
+                                        no text on the image.
+                                    </p>
+                                    <p class="text-regular-small color-text-subsued tutor-mt-7">
+                                        Total File Size: Max <span class="color-text-primary">50MB</span>
+                                    </p>
                                 </div>
                             </div>
-                            <div class="tutor-input-type-size text-regular-small color-text-subsued tutor-mt-12">
-                                File Support: <span class="color-text-primary">jpg, .jpeg,. gif, or .png.</span> no text
-                                on the image.
-                            </div>
-                            <div class="tutor-input-type-size text-regular-small color-text-subsued tutor-mt-12">
-                                Total File Size: Max <span class="color-text-primary">50MB</span>
-                            </div>
-                            <div class="tutor-input-files d-flex tutor-mt-20 tutor-mt-sm-30">
-                                <div class="tutor-instructor-card">
+                            <div class="tutor-asisgnment-upload-file-preview d-flex tutor-mt-20 tutor-mt-sm-30">
+                                <!-- <div class="tutor-instructor-card">
                                     <div class="tutor-icard-content">
                                         <div class="text-regular-body color-text-title">
                                             My assignment.zip
@@ -292,10 +295,10 @@
                                     <div class="tutor-avatar tutor-is-xs flex-center">
                                         <span class="ttr-cross-filled color-design-brand"></span>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <div class="tutor-as-submit-btn tutor-mt-60">
+                        <div class="tutor-assignment-submit-btn tutor-mt-60">
                             <button class="tutor-btn tutor-btn-primary tutor-btn-lg">Submit Assignment</button>
                         </div>
                     </div>

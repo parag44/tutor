@@ -252,6 +252,10 @@
             <iframe src="https://www.youtube.com/embed/1cvTYFZGYSI" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
+            <!-- <video poster="http://tutorv2.local/courses/perfect-diet-meal-plan/lesson/first-lesson/" id="tutorPlayer"
+                playsinline controls>
+                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+            </video> -->
             <div class="tutor-lesson-prev flex-center">
                 <span class="ttr-angle-left-filled"></span>
             </div>
