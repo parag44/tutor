@@ -142,7 +142,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
   var fileUploadField = document.getElementById('tutor-assignment-file-upload');
-  fileUploadField.addEventListener('change', tutorAssignmentFileHandler);
+
+  if (fileUploadField) {
+    fileUploadField.addEventListener('change', tutorAssignmentFileHandler);
+  }
 
   function tutorAssignmentFileHandler() {
     var message = '';
@@ -167,7 +170,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 
   var showMoreBtn = document.querySelector('.tutor-show-more-btn button');
-  showMoreBtn.addEventListener('click', showMore);
+
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', showMore);
+  }
 
   function showMore() {
     var lessText = document.getElementById('short-text');
