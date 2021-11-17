@@ -1,7 +1,7 @@
 <div class="tutor-single-lesson-wraper">
     <div class="tutor-lesson-sidebar d-none tutor-bs-d-xl-block">
         <div class="tutor-sidebar-tabs-wrap">
-            <div class="tutor-lessons-tab-area">
+            <div class="tutor-lessons-tab-area tutor-desktop-sidebar">
                 <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
                     class="tutor-sidebar-tab-item tutor-lessons-tab active flex-center">
                     <span class="ttr-education-filled"></span>
@@ -161,6 +161,9 @@
                 <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
 
                 </div>
+                <!-- <div class="tutor-lesson-sidebar-tab-item" style="display: none;">
+                    <h1>This feature has been disabled by the administrator</h1>
+                </div> -->
             </div>
         </div>
     </div> <!-- tutor-lesson-sidebar -->
@@ -200,74 +203,6 @@
 
         <div class="tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
 
-
-            <div id="tutor-quiz-image-ordering" class="tutor-quiz-wrap">
-                <div class="quiz-meta-info d-flex justify-content-between">
-                    <div class="quiz-meta-info-left d-flex">
-                        <div class="quiz-qno d-flex">
-                            <p class="text-regular-body color-text-hints tutor-mr-10">Questions No:</p>
-                            <span class="text-bold-body color-text-title">01/15</span>
-                        </div>
-                        <div class="quiz-total-attempt d-flex d-xs-none">
-                            <p class="text-regular-body color-text-hints tutor-mr-10">Total
-                                Attempted:</p>
-                            <span class="text-bold-body color-text-title">8/20</span>
-                        </div>
-                    </div>
-                    <div class="quiz-meta-info-right">
-                        <div class="quiz-time-remaining d-flex">
-                            <div class="quiz-time-remaining-progress-circle">
-                                <svg viewBox="0 0 50 50" width="50" height="50" style="--quizeProgress: 90;">
-                                    <circle cx="0" cy="0" r="7"></circle>
-                                </svg>
-                            </div>
-                            <p class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</p>
-                            <span class="text-medium-body color-text-title">7:30:48</span>
-                        </div>
-                    </div>
-                </div> <!-- quiz-meta-info -->
-                <div class="quiz-question tutor-mt-60">
-                    <div
-                        class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-40 tutor-mr-sm-100 tutor-mr-0">
-                        08. Rearrange the following sentence-parts in a meaningful order.
-                    </div>
-                </div> <!-- quiz-question -->
-
-
-                <div id="tutor-quiz-image-single-choice" class="tutor-quiz-wrap">
-                    <div class="tutor-image-checkbox">
-                        <label for="checkbox-card" class="tutor-form-check-input">
-                            <input name="radio" type="radio" class="tutor-form-check-input" id="checkbox-card" />
-                            <div class="tutor-single-checkbox">
-                                <img class="" src="https://qubely.io/wp-content/uploads/2019/06/team18.png" srcset=""
-                                    alt="Clark Kent">
-                                <div class="text-regular-body color-text-primary tutor-px-15 tutor-py-10 ">Building
-                                </div>
-                                <span class="tutor-icon-checkbox"></span>
-                            </div>
-                        </label>
-                        <label for="checkbox-card1" class="tutor-form-check-input">
-                            <input name="radio" type="radio" class="tutor-form-check-input" id="checkbox-card1" />
-                            <div class="tutor-single-checkbox">
-                                <img class="" src="https://qubely.io/wp-content/uploads/2019/06/team18.png" srcset=""
-                                    alt="Clark Kent">
-                                <div class="text-regular-body color-text-primary tutor-px-15 tutor-py-10 ">Blonde</div>
-                                <span class="tutor-icon-checkbox"></span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- quiz-question-ans-choice-area -->
-                <div class="tutor-quiz-btn-grp tutor-quiz-btn-grp tutor-mt-60">
-                    <button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">
-                        Submit & Next
-                    </button>
-                    <a href="#" class="tutor-ml-30">
-                        Skip Quiz
-                    </a>
-                </div>
-            </div> <!-- tutor-quiz-wrap -->
 
 
         </div>

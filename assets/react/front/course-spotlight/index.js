@@ -5,15 +5,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	sideBar.style.top = topBar.clientHeight + 'px';
 	/* sidetab tab position */
 
-	const sidebarParent = function(sideBarTabs) {
+	const sidebarTabeHandler = function(sideBarTabs) {
 		sideBarTabs.forEach((tab) => {
 			tab.addEventListener('click', (event) => {
 				const tabConent =
 					event.currentTarget.parentNode.nextElementSibling;
-				// console.log(tabConent, tabConent);
 				clearActiveClass(tabConent);
-				// console.log(event.currentTarget.parentNode);
-				// console.log(event.currentTarget.parentNode.nextElementSibling);
 				event.currentTarget.classList.add('active');
 				let id = event.currentTarget.getAttribute('data-sidebar-tab');
 				console.log(tabConent.querySelector('#' + id));
@@ -32,16 +29,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			}
 		};
 	};
-	sidebarParent(
-		document.querySelectorAll(
-			'.tutor-desktop-sidebar .tutor-sidebar-tab-item'
-		)
+	const desktopSidebar = document.querySelectorAll(
+		'.tutor-desktop-sidebar-area .tutor-sidebar-tab-item'
 	);
-	sidebarParent(
-		document.querySelectorAll(
-			'.tutor-mobile-sidebar .tutor-sidebar-tab-item'
-		)
+	const mobileSidebar = document.querySelectorAll(
+		'.tutor-mobile-sidebar-area .tutor-sidebar-tab-item'
 	);
+	if (desktopSidebar) {
+		sidebarTabeHandler(desktopSidebar);
+	}
+	if (mobileSidebar) {
+		sidebarTabeHandler(mobileSidebar);
+	}
 	/* end of sidetab tab */
 
 	/* comment text-area focus arrow style */
@@ -64,11 +63,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	const parentComments = document.querySelectorAll(
 		'.tutor-comments-list.tutor-parent-comment'
 	);
-
+	console.log('sdfa  s   ', parentComments);
 	const replyComment = document.querySelector(
 		'.tutor-comment-box.tutor-reply-box'
 	);
-
+	console.log('sdfa  s   ', replyComment);
 	if (parentComments) {
 		[...parentComments].forEach((parentComment) => {
 			const childComments = parentComment.querySelectorAll(
@@ -106,32 +105,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		quizImageBox.addEventListener('drop', dragDrop);
 	});
 	function dragStart() {
-		this.classList.add('dragging');
+		this.classList.add('tutor-dragging');
 		console.log('start ', this);
 	}
 	function dragEnd() {
-		this.classList.remove('dragging');
+		this.classList.remove('tutor-dragging');
 		console.log('end ', this);
 	}
 	function dragOver(event) {
-		this.classList.add('dragover');
+		this.classList.add('tutor-drop-over');
 		console.log('dragOver ', this);
 		event.preventDefault();
 	}
 	function dragEnter() {
-		console.log('dragEnter ', this);
+		console.log('dragEnter', this);
 	}
 	function dragLeave() {
-		this.classList.remove('dragover');
-		console.log('dragLeave ', this);
+		this.classList.remove('tutor-drop-over');
+		console.log('dragLeave', this);
 	}
 	function dragDrop() {
 		const copyElement = document.querySelector(
-			'.tutor-quiz-border-box.dragging span'
+			'.tutor-quiz-border-box.tutor-dragging'
 		);
-		this.textContent = copyElement.textContent;
+		// this.textContent = copyElement.textContent;
+		this.innerHTML = copyElement.innerHTML;
 		console.log('drop ', copyElement.textContent, this.textContent);
-		this.classList.remove('dragover');
+		this.classList.remove('tutor-drop-over');
 	}
 
 	// tutor assignment file upload
@@ -184,7 +184,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		let moreText = document.getElementById('full-text');
 		let btnText = document.getElementById('showBtn');
 		let contSect = document.getElementById('content-section');
-		console.log(lessText, dots, moreText, btnText);
 		if (dots.style.display === 'none') {
 			lessText.style.display = 'block';
 			dots.style.display = 'inline';

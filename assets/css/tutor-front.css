@@ -7531,6 +7531,19 @@ Instructor customize filters styles
   border-bottom: none;
 }
 
+.tutor-lesson-sidebar.tutor-mobile-sidebar {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .tutor-lesson-sidebar.tutor-desktop-sidebar {
+    display: none;
+  }
+  .tutor-lesson-sidebar.tutor-mobile-sidebar {
+    display: block;
+  }
+}
+
 .tutor-lesson-sidebar .tutor-sidebar-tabs-wrap .tutor-lessons-tab-area {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -7859,6 +7872,25 @@ Instructor customize filters styles
   }
 }
 
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box {
+  min-height: 48px;
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box.tutor-drop-over {
+  border: 2px dashed #a02a2a !important;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box > input {
+  display: none;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box span[class^='ttr-'],
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box span[class*=' ttr-'] {
+  display: none;
+}
+
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-start-quiz-wrapper {
   width: 560px;
   border: 1px solid #c0c3cb;
@@ -7945,8 +7977,11 @@ Instructor customize filters styles
   font-size: 25px;
 }
 
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .tutor-quiz-border-box input {
+  display: none;
+}
+
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap .tutor-quiz-dotted-box {
-  min-width: 230px;
   padding: 5px 20px 5px 20px;
   min-height: 48px;
   border: 2px dashed #ddd;
@@ -8039,7 +8074,7 @@ Instructor customize filters styles
   width: 22px;
   height: 22px;
   display: inline-block;
-  border: 2px solid #C0C3CB;
+  border: 2px solid #c0c3cb;
   border-radius: 4px;
   -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
@@ -8052,7 +8087,7 @@ Instructor customize filters styles
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #tutor-quiz-image-single-choice .tutor-image-checkbox label.tutor-form-check-input > input:checked + .tutor-single-checkbox span.tutor-icon-checkbox {
   background: #ffffff;
-  border: 7px solid #3E64DE;
+  border: 7px solid #3e64de;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #tutor-quiz-image-single-choice .tutor-image-checkbox label.tutor-form-check-input > input:checked + .tutor-single-checkbox span.tutor-icon-checkbox:before {
@@ -8213,13 +8248,16 @@ Instructor customize filters styles
   margin-right: 20px;
 }
 
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-matching-ans-area .quiz-matching-ans .quiz-matching-ans-item .tutor-quiz-dotted-box {
+  width: 230px;
+}
+
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-ordering-ans-area > div:not(:last-child) {
   margin-bottom: 25px;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-ordering-ans-area .quiz-ordering-ans-item .tutor-quiz-border-box {
-  min-width: 163px;
-  max-width: 250px;
+  width: 250px;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-ordering-ans-area > div:not(:last-child) {
@@ -8266,39 +8304,10 @@ Instructor customize filters styles
   word-break: break-word;
 }
 
-@media (max-width: 1200px) {
-  .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-matching-ans-area .quiz-image-matching-ans {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-matching-ans-area .quiz-image-matching-ans {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-matching-ans-area .quiz-image-matching-ans > div:not(:last-child) {
-  margin-right: 30px;
-  margin-bottom: 30px;
-}
-
-@media (max-width: 600px) {
-  .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-matching-ans-area .quiz-image-matching-ans > div:not(:last-child) {
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-matching-ans-area .quiz-image-matching-ans .quiz-image-box .tutor-quiz-dotted-box {
-  overflow-y: auto;
-  min-width: 163px;
-  width: 163px;
-  min-height: 48px;
-  border: 2px dashed #ddd;
-  border-radius: 5px;
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-matching-ans-area .quiz-image-matching-ans {
+  display: grid;
+  gap: 20px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(163px, 1fr));
 }
 
 @media (max-width: 1380px) {
@@ -8692,12 +8701,12 @@ Instructor customize filters styles
 }
 
 #tutor-assignment-wrap .tutor-instructor-card {
-  display: grid;
-  grid-template-columns: auto 40px;
   background-color: #ffffff;
   border-radius: 6px;
   cursor: pointer;
   min-width: unset;
+  display: grid;
+  grid-template-columns: auto 40px;
 }
 
 #tutor-assignment-wrap .tutor-instructor-card:hover .tutor-avatar {
@@ -8783,17 +8792,8 @@ Instructor customize filters styles
   }
 }
 
-@media (max-width: 767px) {
-  #tutor-assignment-wrap.tutor-submit-assignment .tutor-assignment-submission .tutor-assignment-body .tutor-assignment-attachment .tutor-attachment-files {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-#tutor-assignment-wrap.tutor-submit-assignment .tutor-assignment-submission .tutor-assignment-body .tutor-assignment-attachment .tutor-attachment-files .tutor-assignment-upload-btn form input,
-#tutor-assignment-wrap.tutor-submit-assignment .tutor-assignment-submission .tutor-assignment-body .tutor-assignment-attachment .tutor-attachment-files .tutor-assignment-upload-btn form input#tutor-assignment-file-upload {
+#tutor-assignment-wrap.tutor-submit-assignment .tutor-assignment-submission .tutor-assignment-body .tutor-assignment-attachment .tutor-attachment-files .tutor-assignment-upload-btn input,
+#tutor-assignment-wrap.tutor-submit-assignment .tutor-assignment-submission .tutor-assignment-body .tutor-assignment-attachment .tutor-attachment-files .tutor-assignment-upload-btn input#tutor-assignment-file-upload {
   display: none;
 }
 
@@ -8848,35 +8848,22 @@ Instructor customize filters styles
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 1.31%, rgba(255, 255, 255, 0) 15.41%, #ffffff 100%);
 }
 
-#tutor-assignment-wrap.tutor-assignment-results .tutor-instructor-note {
+#tutor-assignment-wrap .tutor-instructor-note {
   background-color: #e9edfb;
   border: 1px solid #95aaed;
   border-radius: 6px;
 }
 
-#tutor-assignment-wrap.tutor-assignment-results .tutor-assignment-details .tutor-ar-body {
-  border: 1px solid #cdcfd5;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 6px;
+.submited-files > div:not(:last-child) {
+  margin-right: 15px;
 }
 
-#tutor-assignment-wrap.tutor-assignment-results .tutor-assignment-details .tutor-ar-body .tutor-input-files {
-  max-width: 330px;
-}
-
-#tutor-assignment-wrap.tutor-assignment-results .tutor-assignment-description-details .tutor-ad-body {
-  position: relative;
-}
-
-#tutor-assignment-wrap.tutor-assignment-results .tutor-assignment-description-details .tutor-ad-body:before {
-  content: '';
-  position: absolute;
+.submited-files .tutor-instructor-card {
   width: 100%;
-  height: 120px;
-  bottom: 0px;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1.31%, rgba(255, 255, 255, 0)), color-stop(15.41%, rgba(255, 255, 255, 0)), to(#ffffff));
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 1.31%, rgba(255, 255, 255, 0) 15.41%, #ffffff 100%);
+}
+
+.submited-files .tutor-instructor-card .tutor-icard-content {
+  padding-right: 10px;
 }
 
 body.wp-admin .tutor-qna-single-wrapper {

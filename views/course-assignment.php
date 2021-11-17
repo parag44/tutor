@@ -1,7 +1,7 @@
 <div class="tutor-single-lesson-wraper">
     <div class="tutor-lesson-sidebar d-none tutor-bs-d-xl-block">
         <div class="tutor-sidebar-tabs-wrap">
-            <div class="tutor-lessons-tab-area">
+            <div class="tutor-lessons-tab-area tutor-desktop-sidebar">
                 <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
                     class="tutor-sidebar-tab-item tutor-lessons-tab active flex-center">
                     <span class="ttr-education-filled"></span>

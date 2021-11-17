@@ -1,7 +1,7 @@
 <div class="tutor-single-lesson-wraper">
-    <div class="tutor-lesson-sidebar d-none tutor-bs-d-xl-block">
+    <div class="tutor-lesson-sidebar tutor-desktop-sidebar">
         <div class="tutor-sidebar-tabs-wrap">
-            <div class="tutor-lessons-tab-area tutor-desktop-sidebar">
+            <div class="tutor-lessons-tab-area tutor-desktop-sidebar-area">
                 <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
                     class="tutor-sidebar-tab-item tutor-lessons-tab active flex-center">
                     <span class="ttr-education-filled"></span>
@@ -161,16 +161,14 @@
                 <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
 
                 </div>
-                <!-- <div class="tutor-lesson-sidebar-tab-item" style="display: none;">
-                    <h1>This feature has been disabled by the administrator</h1>
-                </div> -->
             </div>
         </div>
     </div> <!-- tutor-lesson-sidebar -->
     <div id="tutor-single-entry-content" class="tutor-quiz-single-entry-wrap tutor-single-entry-content sidebar-hidden">
         <div class="tutor-single-page-top-bar d-flex justify-content-between">
             <div class="tutor-topbar-left-item d-flex">
-                <div class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center">
+                <div
+                    class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center tutor-bs-d-none tutor-bs-d-xl-flex">
                     <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar">
                         <span class="ttr-icon-light-left-line color-text-white flex-center"></span>
                     </a>
@@ -203,7 +201,9 @@
         <div class="tutor-mobile-top-navigation tutor-bs-d-block tutor-bs-d-sm-none tutor-my-20 tutor-mx-10">
             <div class="tutor-mobile-top-nav d-grid">
                 <div class="tutor-top-nav-icon ttr-previous-line design-lightgrey"></div>
-                <div class="tutor-top-nav-title text-regular-body color-text-primary">Assignment</div>
+                <div class="tutor-top-nav-title text-regular-body color-text-primary">
+                    Creative Nonfiction: Write Truth with Style
+                </div>
             </div>
         </div>
 
@@ -281,7 +281,7 @@
                     </div>
                 </div> <!-- tab-header -->
                 <div class="tab-body">
-                    <div class="tab-body-item" id="tutor-course-details-tab-1">
+                    <div class="tab-body-item is-active" id="tutor-course-details-tab-1">
                         <div class="tab-item-content tutor-has-showmore">
                             <div class="tutor-showmore-content">
                                 <div class="text-medium-h6 color-text-primary">About Course</div>
@@ -290,12 +290,8 @@
                                     days! Node.js developers are in high demand and the language is used for everything
                                     from traditional web apps with server-side rendered views over REST APIs all the way
                                     up to GraphQL APIs and real-time web services. Not to mention its applications in
-                                    build workflows for projects of all sizes. <br> <br>This course will teach you all
-                                    of that! From scratch with zero prior knowledge assumed. Though if you do bring some
-                                    knowledge, you'll of course be able to quickly jump into the course modules that are
-                                    most interesting to you.Does this look like a lot of content? It certainly is! This
-                                    is not a short course but it is the "Complete Guide" on Node.js after all. <div
-                                        class="showmore-text"><br>Node.js is probably THE most popular and modern
+                                    build workflows for projects of all sizes. <div class="showmore-text"><br>Node.js is
+                                        probably THE most popular and modern
                                         server-side programming language you can dive into these days! Node.js
                                         developers are in high demand and the language is used for everything from
                                         traditional web apps with server-side rendered views over REST APIs all the way
@@ -308,7 +304,7 @@
                                         Guide" on Node.js after all.</div>
                                 </div>
                             </div>
-                            <div class="tutor-showmore-btn tutor-mt-22 tutor-bs-d-block tutor-bs-d-sm-none"
+                            <div class="tutor-showmore-btn tutor-mt-10 tutor-bs-d-block tutor-bs-d-sm-none"
                                 data-showmore="true">
                                 <button
                                     class="tutor-btn tutor-btn-icon tutor-btn-disable-outline tutor-btn-ghost tutor-no-hover tutor-btn-md btn-showmore">
@@ -361,7 +357,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-body-item is-active" id="tutor-course-details-tab-3">
+                    <div class="tab-body-item" id="tutor-course-details-tab-3">
 
                         <div class="text-medium-h6 color-text-primary">Join the conversation</div>
                         <div class="tutor-conversation tutor-mt-12 tutor-pb-20 tutor-pb-sm-50">
@@ -638,9 +634,9 @@
                         </div>
                     </div>
                 </div> <!-- tab-body -->
-                <div class="tutor-lesson-sidebar d-block tutor-bs-d-md-none">
+                <div class="tutor-lesson-sidebar tutor-mobile-sidebar">
                     <div class="tutor-sidebar-tabs-wrap">
-                        <div class="tutor-lessons-tab-area tutor-mobile-sidebar">
+                        <div class="tutor-lessons-tab-area tutor-mobile-sidebar-area">
                             <div data-sidebar-tab="tutor-lesson-sidebar-tab-content"
                                 class="tutor-sidebar-tab-item tutor-lessons-tab active flex-center">
                                 <span class="ttr-education-filled"></span>
