@@ -1,20 +1,21 @@
+.tutor-mobile-sidebar {
+	display: none;
+}
+@include breakpoint-max(1200) {
+	.tutor-desktop-sidebar {
+		display: none;
+	}
+	.tutor-mobile-sidebar {
+		display: block;
+	}
+}
 .tutor-lesson-sidebar {
 	flex: 0 0 400px;
 	background: #fff;
 	border: 1px solid $stroke-light-30;
 	border: 1px solid #cdcfd5;
 	border-bottom: none;
-	&.tutor-mobile-sidebar {
-		display: none;
-	}
-	@include breakpoint-max(1200) {
-		&.tutor-desktop-sidebar {
-			display: none;
-		}
-		&.tutor-mobile-sidebar {
-			display: block;
-		}
-	}
+
 	.tutor-sidebar-tabs-wrap {
 		.tutor-lessons-tab-area {
 			display: grid;

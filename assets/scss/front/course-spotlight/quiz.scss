@@ -2,16 +2,21 @@
 	min-height: 48px;
 	border: 2px dashed #ddd;
 	border-radius: 5px;
-	&.tutor-drop-over {
-		border: 2px dashed rgb(160, 42, 42) !important;
-	}
-	> input {
-		display: none;
-	}
 	span[class^='ttr-'],
 	span[class*=' ttr-'] {
 		display: none;
 	}
+}
+.tutor-dropzone {
+	&.tutor-drop-over {
+		border: 2px dashed rgb(160, 42, 42) !important;
+	}
+	input {
+		display: none;
+	}
+}
+#tutor-start-quiz {
+	display: inline-block;
 }
 .tutor-quiz-wrapper {
 	.tutor-start-quiz-wrapper {
@@ -346,6 +351,8 @@
 			.quiz-ordering-ans-item {
 				.tutor-quiz-border-box {
 					width: 250px;
+					display: grid;
+					grid-template-columns: 1fr 30px;
 				}
 			}
 		}

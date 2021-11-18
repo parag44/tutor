@@ -7521,6 +7521,19 @@ Instructor customize filters styles
   text-align: center;
 }
 
+.tutor-mobile-sidebar {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .tutor-desktop-sidebar {
+    display: none;
+  }
+  .tutor-mobile-sidebar {
+    display: block;
+  }
+}
+
 .tutor-lesson-sidebar {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 400px;
@@ -7529,19 +7542,6 @@ Instructor customize filters styles
   border: 1px solid #cdcfd5;
   border: 1px solid #cdcfd5;
   border-bottom: none;
-}
-
-.tutor-lesson-sidebar.tutor-mobile-sidebar {
-  display: none;
-}
-
-@media (max-width: 1200px) {
-  .tutor-lesson-sidebar.tutor-desktop-sidebar {
-    display: none;
-  }
-  .tutor-lesson-sidebar.tutor-mobile-sidebar {
-    display: block;
-  }
 }
 
 .tutor-lesson-sidebar .tutor-sidebar-tabs-wrap .tutor-lessons-tab-area {
@@ -7810,6 +7810,7 @@ Instructor customize filters styles
   width: calc(100% - 150px);
   height: 100%;
   position: absolute;
+  border: none;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .course-players .tutor-lesson-prev,
@@ -7878,17 +7879,21 @@ Instructor customize filters styles
   border-radius: 5px;
 }
 
-.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box.tutor-drop-over {
-  border: 2px dashed #a02a2a !important;
-}
-
-.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box > input {
-  display: none;
-}
-
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box span[class^='ttr-'],
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-dotted-box span[class*=' ttr-'] {
   display: none;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-dropzone.tutor-drop-over {
+  border: 2px dashed #a02a2a !important;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content .tutor-dropzone input {
+  display: none;
+}
+
+.tutor-single-lesson-wraper .tutor-single-entry-content #tutor-start-quiz {
+  display: inline-block;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-start-quiz-wrapper {
@@ -8258,6 +8263,8 @@ Instructor customize filters styles
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-ordering-ans-area .quiz-ordering-ans-item .tutor-quiz-border-box {
   width: 250px;
+  display: grid;
+  grid-template-columns: 1fr 30px;
 }
 
 .tutor-single-lesson-wraper .tutor-single-entry-content .tutor-quiz-wrapper .tutor-quiz-wrap #quiz-image-ordering-ans-area > div:not(:last-child) {
