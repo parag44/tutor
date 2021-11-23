@@ -42,7 +42,7 @@ body {
 			@include breakpoint-max(mobile) {
 				display: none;
 			}
-			.tutor-lesson-sidebar-hide-bar,
+			.tutor-sidebar-toggle-anchor,
 			.tutor-topbar-content-title-wrap,
 			.tutor-topbar-cross-icon {
 				padding: 15px 12px;

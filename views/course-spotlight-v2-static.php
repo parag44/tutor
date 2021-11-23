@@ -204,8 +204,8 @@
         <div class="tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
 
 
-            <!-- image matching drag -->
-            <div id="tutor-quiz-image-matching-choice" class="tutor-quiz-wrap">
+            <!-- quiz-ordering -->
+            <div id="tutor-quiz-ordering-choice" class="tutor-quiz-wrap">
                 <div class="quiz-meta-info d-flex justify-content-between">
                     <div class="quiz-meta-info-left d-flex">
                         <div class="quiz-qno d-flex">
@@ -235,75 +235,17 @@
                         class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-40 tutor-mr-sm-100 tutor-mr-0">
                         08. Rearrange the following sentence-parts in a meaningful order.
                     </div>
-                    <div class="matching-quiz-question-desc tutor-draggable">
-                        <div class="tutor-quiz-border-box" draggable="true">
-                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
-                                1</span>
-                            <span class="ttr-humnurger-filled color-black-fill"></span>
-                            <input type="text" data-name="yo 1" value="value 1">
-                        </div>
-                        <div class="tutor-quiz-border-box" draggable="true">
-                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
-                                2</span>
-                            <span class="ttr-humnurger-filled color-black-fill"></span>
-                            <input type="text" data-name="yo 2" value="value 2">
-                        </div>
-                        <div class="tutor-quiz-border-box" draggable="true">
-                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
-                                3</span>
-                            <span class="ttr-humnurger-filled color-black-fill"></span>
-                            <input type="text" data-name="yo 3" value="value 3">
-                        </div>
-                        <div class="tutor-quiz-border-box" draggable="true">
-                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
-                                4</span>
-                            <span class="ttr-humnurger-filled color-black-fill"></span>
-                            <input type="text" data-name="yo 4" value="value 4">
-                        </div>
-                    </div>
                 </div> <!-- quiz-question -->
-                <div id="quiz-image-matching-ans-area" class="quiz-question-ans-choice-area tutor-mt-sm-70 tutor-mt-30">
-
-                    <div class="quiz-image-matching-ans d-flex align-items-start">
-                        <div class="quiz-image-box">
-                            <div class="quiz-image d-flex tutor-mb-15">
-                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
-                            </div>
-                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
-                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
-                                    ans</span>
-                            </div>
-                        </div>
-                        <div class="quiz-image-box">
-                            <div class="quiz-image d-flex tutor-mb-15">
-                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
-                            </div>
-                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
-                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
-                                    ans</span>
-                            </div>
-                        </div>
-                        <div class="quiz-image-box">
-                            <div class="quiz-image d-flex tutor-mb-15">
-                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
-                            </div>
-                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
-                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
-                                    ans</span>
-                            </div>
-                        </div>
-                        <div class="quiz-image-box">
-                            <div class="quiz-image d-flex tutor-mb-15">
-                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
-                            </div>
-                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
-                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
-                                    ans</span>
-                            </div>
-                        </div>
+                <!-- quiz-short-ans-image -->
+                <div class="quiz-question-ans-choice-area tutor-mt-20 tutor-mt-md-40">
+                    <div class="quiz-short-ans-image tutor-mb-40 tutor-mb-md-70">
+                        <img src="https://image.freepik.com/free-vector/group-friends-giving-high-five_23-2148363170.jpg"
+                            alt="multiple choice image">
                     </div>
-                </div>
-                <!-- quiz-question-ans-choice-area -->
+                    <div class="quiz-question-ans-choice">
+                        <input type="text" class="tutor-form-control" placeholder="Write your answer here" />
+                    </div>
+                </div> <!-- quiz-short-ans-image -->
                 <div class="tutor-quiz-btn-grp tutor-quiz-btn-grp tutor-mt-60">
                     <button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">
                         Submit & Next
@@ -312,8 +254,7 @@
                         Skip Quiz
                     </a>
                 </div>
-            </div>
-            <!-- tutor-quiz-wrap -->
+            </div> <!-- tutor-quiz-wrap -->
 
 
         </div>

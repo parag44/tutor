@@ -198,6 +198,17 @@
     </div>
 </div> <!-- quiz-question-ans-choice-area -->
 
+<!-- quiz-short-ans-image -->
+<div class="quiz-question-ans-choice-area tutor-mt-20 tutor-mt-md-40">
+    <div class="quiz-short-ans-image tutor-mb-40 tutor-mb-md-70">
+        <img src="https://image.freepik.com/free-vector/group-friends-giving-high-five_23-2148363170.jpg"
+            alt="multiple choice image">
+    </div>
+    <div class="quiz-question-ans-choice">
+        <input type="text" class="tutor-form-control" placeholder="Write your answer here" />
+    </div>
+</div> <!-- quiz-short-ans-image -->
+
 <!-- short answer -->
 <div class="quiz-question-ans-choice-area tutor-mt-sm-70 tutor-mt-30">
     <div class="quiz-question-ans-choice">

@@ -3,7 +3,7 @@
 }
 @include breakpoint-max(1200) {
 	.tutor-desktop-sidebar {
-		display: none;
+		display: none !important;
 	}
 	.tutor-mobile-sidebar {
 		display: block;

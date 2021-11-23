@@ -19,12 +19,24 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+jQuery(document).ready(function ($) {
+  $('.tutor-sortable-list').sortable();
+});
 document.addEventListener('DOMContentLoaded', function (event) {
-  /* sidetab tab position */
-  var topBar = document.querySelector('.tutor-single-page-top-bar');
-  var sideBar = document.querySelector('.tutor-lesson-sidebar');
-  sideBar.style.top = topBar.clientHeight + 'px';
-  /* sidetab tab position */
+  var sidebar = document.querySelector('.tutor-lesson-sidebar.tutor-desktop-sidebar');
+  var sidebarToggle = document.querySelector('.tutor-sidebar-toggle-anchor');
+
+  if (sidebar && sidebarToggle) {
+    sidebarToggle.addEventListener('click', function () {
+      if (getComputedStyle(sidebar).flex === '0 0 400px') {
+        sidebar.style.flex = '0 0 0px';
+        sidebar.style.display = 'none';
+      } else {
+        sidebar.style.display = 'block';
+        sidebar.style.flex = '0 0 400px';
+      }
+    });
+  }
 
   var sidebarTabeHandler = function sidebarTabeHandler(sideBarTabs) {
     sideBarTabs.forEach(function (tab) {
@@ -33,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
         clearActiveClass(tabConent);
         event.currentTarget.classList.add('active');
         var id = event.currentTarget.getAttribute('data-sidebar-tab');
-        console.log(tabConent.querySelector('#' + id));
         tabConent.querySelector('#' + id).classList.add('active');
       });
     });
@@ -83,33 +94,31 @@ document.addEventListener('DOMContentLoaded', function (event) {
   /* commenting */
 
 
-  var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
-  console.log('sdfa  s   ', parentComments);
-  var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box');
-  console.log('sdfa  s   ', replyComment);
+  setTimeout(function () {
+    var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
+    var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box');
 
-  if (parentComments) {
-    _toConsumableArray(parentComments).forEach(function (parentComment) {
-      var childComments = parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment');
-      var commentLine = parentComment.querySelector('.tutor-comment-line');
-      var childCommentCount = childComments.length;
-      var lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
-      var heightOfLine = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
-      commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
-    });
-  }
+    if (parentComments) {
+      _toConsumableArray(parentComments).forEach(function (parentComment) {
+        var childComments = parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment');
+        var commentLine = parentComment.querySelector('.tutor-comment-line');
+        var childCommentCount = childComments.length;
+        var lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
+        var heightOfLine = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
+        commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
+      });
+    }
+  }, 2000);
   /* commenting */
   // quize drag n drop functionality
 
-
-  var quizBoxs = document.querySelectorAll('.tutor-quiz-border-box');
-  var quizImageBoxs = document.querySelectorAll('.tutor-quiz-dotted-box'); // const quizImageBoxs = document.querySelectorAll('.quiz-image-box');
-
-  quizBoxs.forEach(function (quizBox) {
+  var tutorDraggables = document.querySelectorAll('.tutor-draggable > div');
+  var tutorDropzone = document.querySelectorAll('.tutor-dropzone');
+  tutorDraggables.forEach(function (quizBox) {
     quizBox.addEventListener('dragstart', dragStart);
-    quizBox.addEventListener('dragend', dragEnd); // console.log(quizBox);
+    quizBox.addEventListener('dragend', dragEnd);
   });
-  quizImageBoxs.forEach(function (quizImageBox) {
+  tutorDropzone.forEach(function (quizImageBox) {
     quizImageBox.addEventListener('dragover', dragOver);
     quizImageBox.addEventListener('dragenter', dragEnter);
     quizImageBox.addEventListener('dragleave', dragLeave);
@@ -118,34 +127,40 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   function dragStart() {
     this.classList.add('tutor-dragging');
-    console.log('start ', this);
   }
 
   function dragEnd() {
     this.classList.remove('tutor-dragging');
-    console.log('end ', this);
   }
 
   function dragOver(event) {
     this.classList.add('tutor-drop-over');
-    console.log('dragOver ', this);
     event.preventDefault();
   }
 
-  function dragEnter() {
-    console.log('dragEnter', this);
-  }
+  function dragEnter() {}
 
   function dragLeave() {
     this.classList.remove('tutor-drop-over');
-    console.log('dragLeave', this);
   }
 
   function dragDrop() {
-    var copyElement = document.querySelector('.tutor-quiz-border-box.tutor-dragging'); // this.textContent = copyElement.textContent;
+    var copyElement = document.querySelector('.tutor-quiz-border-box.tutor-dragging');
 
-    this.innerHTML = copyElement.innerHTML;
-    console.log('drop ', copyElement.textContent, this.textContent);
+    if (this.querySelector('input')) {
+      this.querySelector('input').remove();
+    }
+
+    var input = copyElement.querySelector('input');
+    var inputValue = input.value;
+    var inputName = input.dataset.name;
+    var newInput = document.createElement('input');
+    newInput.type = 'text';
+    newInput.setAttribute('value', input.value);
+    newInput.setAttribute('name', inputName);
+    this.appendChild(newInput);
+    var copyContent = copyElement.querySelector('.tutor-dragging-text-conent').textContent;
+    this.querySelector('.tutor-dragging-text-conent').textContent = copyContent;
     this.classList.remove('tutor-drop-over');
   } // tutor assignment file upload
 
@@ -162,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     if ('files' in fileUploadField) {
       if (fileUploadField.files.length == 0) {
         message = 'Select one or more files.';
-        console.log(message);
       } else {
         var fileCard = '';
 

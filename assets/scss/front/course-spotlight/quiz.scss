@@ -280,6 +280,11 @@
 		}
 
 		.quiz-question-ans-choice-area {
+			.quiz-short-ans-image {
+				max-width: 445px;
+				width: 100%;
+				height: auto;
+			}
 			.quiz-question-ans-choice {
 				&:not(:first-child) {
 					margin-top: 25px;
@@ -345,6 +350,15 @@
 			}
 		}
 		#quiz-ordering-ans-area {
+			// .quiz-ordering-ans {
+			// 	display: grid;
+			// 	grid-template-columns: 50px auto;
+			// }
+			counter-reset: serial-number;
+			.snum:before {
+				counter-increment: serial-number;
+				content: counter(serial-number);
+			}
 			> div:not(:last-child) {
 				margin-bottom: 25px;
 			}

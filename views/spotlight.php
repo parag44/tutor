@@ -164,12 +164,12 @@
             </div>
         </div>
     </div> <!-- tutor-lesson-sidebar -->
-    <div id="tutor-single-entry-content" class="tutor-quiz-single-entry-wrap tutor-single-entry-content sidebar-hidden">
+    <div id="tutor-single-entry-content" class="tutor-quiz-single-entry-wrap tutor-single-entry-content">
         <div class="tutor-single-page-top-bar d-flex justify-content-between">
             <div class="tutor-topbar-left-item d-flex">
                 <div
-                    class="tutor-topbar-item tutor-topbar-sidebar-toggle tutor-hide-sidebar-bar flex-center tutor-bs-d-none tutor-bs-d-xl-flex">
-                    <a href="javascript:;" class="tutor-lesson-sidebar-hide-bar">
+                    class="tutor-topbar-item tutor-topbar-sidebar-toggle flex-center tutor-bs-d-none tutor-bs-d-xl-flex">
+                    <a href="javascript:void(0);" class="tutor-sidebar-toggle-anchor">
                         <span class="ttr-icon-light-left-line color-text-white flex-center"></span>
                     </a>
                 </div>
@@ -280,6 +280,7 @@
                         <span>Comments</span>
                     </div>
                 </div> <!-- tab-header -->
+
                 <div class="tab-body">
                     <div class="tab-body-item is-active" id="tutor-course-details-tab-1">
                         <div class="tab-item-content tutor-has-showmore">
@@ -432,7 +433,7 @@
                                     <button class="tutor-btn tutor-btn-primary tutor-btn-sm">Submit</button>
                                 </div>
                             </div>
-                            <div class="tutor-comments-list tutor-parent-comment tutor-mt-30" data-comment-line="200">
+                            <div class="tutor-comments-list tutor-parent-comment tutor-mt-30">
                                 <div class="comment-avatar">
                                     <img src="https://i.imgur.com/CckCKYQ.jpeg" alt="">
                                 </div>
@@ -472,7 +473,6 @@
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
                                                     No need to convince ordinary smartphone users who do not
                                                     understand
-                                                    worth of it
                                                 </div>
                                             </div>
                                             <div class="tutor-comment-actions tutor-ml-22">
@@ -496,7 +496,6 @@
                                                 <div class="tutor-comment-text text-regular-body tutor-mt-5">
                                                     No need to convince ordinary smartphone users who do not
                                                     understand
-                                                    worth of it
                                                 </div>
                                             </div>
                                             <div class="tutor-comment-actions tutor-ml-22">
@@ -804,7 +803,6 @@
                                 </div>
                             </div>
                             <div id="sideabr-qna-tab-content" class="tutor-lesson-sidebar-tab-item">
-
                             </div>
                         </div>
                     </div>
