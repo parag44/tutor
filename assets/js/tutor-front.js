@@ -91,10 +91,37 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
   /* comment text-area focus arrow style */
 
-  /* commenting */
 
+  var spotlightTabs = document.querySelectorAll('.tutor-spotlight-tab.tutor-default-tab .tab-header-item');
+  var spotlightTabContent = document.querySelectorAll('.tutor-spotlight-tab .tab-body-item');
 
-  setTimeout(function () {
+  if (spotlightTabs && spotlightTabContent) {
+    spotlightTabs.forEach(function (tab) {
+      tab.addEventListener('click', function (event) {
+        clearSpotlightTabActiveClass();
+        event.currentTarget.classList.add('is-active');
+        var id = event.currentTarget.getAttribute('data-tutor-spotlight-tab-target');
+        var tabConent = event.currentTarget.parentNode.nextElementSibling;
+        tabConent.querySelector('#' + id).classList.add('is-active');
+
+        if (id === 'tutor-course-spotlight-tab-3') {
+          console.log('yo milse');
+          commentSideLine();
+        }
+      });
+    });
+  }
+
+  var clearSpotlightTabActiveClass = function clearSpotlightTabActiveClass() {
+    spotlightTabs.forEach(function (item) {
+      item.classList.remove('is-active');
+    });
+    spotlightTabContent.forEach(function (item) {
+      item.classList.remove('is-active');
+    });
+  };
+
+  function commentSideLine() {
     var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
     var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box');
 
@@ -108,7 +135,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
       });
     }
-  }, 2000);
+  }
+
+  commentSideLine();
   /* commenting */
   // quize drag n drop functionality
 

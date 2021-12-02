@@ -72,11 +72,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			});
 		});
 	}
+
 	/* comment text-area focus arrow style */
-
-	/* commenting */
-
-	setTimeout(() => {
+	const spotlightTabs = document.querySelectorAll(
+		'.tutor-spotlight-tab.tutor-default-tab .tab-header-item'
+	);
+	const spotlightTabContent = document.querySelectorAll(
+		'.tutor-spotlight-tab .tab-body-item'
+	);
+	if (spotlightTabs && spotlightTabContent) {
+		spotlightTabs.forEach((tab) => {
+			tab.addEventListener('click', (event) => {
+				clearSpotlightTabActiveClass();
+				event.currentTarget.classList.add('is-active');
+				let id = event.currentTarget.getAttribute(
+					'data-tutor-spotlight-tab-target'
+				);
+				const tabConent =
+					event.currentTarget.parentNode.nextElementSibling;
+				tabConent.querySelector('#' + id).classList.add('is-active');
+				if (id === 'tutor-course-spotlight-tab-3') {
+					console.log('yo milse');
+					commentSideLine();
+				}
+			});
+		});
+	}
+	const clearSpotlightTabActiveClass = () => {
+		spotlightTabs.forEach((item) => {
+			item.classList.remove('is-active');
+		});
+		spotlightTabContent.forEach((item) => {
+			item.classList.remove('is-active');
+		});
+	};
+	function commentSideLine() {
 		const parentComments = document.querySelectorAll(
 			'.tutor-comments-list.tutor-parent-comment'
 		);
@@ -108,7 +138,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 				);
 			});
 		}
-	}, 2000);
+	}
+	commentSideLine();
 	/* commenting */
 
 	// quize drag n drop functionality

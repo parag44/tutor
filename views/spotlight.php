@@ -264,25 +264,27 @@
             </div>
         </div>
         <div class="tutor-course-spotlight-wrapper">
-            <div class="tutor-default-tab tutor-course-details-tab">
+            <div class="tutor-spotlight-tab tutor-default-tab tutor-course-details-tab">
                 <div class="tab-header tutor-bs-d-flex justify-content-center">
                     <div class="tab-header-item flex-center is-active"
-                        data-tutor-tab-target="tutor-course-details-tab-1">
+                        data-tutor-spotlight-tab-target="tutor-course-spotlight-tab-1">
                         <span class="ttr-document-alt-filled"></span>
                         <span>Overview</span>
                     </div>
-                    <div class="tab-header-item flex-center" data-tutor-tab-target="tutor-course-details-tab-2">
+                    <div class="tab-header-item flex-center"
+                        data-tutor-spotlight-tab-target="tutor-course-spotlight-tab-2">
                         <span class="ttr-attach-filled"></span>
                         <span>Exercise Files</span>
                     </div>
-                    <div class="tab-header-item flex-center" data-tutor-tab-target="tutor-course-details-tab-3">
+                    <div class="tab-header-item flex-center"
+                        data-tutor-spotlight-tab-target="tutor-course-spotlight-tab-3">
                         <span class="ttr-comment-filled"></span>
                         <span>Comments</span>
                     </div>
                 </div> <!-- tab-header -->
 
                 <div class="tab-body">
-                    <div class="tab-body-item is-active" id="tutor-course-details-tab-1">
+                    <div class="tab-body-item is-active" id="tutor-course-spotlight-tab-1">
                         <div class="tab-item-content tutor-has-showmore">
                             <div class="tutor-showmore-content">
                                 <div class="text-medium-h6 color-text-primary">About Course</div>
@@ -320,7 +322,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-body-item" id="tutor-course-details-tab-2">
+                    <div class="tab-body-item" id="tutor-course-spotlight-tab-2">
                         <div class="text-medium-h6 color-text-primary">Exercise Files</div>
                         <div class="tutor-exercise-files tutor-mt-20">
                             <div class="tutor-instructor-card">
@@ -358,8 +360,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-body-item" id="tutor-course-details-tab-3">
-
+                    <div class="tab-body-item" id="tutor-course-spotlight-tab-3">
                         <div class="text-medium-h6 color-text-primary">Join the conversation</div>
                         <div class="tutor-conversation tutor-mt-12 tutor-pb-20 tutor-pb-sm-50">
                             <div class="tutor-no-comments-show d-flex">

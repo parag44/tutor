@@ -204,8 +204,7 @@
         <div class="tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
 
 
-            <!-- quiz-ordering -->
-            <div id="tutor-quiz-ordering-choice" class="tutor-quiz-wrap">
+            <div id="tutor-quiz-matching-choice" class="tutor-quiz-wrap">
                 <div class="quiz-meta-info d-flex justify-content-between">
                     <div class="quiz-meta-info-left d-flex">
                         <div class="quiz-qno d-flex">
@@ -233,19 +232,89 @@
                 <div class="quiz-question tutor-mt-60">
                     <div
                         class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-40 tutor-mr-sm-100 tutor-mr-0">
-                        08. Rearrange the following sentence-parts in a meaningful order.
+                        01. Select which of the following are living beings?
+                    </div>
+                    <div class="matching-quiz-question-desc tutor-draggable">
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                1</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 1" value="1">
+                        </div>
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                2</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 2" value="2">
+                        </div>
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                3</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 3" value="3">
+                        </div>
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                4</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 4" value="4">
+                        </div>
                     </div>
                 </div> <!-- quiz-question -->
-                <!-- quiz-short-ans-image -->
-                <div class="quiz-question-ans-choice-area tutor-mt-20 tutor-mt-md-40">
-                    <div class="quiz-short-ans-image tutor-mb-40 tutor-mb-md-70">
-                        <img src="https://image.freepik.com/free-vector/group-friends-giving-high-five_23-2148363170.jpg"
-                            alt="multiple choice image">
+                <div id="quiz-matching-ans-area" class="quiz-question-ans-choice-area tutor-mt-sm-70 tutor-mt-30">
+                    <div class="quiz-matching-ans">
+                        <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            01. Big
+                        </div>
+                        <div class="quiz-matching-ans-item">
+                            <span class="text-medium-body color-text-primary">-</span>
+                            <div
+                                class="tutor-quiz-dotted-box tutor-dropzone d-flex align-items-center justify-content-start">
+                                <span
+                                    class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="quiz-question-ans-choice">
-                        <input type="text" class="tutor-form-control" placeholder="Write your answer here" />
+                    <div class="quiz-matching-ans">
+                        <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            04. Good
+                        </div>
+                        <div class="quiz-matching-ans-item">
+                            <span class="text-medium-body color-text-primary">-</span>
+                            <div
+                                class="tutor-quiz-dotted-box tutor-dropzone d-flex align-items-center justify-content-start">
+                                <span
+                                    class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer</span>
+                            </div>
+                        </div>
                     </div>
-                </div> <!-- quiz-short-ans-image -->
+                    <div class="quiz-matching-ans">
+                        <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            02. Cold
+                        </div>
+                        <div class="quiz-matching-ans-item">
+                            <span class="text-medium-body color-text-primary">-</span>
+                            <div
+                                class="tutor-quiz-dotted-box tutor-dropzone d-flex align-items-center justify-content-start">
+                                <span
+                                    class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-matching-ans">
+                        <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
+                            03. Man
+                        </div>
+                        <div class="quiz-matching-ans-item">
+                            <span class="text-medium-body color-text-primary">-</span>
+                            <div
+                                class="tutor-quiz-dotted-box tutor-dropzone d-flex align-items-center justify-content-start">
+                                <span
+                                    class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- quiz-question-ans-choice-area -->
                 <div class="tutor-quiz-btn-grp tutor-quiz-btn-grp tutor-mt-60">
                     <button class="tutor-btn tutor-btn-primary tutor-btn-md start-quiz-btn">
                         Submit & Next

@@ -4,8 +4,9 @@
 		 * Tutor Default Tab
 		 */
 		const attr = 'data-tutor-tab-target';
-		const activeItems = document.querySelectorAll('.tab-header-item.is-active, .tab-body-item.is-active');
-
+		const activeItems = document.querySelectorAll(
+			'.tab-header-item.is-active, .tab-body-item.is-active'
+		);
 		if (e.target.hasAttribute(attr)) {
 			e.preventDefault();
 			const id = e.target.hasAttribute(attr)
@@ -35,12 +36,14 @@
 				.closest('.tab-header-item-seemore')
 				.classList.toggle('is-active');
 		} else {
-			document.querySelectorAll('.tab-header-item-seemore').forEach((item) => {
-				console.log(item.classList.contains('is-active'));
-				if (item.classList.contains('is-active')) {
-					item.classList.remove('is-active');
-				}
-			});
+			document
+				.querySelectorAll('.tab-header-item-seemore')
+				.forEach((item) => {
+					console.log(item.classList.contains('is-active'));
+					if (item.classList.contains('is-active')) {
+						item.classList.remove('is-active');
+					}
+				});
 		}
 	});
 })();
