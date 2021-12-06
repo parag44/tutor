@@ -203,17 +203,16 @@
 
         <div class="tutor-quiz-wrapper d-flex justify-content-center tutor-mt-100 tutor-pb-100">
 
-
             <div id="tutor-quiz-matching-choice" class="tutor-quiz-wrap">
                 <div class="quiz-meta-info d-flex justify-content-between">
                     <div class="quiz-meta-info-left d-flex">
                         <div class="quiz-qno d-flex">
-                            <p class="text-regular-body color-text-hints tutor-mr-10">Questions No:</p>
+                            <span class="text-regular-body color-text-hints tutor-mr-10">Questions No:</span>
                             <span class="text-bold-body color-text-title">01/15</span>
                         </div>
                         <div class="quiz-total-attempt d-flex d-xs-none">
-                            <p class="text-regular-body color-text-hints tutor-mr-10">Total
-                                Attempted:</p>
+                            <span class="text-regular-body color-text-hints tutor-mr-10">Total
+                                Attempted:</span>
                             <span class="text-bold-body color-text-title">8/20</span>
                         </div>
                     </div>
@@ -224,7 +223,7 @@
                                     <circle cx="0" cy="0" r="7"></circle>
                                 </svg>
                             </div>
-                            <p class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</p>
+                            <span class="text-regular-body color-text-hints tutor-mr-10">Time remaining:</span>
                             <span class="text-medium-body color-text-title">7:30:48</span>
                         </div>
                     </div>
@@ -324,7 +323,6 @@
                     </a>
                 </div>
             </div> <!-- tutor-quiz-wrap -->
-
 
         </div>
     </div>

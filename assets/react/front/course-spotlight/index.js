@@ -92,54 +92,53 @@ document.addEventListener('DOMContentLoaded', (event) => {
 					event.currentTarget.parentNode.nextElementSibling;
 				tabConent.querySelector('#' + id).classList.add('is-active');
 				if (id === 'tutor-course-spotlight-tab-3') {
-					console.log('yo milse');
 					commentSideLine();
 				}
 			});
 		});
-	}
-	const clearSpotlightTabActiveClass = () => {
-		spotlightTabs.forEach((item) => {
-			item.classList.remove('is-active');
-		});
-		spotlightTabContent.forEach((item) => {
-			item.classList.remove('is-active');
-		});
-	};
-	function commentSideLine() {
-		const parentComments = document.querySelectorAll(
-			'.tutor-comments-list.tutor-parent-comment'
-		);
-
-		const replyComment = document.querySelector(
-			'.tutor-comment-box.tutor-reply-box'
-		);
-
-		if (parentComments) {
-			[...parentComments].forEach((parentComment) => {
-				const childComments = parentComment.querySelectorAll(
-					'.tutor-comments-list.tutor-child-comment'
-				);
-				const commentLine = parentComment.querySelector(
-					'.tutor-comment-line'
-				);
-				const childCommentCount = childComments.length;
-				const lastCommentHeight =
-					childComments[childCommentCount - 1].clientHeight;
-				let heightOfLine =
-					lastCommentHeight +
-					replyComment.clientHeight +
-					20 -
-					25 +
-					50;
-				commentLine.style.setProperty(
-					'height',
-					`calc(100% - ${heightOfLine}px)`
-				);
+		const clearSpotlightTabActiveClass = () => {
+			spotlightTabs.forEach((item) => {
+				item.classList.remove('is-active');
 			});
+			spotlightTabContent.forEach((item) => {
+				item.classList.remove('is-active');
+			});
+		};
+		function commentSideLine() {
+			const parentComments = document.querySelectorAll(
+				'.tutor-comments-list.tutor-parent-comment'
+			);
+
+			const replyComment = document.querySelector(
+				'.tutor-comment-box.tutor-reply-box'
+			);
+
+			if (parentComments) {
+				[...parentComments].forEach((parentComment) => {
+					const childComments = parentComment.querySelectorAll(
+						'.tutor-comments-list.tutor-child-comment'
+					);
+					const commentLine = parentComment.querySelector(
+						'.tutor-comment-line'
+					);
+					const childCommentCount = childComments.length;
+					const lastCommentHeight =
+						childComments[childCommentCount - 1].clientHeight;
+					let heightOfLine =
+						lastCommentHeight +
+						replyComment.clientHeight +
+						20 -
+						25 +
+						50;
+					commentLine.style.setProperty(
+						'height',
+						`calc(100% - ${heightOfLine}px)`
+					);
+				});
+			}
 		}
+		commentSideLine();
 	}
-	commentSideLine();
 	/* commenting */
 
 	// quize drag n drop functionality

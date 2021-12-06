@@ -96,6 +96,22 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var spotlightTabContent = document.querySelectorAll('.tutor-spotlight-tab .tab-body-item');
 
   if (spotlightTabs && spotlightTabContent) {
+    var commentSideLine = function commentSideLine() {
+      var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
+      var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box');
+
+      if (parentComments) {
+        _toConsumableArray(parentComments).forEach(function (parentComment) {
+          var childComments = parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment');
+          var commentLine = parentComment.querySelector('.tutor-comment-line');
+          var childCommentCount = childComments.length;
+          var lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
+          var heightOfLine = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
+          commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
+        });
+      }
+    };
+
     spotlightTabs.forEach(function (tab) {
       tab.addEventListener('click', function (event) {
         clearSpotlightTabActiveClass();
@@ -105,41 +121,25 @@ document.addEventListener('DOMContentLoaded', function (event) {
         tabConent.querySelector('#' + id).classList.add('is-active');
 
         if (id === 'tutor-course-spotlight-tab-3') {
-          console.log('yo milse');
           commentSideLine();
         }
       });
     });
-  }
 
-  var clearSpotlightTabActiveClass = function clearSpotlightTabActiveClass() {
-    spotlightTabs.forEach(function (item) {
-      item.classList.remove('is-active');
-    });
-    spotlightTabContent.forEach(function (item) {
-      item.classList.remove('is-active');
-    });
-  };
-
-  function commentSideLine() {
-    var parentComments = document.querySelectorAll('.tutor-comments-list.tutor-parent-comment');
-    var replyComment = document.querySelector('.tutor-comment-box.tutor-reply-box');
-
-    if (parentComments) {
-      _toConsumableArray(parentComments).forEach(function (parentComment) {
-        var childComments = parentComment.querySelectorAll('.tutor-comments-list.tutor-child-comment');
-        var commentLine = parentComment.querySelector('.tutor-comment-line');
-        var childCommentCount = childComments.length;
-        var lastCommentHeight = childComments[childCommentCount - 1].clientHeight;
-        var heightOfLine = lastCommentHeight + replyComment.clientHeight + 20 - 25 + 50;
-        commentLine.style.setProperty('height', "calc(100% - ".concat(heightOfLine, "px)"));
+    var clearSpotlightTabActiveClass = function clearSpotlightTabActiveClass() {
+      spotlightTabs.forEach(function (item) {
+        item.classList.remove('is-active');
       });
-    }
-  }
+      spotlightTabContent.forEach(function (item) {
+        item.classList.remove('is-active');
+      });
+    };
 
-  commentSideLine();
+    commentSideLine();
+  }
   /* commenting */
   // quize drag n drop functionality
+
 
   var tutorDraggables = document.querySelectorAll('.tutor-draggable > div');
   var tutorDropzone = document.querySelectorAll('.tutor-dropzone');
