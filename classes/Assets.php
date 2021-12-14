@@ -89,21 +89,23 @@ class Assets
 
 	public function admin_scripts()
 	{
-		wp_enqueue_style('tutor-select2', tutor()->url . 'assets/packages/select2/select2.min.css', array(), TUTOR_VERSION);
-		wp_enqueue_style('tutor-admin', tutor()->url . 'assets/css/tutor-admin.min.css', array(), TUTOR_VERSION);
-		/**
-		 * Scripts
-		 */
-		wp_enqueue_media();
+		if (tutor_utils()->is_tutor_dashboard()) {
+			wp_enqueue_style('tutor-select2', tutor()->url . 'assets/packages/select2/select2.min.css', array(), TUTOR_VERSION);
+			wp_enqueue_style('tutor-admin', tutor()->url . 'assets/css/tutor-admin.min.css', array(), TUTOR_VERSION);
+			/**
+			 * Scripts
+			 */
+			wp_enqueue_media();
 
-		wp_enqueue_script('wp-color-picker');
-		wp_enqueue_style('wp-color-picker');
+			wp_enqueue_script('wp-color-picker');
+			wp_enqueue_style('wp-color-picker');
 
-		wp_enqueue_script('jquery-ui-slider');
-		wp_enqueue_script('jquery-ui-datepicker');
+			wp_enqueue_script('jquery-ui-slider');
+			wp_enqueue_script('jquery-ui-datepicker');
 
-		wp_enqueue_script('tutor-select2', tutor()->url . 'assets/packages/select2/select2.full.min.js', array('jquery'), TUTOR_VERSION, true);
-		wp_enqueue_script('tutor-admin', tutor()->url . 'assets/js/tutor-admin.js', array('jquery', 'wp-color-picker', 'wp-i18n'), TUTOR_VERSION, true);
+			wp_enqueue_script('tutor-select2', tutor()->url . 'assets/packages/select2/select2.full.min.js', array('jquery'), TUTOR_VERSION, true);
+			wp_enqueue_script('tutor-admin', tutor()->url . 'assets/js/tutor-admin.js', array('jquery', 'wp-color-picker', 'wp-i18n'), TUTOR_VERSION, true);
+		}
 	}
 
 	/**
