@@ -260,6 +260,78 @@
                         </div>
                     </div>
                 </div> <!-- quiz-question -->
+                <div id="quiz-image-matching-ans-area" class="quiz-question-ans-choice-area tutor-mt-sm-70 tutor-mt-30">
+                    <div class="quiz-image-matching-ans d-flex align-items-start">
+                        <div class="quiz-image-box">
+                            <div class="quiz-image d-flex tutor-mb-15">
+                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
+                            </div>
+                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
+                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
+                                    ans</span>
+                            </div>
+                        </div>
+                        <div class="quiz-image-box">
+                            <div class="quiz-image d-flex tutor-mb-15">
+                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
+                            </div>
+                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
+                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
+                                    ans</span>
+                            </div>
+                        </div>
+                        <div class="quiz-image-box">
+                            <div class="quiz-image d-flex tutor-mb-15">
+                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
+                            </div>
+                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
+                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
+                                    ans</span>
+                            </div>
+                        </div>
+                        <div class="quiz-image-box">
+                            <div class="quiz-image d-flex tutor-mb-15">
+                                <img src="https://qubely.io/wp-content/uploads/2019/10/testimonial-3-1.jpg" alt="">
+                            </div>
+                            <div class="tutor-quiz-dotted-box tutor-dropzone flex-center">
+                                <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Drag your
+                                    ans</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-question tutor-mt-60">
+                    <div
+                        class="quiz-question-title text-medium-h4 color-text-primary tutor-mb-40 tutor-mr-sm-100 tutor-mr-0">
+                        01. Select which of the following are living beings?
+                    </div>
+                    <div class="matching-quiz-question-desc tutor-draggable">
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                1</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 1" value="1">
+                        </div>
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                2</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 2" value="2">
+                        </div>
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                3</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 3" value="3">
+                        </div>
+                        <div class="tutor-quiz-border-box" draggable="true">
+                            <span class="tutor-dragging-text-conent text-regular-body color-text-primary">Computer
+                                4</span>
+                            <span class="ttr-humnurger-filled color-black-fill"></span>
+                            <input type="text" data-name="yo 4" value="4">
+                        </div>
+                    </div>
+                </div> <!-- quiz-question -->
                 <div id="quiz-matching-ans-area" class="quiz-question-ans-choice-area tutor-mt-sm-70 tutor-mt-30">
                     <div class="quiz-matching-ans">
                         <div class="tutor-quiz-ans-no text-medium-body color-text-primary">
