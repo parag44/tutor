@@ -73,7 +73,7 @@
 					<li class="tutor-list-item">
 						<label>
 							<input type="checkbox" class="tutor-form-check-input" id="<?php echo esc_html( $value ); ?>" name="tutor-course-filter-level" value="<?php echo esc_html( $value ); ?>"/>
-							<?php esc_html_e( $title ); ?>
+							<?php echo esc_html( $title ); ?>
 						</label>
 					</li>
 				<?php endforeach; ?>
@@ -97,7 +97,7 @@
 				<div class="tutor-list-item">
 					<label>
 						<input type="checkbox" class="tutor-form-check-input" id="<?php echo esc_html( $value ); ?>" name="tutor-course-filter-price" value="<?php echo esc_html( $value ); ?>"/>
-						<?php esc_html_e( $title ); ?>
+						<?php echo esc_html( $title ); ?>
 					</label>
 				</div>
 			<?php endforeach; ?>
@@ -108,7 +108,7 @@
 
 	<div class="tutor-widget tutor-widget-course-filter tutor-mt-32">
 		<div class="tutor-widget-content">
-			<a href="#" class="tutor-btn tutor-btn-outline-primary tutor-btn-sm" onclick="window.location.replace('<?php echo $reset_link; ?>')" action-tutor-clear-filter>
+			<a href="#" class="tutor-btn tutor-btn-outline-primary tutor-btn-sm" onclick="window.location.replace('<?php echo esc_url( $reset_link ); ?>')" action-tutor-clear-filter>
 				<i class="tutor-icon-times tutor-mr-8"></i> <?php esc_html_e( 'Clear All Filters', 'tutor' ); ?>
 			</a>
 		</div>

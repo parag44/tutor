@@ -25,7 +25,7 @@ echo esc_attr( $question_id );
 		</a>
 	</div>
 	
-	<input type="hidden" name="quiz_id" value="<?php echo esc_attr( $quiz_id );; ?>" />
+	<input type="hidden" name="quiz_id" value="<?php echo esc_attr( $quiz_id ); ?>" />
 
 	<div class="tutor-mb-32">
 		<label class="tutor-form-label"><?php esc_html_e( 'Write your question here', 'tutor' ); ?></label>
@@ -86,7 +86,7 @@ echo esc_attr( $question_id );
 							<div class="tutor-col-sm-4 tutor-col-md-4 tutor-mt-4 tutor-mb-4">
 								<label class="tutor-form-toggle tutor-nowrap-ellipsis">
 									<input type="checkbox" class="tutor-form-toggle-input" value="1" name="tutor_quiz_question[<?php echo esc_attr( $question_id ); ?>][answer_required]" <?php checked( '1', tutor_utils()->avalue_dot( 'answer_required', $settings ) ); ?> />
-									<span class="tutor-form-toggle-control"></span> <?php _e( 'Answer Required', 'tutor' ); ?>
+									<span class="tutor-form-toggle-control"></span> <?php esc_html_e( 'Answer Required', 'tutor' ); ?>
 								</label>
 							</div>
 							<div class="tutor-col-sm-4 tutor-col-md-4 tutor-mt-4 tutor-mb-4">
@@ -107,12 +107,12 @@ echo esc_attr( $question_id );
 		<div class="tutor-mb-16">
 			<div class="tutor-row tutor-align-center">
 				<div class="tutor-col-sm-6 tutor-col-md-4">
-					<input type="text" name="tutor_quiz_question[<?php echo $question_id; ?>][question_mark]" class="tutor-form-control" placeholder="<?php _e( 'set the mark ex. 10', 'tutor' ); ?>" value="<?php echo $question->question_mark; ?>">
+					<input type="text" name="tutor_quiz_question[<?php echo esc_attr( $question_id ); ?>][question_mark]" class="tutor-form-control" placeholder="<?php esc_html_e( 'set the mark ex. 10', 'tutor' ); ?>" value="<?php echo esc_attr( $question->question_mark ); ?>">
 				</div>
 				<div class="tutor-col-sm-6 tutor-col-md-4 tutor-mt-4 tutor-mb-4">
 					<label class="tutor-form-toggle tutor-nowrap-ellipsis">
-						<input type="checkbox" class="tutor-form-toggle-input" value="1" name="tutor_quiz_question[<?php echo $question_id; ?>][show_question_mark]" <?php checked( '1', tutor_utils()->avalue_dot( 'show_question_mark', $settings ) ); ?> />
-						<span class="tutor-form-toggle-control"></span> <?php _e( 'Display Points', 'tutor' ); ?>
+						<input type="checkbox" class="tutor-form-toggle-input" value="1" name="tutor_quiz_question[<?php echo esc_attr( $question_id ); ?>][show_question_mark]" <?php checked( '1', tutor_utils()->avalue_dot( 'show_question_mark', $settings ) ); ?> />
+						<span class="tutor-form-toggle-control"></span> <?php esc_html_e( 'Display Points', 'tutor' ); ?>
 					</label>
 				</div>
 			</div>
@@ -120,9 +120,9 @@ echo esc_attr( $question_id );
 	</div>
 	<input type="hidden" name="tutor_quiz_question_id" value="<?php echo esc_attr( $question_id ); ?>">
 	<div class="tutor-mb-32">
-		<label class="tutor-form-label"><?php esc_html_e( 'Description', 'tutor' ); ?> <span>(<?php _e( 'Optional', 'tutor' ); ?>)</span></label>
+		<label class="tutor-form-label"><?php esc_html_e( 'Description', 'tutor' ); ?> <span>(<?php esc_html_e( 'Optional', 'tutor' ); ?>)</span></label>
 		<div class="tutor-mb-16">
-			<textarea name="tutor_quiz_question[<?php echo esc_attr( $question_id );; ?>][question_description]" id="tutor_quiz_desc_text_editor" class="tutor-form-control"><?php echo wp_kses_post( wp_unslash( $question->question_description ) ); ?></textarea>
+			<textarea name="tutor_quiz_question[<?php echo esc_attr( $question_id ); ?>][question_description]" id="tutor_quiz_desc_text_editor" class="tutor-form-control"><?php echo wp_kses_post( wp_unslash( $question->question_description ) ); ?></textarea>
 		</div>
 	</div>
 
