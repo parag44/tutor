@@ -227,7 +227,8 @@ Looking for the best LMS for WordPress? Get Tutor and start your e-learning webs
 
 = 2.0.10 - September 15, 2022
 
-Update: Security enhancement
+Update: More security improvement is introduced
+Fix: Zoom meeting list design was partially broken on the frontend dashboard
 
 = 2.0.9 - August 18, 2022
 
