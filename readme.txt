@@ -225,7 +225,7 @@ Looking for the best LMS for WordPress? Get Tutor and start your e-learning webs
 
 == Changelog ==
 
-= 2.0.10 - September 13, 2022
+= 2.0.10 - September 15, 2022
 
 Update: Security enhancement
 
