@@ -227,6 +227,7 @@ Looking for the best LMS for WordPress? Get Tutor and start your e-learning webs
 
 = 2.0.10 - September 19, 2022
 
+New: Compatibility with PeepSo Social Networking plugin is Introduced
 Update: More security improvement is introduced
 Fix: Zoom meeting list design was partially broken on the frontend dashboard
 
